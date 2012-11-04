@@ -300,15 +300,8 @@ CDB::CDB(const char *pszFile, const char* pszMode) :
     }
 }
 
-static bool IsChainFile(std::string strFile)
-{
-    if (strFile == "blkindex.dat")
-        return true;
-
-    return false;
-}
-
 void CDB::Close()
+
 {
     if (!pdb)
         return;
@@ -321,10 +314,6 @@ void CDB::Close()
     unsigned int nMinutes = 0;
     if (fReadOnly)
         nMinutes = 1;
-    if (IsChainFile(strFile))
-        nMinutes = 2;
-    if (IsChainFile(strFile) && IsInitialBlockDownload())
-        nMinutes = 5;
 
     bitdb.dbenv.txn_checkpoint(nMinutes ? GetArg("-dblogsize", 100)*1024 : 0, nMinutes, 0);
 
@@ -474,14 +463,11 @@ void CDBEnv::Flush(bool fShutdown)
                 CloseDb(strFile);
                 LogPrint("db", "%s checkpoint\n", strFile);
                 dbenv.txn_checkpoint(0, 0, 0);
-                if (!IsChainFile(strFile) || fDetachDB)
-                {
-                    LogPrint("db", "%s detach\n", strFile);
-                }
 
+                LogPrintf("%s detach\n", strFile);
                 if (!fMockDb)
                     dbenv.lsn_reset(strFile.c_str(), 0);
-                LogPrint("db", "%s closed\n", strFile);
+                LogPrintf("%s closed\n", strFile);
                 mapFileUseCount.erase(mi++);
             }
             else

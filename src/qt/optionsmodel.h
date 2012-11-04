@@ -28,7 +28,6 @@ public:
         ReserveBalance,    // qint64
         DisplayUnit,       // BitbeanUnits::Unit
         DisplayAddresses,  // bool
-        DetachDatabases,   // bool
         Language,          // QString
         BeanControlFeatures, // bool
         MinimizeCoinAge,     // bool

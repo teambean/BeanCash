@@ -295,10 +295,8 @@ strUsage += "  -banscore=<n>          " + _("Threshold for disconnecting misbeha
 strUsage += "  -bantime=<n>           " + _("Number of seconds to keep misbehaving peers from reconnecting (default: 86400)") + "\n";
 strUsage += "  -maxreceivebuffer=<n>  " + _("Maximum per-connection receive buffer, <n>*1000 bytes (default: 5000)") + "\n";
 strUsage += "  -maxsendbuffer=<n>     " + _("Maximum per-connection send buffer, <n>*1000 bytes (default: 1000)") + "\n";
-strUsage += "  -detachdb              " + _("Detach block and address databases. Increases shutdown time (default: 1)") + "\n";
 strUsage += "  -paytxfee=<amt>        " + _("Fee per KB to add to transactions you send") + "\n";
 strUsage += "  -mininput=<amt>        " + _("When creating transactions, ignore inputs with value less than this (default: 0.01)") + "\n";
-
 #ifdef QT_GUI
     strUsage += "  -server                " + _("Accept command line and JSON-RPC commands") + "\n";
 #endif
@@ -587,8 +585,6 @@ bool AppInit2(boost::thread_group& threadGroup)
         fDebugNet = true;
     else
         fDebugNet = GetBoolArg("-debugnet");
-
-    bitdb.SetDetach(GetBoolArg("-detachdb", true));
 
     if (fDaemon)
     {
