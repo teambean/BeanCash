@@ -306,7 +306,8 @@ HEADERS += src/qt/bitbeangui.h \
     src/qt/trafficgraphwidget.h \
     src/qt/intro.h \
     src/limitedmap.h \
-    src/tinyformat.h
+    src/tinyformat.h \
+    src/core.h
 
 SOURCES += src/qt/beancash.cpp \
     src/qt/bitbeangui.cpp \
@@ -371,7 +372,8 @@ SOURCES += src/qt/beancash.cpp \
     src/noui.cpp \
     src/kernel.cpp \
     src/pbkdf2.cpp \
-    src/qt/intro.cpp
+    src/qt/intro.cpp \
+    src/core.cpp
 
 RESOURCES += \
     src/qt/beancash.qrc

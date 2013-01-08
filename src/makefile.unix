@@ -102,6 +102,7 @@ OBJS= \
     obj/init.o \
     obj/keystore.o \
     obj/miner.o \
+    obj/core.o \
     obj/main.o \
     obj/net.o \
     obj/protocol.o \
