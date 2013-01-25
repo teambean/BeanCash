@@ -307,6 +307,25 @@ QWidget *SendBeansDialog::setupTabChain(QWidget *prev)
     return ui->sendButton;
 }
 
+void SendBeansDialog::setAddress(const QString &address)
+{
+    SendBeansEntry *entry = 0;
+    // Replace the first entry if it is still unused
+    if(ui->entries->count() == 1)
+    {
+        SendBeansEntry *first = qobject_cast<SendBeansEntry*>(ui->entries->itemAt(0)->widget());
+        if(first->isClear())
+        {
+                entry = first;
+        }
+    }
+    if(!entry)
+    {
+        entry = addEntry();
+    }
+    entry->setAddress(address);
+}
+
 void SendBeansDialog::pasteEntry(const SendBeansRecipient &rv)
 {
     if(!fNewRecipientAllowed)

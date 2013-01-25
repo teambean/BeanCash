@@ -66,6 +66,7 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
     QAction *copyAddressAction = new QAction(ui->copyToClipboard->text(), this);
     QAction *copyLabelAction = new QAction(tr("Copy &Label"), this);
     QAction *editAction = new QAction(tr("&Edit"), this);
+    QAction *sendBeansAction = new QAction(tr("Send &Beans"), this);
     QAction *showQRCodeAction = new QAction(ui->showQRCode->text(), this);
     QAction *signMessageAction = new QAction(ui->signMessage->text(), this);
     QAction *verifyMessageAction = new QAction(ui->verifyMessage->text(), this);
@@ -77,11 +78,13 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
     contextMenu->addAction(copyLabelAction);
     contextMenu->addAction(editAction);
     if(tab == SendingTab)
+    {
         contextMenu->addAction(deleteAction);
+        contextMenu->addAction(sendBeansAction);
+    }
     contextMenu->addSeparator();
-    #ifdef USE_QRCODE
     contextMenu->addAction(showQRCodeAction);
-    #endif
+
     if(tab == ReceivingTab)
         contextMenu->addAction(signMessageAction);
     else if(tab == SendingTab)
@@ -92,6 +95,7 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
     connect(copyLabelAction, SIGNAL(triggered()), this, SLOT(onCopyLabelAction()));
     connect(editAction, SIGNAL(triggered()), this, SLOT(onEditAction()));
     connect(deleteAction, SIGNAL(triggered()), this, SLOT(on_deleteButton_clicked()));
+    connect(sendBeansAction, SIGNAL(triggered()), this, SLOT(onSendCoins_clicked()));
     connect(showQRCodeAction, SIGNAL(triggered()), this, SLOT(on_showQRCode_clicked()));
     connect(signMessageAction, SIGNAL(triggered()), this, SLOT(on_signMessage_clicked()));
     connect(verifyMessageAction, SIGNAL(triggered()), this, SLOT(on_verifyMessage_clicked()));
@@ -207,6 +211,18 @@ void AddressBookPage::on_verifyMessage_clicked()
         emit verifyMessage(address);
     }
 
+}
+
+void AddressBookPage::onSendBeans_clicked()
+{
+    QTableView *table = ui->tableView;
+    QModelIndexList indexes = table->selectionModel()->selectedRows(AddressTableModel::Address);
+
+    foreach (QModelIndex index, indexes)
+    {
+        QString address = index.data().toString();
+        emit sendBeans(address);
+    }
 }
 
 void AddressBookPage::on_newAddressButton_clicked()

@@ -154,6 +154,12 @@ void SendBeansEntry::setValue(const SendBeansRecipient &value)
     ui->payAmount->setValue(value.amount);
 }
 
+void SendBeansEntry::setAddress(const QString &address)
+{
+    ui->payTo->setText(address);
+    ui->payAmount->setFocus();
+}
+
 bool SendBeansEntry::isClear()
 {
     return ui->payTo->text().isEmpty();

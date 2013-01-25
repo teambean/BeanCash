@@ -200,9 +200,11 @@ BitbeanGUI::BitbeanGUI(QWidget *parent):
     rpcConsole = new RPCConsole(this);
     connect(openRPCConsoleAction, SIGNAL(triggered()), rpcConsole, SLOT(show()));
 
-    // Clicking on "Verify Message" in the address book sends you to the verify message tab
+    // Clicking on the "Send Beans" in the address book sends you to the Send Beans tab
+    connect(addressBookPage, SIGNAL(sendBeans(QString)), this, SLOT(gotoSendBeansPage(QString)));
+    // Clicking on "Verify Message" in the address book opens the verify message tab in the Sign/Verigy Message dialog
     connect(addressBookPage, SIGNAL(verifyMessage(QString)), this, SLOT(gotoVerifyMessageTab(QString)));
-    // Clicking on "Sign Message" in the receive beans page sends you to the sign message tab
+    // Clicking on "Sign Message" in the receive beans page opens the sign message tab in the Sign/Verify Message dialog
     connect(receiveBeansPage, SIGNAL(signMessage(QString)), this, SLOT(gotoSignMessageTab(QString)));
 
     gotoOverviewPage();
@@ -830,13 +832,16 @@ void BitbeanGUI::gotoReceiveBeansPage()
     connect(exportAction, SIGNAL(triggered()), receiveBeansPage, SLOT(exportClicked()));
 }
 
-void BitbeanGUI::gotoSendBeansPage()
+void BitbeanGUI::gotoSendBeansPage(QString addr)
 {
     sendBeansAction->setChecked(true);
     centralWidget->setCurrentWidget(sendBeansPage);
 
     exportAction->setEnabled(false);
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);
+
+    if(!addr.isEmpty())
+        sendBeansPage->setAddress(addr);
 }
 
 void BitbeanGUI::gotoSignMessageTab(QString addr)

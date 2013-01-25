@@ -24,8 +24,8 @@ public:
 
     /** Return whether the entry is still empty and unedited */
     bool isClear();
-
     void setValue(const SendBeansRecipient &value);
+    void setAddress(const QString &address);
 
     /** Set up the tab chain manually, as Qt messes up the tab chain by default in some cases (issue https://bugreports.qt-project.org/browse/QTBUG-10907).
      */

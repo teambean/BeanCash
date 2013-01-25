@@ -68,10 +68,13 @@ private slots:
     void on_signMessage_clicked();
     /** Open the verify message tab in the Sign/Verify Message dialog with the currently selected address */
     void on_verifyMessage_clicked();
+
+    /** Open send coins dialog for currently selected address (no button) */
+    void onSendBeans_clicked();
     /** Create a QR Code from the currently selected address */
     void on_showQRCode_clicked();
 
-        /** Copy label of currently selected address entry to clipboard */
+    /** Copy label of currently selected address entry to clipboard */
     void onCopyLabelAction();
     /** Edit currently selected address entry */
     void onEditAction();
@@ -87,6 +90,7 @@ private slots:
 signals:
     void signMessage(QString addr);
     void verifyMessage(QString addr);
+    void sendBeans(QString addr);
 };
 
 #endif // ADDRESSBOOKDIALOG_H
