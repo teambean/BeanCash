@@ -99,6 +99,12 @@ namespace GUIUtil
     bool SetStartOnSystemStartup(bool fAutoStart);
 
     /** Help message for Beancash-qt, shown with --help. */
+
+    /** Save window size and position */
+    void saveWindowGeometry(const QString& strSetting, QWidget *parent);
+    /** Restore window size and position */
+    void restoreWindowGeometry(const QString& strSetting, const QSize &defaultSizeIn, QWidget *parent);
+
     class HelpMessageBox : public QMessageBox
     {
         Q_OBJECT

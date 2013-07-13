@@ -54,10 +54,8 @@
 #include <QUrl>
 #include <QStyle>
 #include <QFontDatabase>
-#include <QSettings>
 #include <QListWidget>
 #include <iostream>
-#include <QDesktopWidget>
 
 extern CWallet* pwalletMain;
 extern int64_t nLastBeanStakeSearchInterval;
@@ -80,7 +78,7 @@ BitbeanGUI::BitbeanGUI(QWidget *parent):
     prevBlocks(0),
     spinnerFrame(0)
 {
-    restoreWindowGeometry();
+    GUIUtil::restoreWindowGeometry("nWindow", QSize(850, 550), this);
     setWindowTitle(tr("Bean Cash") + " - " + tr("Core v1.3RC"));
     qApp->setStyleSheet("QMainWindow { border-image: url(:images/bkg);border:none; } QProgressBar { background: transparent; border: 1px solid gray; border-radius: 7px; padding: 1px; text-align: center; } QProgressBar::chunk { background: QLinearGradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #d3eeaf, stop: 1 #9fd555); border-radius: 7px; margin: 0px; } QMenu { background-color: #d3eeaf; color: black; } QMenu::item { color: black; background: transparent; } QMenu::item:selected { background-color: #9fd555; } QMenuBar { background-color: #d3eeaf; color: black; } QPushButton {background-color: #d3eeaf; } QLineEdit { background-color: white; } QToolTip { color: #000000; background-color: #d3eeaf; border-radius: 7px; border: 1px solid black; } QTabWidget::pane {background-color: white; color: black } QTabWidget::tab-bar {left: 5px;} QTabBar::tab {background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #d3eeaf, stop: 1 #9fd555); border: 2px solid #C4C4C3; border-bottom-color: #C2C7CB; border-top-left-radius: 7px; border-top-right-radius: 7px; min-width: 8ex; padding: 2px; color: black; } QTabBar::tab:selected {border-color: #9fd555; border-bottom-color: #d3eeaf; background-color: white; color: black; } QTabBar:tab:!selected {margin-top: 3px; } ");
     QFontDatabase::addApplicationFont("::/res/fonts/helvetica");
@@ -172,7 +170,7 @@ BitbeanGUI::BitbeanGUI(QWidget *parent):
 
 BitbeanGUI::~BitbeanGUI()
 {
-    saveWindowGeometry();
+    GUIUtil::saveWindowGeometry("nWindow", this);
     if(trayIcon) // Hide tray icon, as deleting will let it linger until quit (on Ubuntu)
         trayIcon->hide();
 #ifdef Q_OS_MAC
@@ -465,29 +463,6 @@ void BitbeanGUI::trayIconActivated(QSystemTrayIcon::ActivationReason reason)
     }
 }
 #endif
-
-void BitbeanGUI::saveWindowGeometry()
-{
-    QSettings settings;
-    settings.setValue("nWindowPos", pos());
-    settings.setValue("nWindowSize", size());
-}
-
-void BitbeanGUI::restoreWindowGeometry()
-{
-    QSettings settings;
-    QPoint pos = settings.value("nWindowPos").toPoint();
-    QSize size = settings.value("nWindowSize", QSize(850, 550)).toSize();
-    // If no previous position saved, place window in the center of the screen
-    if (!pos.x() && !pos.y())
-    {
-        QRect screen = qApp->desktop()->screenGeometry();
-        pos.setX((screen.width()-size.width())/2);
-        pos.setY((screen.height()-size.height())/2);
-    }
-    resize(size);
-    move(pos);
-}
 
 void BitbeanGUI::optionsClicked()
 {
