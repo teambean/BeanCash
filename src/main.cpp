@@ -3351,7 +3351,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
 
         // Keep giving the same key to the same ip until they use it
         if (!mapReuseKey.count(pfrom->addr))
-            pwalletMain->GetKeyFromPool(mapReuseKey[pfrom->addr], true);
+            pwalletMain->GetKeyFromPool(mapReuseKey[pfrom->addr]);
 
         // Send back approval of order and pubkey to use
         CScript scriptPubKey;
