@@ -100,6 +100,7 @@ public:
     rpcfn_type actor;
     bool okSafeMode;
     bool unlocked;
+    bool reqWallet;
 };
 
 /**

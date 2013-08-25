@@ -76,13 +76,21 @@ void Shutdown()
     RenameThread("Beancash-shutoff");
     nTransactionsUpdated++;
     StopRPCThreads();
-    bitdb.Flush(false);
+    if (pwalletMain)
+    {
+        bitdb.Flush(false);
+    }
     StopNode();
-
-    bitdb.Flush(true);
+    if (pwalletMain)
+    {
+        bitdb.Flush(true);
+    }
     boost::filesystem::remove(GetPidFile());
     UnregisterWallet(pwalletMain);
-    delete pwalletMain;
+    if (pwalletMain)
+    {
+        delete pwalletMain;
+    }
     LogPrintf("Bean Cash exited\n\n");
 
     #ifndef QT_GUI
@@ -883,8 +891,11 @@ bool AppInit2(boost::thread_group& threadGroup)
 	 			uiInterface.InitMessage(_("Error loading wallet.dat: Wallet corrupted"));
 	 			return false;
 	 		}
-	 		delete pwalletMain;
-	 		pwalletMain = NULL;	 
+            if (pwalletMain)
+            {
+                delete pwalletMain;
+                pwalletMain = NULL;
+            }
 	 }	 
 	 
     uiInterface.InitMessage(_("Loading wallet..."));
@@ -1042,9 +1053,9 @@ bool AppInit2(boost::thread_group& threadGroup)
     //// debug print
     LogPrintf("mapBlockIndex.size() = %u\n",   mapBlockIndex.size());
     LogPrintf("nBestHeight = %d\n",            nBestHeight);
-    LogPrintf("setKeyPool.size() = %u\n",      pwalletMain->setKeyPool.size());
-    LogPrintf("mapWallet.size() = %u\n",       pwalletMain->mapWallet.size());
-    LogPrintf("mapAddressBook.size() = %u\n",  pwalletMain->mapAddressBook.size());
+    LogPrintf("setKeyPool.size() = %u\n",      pwalletMain ? pwalletMain->setKeyPool.size() : 0);
+    LogPrintf("mapWallet.size() = %u\n",       pwalletMain ? pwalletMain->mapWallet.size() : 0);
+    LogPrintf("mapAddressBook.size() = %u\n",  pwalletMain ? pwalletMain->mapAddressBook.size() : 0);
 
     StartNode(threadGroup);
 
@@ -1055,7 +1066,10 @@ bool AppInit2(boost::thread_group& threadGroup)
     if (!GetBoolArg("-sprout", true))
         LogPrintf("Sprouting disabled\n");
     else
-        threadGroup.create_thread(boost::bind(&ThreadStakeMiner, pwalletMain));
+        if (pwalletMain)
+        {
+            threadGroup.create_thread(boost::bind(&ThreadStakeMiner, pwalletMain));
+        }
 
     // ********************************************************* Step 12: finished
 
@@ -1065,11 +1079,13 @@ bool AppInit2(boost::thread_group& threadGroup)
     if (!strErrors.str().empty())
         return InitError(strErrors.str());
 
-     // Add wallet transactions that aren't already in a block to mapTransactions
-    pwalletMain->ReacceptWalletTransactions();
+    if (pwalletMain) {
+        // Add wallet transactions that aren't already in a block to mapTransactions
+        pwalletMain->ReacceptWalletTransactions();
 
-    // Run a thread to flush wallet periodically
-    threadGroup.create_thread(boost::bind(&ThreadFlushWalletDB, boost::ref(pwalletMain->strWalletFile)));
+        // Run a thread to flush wallet periodically
+        threadGroup.create_thread(boost::bind(&ThreadFlushWalletDB, boost::ref(pwalletMain->strWalletFile)));
+    }
 
     return !fRequestShutdown;
 }
