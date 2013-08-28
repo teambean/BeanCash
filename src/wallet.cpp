@@ -1719,7 +1719,18 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, 
                 unsigned int nBytes = ::GetSerializeSize(*(CTransaction*)&wtxNew, SER_NETWORK, PROTOCOL_VERSION);
                 if (nBytes >= MAX_BLOCK_SIZE_GEN/5)
                     return false;
-                dPriority /= nBytes;
+
+                unsigned int nTxSizeMod = nBytes;
+                // See miner.c's dPriority logic for the matching network-node side code.
+                for (const CTxIn& txin : (*(CTransaction*)&wtxNew).vin)
+                {
+                    unsigned int offset = 41U + min(110U, (unsigned int)txin.scriptSig.size());
+                    if (nTxSizeMod > offset)
+                        nTxSizeMod -= offset;
+                }
+                dPriority /= nTxSizeMod;
+
+
 
                 // Check that enough fee is included
 
