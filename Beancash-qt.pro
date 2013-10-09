@@ -379,7 +379,8 @@ SOURCES += src/qt/beancash.cpp \
     src/core.cpp \
     src/qt/walletview.cpp \
     src/qt/walletstack.cpp \
-    src/qt/walletframe.cpp
+    src/qt/walletframe.cpp \
+    src/allocators.cpp
 
 RESOURCES += \
     src/qt/beancash.qrc
