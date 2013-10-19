@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2015-2020 Bean Core www.beancash.org
+// Copyright (c) 2015-2021 Bean Core www.beancash.org
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef BITBEAN_MAIN_H
@@ -75,8 +75,6 @@ extern uint64_t nLastBlockSize;
 extern int64_t nLastBeanStakeSearchInterval;
 extern const std::string strMessageMagic;
 extern int64_t nTimeBestReceived;
-extern CCriticalSection cs_setpwalletRegistered;
-extern std::set<CWallet*> setpwalletRegistered;
 extern unsigned char pchMessageStart[4];
 extern bool fImporting;
 extern std::map<uint256, CBlock*> mapOrphanBlocks;
@@ -97,15 +95,23 @@ static const uint64_t nMinDiskSpace = 52428800;
 class CReserveKey;
 class CTxDB;
 class CTxIndex;
+class CWalletInterface;
+
 
 /** Register a wallet to receive updates from core */
-void RegisterWallet(CWallet* pwalletIn);
+void RegisterWallet(CWalletInterface* pwalletIn);
 
 /** Unregister a wallet from core */
-void UnregisterWallet(CWallet* pwalletIn);
+void UnregisterWallet(CWalletInterface* pwalletIn);
+
+/** Unregister all wallets from core */
+void UnregisterAllWallets();
 
 /** Push an updated transaction to all registered wallets */
-void SyncWithWallets(const CTransaction& tx, const CBlock* pblock = NULL, bool fUpdate = false, bool fConnect = true);
+void SyncWithWallets(const CTransaction& tx, const CBlock* pblock = NULL, bool fConnect = true);
+
+/** Ask wallets to resend their transactions */
+void ResendWalletTransactions(bool fForce = false);
 
 /** Register with a network node to receive its signals */
 void RegisterNodeSignals(CNodeSignals& nodeSignals);
@@ -153,7 +159,6 @@ unsigned int ComputeMinWork(unsigned int nBase, int64_t nTime);
 /** Compute minimum Bean Weight needed for a received block */
 unsigned int ComputeMinStake(unsigned int nBase, int64_t nTime, unsigned int nBlockTime);
 
-
 /** Get the number of active peers */
 int GetNumBlocksOfPeers();
 
@@ -172,12 +177,8 @@ const CBlockIndex* GetLastBlockIndex(const CBlockIndex* pindex, bool fProofOfSta
 
 void ThreadStakeMiner(CWallet *pwallet);
 
-void ResendWalletTransactions(bool fForce = false);
-
 /** (try to) add transaction to memory pool **/
 bool AcceptToMemoryPool(CTxMemPool& pool, CTransaction &tx, bool fCheckInputs=true, bool* pfMissingInputs=NULL);
-
-bool GetWalletFile(CWallet* pwallet, std::string &strWalletFileOut);
 
 /** Position on disk for a particular transaction. */
 class CDiskTxPos
@@ -1568,5 +1569,19 @@ public:
 };
 
 extern CTxMemPool mempool;
+
+
+class CWalletInterface {
+protected:
+    virtual void SyncTransaction(const CTransaction &tx, const CBlock *pblock, bool fConnect) =0;
+    virtual void EraseFromWallet(const uint256 &hash) =0;
+    virtual void SetBestChain(const CBlockLocator &locator) =0;
+    virtual void UpdatedTransaction(const uint256 &hash) =0;
+    virtual void Inventory(const uint256 &hash) =0;
+    virtual void ResendWalletTransactions(bool fForce) =0;
+    friend void ::RegisterWallet(CWalletInterface*);
+    friend void ::UnregisterWallet(CWalletInterface*);
+    friend void ::UnregisterAllWallets();
+};
 
 #endif

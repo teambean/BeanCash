@@ -90,29 +90,6 @@ extern enum Checkpoints::CPMode CheckpointsMode;
 
 // These functions dispatch to one or all registered wallets
 
-
-void RegisterWallet(CWallet* pwalletIn)
-{
-    {
-        LOCK(cs_setpwalletRegistered);
-        setpwalletRegistered.insert(pwalletIn);
-    }
-}
-
-void UnregisterWallet(CWallet* pwalletIn)
-{
-    {
-        LOCK(cs_setpwalletRegistered);
-        setpwalletRegistered.erase(pwalletIn);
-    }
-}
-
-void UnregisterAllWallets()
-{
-    LOCK(cs_setpwalletRegistered);
-    setpwalletRegistered.clear();
-}
-
 // check whether the passed transaction is from us
 bool static IsFromMe(CTransaction& tx)
 {
@@ -120,50 +97,6 @@ bool static IsFromMe(CTransaction& tx)
         if (pwallet->IsFromMe(tx))
             return true;
     return false;
-}
-
-// erases transaction with the given hash from all wallets
-void static EraseFromWallets(uint256 hash)
-{
-    LOCK(cs_setpwalletRegistered);
-    for (CWallet* pwallet : setpwalletRegistered)
-        pwallet->EraseFromWallet(hash);
-}
-
-// make sure all wallets know about the given transaction, in the given block
-void SyncWithWallets(const CTransaction& tx, const CBlock* pblock, bool fUpdate, bool fConnect)
-{
-    LOCK(cs_setpwalletRegistered);
-    if (!fConnect)
-    {
-        // ppbean: wallets need to refund inputs when disconnecting beansprout
-        if (tx.IsBeanStake())
-        {
-            for (CWallet* pwallet : setpwalletRegistered)
-                if (pwallet->IsFromMe(tx))
-                    pwallet->DisableTransaction(tx);
-        }
-        return;
-    }
-
-    for (CWallet* pwallet : setpwalletRegistered)
-        pwallet->AddToWalletIfInvolvingMe(tx, pblock, fUpdate);
-}
-
-// notify wallets about a new best chain
-void static SetBestChain(const CBlockLocator& loc)
-{
-    LOCK(cs_setpwalletRegistered);
-    for (CWallet* pwallet : setpwalletRegistered)
-        pwallet->SetBestChain(loc);
-}
-
-// notify wallets about an updated transaction
-void static UpdatedTransaction(const uint256& hashTx)
-{
-    LOCK(cs_setpwalletRegistered);
-    for (CWallet* pwallet : setpwalletRegistered)
-        pwallet->UpdatedTransaction(hashTx);
 }
 
 // dump all wallets
@@ -174,21 +107,58 @@ void static PrintWallets(const CBlock& block)
         pwallet->PrintWallet(block);
 }
 
-// notify wallets about an incoming inventory (for request counts)
-void static Inventory(const uint256& hash)
-{
-    LOCK(cs_setpwalletRegistered);
-    for (CWallet* pwallet : setpwalletRegistered)
-        pwallet->Inventory(hash);
+namespace {
+struct CMainSignals {
+    // Notifies listeners of updated transaction data (passing hash, transaction, and optionally the block it is found in.
+    boost::signals2::signal<void (const CTransaction &, const CBlock *, bool)> SyncTransaction;
+    // Notifies listeners of an erased transaction (currently disabled, requires transaction replacement).
+    boost::signals2::signal<void (const uint256 &)> EraseTransaction;
+    // Notifies listeners of an updated transaction without new data (for now: a coinbase potentially becoming visible).
+    boost::signals2::signal<void (const uint256 &)> UpdatedTransaction;
+    // Notifies listeners of a new active block chain.
+    boost::signals2::signal<void (const CBlockLocator &)> SetBestChain;
+    // Notifies listeners about an inventory item being seen on the network.
+    boost::signals2::signal<void (const uint256 &)> Inventory;
+    // Tells listeners to broadcast their data.
+    boost::signals2::signal<void (bool)> Broadcast;
+} g_signals;
 }
 
-// ask wallets to resend their transactions
-void ResendWalletTransactions(bool fForce)
-{
-    LOCK(cs_setpwalletRegistered);
-    for (CWallet* pwallet : setpwalletRegistered)
-        pwallet->ResendWalletTransactions(fForce);
+void RegisterWallet(CWalletInterface* pwalletIn) {
+    g_signals.SyncTransaction.connect(boost::bind(&CWalletInterface::SyncTransaction, pwalletIn, _1, _2, _3));
+    g_signals.EraseTransaction.connect(boost::bind(&CWalletInterface::EraseFromWallet, pwalletIn, _1));
+    g_signals.UpdatedTransaction.connect(boost::bind(&CWalletInterface::UpdatedTransaction, pwalletIn, _1));
+    g_signals.SetBestChain.connect(boost::bind(&CWalletInterface::SetBestChain, pwalletIn, _1));
+    g_signals.Inventory.connect(boost::bind(&CWalletInterface::Inventory, pwalletIn, _1));
+    g_signals.Broadcast.connect(boost::bind(&CWalletInterface::ResendWalletTransactions, pwalletIn, _1));
 }
+
+void UnregisterWallet(CWalletInterface* pwalletIn) {
+    g_signals.Broadcast.disconnect(boost::bind(&CWalletInterface::ResendWalletTransactions, pwalletIn, _1));
+    g_signals.Inventory.disconnect(boost::bind(&CWalletInterface::Inventory, pwalletIn, _1));
+    g_signals.SetBestChain.disconnect(boost::bind(&CWalletInterface::SetBestChain, pwalletIn, _1));
+    g_signals.UpdatedTransaction.disconnect(boost::bind(&CWalletInterface::UpdatedTransaction, pwalletIn, _1));
+    g_signals.EraseTransaction.disconnect(boost::bind(&CWalletInterface::EraseFromWallet, pwalletIn, _1));
+    g_signals.SyncTransaction.disconnect(boost::bind(&CWalletInterface::SyncTransaction, pwalletIn, _1, _2, _3));
+}
+
+void UnregisterAllWallets() {
+    g_signals.Broadcast.disconnect_all_slots();
+    g_signals.Inventory.disconnect_all_slots();
+    g_signals.SetBestChain.disconnect_all_slots();
+    g_signals.UpdatedTransaction.disconnect_all_slots();
+    g_signals.EraseTransaction.disconnect_all_slots();
+    g_signals.SyncTransaction.disconnect_all_slots();
+}
+
+void SyncWithWallets(const CTransaction &tx, const CBlock *pblock, bool fConnect) {
+    g_signals.SyncTransaction(tx, pblock, fConnect);
+}
+
+void ResendWalletTransactions(bool fForce) {
+    g_signals.Broadcast(fForce);
+}
+
 
 //////////////////////////////////////////////////////////////////////////////
 //
@@ -682,13 +652,14 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CTransaction &tx, bool fCheckInputs, b
                          hash.ToString(), nFees, txMinFee);
 
 
-		  // Bean Cash does not have free transactions, but will retain this for the future if we change that
-		  // Minimum Transaction & Relay fee is .01 BITB
+        // Bean Cash does not have free transactions, but will retain this for the future if we change that
+        // Minimum Transaction & Relay fee is .01 BITB
 		  
         // Continuously rate-limit free transactions
         // This mitigates 'penny-flooding' -- sending thousands of free transactions just to
         // be annoying or make others' transactions take longer to confirm.
-	     /* if (nFees < MIN_RELAY_TX_FEE)
+
+        /* if (nFees < MIN_RELAY_TX_FEE)
         {
             static CCriticalSection cs;
             static double dFreeCount;
@@ -720,20 +691,9 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CTransaction &tx, bool fCheckInputs, b
     }
 
     // Store transaction in memory
-    {
-        LOCK(pool.cs);
-        if (ptxOld)
-        {
-            LogPrint("mempool", "AcceptToMemoryPool : replacing tx %s with new version\n", ptxOld->GetHash().ToString());
-            pool.remove(*ptxOld);
-        }
-        pool.addUnchecked(hash, tx);
-    }
+    pool.addUnchecked(hash, tx);
 
-    ///// are we sure this is ok when loading transactions or restoring block txes
-    // If updated, erase old tx from wallet
-    if (ptxOld)
-        EraseFromWallets(ptxOld->GetHash());
+    SyncWithWallets(tx, NULL);
 
     LogPrint("mempool", "AcceptToMemoryPool : accepted %s (poolsz %u)\n",
            hash.ToString(),
@@ -1489,7 +1449,7 @@ bool CBlock::DisconnectBlock(CTxDB& txdb, CBlockIndex* pindex)
 
     // ppbean: clean up wallet after disconnecting beansprout
     for (CTransaction& tx : vtx)
-        SyncWithWallets(tx, this, false, false);
+        SyncWithWallets(tx, this, false);
 
     return true;
 }
@@ -1628,7 +1588,7 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
 
     // Watch for transactions paying to me
     for (CTransaction& tx : vtx)
-        SyncWithWallets(tx, this, true);
+        SyncWithWallets(tx, this);
 
     return true;
 }
@@ -1828,7 +1788,7 @@ bool CBlock::SetBestChain(CTxDB& txdb, CBlockIndex* pindexNew)
     if (!fIsInitialDownload)
     {
         const CBlockLocator locator(pindexNew);
-        ::SetBestChain(locator);
+        g_signals.SetBestChain(locator);
     }
 
     // New best block
@@ -2014,7 +1974,7 @@ bool CBlock::AddToBlockIndex(unsigned int nFile, unsigned int nBlockPos, const u
     {
         // Notify UI to display prev block's beanbase if it was ours
         static uint256 hashPrevBestBeanBase;
-        UpdatedTransaction(hashPrevBestBeanBase);
+        g_signals.UpdatedTransaction(hashPrevBestBeanBase);
         hashPrevBestBeanBase = vtx[0].GetHash();
     }
 
@@ -3058,7 +3018,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
             }
 
             // Track requests for our stuff
-            Inventory(inv.hash);
+            g_signals.Inventory(inv.hash);
         }
     }
 
@@ -3129,7 +3089,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
             }
 
             // Track requests for our stuff
-            Inventory(inv.hash);
+            g_signals.Inventory(inv.hash);
         }
     }
 
