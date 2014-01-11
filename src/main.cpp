@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2015-2020 Bean Core www.beancash.org
+// Copyright (c) 2015-2022Bean Core www.beancash.org
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -16,6 +16,8 @@
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
 #include <boost/range/adaptor/reversed.hpp>
+
+#include <cstdlib>  /* std::rand() */
 
 
 #include <stdio.h>
@@ -65,9 +67,21 @@ int64_t nTimeBestReceived = 0;
 static CMedianFilter<int> cPeerBlockCounts(8, 0); // Amount of blocks that other nodes claim to have
 
 map<uint256, CBlock*> mapOrphanBlocks;
-multimap<uint256, CBlock*> mapOrphanBlocksByPrev;
-set<pair<COutPoint, unsigned int> > setStakeSeenOrphan;
 
+struct CBlockOrphan
+{
+    CBlockOrphan(uint256 hash, CBlock *blockptr)
+    {
+        hashBlock = hash;
+        pblock = blockptr;
+    }
+
+    uint256 hashBlock;
+    CBlock *pblock;
+};
+multimap<uint256, CBlockOrphan> mapOrphanBlocksByPrev;
+
+set<pair<COutPoint, unsigned int> > setStakeSeenOrphan;
 map<uint256, CTransaction> mapOrphanTransactions;
 map<uint256, set<uint256> > mapOrphanTransactionsByPrev;
 
@@ -955,7 +969,7 @@ uint256 static GetOrphanRoot(const CBlock* pblock)
     return pblock->GetHash();
 }
 
-// ppbean: find block wanted by given orphan block
+// Find block wanted by given orphan block
 uint256 WantedByOrphan(const CBlock* pblockOrphan)
 {
     // Work back to the first block in the orphan chain
@@ -964,7 +978,7 @@ uint256 WantedByOrphan(const CBlock* pblockOrphan)
     return pblockOrphan->hashPrevBlock;
 }
 
-// miner's bean base reward
+// Farmer's bean base reward
 int64_t GetProofOfWorkReward(int64_t nFees)
 {
     int64_t nSubsidy = 100000 * bean;
@@ -975,7 +989,37 @@ int64_t GetProofOfWorkReward(int64_t nFees)
     return nSubsidy + nFees;
 }
 
-// miner's bean stake reward based on bean age spent (bean-days)
+// Remove a random orphan block (which does not have any dependent orphans).
+void static PruneOrphanBlocks()
+{
+    if (mapOrphanBlocksByPrev.size() <= (size_t)std::max((int64_t)0, GetArg("-maxorphanblocks", DEFAULT_MAX_ORPHAN_BLOCKS)))
+        return;
+
+    // Pick a random orphan block.
+    int pos = std::rand() % mapOrphanBlocksByPrev.size();
+    multimap<uint256, CBlockOrphan>::iterator it = mapOrphanBlocksByPrev.begin();
+    while (pos--)
+        it++;
+
+    // As long as this block has other orphans depending on it, move to one of those successors.
+    do {
+        multimap<uint256, CBlockOrphan>::iterator it2 = mapOrphanBlocksByPrev.find(it->second.hashBlock);
+
+        if (it2 == mapOrphanBlocksByPrev.end())
+            break;
+        it = it2;
+    } while(1);
+
+    delete it->second.pblock;
+
+    uint256 hash = it->second.hashBlock;
+
+    mapOrphanBlocksByPrev.erase(it);
+    mapOrphanBlocks.erase(hash);
+    printf("PruneOrphanBlocks() : Removed orphan block %s\n", hash.ToString().c_str());
+}
+
+// Farmer's bean weight reward is based on bean age spent (bean-days)
 int64_t GetProofOfStakeReward(int64_t nBeanAge, int64_t nFees)
 {
    // int64_t nSubsidy = nBeanAge * bean_YEAR_REWARD * 33 / (365 * 33 + 8);
@@ -1017,7 +1061,7 @@ unsigned int ComputeMinStake(unsigned int nBase, int64_t nTime, unsigned int nBl
 }
 
 
-// ppbean: find last block index up to pindex
+// Find last block index up to pindex
 const CBlockIndex* GetLastBlockIndex(const CBlockIndex* pindex, bool fProofOfStake)
 {
     while (pindex && pindex->pprev && (pindex->IsProofOfStake() != fProofOfStake))
@@ -1054,8 +1098,8 @@ unsigned int GetNextTargetRequired(const CBlockIndex* pindexLast, bool fProofOfS
     if (nActualSpacing < 0)
         nActualSpacing = nTargetSpacing;
 
-    // ppbean: target change every block
-    // ppbean: retarget with exponential moving toward target spacing
+    // Target change every block
+    // Retarget with exponential moving toward target spacing
     CBigNum bnNew;
     bnNew.SetCompact(pindexPrev->nBits);
     int64_t nInterval = nTargetTimespan / nTargetSpacing;
@@ -2262,7 +2306,10 @@ bool ProcessBlock(CNode* pfrom, CBlock* pblock)
     // If we don't already have its previous block, shunt it off to holding area until we get it
     if (!mapBlockIndex.count(pblock->hashPrevBlock))
     {
-        LogPrintf("ProcessBlock: ORPHAN BLOCK, prev=%s\n", pblock->hashPrevBlock.ToString());
+        // Make space for this orphan block if there are more than the DEFAULT_MAX_ORPHAN_BLOCKS
+        PruneOrphanBlocks();
+
+        LogPrintf("ProcessBlock: ORPHAN BLOCK %lu, prev=%s\n", (unsigned long)mapOrphanBlocks.size(), pblock->hashPrevBlock.ToString());
         // Check Proof of Bean (PoB)
         if (pblock->IsProofOfStake())
         {
@@ -2277,9 +2324,10 @@ bool ProcessBlock(CNode* pfrom, CBlock* pblock)
         // Accept orphans as long as there is a node to request its parents from
         if (pfrom)
         {
+            PruneOrphanBlocks();
             CBlock* pblock2 = new CBlock(*pblock);
             mapOrphanBlocks.insert(make_pair(hash, pblock2));
-            mapOrphanBlocksByPrev.insert(make_pair(pblock2->hashPrevBlock, pblock2));
+            mapOrphanBlocksByPrev.insert(make_pair(pblock2->hashPrevBlock, CBlockOrphan(hash, pblock2)));
 
             // Ask this guy to fill in what we're missing
             PushGetBlocks(pfrom, pindexBest, GetOrphanRoot(pblock2));
@@ -2301,11 +2349,11 @@ bool ProcessBlock(CNode* pfrom, CBlock* pblock)
     for (unsigned int i = 0; i < vWorkQueue.size(); i++)
     {
         uint256 hashPrev = vWorkQueue[i];
-        for (multimap<uint256, CBlock*>::iterator mi = mapOrphanBlocksByPrev.lower_bound(hashPrev);
+        for (multimap<uint256, CBlockOrphan>::iterator mi = mapOrphanBlocksByPrev.lower_bound(hashPrev);
              mi != mapOrphanBlocksByPrev.upper_bound(hashPrev);
              ++mi)
         {
-            CBlock* pblockOrphan = (*mi).second;
+            CBlock *pblockOrphan = (*mi).second.pblock;
             if (pblockOrphan->AcceptBlock())
                 vWorkQueue.push_back(pblockOrphan->GetHash());
             mapOrphanBlocks.erase(pblockOrphan->GetHash());
