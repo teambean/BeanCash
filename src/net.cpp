@@ -228,7 +228,7 @@ bool AddLocal(const CService& addr, int nScore)
     if (IsLimited(addr))
         return false;
 
-    LogPrintf("AddLocal(%s,%i)\n", addr.ToString().c_str(), nScore);
+    LogPrintf("AddLocal(%s,%i)\n", addr.ToString(), nScore);
 
     {
         LOCK(cs_mapLocalHost);
@@ -356,7 +356,7 @@ CNode* ConnectNode(CAddress addrConnect, const char *pszDest)
 
     /// debug print
     LogPrint("net", "trying connection %s lastseen=%.1fhrs\n",
-        pszDest ? pszDest : addrConnect.ToString().c_str(),
+        pszDest ? pszDest : addrConnect.ToString(),
         pszDest ? 0 : (double)(GetAdjustedTime() - addrConnect.nTime)/3600.0);
 
     // Connect
@@ -366,7 +366,7 @@ CNode* ConnectNode(CAddress addrConnect, const char *pszDest)
         addrman.Attempt(addrConnect);
 
         /// debug print
-        LogPrint("net", "connected %s\n", pszDest ? pszDest : addrConnect.ToString().c_str());
+        LogPrint("net", "connected %s\n", pszDest ? pszDest : addrConnect.ToString());
 
         // Set to non-blocking
 #ifdef WIN32
@@ -401,7 +401,7 @@ void CNode::CloseSocketDisconnect()
     fDisconnect = true;
     if (hSocket != INVALID_SOCKET)
     {
-        LogPrint("net", "disconnecting node %s\n", addrName.c_str());
+        LogPrint("net", "disconnecting node %s\n", addrName);
         closesocket(hSocket);
         hSocket = INVALID_SOCKET;
 
@@ -424,7 +424,7 @@ void CNode::PushVersion()
     CAddress addrYou = (addr.IsRoutable() && !IsProxy(addr) ? addr : CAddress(CService("0.0.0.0",0)));
     CAddress addrMe = GetLocalAddress(&addr);
     RAND_bytes((unsigned char*)&nLocalHostNonce, sizeof(nLocalHostNonce));
-    LogPrint("net", "send version message: version %d, blocks=%d, us=%s, them=%s, peer=%s\n", PROTOCOL_VERSION, nBestHeight, addrMe.ToString().c_str(), addrYou.ToString().c_str(), addr.ToString().c_str());
+    LogPrint("net", "send version message: version %d, blocks=%d, us=%s, them=%s, peer=%s\n", PROTOCOL_VERSION, nBestHeight, addrMe.ToString(), addrYou.ToString(), addr.ToString());
     PushMessage("version", PROTOCOL_VERSION, nLocalServices, nTime, addrYou, addrMe,
                 nLocalHostNonce, FormatSubVersion(CLIENT_NAME, CLIENT_VERSION, std::vector<string>()), nBestHeight);
 }
@@ -461,7 +461,7 @@ bool CNode::Misbehaving(int howmuch)
 {
     if (addr.IsLocal())
     {
-        LogPrintf("Warning: Local node %s misbehaving (delta: %d)!\n", addrName.c_str(), howmuch);
+        LogPrintf("Warning: Local node %s misbehaving (delta: %d)!\n", addrName, howmuch);
         return false;
     }
 
@@ -469,7 +469,7 @@ bool CNode::Misbehaving(int howmuch)
     if (nMisbehavior >= GetArg("-banscore", 100))
     {
         int64_t banTime = GetTime()+GetArg("-bantime", 60*60*24);  // Default 24-hour ban
-        LogPrintf("Misbehaving: %s (%d -> %d) DISCONNECTING\n", addr.ToString().c_str(), nMisbehavior-howmuch, nMisbehavior);
+        LogPrintf("Misbehaving: %s (%d -> %d) DISCONNECTING\n", addr.ToString(), nMisbehavior-howmuch, nMisbehavior);
         {
             LOCK(cs_setBanned);
             if (setBanned[addr] < banTime)
@@ -478,7 +478,7 @@ bool CNode::Misbehaving(int howmuch)
         CloseSocketDisconnect();
         return true;
     } else
-        LogPrintf("Misbehaving: %s (%d -> %d)\n", addr.ToString().c_str(), nMisbehavior-howmuch, nMisbehavior);
+        LogPrintf("Misbehaving: %s (%d -> %d)\n", addr.ToString(), nMisbehavior-howmuch, nMisbehavior);
     return false;
 }
 
@@ -826,12 +826,12 @@ void ThreadSocketHandler()
             }
             else if (CNode::IsBanned(addr))
             {
-                LogPrintf("connection from %s dropped (banned)\n", addr.ToString().c_str());
+                LogPrintf("connection from %s dropped (banned)\n", addr.ToString());
                 closesocket(hSocket);
             }
             else
             {
-                LogPrint("net", "accepted connection %s\n", addr.ToString().c_str());
+                LogPrint("net", "accepted connection %s\n", addr.ToString());
                 CNode* pnode = new CNode(hSocket, addr, "", true);
                 pnode->AddRef();
                 {
@@ -1335,7 +1335,7 @@ bool BindListenPort(const CService &addrBind, string& strError)
     if (ret != NO_ERROR)
     {
         strError = strprintf("Error: TCP/IP socket library failed to start (WSAStartup returned error %d)", ret);
-        LogPrintf("%s\n", strError.c_str());
+        LogPrintf("%s\n", strError);
         return false;
     }
 #endif
@@ -1345,8 +1345,8 @@ bool BindListenPort(const CService &addrBind, string& strError)
     socklen_t len = sizeof(sockaddr);
     if (!addrBind.GetSockAddr((struct sockaddr*)&sockaddr, &len))
     {
-        strError = strprintf("Error: bind address family for %s not supported", addrBind.ToString().c_str());
-        LogPrintf("%s\n", strError.c_str());
+        strError = strprintf("Error: bind address family for %s not supported", addrBind.ToString());
+        LogPrintf("%s\n", strError);
         return false;
     }
 
@@ -1354,7 +1354,7 @@ bool BindListenPort(const CService &addrBind, string& strError)
     if (hListenSocket == INVALID_SOCKET)
     {
         strError = strprintf("Error: Couldn't open socket for incoming connections (socket returned error %d)", WSAGetLastError());
-        LogPrintf("%s\n", strError.c_str());
+        LogPrintf("%s\n", strError);
         return false;
     }
 
@@ -1378,7 +1378,7 @@ bool BindListenPort(const CService &addrBind, string& strError)
 #endif
     {
         strError = strprintf("Error: Couldn't set properties on socket for incoming connections (error %d)", WSAGetLastError());
-        LogPrintf("%s\n", strError.c_str());
+        LogPrintf("%s\n", strError);
         return false;
     }
 
@@ -1404,19 +1404,19 @@ bool BindListenPort(const CService &addrBind, string& strError)
     {
         int nErr = WSAGetLastError();
         if (nErr == WSAEADDRINUSE)
-            strError = strprintf(_("Unable to bind to %s on this computer. Beancash is probably already running."), addrBind.ToString().c_str());
+            strError = strprintf(_("Unable to bind to %s on this computer. Bean Cash is probably already running."), addrBind.ToString());
         else
-            strError = strprintf(_("Unable to bind to %s on this computer (bind returned error %d, %s)"), addrBind.ToString().c_str(), nErr, strerror(nErr));
-        LogPrintf("%s\n", strError.c_str());
+            strError = strprintf(_("Unable to bind to %s on this computer (bind returned error %d, %s)"), addrBind.ToString(), nErr, strerror(nErr));
+        LogPrintf("%s\n", strError);
         return false;
     }
-    LogPrintf("Bound to %s\n", addrBind.ToString().c_str());
+    LogPrintf("Bound to %s\n", addrBind.ToString());
 
     // Listen for incoming connections
     if (listen(hListenSocket, SOMAXCONN) == SOCKET_ERROR)
     {
         strError = strprintf("Error: Listening for incoming connections failed (listen returned error %d)", WSAGetLastError());
-        LogPrintf("%s\n", strError.c_str());
+        LogPrintf("%s\n", strError);
         return false;
     }
 
@@ -1463,14 +1463,14 @@ void static Discover()
                 struct sockaddr_in* s4 = (struct sockaddr_in*)(ifa->ifa_addr);
                 CNetAddr addr(s4->sin_addr);
                 if (AddLocal(addr, LOCAL_IF))
-                    LogPrintf("IPv4 %s: %s\n", ifa->ifa_name, addr.ToString().c_str());
+                    LogPrintf("IPv4 %s: %s\n", ifa->ifa_name, addr.ToString());
             }
             else if (ifa->ifa_addr->sa_family == AF_INET6)
             {
                 struct sockaddr_in6* s6 = (struct sockaddr_in6*)(ifa->ifa_addr);
                 CNetAddr addr(s6->sin6_addr);
                 if (AddLocal(addr, LOCAL_IF))
-                    LogPrintf("IPv6 %s: %s\n", ifa->ifa_name, addr.ToString().c_str());
+                    LogPrintf("IPv6 %s: %s\n", ifa->ifa_name, addr.ToString());
             }
         }
         freeifaddrs(myaddrs);

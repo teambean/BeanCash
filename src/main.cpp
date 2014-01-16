@@ -229,7 +229,7 @@ bool AddOrphanTx(const CTransaction& tx)
 
     if (nSize > 5000)
     {
-        LogPrintf("ignoring large orphan tx (size: %" PRIszu ", hash: %s)\n", nSize, hash.ToString().substr(0,10).c_str());
+        LogPrintf("ignoring large orphan tx (size: %" PRIszu ", hash: %s)\n", nSize, hash.ToString().substr(0,10));
         return false;
     }
 
@@ -237,7 +237,7 @@ bool AddOrphanTx(const CTransaction& tx)
     for (const CTxIn& txin : tx.vin)
         mapOrphanTransactionsByPrev[txin.prevout.hash].insert(hash);
 
-    LogPrintf("stored orphan tx %s (mapsz %" PRIszu ")\n", hash.ToString().substr(0,10).c_str(),
+    LogPrintf("stored orphan tx %s (mapsz %" PRIszu ")\n", hash.ToString().substr(0,10),
         mapOrphanTransactions.size());
     return true;
 }
@@ -652,7 +652,7 @@ bool CTxMemPool::accept(CTxDB& txdb, CTransaction &tx, bool fCheckInputs,
         if (!tx.FetchInputs(txdb, mapUnused, false, false, mapInputs, fInvalid))
         {
             if (fInvalid)
-                return error("CTxMemPool::accept() : FetchInputs found invalid tx %s", hash.ToString().substr(0,10).c_str());
+                return error("CTxMemPool::accept() : FetchInputs found invalid tx %s", hash.ToString().substr(0,10));
             if (pfMissingInputs)
                 *pfMissingInputs = true;
             return false;
@@ -673,8 +673,7 @@ bool CTxMemPool::accept(CTxDB& txdb, CTransaction &tx, bool fCheckInputs,
         int64_t txMinFee = tx.GetMinFee(tx, 1000, GMF_RELAY, nSize);
         if (nFees < txMinFee)
             return error("CTxMemPool::accept() : not enough fees %s, %" PRId64 " < %" PRId64,
-                         hash.ToString().c_str(),
-                         nFees, txMinFee);
+                         hash.ToString(), nFees, txMinFee);
 
         // Continuously rate-limit free transactions
         // This mitigates 'penny-flooding' -- sending thousands of free transactions just to
@@ -705,7 +704,7 @@ bool CTxMemPool::accept(CTxDB& txdb, CTransaction &tx, bool fCheckInputs,
         // This is done last to help prevent CPU exhaustion denial-of-service attacks.
         if (!tx.ConnectInputs(txdb, mapInputs, mapUnused, CDiskTxPos(1,1,1), pindexBest, false, false))
         {
-            return error("CTxMemPool::accept() : ConnectInputs failed %s", hash.ToString().substr(0,10).c_str());
+            return error("CTxMemPool::accept() : ConnectInputs failed %s", hash.ToString().substr(0,10));
         }
     }
 
@@ -714,7 +713,7 @@ bool CTxMemPool::accept(CTxDB& txdb, CTransaction &tx, bool fCheckInputs,
         LOCK(cs);
         if (ptxOld)
         {
-            LogPrintf("CTxMemPool::accept() : replacing tx %s with new version\n", ptxOld->GetHash().ToString().c_str());
+            LogPrintf("CTxMemPool::accept() : replacing tx %s with new version\n", ptxOld->GetHash().ToString());
             remove(*ptxOld);
         }
         addUnchecked(hash, tx);
@@ -726,7 +725,7 @@ bool CTxMemPool::accept(CTxDB& txdb, CTransaction &tx, bool fCheckInputs,
         EraseFromWallets(ptxOld->GetHash());
 
     LogPrint("mempool", "CTxMemPool::accept() : accepted %s (poolsz %" PRIszu ")\n",
-           hash.ToString().substr(0,10).c_str(),
+           hash.ToString().substr(0,10),
            mapTx.size());
     return true;
 }
@@ -1024,7 +1023,7 @@ int64_t GetProofOfWorkReward(int64_t nFees)
     int64_t nSubsidy = 100000 * bean;
 
     if (fDebug && GetBoolArg("-printcreation"))
-        LogPrint("creation", "GetProofOfWorkReward() : create=%s nSubsidy=%" PRId64 "\n", FormatMoney(nSubsidy).c_str(), nSubsidy);
+        LogPrint("creation", "GetProofOfWorkReward() : create=%s nSubsidy=%" PRId64 "\n", FormatMoney(nSubsidy), nSubsidy);
 
     return nSubsidy + nFees;
 }
@@ -1036,7 +1035,7 @@ int64_t GetProofOfStakeReward(int64_t nBeanAge, int64_t nFees)
     int64_t nSubsidy = 1000 * bean;
 
     if (fDebug && GetBoolArg("-printcreation"))
-        LogPrint("creation", "GetProofOfStakeReward(): create=%s nBeanAge=%" PRId64 "\n", FormatMoney(nSubsidy).c_str(), nBeanAge);
+        LogPrint("creation", "GetProofOfStakeReward(): create=%s nBeanAge=%" PRId64 "\n", FormatMoney(nSubsidy), nBeanAge);
 
     return nSubsidy + nFees;
 }
@@ -1118,7 +1117,6 @@ unsigned int GetNextTargetRequired(const CBlockIndex* pindexLast, bool fProofOfS
 
     if (bnNew <= 0 || bnNew > bnTargetLimit)
         bnNew = bnTargetLimit;
-
     return bnNew.GetCompact();
 }
 
@@ -1156,6 +1154,7 @@ bool IsInitialBlockDownload()
         pindexLastBest = pindexBest;
         nLastUpdate = GetTime();
     }
+
     return (GetTime() - nLastUpdate < 15 &&
             pindexBest->GetBlockTime() < GetTime() - 8 * 60 * 60);
 }
@@ -1173,14 +1172,14 @@ void static InvalidChainFound(CBlockIndex* pindexNew)
     uint256 nBestBlockTrust = pindexBest->nHeight != 0 ? (pindexBest->nChainTrust - pindexBest->pprev->nChainTrust) : pindexBest->nChainTrust;
 
     LogPrintf("InvalidChainFound: invalid block=%s  height=%d  trust=%s  blocktrust=%" PRId64 "  date=%s\n",
-      pindexNew->GetBlockHash().ToString().substr(0,20).c_str(), pindexNew->nHeight,
-      CBigNum(pindexNew->nChainTrust).ToString().c_str(), nBestInvalidBlockTrust.Get64(),
-      DateTimeStrFormat("%x %H:%M:%S", pindexNew->GetBlockTime()).c_str());
+      pindexNew->GetBlockHash().ToString().substr(0,20), pindexNew->nHeight,
+      CBigNum(pindexNew->nChainTrust).ToString(), nBestInvalidBlockTrust.Get64(),
+      DateTimeStrFormat("%x %H:%M:%S", pindexNew->GetBlockTime()));
     LogPrintf("InvalidChainFound:  current best=%s  height=%d  trust=%s  blocktrust=%" PRId64 "  date=%s\n",
-      hashBestChain.ToString().substr(0,20).c_str(), nBestHeight,
-      CBigNum(pindexBest->nChainTrust).ToString().c_str(),
+      hashBestChain.ToString().substr(0,20), nBestHeight,
+      CBigNum(pindexBest->nChainTrust).ToString(),
       nBestBlockTrust.Get64(),
-      DateTimeStrFormat("%x %H:%M:%S", pindexBest->GetBlockTime()).c_str());
+      DateTimeStrFormat("%x %H:%M:%S", pindexBest->GetBlockTime()));
 }
 
 
@@ -1188,16 +1187,6 @@ void CBlock::UpdateTime(const CBlockIndex* pindexPrev)
 {
     nTime = max(GetBlockTime(), GetAdjustedTime());
 }
-
-
-
-
-
-
-
-
-
-
 
 bool CTransaction::DisconnectInputs(CTxDB& txdb)
 {
@@ -1267,7 +1256,7 @@ bool CTransaction::FetchInputs(CTxDB& txdb, const map<uint256, CTxIndex>& mapTes
             fFound = txdb.ReadTxIndex(prevout.hash, txindex);
         }
         if (!fFound && (fBlock || fMiner))
-            return fMiner ? false : error("FetchInputs() : %s prev tx %s index entry not found", GetHash().ToString().substr(0,10).c_str(),  prevout.hash.ToString().substr(0,10).c_str());
+            return fMiner ? false : error("FetchInputs() : %s prev tx %s index entry not found", GetHash().ToString().substr(0,10),  prevout.hash.ToString().substr(0,10));
 
         // Read txPrev
         CTransaction& txPrev = inputsRet[prevout.hash].second;
@@ -1275,7 +1264,7 @@ bool CTransaction::FetchInputs(CTxDB& txdb, const map<uint256, CTxIndex>& mapTes
         {
             // Get prev tx from single transactions in memory
             if (!mempool.lookup(prevout.hash, txPrev))
-                return error("FetchInputs() : %s mempool Tx prev not found %s", GetHash().ToString().substr(0,10).c_str(),prevout.hash.ToString().substr(0,10).c_str());
+                return error("FetchInputs() : %s mempool Tx prev not found %s", GetHash().ToString().substr(0,10),prevout.hash.ToString().substr(0,10));
             if (!fFound)
                 txindex.vSpent.resize(txPrev.vout.size());
         }
@@ -1283,7 +1272,7 @@ bool CTransaction::FetchInputs(CTxDB& txdb, const map<uint256, CTxIndex>& mapTes
         {
             // Get prev tx from disk
             if (!txPrev.ReadFromDisk(txindex.pos))
-                return error("FetchInputs() : %s ReadFromDisk prev tx %s failed", GetHash().ToString().substr(0,10).c_str(),  prevout.hash.ToString().substr(0,10).c_str());
+                return error("FetchInputs() : %s ReadFromDisk prev tx %s failed", GetHash().ToString().substr(0,10),  prevout.hash.ToString().substr(0,10));
         }
     }
 
@@ -1299,10 +1288,9 @@ bool CTransaction::FetchInputs(CTxDB& txdb, const map<uint256, CTxIndex>& mapTes
             // Revisit this if/when transaction replacement is implemented and allows
             // adding inputs:
             fInvalid = true;
-            return DoS(100, error("FetchInputs() : %s prevout.n out of range %d %" PRIszu " %" PRIszu " prev tx %s\n%s", GetHash().ToString().substr(0,10).c_str(), prevout.n, txPrev.vout.size(), txindex.vSpent.size(), prevout.hash.ToString().substr(0,10).c_str(), txPrev.ToString().c_str()));
+            return DoS(100, error("FetchInputs() : %s prevout.n out of range %d %" PRIszu " %" PRIszu " prev tx %s\n%s", GetHash().ToString().substr(0,10).c_str(), prevout.n, txPrev.vout.size(), txindex.vSpent.size(), prevout.hash.ToString().substr(0,10), txPrev.ToString()));
         }
     }
-
     return true;
 }
 
@@ -1367,7 +1355,7 @@ bool CTransaction::ConnectInputs(CTxDB& txdb, MapPrevTx inputs, map<uint256, CTx
             CTransaction& txPrev = inputs[prevout.hash].second;
 
             if (prevout.n >= txPrev.vout.size() || prevout.n >= txindex.vSpent.size())
-                return DoS(100, error("ConnectInputs() : %s prevout.n out of range %d %" PRIszu " %" PRIszu " prev tx %s\n%s", GetHash().ToString().substr(0,10).c_str(), prevout.n, txPrev.vout.size(), txindex.vSpent.size(), prevout.hash.ToString().substr(0,10).c_str(), txPrev.ToString().c_str()));
+                return DoS(100, error("ConnectInputs() : %s prevout.n out of range %d %" PRIszu " %" PRIszu " prev tx %s\n%s", GetHash().ToString().substr(0,10).c_str(), prevout.n, txPrev.vout.size(), txindex.vSpent.size(), prevout.hash.ToString().substr(0,10), txPrev.ToString()));
 
             // If prev is beanbase or beansprout, check that it's matured
             if (txPrev.IsBeanBase() || txPrev.IsBeanStake())
@@ -1383,7 +1371,6 @@ bool CTransaction::ConnectInputs(CTxDB& txdb, MapPrevTx inputs, map<uint256, CTx
             nValueIn += txPrev.vout[prevout.n].nValue;
             if (!MoneyRange(txPrev.vout[prevout.n].nValue) || !MoneyRange(nValueIn))
                 return DoS(100, error("ConnectInputs() : txin values out of range"));
-
         }
         // The first loop above does all the inexpensive checks.
         // Only if ALL inputs pass do we perform expensive ECDSA signature checks.
@@ -1399,7 +1386,7 @@ bool CTransaction::ConnectInputs(CTxDB& txdb, MapPrevTx inputs, map<uint256, CTx
             // This doesn't trigger the DoS code on purpose; if it did, it would make it easier
             // for an attacker to attempt to split the network.
             if (!txindex.vSpent[prevout.n].IsNull())
-                return fMiner ? false : error("ConnectInputs() : %s prev tx already used at %s", GetHash().ToString().substr(0,10).c_str(), txindex.vSpent[prevout.n].ToString().c_str());
+                return fMiner ? false : error("ConnectInputs() : %s prev tx already used at %s", GetHash().ToString().substr(0,10), txindex.vSpent[prevout.n].ToString());
 
             // Skip ECDSA signature verification when connecting blocks (fBlock=true)
             // before the last blockchain checkpoint. This is safe because block merkle hashes are
@@ -1409,7 +1396,7 @@ bool CTransaction::ConnectInputs(CTxDB& txdb, MapPrevTx inputs, map<uint256, CTx
                 // Verify signature
                 if (!VerifySignature(txPrev, *this, i, 0))
                 {
-                    return DoS(100,error("ConnectInputs() : %s VerifySignature failed", GetHash().ToString().substr(0,10).c_str()));
+                    return DoS(100,error("ConnectInputs() : %s VerifySignature failed", GetHash().ToString().substr(0,10)));
                 }
             }
 
@@ -1426,16 +1413,16 @@ bool CTransaction::ConnectInputs(CTxDB& txdb, MapPrevTx inputs, map<uint256, CTx
         if (!IsBeanStake())
         {
             if (nValueIn < GetValueOut())
-                return DoS(100, error("ConnectInputs() : %s value in < value out", GetHash().ToString().substr(0,10).c_str()));
+                return DoS(100, error("ConnectInputs() : %s value in < value out", GetHash().ToString().substr(0,10)));
 
             // Tally transaction fees
             int64_t nTxFee = nValueIn - GetValueOut();
             if (nTxFee < 0)
-                return DoS(100, error("ConnectInputs() : %s nTxFee < 0", GetHash().ToString().substr(0,10).c_str()));
+                return DoS(100, error("ConnectInputs() : %s nTxFee < 0", GetHash().ToString().substr(0,10)));
 
             // enforce transaction fees for every block
             if (nTxFee < GetMinFee())
-                return fBlock? DoS(100, error("ConnectInputs() : %s not paying required fee=%s, paid=%s", GetHash().ToString().substr(0,10).c_str(), FormatMoney(GetMinFee()).c_str(), FormatMoney(nTxFee).c_str())) : false;
+                return fBlock? DoS(100, error("ConnectInputs() : %s not paying required fee=%s, paid=%s", GetHash().ToString().substr(0,10), FormatMoney(GetMinFee()), FormatMoney(nTxFee))) : false;
 
             nFees += nTxFee;
             if (!MoneyRange(nFees))
@@ -1617,7 +1604,7 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
         // ppbean: bean stake tx earns reward instead of paying fee
         uint64_t nBeanAge;
         if (!vtx[1].GetBeanAge(txdb, nBeanAge))
-            return error("ConnectBlock() : %s unable to get bean age for beansprout", vtx[1].GetHash().ToString().substr(0,10).c_str());
+            return error("ConnectBlock() : %s unable to get bean age for beansprout", vtx[1].GetHash().ToString().substr(0,10));
 
         int64_t nCalculatedStakeReward = GetProofOfStakeReward(nBeanAge, nFees);
 
@@ -1687,8 +1674,8 @@ bool static Reorganize(CTxDB& txdb, CBlockIndex* pindexNew)
         vConnect.push_back(pindex);
     reverse(vConnect.begin(), vConnect.end());
 
-    LogPrintf("REORGANIZE: Disconnect %" PRIszu " blocks; %s..%s\n", vDisconnect.size(), pfork->GetBlockHash().ToString().substr(0,20).c_str(), pindexBest->GetBlockHash().ToString().substr(0,20).c_str());
-    LogPrintf("REORGANIZE: Connect %" PRIszu " blocks; %s..%s\n", vConnect.size(), pfork->GetBlockHash().ToString().substr(0,20).c_str(), pindexNew->GetBlockHash().ToString().substr(0,20).c_str());
+    LogPrintf("REORGANIZE: Disconnect %" PRIszu " blocks; %s..%s\n", vDisconnect.size(), pfork->GetBlockHash().ToString().substr(0,20), pindexBest->GetBlockHash().ToString().substr(0,20));
+    LogPrintf("REORGANIZE: Connect %" PRIszu " blocks; %s..%s\n", vConnect.size(), pfork->GetBlockHash().ToString().substr(0,20), pindexNew->GetBlockHash().ToString().substr(0,20));
 
     // Disconnect shorter branch
     vector<CTransaction> vResurrect;
@@ -1698,7 +1685,7 @@ bool static Reorganize(CTxDB& txdb, CBlockIndex* pindexNew)
         if (!block.ReadFromDisk(pindex))
             return error("Reorganize() : ReadFromDisk for disconnect failed");
         if (!block.DisconnectBlock(txdb, pindex))
-            return error("Reorganize() : DisconnectBlock %s failed", pindex->GetBlockHash().ToString().substr(0,20).c_str());
+            return error("Reorganize() : DisconnectBlock %s failed", pindex->GetBlockHash().ToString().substr(0,20));
 
         // Queue memory transactions to resurrect
         for (const CTransaction& tx : block.vtx)
@@ -1717,7 +1704,7 @@ bool static Reorganize(CTxDB& txdb, CBlockIndex* pindexNew)
         if (!block.ConnectBlock(txdb, pindex))
         {
             // Invalid block
-            return error("Reorganize() : ConnectBlock %s failed", pindex->GetBlockHash().ToString().substr(0,20).c_str());
+            return error("Reorganize() : ConnectBlock %s failed", pindex->GetBlockHash().ToString().substr(0,20));
         }
 
         // Queue memory transactions to delete
@@ -1837,7 +1824,8 @@ bool CBlock::SetBestChain(CTxDB& txdb, CBlockIndex* pindexNew)
                 LogPrintf("SetBestChain() : ReadFromDisk failed\n");
                 break;
             }
-            if (!txdb.TxnBegin()) {
+            if (!txdb.TxnBegin())
+            {
                 LogPrintf("SetBestChain() : TxnBegin 2 failed\n");
                 break;
             }
@@ -1867,10 +1855,10 @@ bool CBlock::SetBestChain(CTxDB& txdb, CBlockIndex* pindexNew)
     uint256 nBestBlockTrust = pindexBest->nHeight != 0 ? (pindexBest->nChainTrust - pindexBest->pprev->nChainTrust) : pindexBest->nChainTrust;
 
     LogPrintf("SetBestChain: new best=%s  height=%d  trust=%s  blocktrust=%" PRId64 "  date=%s\n",
-      hashBestChain.ToString().substr(0,20).c_str(), nBestHeight,
-      CBigNum(nBestChainTrust).ToString().c_str(),
+      hashBestChain.ToString().substr(0,20), nBestHeight,
+      CBigNum(nBestChainTrust).ToString(),
       nBestBlockTrust.Get64(),
-      DateTimeStrFormat("%x %H:%M:%S", pindexBest->GetBlockTime()).c_str());
+      DateTimeStrFormat("%x %H:%M:%S", pindexBest->GetBlockTime());
 
     // Check the version of the last 100 blocks to see if we need to upgrade:
     if (!fIsInitialDownload)
@@ -1900,6 +1888,7 @@ bool CBlock::SetBestChain(CTxDB& txdb, CBlockIndex* pindexNew)
 
     return true;
 }
+
 
 // Total bean age spent in transaction, in the unit of bean-days.
 // Only those beans meeting minimum age requirement counts. As those
@@ -1937,12 +1926,14 @@ bool CTransaction::GetBeanAge(CTxDB& txdb, uint64_t& nBeanAge) const
         bnCentSecond += CBigNum(nValueIn) * (nTime-txPrev.nTime) / CENT;
 
         if (fDebug && GetBoolArg("-printbeanage"))
-            LogPrintf("bean age nValueIn=%" PRId64 " nTimeDiff=%d bnCentSecond=%s\n", nValueIn, nTime - txPrev.nTime, bnCentSecond.ToString().c_str());
+            LogPrintf("bean age nValueIn=%" PRId64 " nTimeDiff=%d bnCentSecond=%s\n", nValueIn, nTime - txPrev.nTime, bnCentSecond.ToString());
     }
 
     CBigNum bnBeanDay = bnCentSecond * CENT / bean / (24 * 60 * 60);
     if (fDebug && GetBoolArg("-printbeanage"))
-        LogPrintf("bean age bnBeanDay=%s\n", bnBeanDay.ToString().c_str());
+    {
+        LogPrint("beanage", "bean age bnBeanDay=%s\n", bnBeanDay.ToString());
+    }
     nBeanAge = bnBeanDay.getuint64();
     return true;
 }
@@ -1957,7 +1948,9 @@ bool CBlock::GetBeanAge(uint64_t& nBeanAge) const
     {
         uint64_t nTxBeanAge;
         if (tx.GetBeanAge(txdb, nTxBeanAge))
+        {
             nBeanAge += nTxBeanAge;
+        }
         else
             return false;
     }
@@ -1965,7 +1958,9 @@ bool CBlock::GetBeanAge(uint64_t& nBeanAge) const
     if (nBeanAge == 0) // block bean age minimum 1 bean-day
         nBeanAge = 1;
     if (fDebug && GetBoolArg("-printbeanage"))
+    {
         LogPrint("beanage", "block bean age total nBeanDays=%" PRId64 "\n", nBeanAge);
+    }
     return true;
 }
 
@@ -1974,7 +1969,7 @@ bool CBlock::AddToBlockIndex(unsigned int nFile, unsigned int nBlockPos, const u
     // Check for duplicate
     uint256 hash = GetHash();
     if (mapBlockIndex.count(hash))
-        return error("AddToBlockIndex() : %s already exists", hash.ToString().substr(0,20).c_str());
+        return error("AddToBlockIndex() : %s already exists", hash.ToString().substr(0,20));
 
     // Construct new block index object
     CBlockIndex* pindexNew = new(nothrow) CBlockIndex(nFile, nBlockPos, *this);
@@ -2038,9 +2033,6 @@ bool CBlock::AddToBlockIndex(unsigned int nFile, unsigned int nBlockPos, const u
     uiInterface.NotifyBlocksChanged();
     return true;
 }
-
-
-
 
 bool CBlock::CheckBlock(bool fCheckPOW, bool fCheckMerkleRoot, bool fCheckSig) const
 {
@@ -2173,7 +2165,7 @@ bool CBlock::AcceptBlock()
         uint256 targetProofOfStake;
         if (!CheckProofOfStake(vtx[1], nBits, hashProof, targetProofOfStake))
         {
-            LogPrintf("WARNING: AcceptBlock(): check proof-of-bean failed for block %s\n", hash.ToString().c_str());
+            LogPrintf("WARNING: AcceptBlock(): check proof-of-bean failed for block %s\n", hash.ToString());
             return false; // do not error here as we expect this during initial block download
         }
     }
@@ -2263,15 +2255,15 @@ bool ProcessBlock(CNode* pfrom, CBlock* pblock)
     // Check for duplicate
     uint256 hash = pblock->GetHash();
     if (mapBlockIndex.count(hash))
-        return error("ProcessBlock() : already have block %d %s", mapBlockIndex[hash]->nHeight, hash.ToString().substr(0,20).c_str());
+        return error("ProcessBlock() : already have block %d %s", mapBlockIndex[hash]->nHeight, hash.ToString().substr(0,20));
     if (mapOrphanBlocks.count(hash))
-        return error("ProcessBlock() : already have block (orphan) %s", hash.ToString().substr(0,20).c_str());
+        return error("ProcessBlock() : already have block (orphan) %s", hash.ToString().substr(0,20));
 
     // Check proof-of-bean
     // Limited duplicity: prevents block flood attack
     // Duplicate Sprouts allowed only when there is orphan child block
     if (pblock->IsProofOfStake() && setStakeSeen.count(pblock->GetProofOfStake()) && !mapOrphanBlocksByPrev.count(hash) && !Checkpoints::WantedByPendingSyncCheckpoint(hash))
-        return error("ProcessBlock() : duplicate proof-of-bean (%s, %d) for block %s", pblock->GetProofOfStake().first.ToString().c_str(), pblock->GetProofOfStake().second, hash.ToString().c_str());
+        return error("ProcessBlock() : duplicate proof-of-bean (%s, %d) for block %s", pblock->GetProofOfStake().first.ToString(), pblock->GetProofOfStake().second, hash.ToString());
 
     // Preliminary checks
     if (!pblock->CheckBlock())
@@ -2306,14 +2298,14 @@ bool ProcessBlock(CNode* pfrom, CBlock* pblock)
     // If don't already have its previous block, shunt it off to holding area until we get it
     if (!mapBlockIndex.count(pblock->hashPrevBlock))
     {
-        LogPrintf("ProcessBlock: ORPHAN BLOCK, prev=%s\n", pblock->hashPrevBlock.ToString().substr(0,20).c_str());
+        LogPrintf("ProcessBlock: ORPHAN BLOCK, prev=%s\n", pblock->hashPrevBlock.ToString().substr(0,20));
         // Check Proof of Bean (PoB)
         if (pblock->IsProofOfStake())
         {
             // Limited duplicity on Sprout: prevents block flood attack
             // Duplicate Sprout allowed only when there is orphan child block
             if (setStakeSeenOrphan.count(pblock->GetProofOfStake()) && !mapOrphanBlocksByPrev.count(hash) && !Checkpoints::WantedByPendingSyncCheckpoint(hash))
-                return error("ProcessBlock() : duplicate Proof-of-Bean (%s, %d) for orphan block %s", pblock->GetProofOfStake().first.ToString().c_str(), pblock->GetProofOfStake().second, hash.ToString().c_str());
+                return error("ProcessBlock() : duplicate Proof-of-Bean (%s, %d) for orphan block %s", pblock->GetProofOfStake().first.ToString(), pblock->GetProofOfStake().second, hash.ToString());
             else
                 setStakeSeenOrphan.insert(pblock->GetProofOfStake());
         }
@@ -2445,7 +2437,7 @@ bool CheckDiskSpace(uint64_t nAdditionalBytes)
     {
         string strMessage = _("Error: Storage space is low! Shutting down...");
         strMiscWarning = strMessage;
-        LogPrintf("*** %s\n", strMessage.c_str());
+        LogPrintf("*** %s\n", strMessage);
         uiInterface.ThreadSafeMessageBox(strMessage, "", CClientUIInterface::MSG_ERROR);
         StartShutdown();
         return false;
@@ -2463,7 +2455,7 @@ FILE* OpenBlockFile(unsigned int nFile, unsigned int nBlockPos, const char* pszM
 {
     if ((nFile < 1) || (nFile == std::numeric_limits<uint32_t>::max()))
         return NULL;
-    FILE* file = fopen(BlockFilePath(nFile).string().c_str(), pszMode);
+    FILE* file = fopen(BlockFilePath(nFile).string(), pszMode);
     if (!file)
         return NULL;
     if (nBlockPos != 0 && !strchr(pszMode, 'a') && !strchr(pszMode, 'w'))
@@ -2544,6 +2536,12 @@ bool LoadBlockIndex(bool fAllowNew)
 
         // Genesis block
 
+    // Load block file info
+    pblocktree->ReadLastBlockFile(nLastBlockFile);
+    LogPrintf("LoadBlockIndexDB(): last block file = %i\n", nLastBlockFile);
+    if (pblocktree->ReadBlockFileInfo(nLastBlockFile, infoLastBlockFile))
+        LogPrintf("LoadBlockIndexDB(): last block file info: %s\n", infoLastBlockFile.ToString());
+
         // OldMainNet:
 
         //CBlock(hash=000001faef25dec4fbcf906e6242621df2c183bf232f263d0ba5b101911e4563, ver=1, hashPrevBlock=0000000000000000000000000000000000000000000000000000000000000000, hashMerkleRoot=12630d16a97f24b287c8c2594dda5fb98c9e6c70fc61d44191931ea2aa08dc90, nTime=1393221600, nBits=1e0fffff, nNonce=164482, vtx=1, vchBlockSig=)
@@ -2553,7 +2551,6 @@ bool LoadBlockIndex(bool fAllowNew)
         //  vMerkleTree: 12630d16a9
 
         // OldTestNet:
-
         //CBlock(hash=0000724595fb3b9609d441cbfb9577615c292abf07d996d3edabc48de843642d, ver=1, hashPrevBlock=0000000000000000000000000000000000000000000000000000000000000000, hashMerkleRoot=12630d16a97f24b287c8c2594dda5fb98c9e6c70fc61d44191931ea2aa08dc90, nTime=1393221600, nBits=1f00ffff, nNonce=216178, vtx=1, vchBlockSig=)
         //  Beanbase(hash=12630d16a9, nTime=1393221600, ver=1, vin.size=1, vout.size=1, nLockTime=0)
         //    CTxIn(COutPoint(0000000000, 4294967295), beanbase 00012a24323020466562203230313420426974636f696e2041544d7320636f6d6520746f20555341)
@@ -2567,7 +2564,6 @@ bool LoadBlockIndex(bool fAllowNew)
         //block.nVersion = 1 
         //block.hashMerkleRoot = da3215e78c191c4e5dd00e8ac2b57f71b20cdcad0c37562d39912df09a2f4d34 
         //block.GetHash = 000009d2f828234d65299216e258242a4ea75d1b8d8a71d076377145068f08de
-
 
         // NewTestNet:
 
@@ -2681,10 +2677,10 @@ void PrintBlockTree()
             pindex->nHeight,
             pindex->nFile,
             pindex->nBlockPos,
-            block.GetHash().ToString().c_str(),
+            block.GetHash().ToString(),
             block.nBits,
-            DateTimeStrFormat("%x %H:%M:%S", block.GetBlockTime()).c_str(),
-            FormatMoney(pindex->nMint).c_str(),
+            DateTimeStrFormat("%x %H:%M:%S", block.GetBlockTime()),
+            FormatMoney(pindex->nMint),
             block.vtx.size());
 
         PrintWallets(block);
@@ -2723,7 +2719,6 @@ string GetWarnings(string strFor)
     string strStatusBar;
     string strRPC;
     string strAlert;
-
     if (GetBoolArg("-testsafemode"))
         strRPC = "test";
 
@@ -2813,7 +2808,8 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
     static map<CService, CPubKey> mapReuseKey;
     RandAddSeedPerfmon();
     if (fDebug)
-        LogPrint("net", "received: %s (%" PRIszu " bytes)\n", strCommand.c_str(), vRecv.size());
+        LogPrint("net", "received: %s (%" PRIszu " bytes)\n", strCommand, vRecv.size());
+
     if (mapArgs.count("-dropmessagestest") && GetRand(atoi(mapArgs["-dropmessagestest"])) == 0)
     {
         LogPrintf("dropmessagestest DROPPING RECV MESSAGE\n");
@@ -2837,7 +2833,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         if (pfrom->nVersion < MIN_PEER_PROTO_VERSION)
         {
             // disconnect from peers older than this proto version
-            LogPrintf("peer %s using obsolete version %i; disconnecting\n", pfrom->addr.ToString().c_str(), pfrom->nVersion);
+            LogPrintf("peer %s using obsolete version %i; disconnecting\n", pfrom->addr.ToString(), pfrom->nVersion);
             pfrom->fDisconnect = true;
             return false;
         }
@@ -2854,7 +2850,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         // Disconnect if we connected to ourself
         if (nNonce == nLocalHostNonce && nNonce > 1)
         {
-            LogPrintf("connected to self at %s, disconnecting\n", pfrom->addr.ToString().c_str());
+            LogPrintf("connected to self at %s, disconnecting\n", pfrom->addr.ToString());
             pfrom->fDisconnect = true;
             return true;
         }
@@ -2943,7 +2939,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
 
         pfrom->fSuccessfullyConnected = true;
 
-        LogPrintf("receive version message: version %d, blocks=%d, us=%s, them=%s, peer=%s\n", pfrom->nVersion, pfrom->nStartingHeight, addrMe.ToString().c_str(), addrFrom.ToString().c_str(), pfrom->addr.ToString().c_str());
+        LogPrintf("receive version message: %s: version %d, blocks=%d, us=%s, them=%s, peer=%s\n", pfrom->cleanSubVer, pfrom->nVersion, pfrom->nStartingHeight, addrMe.ToString(), addrFrom.ToString(), pfrom->addr.ToString());
 
         cPeerBlockCounts.input(pfrom->nStartingHeight);
 
@@ -3060,7 +3056,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
 
             bool fAlreadyHave = AlreadyHave(txdb, inv);
             if (fDebug)
-                LogPrint("net", "  got inventory: %s  %s\n", inv.ToString().c_str(), fAlreadyHave ? "have" : "new");
+                LogPrint("net", "  got inventory: %s  %s\n", inv.ToString(), fAlreadyHave ? "have" : "new");
 
             if (!fAlreadyHave) {
                 if (!fImporting)
@@ -3073,7 +3069,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
                 // this situation and push another getblocks to continue.
                 PushGetBlocks(pfrom, mapBlockIndex[inv.hash], uint256(0));
                 if (fDebug)
-                    LogPrintf("force request: %s\n", inv.ToString().c_str());
+                    LogPrintf("force request: %s\n", inv.ToString());
             }
 
             // Track requests for our stuff
@@ -3099,7 +3095,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         {
             boost::this_thread::interruption_point();
             if (fDebugNet || (vInv.size() == 1))
-                LogPrint("net", "received getdata for: %s\n", inv.ToString().c_str());
+                LogPrint("net", "received getdata for: %s\n", inv.ToString());
 
             if (inv.type == MSG_BLOCK)
             {
@@ -3166,12 +3162,13 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         if (pindex)
             pindex = pindex->pnext;
         int nLimit = 500;
-        LogPrint("net", "getblocks %d to %s limit %d\n", (pindex ? pindex->nHeight : -1), hashStop.ToString().substr(0,20).c_str(), nLimit);
+
+        LogPrint("net", "getblocks %d to %s limit %d\n", (pindex ? pindex->nHeight : -1), hashStop.ToString().substr(0,20), nLimit);
         for (; pindex; pindex = pindex->pnext)
         {
             if (pindex->GetBlockHash() == hashStop)
             {
-                LogPrint("net", "  getblocks stopping at %d %s\n", pindex->nHeight, pindex->GetBlockHash().ToString().substr(0,20).c_str());
+                LogPrint("net", "  getblocks stopping at %d %s\n", pindex->nHeight, pindex->GetBlockHash().ToString().substr(0,20));
                 // Tell downloading node about the latest block if it's
                 // without risk being rejected due to stake connection check
                 if (hashStop != hashBestChain && pindex->GetBlockTime() + nStakeMinAge > pindexBest->GetBlockTime())
@@ -3183,7 +3180,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
             {
                 // When this block is requested, we'll send an inv that'll make them
                 // getblocks the next batch of inventory.
-                LogPrint("net", "  getblocks stopping at limit %d %s\n", pindex->nHeight, pindex->GetBlockHash().ToString().substr(0,20).c_str());
+                LogPrint("net", "  getblocks stopping at limit %d %s\n", pindex->nHeight, pindex->GetBlockHash().ToString().substr(0,20));
                 pfrom->hashContinue = pindex->GetBlockHash();
                 break;
             }
@@ -3229,7 +3226,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
 
         vector<CBlock> vHeaders;
         int nLimit = 2000;
-        LogPrint("net", "getheaders %d to %s\n", (pindex ? pindex->nHeight : -1), hashStop.ToString().substr(0,20).c_str());
+        LogPrint("net", "getheaders %d to %s\n", (pindex ? pindex->nHeight : -1), hashStop.ToString().substr(0,20));
         for (; pindex; pindex = pindex->pnext)
         {
             vHeaders.push_back(pindex->GetBlockHeader());
@@ -3281,7 +3278,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
 
                     if (orphanTx.AcceptToMemoryPool(txdb, true, &fMissingInputs2))
                     {
-                        LogPrint("mempool", "   accepted orphan tx %s\n", orphanTxHash.ToString().substr(0,10).c_str());
+                        LogPrint("mempool", "   accepted orphan tx %s\n", orphanTxHash.ToString().substr(0,10));
                         SyncWithWallets(tx, NULL, true);
                         RelayTransaction(orphanTx, orphanTxHash);
                         mapAlreadyAskedFor.erase(CInv(MSG_TX, orphanTxHash));
@@ -3292,7 +3289,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
                     {
                         // invalid orphan
                         vEraseQueue.push_back(orphanTxHash);
-                        LogPrint("mempool", "   removed invalid orphan tx %s\n", orphanTxHash.ToString().substr(0,10).c_str());
+                        LogPrint("mempool", "   removed invalid orphan tx %s\n", orphanTxHash.ToString().substr(0,10));
                     }
                 }
             }
@@ -3319,7 +3316,8 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         vRecv >> block;
         uint256 hashBlock = block.GetHash();
 
-        LogPrint("net", "received block %s\n", hashBlock.ToString().substr(0,20).c_str());
+        LogPrint("net", "received block %s\n", hashBlock.ToString().substr(0,20));
+
         // block.print();
 
         CInv inv(MSG_BLOCK, hashBlock);
@@ -3471,9 +3469,9 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
 
            if (!(sProblem.empty())) {
                LogPrint("net", "pong %s %s: %s, %" PRIx64 " expected, %" PRIx64 " received, %zu bytes\n"
-                   , pfrom->addr.ToString().c_str()
-                   , pfrom->strSubVer.c_str()
-                   , sProblem.c_str()
+                   , pfrom->addr.ToString()
+                   , pfrom->strSubVer
+                   , sProblem
                    , pfrom->nPingNonceSent
                    , nonce
                    , nAvail);
@@ -3512,7 +3510,6 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
             }
         }
     }
-
 
     else
     {
@@ -3577,7 +3574,7 @@ bool ProcessMessages(CNode* pfrom)
         CMessageHeader& hdr = msg.hdr;
         if (!hdr.IsValid())
         {
-            LogPrintf("\n\nPROCESSMESSAGE: ERRORS IN HEADER %s\n\n\n", hdr.GetCommand().c_str());
+            LogPrintf("\n\nPROCESSMESSAGE: ERRORS IN HEADER %s\n\n\n", hdr.GetCommand());
             continue;
         }
         string strCommand = hdr.GetCommand();
@@ -3593,7 +3590,7 @@ bool ProcessMessages(CNode* pfrom)
         if (nChecksum != hdr.nChecksum)
         {
             LogPrintf("ProcessMessages(%s, %u bytes) : CHECKSUM ERROR nChecksum=%08x hdr.nChecksum=%08x\n",
-               strCommand.c_str(), nMessageSize, nChecksum, hdr.nChecksum);
+               strCommand, nMessageSize, nChecksum, hdr.nChecksum);
             continue;
         }
 
@@ -3612,12 +3609,12 @@ bool ProcessMessages(CNode* pfrom)
             if (strstr(e.what(), "end of data"))
             {
                 // Allow exceptions from under-length message on vRecv
-                LogPrintf("ProcessMessages(%s, %u bytes) : Exception '%s' caught, normally caused by a message being shorter than its stated length\n", strCommand.c_str(), nMessageSize, e.what());
+                LogPrintf("ProcessMessages(%s, %u bytes) : Exception '%s' caught, normally caused by a message being shorter than its stated length\n", strCommand, nMessageSize, e.what());
             }
             else if (strstr(e.what(), "size too large"))
             {
                 // Allow exceptions from over-long size
-                LogPrintf("ProcessMessages(%s, %u bytes) : Exception '%s' caught\n", strCommand.c_str(), nMessageSize, e.what());
+                LogPrintf("ProcessMessages(%s, %u bytes) : Exception '%s' caught\n", strCommand, nMessageSize, e.what());
             }
             else
             {
@@ -3634,7 +3631,7 @@ bool ProcessMessages(CNode* pfrom)
         }
 
         if (!fRet)
-            LogPrintf("ProcessMessage(%s, %u bytes) FAILED\n", strCommand.c_str(), nMessageSize);
+            LogPrintf("ProcessMessage(%s, %u bytes) FAILED\n", strCommand, nMessageSize);
     }
 
     // In case the connection got shut down, its receive buffer was wiped
@@ -3731,7 +3728,6 @@ bool SendMessages(CNode* pto, bool fSendTrickle)
                 pto->PushMessage("addr", vAddr);
         }
 
-
         //
         // Message: inventory
         //
@@ -3802,7 +3798,7 @@ bool SendMessages(CNode* pto, bool fSendTrickle)
             if (!AlreadyHave(txdb, inv))
             {
                 if (fDebugNet)
-                    LogPrint("net", "sending getdata: %s\n", inv.ToString().c_str());
+                    LogPrint("net", "sending getdata: %s\n", inv.ToString());
                 vGetData.push_back(inv);
                 if (vGetData.size() >= 1000)
                 {

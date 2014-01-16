@@ -27,7 +27,6 @@ static int noui_ThreadSafeMessageBox(const std::string &message, const std::stri
         strCaption += caption; // Use supplied caption (can be empty)
     }
 
-
     LogPrintf("%s: %s\n", caption, message);
     fprintf(stderr, "%s: %s\n", strCaption.c_str(), message.c_str());
     return 4;

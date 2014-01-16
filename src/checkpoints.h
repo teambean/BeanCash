@@ -94,7 +94,7 @@ public:
 
     void print() const
     {
-        LogPrintf("%s", ToString().c_str());
+        LogPrintf("%s", ToString());
     }
 };
 

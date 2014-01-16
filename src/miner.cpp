@@ -73,9 +73,9 @@ public:
     void print() const
     {
         LogPrintf("COrphan(hash=%s, dPriority=%.1f, dFeePerKb=%.1f)\n",
-               ptx->GetHash().ToString().substr(0,10).c_str(), dPriority, dFeePerKb);
+               ptx->GetHash().ToString().substr(0,10), dPriority, dFeePerKb);
         for (uint256 hash : setDependsOn)
-            LogPrintf("   setDependsOn %s\n", hash.ToString().substr(0,10).c_str());
+            LogPrintf("   setDependsOn %s\n", hash.ToString().substr(0,10));
     }
 };
 
@@ -333,7 +333,7 @@ CBlock* CreateNewBlock(CWallet* pwallet, bool fProofOfStake, int64_t* pFees)
             if (fDebug && GetBoolArg("-printpriority"))
             {
                 LogPrintf("priority %.1f feeperkb %.1f txid %s\n",
-                       dPriority, dFeePerKb, tx.GetHash().ToString().c_str());
+                       dPriority, dFeePerKb, tx.GetHash().ToString());
             }
 
             // Add transactions that depend on this one to the priority queue
@@ -450,15 +450,16 @@ bool CheckWork(CBlock* pblock, CWallet& wallet, CReserveKey& reservekey)
     uint256 hashTarget = CBigNum().SetCompact(pblock->nBits).getuint256();
 
     if(!pblock->IsProofOfWork())
-        return error("CheckWork() : %s is not a proof-of-work block", hashBlock.GetHex().c_str());
+        return error("CheckWork() : %s is not a proof-of-work block", hashBlock.GetHex());
 
     if (hashBlock > hashTarget)
         return error("CheckWork() : proof-of-work not meeting target");
 
     //// debug print
-    LogPrintf("CheckWork() : new proof-of-work block found  \n  hash: %s  \ntarget: %s\n", hashBlock.GetHex().c_str(), hashTarget.GetHex().c_str());
+
+    LogPrintf("CheckWork() : new proof-of-work block found  \n  hash: %s  \ntarget: %s\n", hashBlock.GetHex(), hashTarget.GetHex());
     pblock->print();
-    LogPrintf("generated %s\n", FormatMoney(pblock->vtx[0].vout[0].nValue).c_str());
+    LogPrintf("generated %s\n", FormatMoney(pblock->vtx[0].vout[0].nValue));
 
     // Found a solution
     {
@@ -489,16 +490,16 @@ bool CheckStake(CBlock* pblock, CWallet& wallet)
     uint256 hashBlock = pblock->GetHash();
 
     if(!pblock->IsProofOfStake())
-        return error("CheckStake() : %s is not a proof-of-stake block", hashBlock.GetHex().c_str());
+        return error("CheckStake() : %s is not a proof-of-stake block", hashBlock.GetHex());
 
     // verify hash target and signature of beansprout tx
     if (!CheckProofOfStake(pblock->vtx[1], pblock->nBits, proofHash, hashTarget))
         return error("CheckStake() : proof-of-stake checking failed");
 
     //// debug print
-    LogPrintf("CheckStake() : new proof-of-stake block found  \n  hash: %s \nproofhash: %s  \ntarget: %s\n", hashBlock.GetHex().c_str(), proofHash.GetHex().c_str(), hashTarget.GetHex().c_str());
+    LogPrintf("CheckStake() : new proof-of-stake block found  \n  hash: %s \nproofhash: %s  \ntarget: %s\n", hashBlock.GetHex(), proofHash.GetHex(), hashTarget.GetHex());
     pblock->print();
-    LogPrintf("out %s\n", FormatMoney(pblock->vtx[1].GetValueOut()).c_str());
+    LogPrintf("out %s\n", FormatMoney(pblock->vtx[1].GetValueOut()));
 
     // Found a solution
     {

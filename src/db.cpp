@@ -372,7 +372,7 @@ bool CDB::Rewrite(const string& strFile, const char* pszSkip)
                 bitdb.mapFileUseCount.erase(strFile);
 
                 bool fSuccess = true;
-                LogPrintf("Rewriting %s...\n", strFile.c_str());
+                LogPrintf("Rewriting %s...\n", strFile);
                 string strFileRes = strFile + ".rewrite";
                 { // surround usage of db with extra {}
                     CDB db(strFile.c_str(), "r");
@@ -386,7 +386,7 @@ bool CDB::Rewrite(const string& strFile, const char* pszSkip)
                                             0);
                     if (ret > 0)
                     {
-                        LogPrintf("Cannot create database file %s\n", strFileRes.c_str());
+                        LogPrintf("Cannot create database file %s\n", strFileRes);
                         fSuccess = false;
                     }
 
@@ -442,7 +442,7 @@ bool CDB::Rewrite(const string& strFile, const char* pszSkip)
                         fSuccess = false;
                 }
                 if (!fSuccess)
-                    LogPrintf("Rewriting of %s FAILED!\n", strFileRes.c_str());
+                    LogPrintf("Rewriting of %s FAILED!\n", strFileRes);
                 return fSuccess;
             }
         }
@@ -467,20 +467,21 @@ void CDBEnv::Flush(bool fShutdown)
         {
             string strFile = (*mi).first;
             int nRefCount = (*mi).second;
-            LogPrint("db", "%s refcount=%d\n", strFile.c_str(), nRefCount);
+            LogPrint("db", "%s refcount=%d\n", strFile, nRefCount);
             if (nRefCount == 0)
             {
                 // Move log data to the dat file
                 CloseDb(strFile);
-                LogPrint("db", "%s checkpoint\n", strFile.c_str());
+                LogPrint("db", "%s checkpoint\n", strFile);
                 dbenv.txn_checkpoint(0, 0, 0);
                 if (!IsChainFile(strFile) || fDetachDB)
                 {
-                    LogPrint("db", "%s detach\n", strFile.c_str());
+                    LogPrint("db", "%s detach\n", strFile);
                 }
+
                 if (!fMockDb)
                     dbenv.lsn_reset(strFile.c_str(), 0);
-                LogPrint("db", "%s closed\n", strFile.c_str());
+                LogPrint("db", "%s closed\n", strFile);
                 mapFileUseCount.erase(mi++);
             }
             else

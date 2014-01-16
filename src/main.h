@@ -220,7 +220,7 @@ public:
 
     void print() const
     {
-        LogPrintf("%s", ToString().c_str());
+        LogPrintf("%s", ToString());
     }
 };
 
@@ -300,7 +300,7 @@ public:
 
     void print() const
     {
-        LogPrintf("%s\n", ToString().c_str());
+        LogPrintf("%s\n", ToString());
     }
 };
 
@@ -384,7 +384,7 @@ public:
 
     void print() const
     {
-        LogPrintf("%s\n", ToString().c_str());
+        LogPrintf("%s\n", ToString());
     }
 };
 
@@ -628,7 +628,7 @@ public:
 
     void print() const
     {
-        LogPrintf("%s", ToString().c_str());
+        LogPrintf("%s", ToString());
     }
 
 
@@ -900,7 +900,7 @@ public:
         // Take last bit of block hash as entropy bit
         unsigned int nEntropyBit = ((GetHash().Get64()) & 1llu);
         if (fDebug && GetBoolArg("-printsproutmodifier"))
-            LogPrint("sproutmodifier", "GetStakeEntropyBit: hashBlock=%s nEntropyBit=%u\n", GetHash().ToString().c_str(), nEntropyBit);
+            LogPrint("sproutmodifier", "GetStakeEntropyBit: hashBlock=%s nEntropyBit=%u\n", GetHash().ToString(), nEntropyBit);
         return nEntropyBit;
     }
 
@@ -1037,13 +1037,13 @@ public:
     void print() const
     {
         LogPrintf("CBlock(hash=%s, ver=%d, hashPrevBlock=%s, hashMerkleRoot=%s, nTime=%u, nBits=%08x, nNonce=%u, vtx=%" PRIszu ", vchBlockSig=%s)\n",
-            GetHash().ToString().c_str(),
+            GetHash().ToString(),
             nVersion,
-            hashPrevBlock.ToString().c_str(),
-            hashMerkleRoot.ToString().c_str(),
+            hashPrevBlock.ToString(),
+            hashMerkleRoot.ToString(),
             nTime, nBits, nNonce,
             vtx.size(),
-            HexStr(vchBlockSig.begin(), vchBlockSig.end()).c_str());
+            HexStr(vchBlockSig.begin(), vchBlockSig.end()));
         for (unsigned int i = 0; i < vtx.size(); i++)
         {
             LogPrintf("  ");
@@ -1051,7 +1051,7 @@ public:
         }
         LogPrintf("  vMerkleTree: ");
         for (unsigned int i = 0; i < vMerkleTree.size(); i++)
-            LogPrintf("%s ", vMerkleTree[i].ToString().substr(0,10).c_str());
+            LogPrintf("%s ", vMerkleTree[i].ToString().substr(0,10));
         LogPrintf("\n");
     }
 
@@ -1299,7 +1299,7 @@ public:
 
     void print() const
     {
-        LogPrintf("%s\n", ToString().c_str());
+        LogPrintf("%s\n", ToString());
     }
 };
 
@@ -1394,7 +1394,7 @@ public:
 
     void print() const
     {
-        LogPrintf("%s\n", ToString().c_str());
+        LogPrintf("%s\n", ToString());
     }
 };
 

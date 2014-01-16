@@ -86,9 +86,8 @@ Value importwallet(const Array& params, bool fHelp)
              + HelpRequiringPassphrase());
 
     EnsureWalletIsUnlocked();
-    if(!ImportWallet(pwalletMain, params[0].get_str().c_str()))
+    if(!ImportWallet(pwalletMain, params[0].get_str()))
        throw JSONRPCError(RPC_WALLET_ERROR, "Error adding some keys to wallet");
-
     return Value::null;
 }
 
@@ -129,6 +128,5 @@ Value dumpwallet(const Array& params, bool fHelp)
 
     if(!DumpWallet(pwalletMain, params[0].get_str().c_str() ))
        throw JSONRPCError(RPC_WALLET_ERROR, "Error dumping wallet keys to file");
-
     return Value::null;
 }

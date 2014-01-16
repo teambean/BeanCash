@@ -552,7 +552,7 @@ public:
 
     void PrintHex() const
     {
-        LogPrintf("CScript(%s)\n", HexStr(begin(), end(), true).c_str());
+        LogPrintf("CScript(%s)\n", HexStr(begin(), end(), true));
     }
 
     std::string ToString(bool fShort=false) const
@@ -580,7 +580,7 @@ public:
 
     void print() const
     {
-        LogPrintf("%s\n", ToString().c_str());
+        LogPrintf("%s\n", ToString());
     }
 
     CScriptID GetID() const
