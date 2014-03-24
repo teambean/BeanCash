@@ -71,9 +71,9 @@ bool CDBEnv::Open(boost::filesystem::path pathEnv_)
     filesystem::path pathDataDir = pathEnv;
     strPath = pathDataDir.string();
     filesystem::path pathLogDir = pathDataDir / "database";
-    filesystem::create_directory(pathLogDir);
+    TryCreateDirectory(pathLogDir);
     filesystem::path pathErrorFile = pathDataDir / "db.log";
-    LogPrintf("dbenv.open LogDir=%s ErrorFile=%s\n", pathLogDir.string().c_str(), pathErrorFile.string().c_str());
+    LogPrintf("dbenv.open LogDir=%s ErrorFile=%s\n", pathLogDir.string(), pathErrorFile.string());
 
     unsigned int nEnvFlags = 0;
     if (GetBoolArg("-privdb", true))
