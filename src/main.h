@@ -30,6 +30,8 @@ class CInv;
 class CRequestTracker;
 class CNode;
 
+class CTxMemPool;
+
 static const int LAST_POW_BLOCK = 10000;
 
 static const unsigned int MAX_BLOCK_SIZE = 20000000;
@@ -151,6 +153,7 @@ unsigned int ComputeMinWork(unsigned int nBase, int64_t nTime);
 /** Compute minimum Bean Weight needed for a received block */
 unsigned int ComputeMinStake(unsigned int nBase, int64_t nTime, unsigned int nBlockTime);
 
+
 /** Get the number of active peers */
 int GetNumBlocksOfPeers();
 
@@ -170,6 +173,9 @@ const CBlockIndex* GetLastBlockIndex(const CBlockIndex* pindex, bool fProofOfSta
 void ThreadStakeMiner(CWallet *pwallet);
 
 void ResendWalletTransactions(bool fForce = false);
+
+/** (try to) add transaction to memory pool **/
+bool AcceptToMemoryPool(CTxMemPool& pool, CTransaction &tx, bool fCheckInputs=true, bool* pfMissingInputs=NULL);
 
 bool GetWalletFile(CWallet* pwallet, std::string &strWalletFileOut);
 
@@ -667,15 +673,11 @@ public:
                        const CBlockIndex* pindexBlock, bool fBlock, bool fMiner);
     bool ClientConnectInputs();
     bool CheckTransaction() const;
-    bool AcceptToMemoryPool(CTxDB& txdb, bool fCheckInputs=true, bool* pfMissingInputs=NULL);
     bool GetBeanAge(CTxDB& txdb, uint64_t& nBeanAge) const;  // ppbean: get transaction bean age
 
 protected:
     const CTxOut& GetOutputFor(const CTxIn& input, const MapPrevTx& inputs) const;
 };
-
-
-
 
 
 /** A transaction with a merkle branch linking it to the block chain. */
@@ -730,7 +732,6 @@ public:
     int GetDepthInMainChain() const { CBlockIndex *pindexRet; return GetDepthInMainChain(pindexRet); }
     bool IsInMainChain() const { CBlockIndex *pindexRet; return GetDepthInMainChainINTERNAL(pindexRet) > 0; }
     int GetBlocksToMaturity() const;
-    bool AcceptToMemoryPool(CTxDB& txdb, bool fCheckInputs=true);
     bool AcceptToMemoryPool();
 };
 
@@ -1532,13 +1533,6 @@ public:
     }
 };
 
-
-
-
-
-
-
-
 class CTxMemPool
 {
 public:
@@ -1546,8 +1540,6 @@ public:
     std::map<uint256, CTransaction> mapTx;
     std::map<COutPoint, CInPoint> mapNextTx;
 
-    bool accept(CTxDB& txdb, CTransaction &tx,
-                bool fCheckInputs, bool* pfMissingInputs);
     bool addUnchecked(const uint256& hash, CTransaction &tx);
     bool remove(const CTransaction &tx, bool fRecursive = false);
     bool removeConflicts(const CTransaction &tx);
