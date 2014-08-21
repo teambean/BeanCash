@@ -7,8 +7,6 @@
 #include "core.h"
 #include "tinyformat.h"
 
-#include "util.h"
-
 std::string COutPoint::ToString() const
 {
     return strprintf("COutPoint(%s, %u)", hash.ToString(), n);
