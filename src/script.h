@@ -228,13 +228,6 @@ inline std::string StackString(const std::vector<std::vector<unsigned char> >& v
     return str;
 }
 
-
-
-
-
-
-
-
 /** Serialized script, used inside transaction inputs and outputs */
 class CScript : public std::vector<unsigned char>
 {
