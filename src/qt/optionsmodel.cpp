@@ -50,8 +50,6 @@ void OptionsModel::Init()
 
     // These are shared with core Bitbean; we want
     // command-line options to override the GUI settings:
-    if (settings.contains("fUseUPnP"))
-        SoftSetBoolArg("-upnp", settings.value("fUseUPnP").toBool());
     if (settings.contains("addrProxy") && settings.value("fUseProxy").toBool())
         SoftSetArg("-proxy", settings.value("addrProxy").toString().toStdString());
     if (settings.contains("nSocksVersion") && settings.value("fUseProxy").toBool())
@@ -78,8 +76,6 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return QVariant(GUIUtil::GetStartOnSystemStartup());
         case MinimizeToTray:
             return QVariant(fMinimizeToTray);
-        case MapPortUPnP:
-            return settings.value("fUseUPnP", GetBoolArg("-upnp", true));
         case MinimizeOnClose:
             return QVariant(fMinimizeOnClose);
         case ProxyUse:
@@ -135,11 +131,6 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
         case MinimizeToTray:
             fMinimizeToTray = value.toBool();
             settings.setValue("fMinimizeToTray", fMinimizeToTray);
-            break;
-        case MapPortUPnP:
-            fUseUPnP = value.toBool();
-            settings.setValue("fUseUPnP", fUseUPnP);
-            MapPort();
             break;
         case MinimizeOnClose:
             fMinimizeOnClose = value.toBool();

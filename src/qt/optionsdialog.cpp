@@ -25,9 +25,6 @@ OptionsDialog::OptionsDialog(QWidget *parent) :
     ui->setupUi(this);
 
     /* Network elements init */
-#ifndef USE_UPNP
-    ui->mapPortUpnp->setEnabled(false);
-#endif
 
     ui->proxyIp->setEnabled(false);
     ui->proxyPort->setEnabled(false);
@@ -132,8 +129,6 @@ void OptionsDialog::setMapper()
     mapper->addMapping(ui->detachDatabases, OptionsModel::DetachDatabases);
 
     /* Network */
-    mapper->addMapping(ui->mapPortUpnp, OptionsModel::MapPortUPnP);
-
     mapper->addMapping(ui->connectSocks, OptionsModel::ProxyUse);
     mapper->addMapping(ui->proxyIp, OptionsModel::ProxyIP);
     mapper->addMapping(ui->proxyPort, OptionsModel::ProxyPort);

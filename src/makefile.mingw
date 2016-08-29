@@ -4,29 +4,27 @@
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-BOOST_SUFFIX?==mgw49-mt-s-1_55
-
-USE_UPNP:=0
+BOOST_SUFFIX?==mgw49-mt-s-1_59
 
 INCLUDEPATHS= \
  -I"$(CURDIR)" \
- -I"C:\deps\boost_1_55_0" \
+ -I"C:\deps\boost_1_59_0" \
  -I"C:\deps\db-5.3.23.NC\build_unix" \
  -I"C:\deps\openssl-1.0.1j\include"
 
 LIBPATHS= \
  -L"$(CURDIR)\leveldb" \
- -L"C:\deps\boost_1_55_0\stage\lib" \
- -L"C:\deps\db-5.3.23.NC\build_unix" \
+ -L"C:\deps\boost_1_59_0\stage\lib" \
+ -L"C:\deps\db-5.3.23\build_unix" \
  -L"C:\deps\openssl-1.0.1j"
 
 LIBS= \
  -l leveldb \
- -l boost_system-mgw49-mt-s-1_55 \
- -l boost_filesystem-mgw49-mt-s-1_55 \
- -l boost_program_options-mgw49-mt-s-1_55 \
- -l boost_thread-mgw49-mt-s-1_55 \
- -l boost_chrono-mgw49-mt-s-1_55 \
+ -l boost_system-mgw49-mt-s-1_59 \
+ -l boost_filesystem-mgw49-mt-s-1_59 \
+ -l boost_program_options-mgw49-mt-s-1_59 \
+ -l boost_thread-mgw49-mt-s-1_59 \
+ -l boost_chrono-mgw49-mt-s-1_59 \
  -l db_cxx \
  -l ssl \
  -l crypto
@@ -37,16 +35,6 @@ CFLAGS=-mthreads -O3 -msse2 -w -Wall -Wextra -Wno-ignored-qualifiers -Wformat -W
 LDFLAGS=-Wl,--dynamicbase -Wl,--nxcompat -static
 
 TESTDEFS = -DTEST_DATA_DIR=$(abspath test/data)
-
-ifndef USE_UPNP
-	override USE_UPNP = -
-endif
-ifneq (${USE_UPNP}, -)
- INCLUDEPATHS += -I"C:\deps"
- LIBPATHS += -L"C:\deps\miniupnpc"
- LIBS += -l miniupnpc -l iphlpapi
- DEFS += -DMINIUPNP_STATICLIB -DSTATICLIB -DUSE_UPNP=$(USE_UPNP)
-endif
 
 LIBS += -l kernel32 -l user32 -l gdi32 -l comdlg32 -l winspool -l winmm -l shell32 -l comctl32 -l ole32 -l oleaut32 -l uuid -l rpcrt4 -l advapi32 -l ws2_32 -l mswsock -l shlwapi
 

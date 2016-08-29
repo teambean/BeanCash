@@ -72,8 +72,6 @@ QT_TRANSLATE_NOOP("beancash-core", ""
 "86400)"),
 QT_TRANSLATE_NOOP("beancash-core", "Maximum per-connection receive buffer, <n>*1000 bytes (default: 5000)"),
 QT_TRANSLATE_NOOP("beancash-core", "Maximum per-connection send buffer, <n>*1000 bytes (default: 1000)"),
-QT_TRANSLATE_NOOP("beancash-core", "Use UPnP to map the listening port (default: 1 when listening)"),
-QT_TRANSLATE_NOOP("beancash-core", "Use UPnP to map the listening port (default: 0)"),
 QT_TRANSLATE_NOOP("beancash-core", ""
 "Detach block and address databases. Increases shutdown time (default: 0)"),
 QT_TRANSLATE_NOOP("beancash-core", "Fee per KB to add to transactions you send"),

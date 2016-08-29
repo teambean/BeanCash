@@ -46,8 +46,6 @@ win32 {
     BDB_LIB_PATH=C:/deps/db-5.3.28/build_unix
     OPENSSL_INCLUDE_PATH=C:/deps/openssl-1.0.1j/include
     OPENSSL_LIB_PATH=C:/deps/openssl-1.0.1j
-    MINIUPNPC_INCLUDE_PATH=C:/deps/
-    MINIUPNPC_LIB_PATH=C:/deps/miniupnpc
     QRENCODE_INCLUDE_PATH=C:/deps/qrencode-3.4.4
     QRENCODE_LIB_PATH=C:/deps/qrencode-3.4.4/.libs
 }
@@ -64,8 +62,8 @@ contains(RELEASE, 1) {
     macx:QMAKE_OBJECTIVE_CFLAGS += -mmacosx-version-min=10.9 -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
 
     !windows:!macx {
-        # Linux: static link
-        LIBS += -Wl,-Bstatic
+        # Linux: static link & security hardening
+        LIBS += -Wl,-Bstatic -Wl,-z,relro -Wl,-z,now
     }
 }
 
@@ -89,23 +87,6 @@ contains(USE_QRCODE, 1) {
     message(Building with QRCode support)
     DEFINES += USE_QRCODE
     LIBS += -lqrencode
-}
-
-# use: qmake "USE_UPNP=1" ( enabled by default; default)
-#  or: qmake "USE_UPNP=0" (disabled by default)
-#  or: qmake "USE_UPNP=-" (not supported)
-# miniupnpc (http://miniupnp.free.fr/files/) must be installed for support
-contains(USE_UPNP, -) {
-    message(Building without UPNP support)
-} else {
-    message(Building with UPNP support)
-    count(USE_UPNP, 0) {
-        USE_UPNP=1
-    }
-    DEFINES += USE_UPNP=$$USE_UPNP MINIUPNP_STATICLIB STATICLIB
-    INCLUDEPATH += $$MINIUPNPC_INCLUDE_PATH
-    LIBS += $$join(MINIUPNPC_LIB_PATH,,-L,) -lminiupnpc
-    win32:LIBS += -liphlpapi
 }
 
 # use: qmake "USE_DBUS=1" or qmake "USE_DBUS=0"
