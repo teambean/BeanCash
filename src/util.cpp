@@ -1161,16 +1161,18 @@ bool RenameOver(boost::filesystem::path src, boost::filesystem::path dest)
 #endif /* WIN32 */
 }
 
-void FileCommit(FILE *fileout)
+void FileCommit(FILE *file)
 {
-    fflush(fileout);                // harmless if redundantly called
+    fflush(file); // harmless if redundantly called
 #ifdef WIN32
     _commit(_fileno(fileout));
 #else
     #if defined(__linux__) || defined(__NetBSD__)
-    fdatasync(fileno(fileout));
+    fdatasync(fileno(file));
+    #elif defined(__APPLE__) && defined(F_FULLFSYNC)
+    fcntl(fileno(file), F_FULLFSYNC, 0);
     #else
-    fsync(fileno(fileout));
+    fsync(fileno(file));
     #endif
 #endif
 }
