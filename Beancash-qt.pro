@@ -1,6 +1,7 @@
 TEMPLATE = app
 TARGET = Beancash-qt
 VERSION = 1.1.2.2
+QT += core gui network
 INCLUDEPATH += src src/json src/qt
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE __NO_SYSTEM_INCLUDES
 CONFIG += no_include_pwd
@@ -9,9 +10,13 @@ CONFIG += C++11
 QMAKE_CXXFLAGS += -std=c++11
 
 #USE RELEASE=1
-#USE_UPNP=- # default 1 ('-' means don't use)
 #USE_O3=1  # default 0
 #USE_DBUS=1 # default 1
+
+greaterThan(QT_MAJOR_VERSION, 4) {
+    QT += widgets
+    DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
+}
 
 contains(RELEASE, 1) {
     message(building in RELEASE mode)
@@ -50,19 +55,17 @@ BDB_LIB_SUFFIX=-5.3
 
 # ------- modify those to point to the correct folders ----- #
 
-BOOST_INCLUDE_PATH=/path/to/lib/boost_1_59_0
-BOOST_LIB_PATH=/path/to/lib/boost_1_59_0/stage/lib
+# BOOST_INCLUDE_PATH=/path/to/lib/boost_1_59_0
+# BOOST_LIB_PATH=/path/to/lib/boost_1_59_0/stage/lib
 
-OPENSSL_INCLUDE_PATH=/path/to/libs/openssl-1.0.1j/include
-OPENSSL_LIB_PATH=/path/to/lib/openssl-1.0.1j
+# OPENSSL_INCLUDE_PATH=/path/to/libs/openssl-1.0.1j/include
+# OPENSSL_LIB_PATH=/path/to/lib/openssl-1.0.1j
 
-BDB_INCLUDE_PATH=/path/to/lib/db-5.3.28.NC/build_unix
-BDB_LIB_PATH=/path/to/lib/db-5.3.28.NC/build_unix
+# BDB_INCLUDE_PATH=/path/to/lib/db-5.3.28.NC/build_unix
+# BDB_LIB_PATH=/path/to/lib/db-5.3.28.NC/build_unix
 
-MINIUPNPC_INCLUDE_PATH=
-MINIUPNPC_LIB_PATH=
-QRENCODE_INCLUDE_PATH=
-QRENCODE_LIB_PATH=
+# QRENCODE_INCLUDE_PATH=
+# QRENCODE_LIB_PATH=
 
 win32 {
     BOOST_LIB_SUFFIX=-mgw49-mt-s-1_59
@@ -141,7 +144,8 @@ contains(BEANCASH_NEED_QT_PLUGINS, 1) {
 
 INCLUDEPATH += src/leveldb/include src/leveldb/helpers
 LIBS += $$PWD/src/leveldb/libleveldb.a $$PWD/src/leveldb/libmemenv.a
-SOURCES += src/txdb-leveldb.cpp
+SOURCES += src/txdb-leveldb.cpp \
+    src/qt/paymentserver.cpp
 
 !win32 {
     # we use QMAKE_CXXFLAGS_RELEASE even without RELEASE=1 because we use RELEASE to indicate linking preferences not -O preferences
@@ -266,14 +270,14 @@ HEADERS += src/qt/bitbeangui.h \
     src/qt/askpassphrasedialog.h \
     src/protocol.h \
     src/qt/notificator.h \
-    src/qt/qtipcserver.h \
     src/allocators.h \
     src/ui_interface.h \
     src/qt/rpcconsole.h \
     src/version.h \
     src/netbase.h \
     src/clientversion.h \
-    src/qt/macnotificationhandler.h
+    src/qt/macnotificationhandler.h \
+    src/qt/paymentserver.h
 
 SOURCES += src/qt/beancash.cpp \
     src/qt/bitbeangui.cpp \
@@ -334,7 +338,6 @@ SOURCES += src/qt/beancash.cpp \
     src/qt/askpassphrasedialog.cpp \
     src/protocol.cpp \
     src/qt/notificator.cpp \
-    src/qt/qtipcserver.cpp \
     src/qt/rpcconsole.cpp \
     src/noui.cpp \
     src/kernel.cpp \
@@ -523,6 +526,7 @@ macx: {
 
     QMAKE_CFLAGS_THREAD += -pthread
     QMAKE_CXXFLAGS_THREAD += -pthread
+    QMAKE_INFO_PLIST = share/qt/info.plist
 }
 
 windows:DEFINES += WIN32
@@ -566,3 +570,6 @@ netbsd-*|freebsd-*|openbsd-* {
 }
 
 system($$QMAKE_LRELEASE -silent $$_PRO_FILE_)
+
+DISTFILES += \
+    share/qt/info.plist

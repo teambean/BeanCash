@@ -11,7 +11,7 @@
 #include "init.h"
 #include "util.h"
 #include "ui_interface.h"
-#include "qtipcserver.h"
+#include "paymentserver.h"
 
 #include <QApplication>
 #include <QMessageBox>
@@ -20,9 +20,10 @@
 #include <QTranslator>
 #include <QSplashScreen>
 #include <QLibraryInfo>
+#include <QTimer>
 
-#if defined(BITBEAN_NEED_QT_PLUGINS) && !defined(_BITBEAN_QT_PLUGINS_INCLUDED)
-#define _BITBEAN_QT_PLUGINS_INCLUDED
+#if defined(BEANCASH_NEED_QT_PLUGINS) && !defined(_BEANCASH_QT_PLUGINS_INCLUDED)
+#define _BEANCASH_QT_PLUGINS_INCLUDED
 #define __INSURE__
 #include <QtPlugin>
 Q_IMPORT_PLUGIN(qcncodecs)
@@ -71,15 +72,6 @@ static bool ThreadSafeAskFee(int64_t nFeeRequired, const std::string& strCaption
     return payFee;
 }
 
-static void ThreadSafeHandleURI(const std::string& strURI)
-{
-    if(!guiref)
-        return;
-
-    QMetaObject::invokeMethod(guiref, "handleURI", GUIUtil::blockingGUIThreadConnection(),
-                               Q_ARG(QString, QString::fromStdString(strURI)));
-}
-
 static void InitMessage(const std::string &message)
 {
     if(splashref)
@@ -114,9 +106,6 @@ static void handleRunawayException(std::exception *e)
 #ifndef BITBEAN_QT_TEST
 int main(int argc, char *argv[])
 {
-    // Do this early as we don't want to bother initializing if we are just calling IPC
-    ipcScanRelay(argc, argv);
-
 #if QT_VERSION < 0x050000
     // Internal string conversion is all UTF-8
     QTextCodec::setCodecForTr(QTextCodec::codecForName("UTF-8"));
@@ -126,6 +115,13 @@ int main(int argc, char *argv[])
     Q_INIT_RESOURCE(beancash);
     QApplication app(argc, argv);
     app.setWindowIcon(QIcon("./icons/icon.png"));
+
+    // Do this early as we don't want to bother initializing if we are just calling IPC
+    // ... but do it after creating app, so QCoreApplication::arguments is initialized:
+        if (PaymentServer::ipcSendCommandLine())
+            exit(0);
+        PaymentServer* paymentServer = new PaymentServer(&app);
+
 
     // Install global event filter that makes sure that long tooltips can be word-wrapped
     app.installEventFilter(new GUIUtil::ToolTipToRichTextFilter(TOOLTIP_WRAP_THRESHOLD, &app));
@@ -186,7 +182,6 @@ int main(int argc, char *argv[])
     // Subscribe to global signals from core
     uiInterface.ThreadSafeMessageBox.connect(ThreadSafeMessageBox);
     uiInterface.ThreadSafeAskFee.connect(ThreadSafeAskFee);
-    uiInterface.ThreadSafeHandleURI.connect(ThreadSafeHandleURI);
     uiInterface.InitMessage.connect(InitMessage);
     uiInterface.QueueShutdown.connect(QueueShutdown);
     uiInterface.Translate.connect(Translate);
@@ -245,8 +240,10 @@ int main(int argc, char *argv[])
                     window.show();
                 }
 
-                // Place this here as guiref has to be defined if we don't want to lose URIs
-                ipcInit(argc, argv);
+                // Now that initialization/startup is done, process any command-line
+                // bitbean:  URIs
+                QObject::connect(paymentServer, SIGNAL(receivedURI(QString)), &window, SLOT(handleURI(QString)));
+                QTimer::singleShot(100, paymentServer, SLOT(uiReady()));
 
                 app.exec();
 
