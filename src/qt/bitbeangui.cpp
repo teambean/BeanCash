@@ -679,39 +679,33 @@ void BitbeanGUI::askFee(qint64 nFeeRequired, bool *payFee)
     *payFee = (retval == QMessageBox::Yes);
 }
 
-void BitbeanGUI::incomingTransaction(const QModelIndex & parent, int start, int end)
+void BitbeanGUI::incomingTransaction(const QModelIndex& parent, int start, int /*end*/)
 {
-    if(!walletModel || !clientModel)
+    if(!walletModel || !clientModel || clientModel->inInitialBlockDownload())
         return;
     TransactionTableModel *ttm = walletModel->getTransactionTableModel();
-    qint64 amount = ttm->index(start, TransactionTableModel::Amount, parent)
-                    .data(Qt::EditRole).toULongLong();
-    if(!clientModel->inInitialBlockDownload())
-    {
-        // On new transaction, make an info balloon
-        // Unless the initial block download is in progress, to prevent balloon-spam
-        QString date = ttm->index(start, TransactionTableModel::Date, parent)
-                        .data().toString();
-        QString type = ttm->index(start, TransactionTableModel::Type, parent)
-                        .data().toString();
-        QString address = ttm->index(start, TransactionTableModel::ToAddress, parent)
-                        .data().toString();
-        QIcon icon = qvariant_cast<QIcon>(ttm->index(start,
-                            TransactionTableModel::ToAddress, parent)
-                        .data(Qt::DecorationRole));
 
-        notificator->notify(Notificator::Information,
-                            (amount)<0 ? tr("Sent transaction") :
-                                         tr("Incoming transaction"),
-                              tr("Date: %1\n"
-                                 "Amount: %2\n"
-                                 "Type: %3\n"
-                                 "Address: %4\n")
-                              .arg(date)
-                              .arg(BitbeanUnits::formatWithUnit(walletModel->getOptionsModel()->getDisplayUnit(), amount, true))
-                              .arg(type)
-                              .arg(address), icon);
-    }
+    QString date = ttm->index(start, TransactionTableModel::Date, parent)
+                        .data().toString();
+    qint64 amount = ttm->index(start, TransactionTableModel::Amount, parent)
+                        .data(Qt::EditRole).toULongLong();
+    QString type = ttm->index(start, TransactionTableModel::Type, parent)
+                        .data().toString();
+    QString address = ttm->index(start, TransactionTableModel::ToAddress, parent)
+                        .data().toString();
+
+    // On new transaction, make an info balloon
+    message((amount)<0 ? tr("Sent transaction") : tr("Incoming transaction"),
+            tr("Date: %1\n"
+               "Amount: %2\n"
+               "Type: %3\n"
+               "Address: %4\n")
+                .arg(date)
+
+.arg(BitbeanUnits::formatWithUnit(walletModel->getOptionsModel()->getDisplayUnit(), amount, true))
+                .arg(type)
+
+                .arg(address), CClientUIInterface::MSG_INFORMATION);
 }
 
 void BitbeanGUI::gotoOverviewPage()
@@ -824,7 +818,9 @@ void BitbeanGUI::dropEvent(QDropEvent *event)
         if (nValidUrisFound)
             gotoSendBeansPage();
         else
-            notificator->notify(Notificator::Warning, tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid Beancash address or malformed URI parameters."));
+            message(tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid Bean Cash address or malformed URI parameters."),
+
+                    CClientUIInterface::ICON_WARNING);
     }
 
     event->acceptProposedAction();
@@ -839,7 +835,8 @@ void BitbeanGUI::handleURI(QString strURI)
         gotoSendBeansPage();
     }
     else
-        notificator->notify(Notificator::Warning, tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid Beancash address or malformed URI parameters."));
+        message(tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid Bean Cash address or malformed URI parameters."),
+                CClientUIInterface::ICON_WARNING);
 }
 
 void BitbeanGUI::setEncryptionStatus(int status)
@@ -895,8 +892,12 @@ void BitbeanGUI::backupWallet()
     QString filename = QFileDialog::getSaveFileName(this, tr("Backup Wallet"), saveDir, tr("Wallet Data (*.dat)"));
     if(!filename.isEmpty()) {
         if(!walletModel->backupWallet(filename)) {
-            QMessageBox::warning(this, tr("Backup Failed"), tr("There was an error trying to save the wallet data to the new location."));
+            message(tr("Backup Failed"), tr("There was an error trying to save the keypair data to the new location."),
+                    CClientUIInterface::MSG_ERROR);
         }
+        else
+            message(tr("Backup Successful"), tr("Keypair data was successfully saved to the new location."),
+                    CClientUIInterface::MSG_INFORMATION);
     }
 }
 
