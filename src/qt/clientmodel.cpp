@@ -87,7 +87,8 @@ void ClientModel::updateAlert(const QString &hash, int status)
         CAlert alert = CAlert::getAlertByHash(hash_256);
         if(!alert.IsNull())
         {
-            emit error(tr("Network Alert"), QString::fromStdString(alert.strStatusBar), false);
+            emit message(tr("Network Alert"), QString::fromStdString(alert.strStatusBar),
+                CClientUIInterface::ICON_ERROR);
         }
     }
 

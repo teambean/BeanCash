@@ -25,6 +25,7 @@
 #include "notificator.h"
 #include "guiutil.h"
 #include "rpcconsole.h"
+#include "ui_interface.h"
 #include "wallet.h"
 
 #ifdef Q_OS_MAC
@@ -391,8 +392,8 @@ void BitbeanGUI::setClientModel(ClientModel *clientModel)
         setNumBlocks(clientModel->getNumBlocks(), clientModel->getNumBlocksOfPeers());
         connect(clientModel, SIGNAL(numBlocksChanged(int,int)), this, SLOT(setNumBlocks(int,int)));
 
-        // Report errors from network/worker thread
-        connect(clientModel, SIGNAL(error(QString,QString,bool)), this, SLOT(error(QString,QString,bool)));
+        // Receive and report messages from network/worker thread
+        connect(clientModel, SIGNAL(message(QString,QString,unsigned int)), this, SLOT(message(QString,QString,unsigned int)));
 
         rpcConsole->setClientModel(clientModel);
         addressBookPage->setOptionsModel(clientModel->getOptionsModel());
@@ -405,8 +406,8 @@ void BitbeanGUI::setWalletModel(WalletModel *walletModel)
     this->walletModel = walletModel;
     if(walletModel)
     {
-        // Report errors from wallet thread
-        connect(walletModel, SIGNAL(error(QString,QString,bool)), this, SLOT(error(QString,QString,bool)));
+        // Receive and report messages from wallet thread
+        connect(walletModel, SIGNAL(message(QString,QString,unsigned int)), this, SLOT(message(QString,QString,unsigned int)));
 
         // Put transaction list in tabs
         transactionView->setModel(walletModel);
@@ -622,16 +623,51 @@ void BitbeanGUI::setNumBlocks(int count, int nTotalBlocks)
     progressBar->setToolTip(tooltip);
 }
 
-void BitbeanGUI::error(const QString &title, const QString &message, bool modal)
+void BitbeanGUI::message(const QString &title, const QString &message, unsigned int style)
 {
-    // Report errors from network/worker thread
-    if(modal)
-    {
-        QMessageBox::critical(this, title, message, QMessageBox::Ok, QMessageBox::Ok);
-    } else {
-        notificator->notify(Notificator::Critical, title, message);
+    QString strTitle = tr("Bitbean") + " - ";
+    // Default to information icon
+    int nMBoxIcon = QMessageBox::Information;
+    int nNotifyIcon = Notificator::Information;
+
+    // Check for usage of predefined title
+    switch (style) {
+        case CClientUIInterface::MSG_ERROR:
+            strTitle += tr("Error");
+            break;
+        case CClientUIInterface::MSG_WARNING:
+            strTitle += tr("Warning");
+            break;
+        case CClientUIInterface::MSG_INFORMATION:
+            strTitle += tr("Information");
+            break;
+        default:
+            strTitle += title; // Use supplied title
+        }
+
+        // Check for error/warning icon
+        if (style & CClientUIInterface::ICON_ERROR) {
+            nMBoxIcon = QMessageBox::Critical;
+            nNotifyIcon = Notificator::Critical;
+        }
+        else if (style & CClientUIInterface::ICON_WARNING) {
+            nMBoxIcon = QMessageBox::Warning;
+            nNotifyIcon = Notificator::Warning;
+        }
+
+        // Display message
+        if (style & CClientUIInterface::MODAL) {
+            // Check for buttons, use OK as default, if none was supplied
+            QMessageBox::StandardButton buttons;
+            if (!(buttons = (QMessageBox::StandardButton)(style & CClientUIInterface::BTN_MASK)))
+                buttons = QMessageBox::Ok;
+
+            QMessageBox mBox((QMessageBox::Icon)nMBoxIcon, strTitle, message, buttons);
+            mBox.exec();
+        }
+        else
+                notificator->notify((Notificator::Class)nNotifyIcon, strTitle, message);
     }
-}
 
 void BitbeanGUI::changeEvent(QEvent *e)
 {
@@ -681,31 +717,31 @@ void BitbeanGUI::askFee(qint64 nFeeRequired, bool *payFee)
 
 void BitbeanGUI::incomingTransaction(const QModelIndex& parent, int start, int /*end*/)
 {
-    if(!walletModel || !clientModel || clientModel->inInitialBlockDownload())
-        return;
-    TransactionTableModel *ttm = walletModel->getTransactionTableModel();
+    // Prevent balloon-spam when initial block download is in progress
+       if(!walletModel || !clientModel || clientModel->inInitialBlockDownload())
+           return;
 
-    QString date = ttm->index(start, TransactionTableModel::Date, parent)
+       TransactionTableModel *ttm = walletModel->getTransactionTableModel();
+
+       QString date = ttm->index(start, TransactionTableModel::Date, parent)
                         .data().toString();
-    qint64 amount = ttm->index(start, TransactionTableModel::Amount, parent)
-                        .data(Qt::EditRole).toULongLong();
-    QString type = ttm->index(start, TransactionTableModel::Type, parent)
+       qint64 amount = ttm->index(start, TransactionTableModel::Amount, parent)
+                         .data(Qt::EditRole).toULongLong();
+       QString type = ttm->index(start, TransactionTableModel::Type, parent)
                         .data().toString();
-    QString address = ttm->index(start, TransactionTableModel::ToAddress, parent)
-                        .data().toString();
+       QString address = ttm->index(start, TransactionTableModel::ToAddress, parent)
+                           .data().toString();
 
-    // On new transaction, make an info balloon
-    message((amount)<0 ? tr("Sent transaction") : tr("Incoming transaction"),
-            tr("Date: %1\n"
-               "Amount: %2\n"
-               "Type: %3\n"
-               "Address: %4\n")
-                .arg(date)
-
-.arg(BitbeanUnits::formatWithUnit(walletModel->getOptionsModel()->getDisplayUnit(), amount, true))
-                .arg(type)
-
-                .arg(address), CClientUIInterface::MSG_INFORMATION);
+       // On new transaction, make an info balloon
+       message((amount)<0 ? tr("Sent transaction") : tr("Incoming transaction"),
+                tr("Date: %1\n"
+                   "Amount: %2\n"
+                   "Type: %3\n"
+                   "Address: %4\n")
+                     .arg(date)
+                     .arg(BitbeanUnits::formatWithUnit(walletModel->getOptionsModel()->getDisplayUnit(), amount, true))
+                     .arg(type)
+                     .arg(address), CClientUIInterface::MSG_INFORMATION);
 }
 
 void BitbeanGUI::gotoOverviewPage()

@@ -3,6 +3,7 @@
 // Copyright (c) 2015-2019 Bean Core www.beancash.org
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
 #include "init.h"
 #include "main.h"
 #include "txdb.h"
@@ -12,6 +13,7 @@
 #include "util.h"
 #include "ui_interface.h"
 #include "checkpoints.h"
+
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>
 #include <boost/filesystem/convenience.hpp>
@@ -198,13 +200,13 @@ int main(int argc, char* argv[])
 
 bool static InitError(const std::string &str)
 {
-    uiInterface.ThreadSafeMessageBox(str, _("Beancash"), CClientUIInterface::OK | CClientUIInterface::MODAL);
+    uiInterface.ThreadSafeMessageBox(str, "", CClientUIInterface::MSG_ERROR);
     return false;
 }
 
 bool static InitWarning(const std::string &str)
 {
-    uiInterface.ThreadSafeMessageBox(str, _("Beancash"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
+    uiInterface.ThreadSafeMessageBox(str, "", CClientUIInterface::MSG_WARNING);
     return true;
 }
 
@@ -522,7 +524,7 @@ threadGroup.create_thread(boost::bind(&DetectShutdownThread, &threadGroup));
                                      " Original %s saved as wallet.{timestamp}.bak in %s; if"
                                      " your balance or transactions are incorrect you should"
                                      " restore from a backup."), strWalletFileName.c_str(), strWalletFileName.c_str(), strDataDir.c_str());
-            uiInterface.ThreadSafeMessageBox(msg, _("Bean Cash"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
+            InitWarning(msg);
         }
         if (r == CDBEnv::RECOVER_FAIL)
             return InitError(strprintf(_("Wallet file (%s) corrupt, salvage failed\n"), strWalletFileName.c_str()));
@@ -713,33 +715,34 @@ threadGroup.create_thread(boost::bind(&DetectShutdownThread, &threadGroup));
         if (nLoadWalletRet == DB_CORRUPT)
         {
             string msg = (_("Error loading wallet file (%s): Wallet corrupted\n"), strWalletFileName.c_str());
-            uiInterface.ThreadSafeMessageBox(msg, _("Bean Cash"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
+
+            InitWarning(msg);
             fprintf(stderr, "%s", msg.c_str());
         }
         else if (nLoadWalletRet == DB_NONCRITICAL_ERROR)
         {
             string msg = (_("Warning: error reading wallet file! All keys read correctly, but transaction data"
                          " or address book entries might be missing or incorrect.\n"));
-            uiInterface.ThreadSafeMessageBox(msg, _("Bean Cash"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
+            InitWarning(msg);
             fprintf(stderr, "%s", msg.c_str());
         }
         else if (nLoadWalletRet == DB_TOO_NEW)
         {
             string msg = (_("Error loading wallet file (%s): Wallet requires newer version of Bean Cash\n"), strWalletFileName.c_str());
-            uiInterface.ThreadSafeMessageBox(msg, _("Bean Cash"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
+            InitWarning(msg);
             fprintf(stderr, "%s", msg.c_str());
         }
         else if (nLoadWalletRet == DB_NEED_REWRITE)
         {
             string msg = (_("Wallet (%s) needed to be rewritten: restart Bean Cash to complete\n"), strWalletFileName.c_str());
-            uiInterface.ThreadSafeMessageBox(msg, _("Bean Cash"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
+            InitWarning(msg);
             fprintf(stderr, "%s", msg.c_str());
             return InitError(msg);
         }
         else
         {
             string msg = (_("Error loading wallet file (%s)\n"), strWalletFileName.c_str());
-            uiInterface.ThreadSafeMessageBox(msg, _("Bean Cash"), CClientUIInterface::OK | CClientUIInterface::ICON_EXCLAMATION | CClientUIInterface::MODAL);
+            InitWarning(msg);
             fprintf(stderr, "%s", msg.c_str());
         }
     }
