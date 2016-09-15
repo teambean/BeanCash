@@ -106,7 +106,7 @@ BitbeanGUI::BitbeanGUI(QWidget *parent):
     // Create the toolbars
     createToolBars();
 
-    // Create the tray icon (or setup the dock icon)
+    // Create system tray icon and notification
     createTrayIcon();
 
     // Create tabs
@@ -379,11 +379,15 @@ void BitbeanGUI::setClientModel(ClientModel *clientModel)
             {
                 trayIcon->setToolTip(tr("Beancash client") + QString(" ") + tr("[testnet]"));
                 trayIcon->setIcon(QIcon(":/icons/toolbar_testnet"));
-                toggleHideAction->setIcon(QIcon(":/icons/toolbar_testnet"));
             }
-
+            toggleHideAction->setIcon(QIcon(":/icons/toolbar_testnet"));
             aboutAction->setIcon(QIcon(":/icons/toolbar_testnet"));
         }
+        // Create system tray menu (or setup the dock menu) later to prevent users from calling actions,
+        // while the client has not yet fully loaded
+        if(trayIcon)
+            createTrayIconMenu();
+
 
         // Keep up to date with client
         setNumConnections(clientModel->getNumConnections());
@@ -432,22 +436,34 @@ void BitbeanGUI::setWalletModel(WalletModel *walletModel)
 
 void BitbeanGUI::createTrayIcon()
 {
-    QMenu *trayIconMenu;
 #ifndef Q_OS_MAC
     trayIcon = new QSystemTrayIcon(this);
+    trayIcon->setToolTip(tr("Bean Cash Core"));
+    trayIcon->setIcon(QIcon(":/icons/toolbar"));
+    trayIcon->show();
+
+#endif
+
+    notificator = new Notificator(qApp->applicationName(), trayIcon);
+}
+
+void BitbeanGUI::createTrayIconMenu()
+{
+    QMenu *trayIconMenu;
+#ifndef Q_OS_MAC
     trayIconMenu = new QMenu(this);
     trayIcon->setContextMenu(trayIconMenu);
-    trayIcon->setToolTip(tr("Beancash client"));
-    trayIcon->setIcon(QIcon(":/icons/toolbar"));
+
     connect(trayIcon, SIGNAL(activated(QSystemTrayIcon::ActivationReason)),
             this, SLOT(trayIconActivated(QSystemTrayIcon::ActivationReason)));
-    trayIcon->show();
+
 #else
     // Note: On Mac, the dock icon is used to provide the tray's functionality.
     MacDockIconHandler *dockIconHandler = MacDockIconHandler::instance();
     dockIconHandler->setMainWindow((QMainWindow *)this);
     trayIconMenu = dockIconHandler->dockMenu();
 #endif
+
 
     // Configuration of the tray icon (or dock icon) icon menu
     trayIconMenu->addAction(toggleHideAction);
@@ -473,7 +489,6 @@ void BitbeanGUI::createTrayIcon()
     trayIconMenu->addAction(quitAction);
 #endif
 
-    notificator = new Notificator(qApp->applicationName(), trayIcon);
 }
 
 #ifndef Q_OS_MAC
