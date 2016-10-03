@@ -43,10 +43,10 @@ public:
     /* Explicit getters */
     qint64 getTransactionFee();
     qint64 getReserveBalance();
-    bool getMinimizeToTray();
-    bool getMinimizeOnClose();
-    int getDisplayUnit();
-    bool getDisplayAddresses();
+    bool getMinimizeToTray() { return fMinimizeToTray; }
+    bool getMinimizeOnClose() { return fMinimizeOnClose; }
+    int getDisplayUnit() { return nDisplayUnit; }
+    bool getDisplayAddresses() { return bDisplayAddresses; }
     bool getBeanControlFeatures();
     QString getLanguage() { return language; }
 

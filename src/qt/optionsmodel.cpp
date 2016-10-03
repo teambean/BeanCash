@@ -229,22 +229,3 @@ bool OptionsModel::getBeanControlFeatures()
     return fBeanControlFeatures;
 }
 
-bool OptionsModel::getMinimizeToTray()
-{
-    return fMinimizeToTray;
-}
-
-bool OptionsModel::getMinimizeOnClose()
-{
-    return fMinimizeOnClose;
-}
-
-int OptionsModel::getDisplayUnit()
-{
-    return nDisplayUnit;
-}
-
-bool OptionsModel::getDisplayAddresses()
-{
-    return bDisplayAddresses;
-}
