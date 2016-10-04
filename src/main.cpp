@@ -2836,8 +2836,8 @@ bool static AlreadyHave(CTxDB& txdb, const CInv& inv)
 
 static bool NodeRecentlyStarted()
 {
-    extern int64 nTimeNodeStart;
-    int64 timediff = GetTime() - nTimeNodeStart;
+    extern int64_t nTimeNodeStart;
+    int64_t timediff = GetTime() - nTimeNodeStart;
 
     return (timediff < (2 * 60 * 60));
 }

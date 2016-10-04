@@ -33,7 +33,7 @@ static const char* DEFAULT_WALLET_FILENAME="wallet.dat";
 
 CWallet* pwalletMain;
 CClientUIInterface uiInterface;
-int64 nTimeNodeStart;
+int64_t nTimeNodeStart;
 bool fConfChange;
 bool fEnforceCanonical;
 unsigned int nNodeLifespan;
