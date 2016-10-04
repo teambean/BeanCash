@@ -78,7 +78,10 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return QVariant(fMinimizeToTray);
         case MinimizeOnClose:
             return QVariant(fMinimizeOnClose);
-        case ProxyUse:
+        case ProxyUse: {
+            proxyType proxy;
+                 return QVariant(GetProxy(NET_IPV4, proxy));
+            }
             return settings.value("fUseProxy", false);
         case ProxyIP: {
             proxyType proxy;
@@ -94,8 +97,13 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             else
                 return QVariant(9050);
         }
-        case ProxySocksVersion:
-            return settings.value("nSocksVersion", 5);
+        case ProxySocksVersion: {
+            proxyType proxy;
+            if (GetProxy(NET_IPV4, proxy))
+                return QVariant(proxy.second);
+            else
+                return QVariant(5);
+        }
         case Fee:
             return QVariant((qint64) nTransactionFee);
         case ReserveBalance:
@@ -138,7 +146,7 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
             break;
         case ProxyUse:
             settings.setValue("fUseProxy", value.toBool());
-            ApplyProxySettings();
+            successful = ApplyProxySettings();
             break;
         case ProxyIP: {
             proxyType proxy;
