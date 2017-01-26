@@ -145,7 +145,8 @@ contains(BEANCASH_NEED_QT_PLUGINS, 1) {
 INCLUDEPATH += src/leveldb/include src/leveldb/helpers
 LIBS += $$PWD/src/leveldb/libleveldb.a $$PWD/src/leveldb/libmemenv.a
 SOURCES += src/txdb-leveldb.cpp \
-    src/qt/paymentserver.cpp
+    src/qt/paymentserver.cpp \
+    src/qt/trafficgraphwidget.cpp
 
 !win32 {
     # we use QMAKE_CXXFLAGS_RELEASE even without RELEASE=1 because we use RELEASE to indicate linking preferences not -O preferences
@@ -276,7 +277,8 @@ HEADERS += src/qt/bitbeangui.h \
     src/netbase.h \
     src/clientversion.h \
     src/qt/macnotificationhandler.h \
-    src/qt/paymentserver.h
+    src/qt/paymentserver.h \
+    src/qt/trafficgraphwidget.h
 
 SOURCES += src/qt/beancash.cpp \
     src/qt/bitbeangui.cpp \
