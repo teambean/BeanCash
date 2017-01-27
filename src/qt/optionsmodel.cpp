@@ -48,12 +48,15 @@ void OptionsModel::Init()
     nReserveBalance = settings.value("nReserveBalance").toLongLong();
     language = settings.value("language", "").toString();
 
-    // These are shared with core Bitbean; we want
+    // These are shared with Bitbean core; we want
     // command-line options to override the GUI settings:
     if (settings.contains("addrProxy") && settings.value("fUseProxy").toBool())
         SoftSetArg("-proxy", settings.value("addrProxy").toString().toStdString());
     if (settings.contains("nSocksVersion") && settings.value("fUseProxy").toBool())
         SoftSetArg("-socks", settings.value("nSocksVersion").toString().toStdString());
+    if (settings.contains("fMinimizeCoinAge"))
+        SoftSetBoolArg("-minimizebeanage",
+                       settings.value("fMinimizeCoinAge").toBool());
     if (settings.contains("detachDB"))
         SoftSetBoolArg("-detachdb", settings.value("detachDB").toBool());
     if (!language.isEmpty())
@@ -118,6 +121,8 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return settings.value("language", "");
         case BeanControlFeatures:
             return QVariant(fBeanControlFeatures);
+        case MinimizeCoinAge:
+            return settings.value("fMinimizeCoinAge", GetBoolArg("-minimizebeanage", false));
         default:
             return QVariant();
         }
@@ -212,6 +217,10 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
             settings.setValue("fBeanControlFeatures", fBeanControlFeatures);
             emit beanControlFeaturesChanged(fBeanControlFeatures);
             }
+            break;
+        case MinimizeCoinAge:
+            fMinimizeCoinAge = value.toBool();
+            settings.setValue("fMinimizeCoinAge", fMinimizeCoinAge);
             break;
         default:
             break;

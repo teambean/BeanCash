@@ -31,6 +31,7 @@ public:
         DetachDatabases,   // bool
         Language,          // QString
         BeanControlFeatures, // bool
+        MinimizeCoinAge,     // bool
         OptionIDRowCount,
     };
 

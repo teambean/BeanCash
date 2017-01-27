@@ -133,6 +133,7 @@ public:
     void AvailableBeansMinConf(std::vector<COutput>& vBeans, int nConf) const;
     void AvailableBeans(std::vector<COutput>& vBeans, bool fOnlyConfirmed=true, const CBeanControl *beanControl=NULL) const;
     bool SelectBeansMinConf(int64_t nTargetValue, unsigned int nSpendTime, int nConfMine, int nConfTheirs, std::vector<COutput> vBeans, std::set<std::pair<const CWalletTx*,unsigned int> >& setBeansRet, int64_t& nValueRet) const;
+    bool SelectBeansMinConfByBeanAge(int64_t nTargetValue, unsigned int nSpendTime, int nConfMine, int nConfTheirs, std::vector<COutput> vCoins, std::set<std::pair<const CWalletTx*,unsigned int> >& setBeansRet, int64_t& nValueRet) const;
     // keystore implementation
     // Generate a new key
     CPubKey GenerateNewKey();
