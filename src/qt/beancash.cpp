@@ -218,7 +218,6 @@ int main(int argc, char *argv[])
     // Convert to "de" only by truncating "_DE"
     lang.truncate(lang_territory.lastIndexOf('_'));
 
-    QTranslator qtTranslatorBase, qtTranslator, translatorBase, translator;
     // Load language files for configured locale:
     // - First load the translator for the base language, without territory
     // - Then load the more specific locale translator

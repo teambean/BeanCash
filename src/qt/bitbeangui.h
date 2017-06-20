@@ -91,6 +91,8 @@ private:
     QAction *exportAction;
     QAction *encryptWalletAction;
     QAction *backupWalletAction;
+    QAction *dumpWalletAction;
+    QAction *importWalletAction;
     QAction *changePassphraseAction;
     QAction *unlockWalletAction;
     QAction *lockWalletAction;
@@ -140,6 +142,7 @@ public slots:
             @param[in] style     modality and style definitions (icon and used buttons - buttons only for message boxes)
             @see CClientUIInterface::MessageBoxFlags
         */
+
     void message(const QString &title, const QString &message, unsigned int style);
 
     /** Asks the user whether to pay the transaction fee or to cancel the transaction.
@@ -187,6 +190,10 @@ private slots:
     void encryptWallet(bool status);
     /** Backup the wallet */
     void backupWallet();
+    /** Export Key Pair */
+    void dumpWallet();
+    /** Import Key Pair */
+    void importWallet();
     /** Change encrypted wallet passphrase */
     void changePassphrase();
     /** Ask for passphrase to unlock wallet temporarily */

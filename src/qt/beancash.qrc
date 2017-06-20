@@ -43,6 +43,8 @@
         <file alias="signmessage">res/icons/signmessage.png</file>
         <file alias="verifymessage">res/icons/verifymessage.png</file>
         <file alias="about">res/icons/beancash-32.png</file>
+        <file alias="importkey">res/icons/importkey.png</file>
+        <file alias="exportkey">res/icons/exportkey.png</file>
     </qresource>
     <qresource prefix="/images">
         <file alias="bkg">res/images/BeanSky.png</file>
@@ -93,7 +95,7 @@
         <file alias="zh_CN">locale/beancash_zh_CN.ts</file>
         <file alias="zh_TW">locale/beancash_zh_TW.ts</file>
     </qresource>
-<qresource prefix="/">
-	<file>res/fonts/helvetica</file>
-</qresource>
+    <qresource prefix="/">
+        <file>res/fonts/helvetica</file>
+    </qresource>
 </RCC>
