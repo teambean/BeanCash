@@ -10,7 +10,6 @@
 #include "sync.h"
 #include "net.h"
 #include "script.h"
-#include "scrypt.h"
 
 #include "util.h"
 
@@ -908,12 +907,7 @@ public:
 
     uint256 GetPoWHash() const
     {
-        //return scrypt_blockhash(CVOIDBEGIN(nVersion));
-	return Hash(BEGIN(nVersion), END(nNonce));
-        //uint256 thash;
-       // scrypt_1024_1_1_256(CVOIDBEGIN(nVersion), (char*)thash);
-       // return thash;
-
+        return Hash(BEGIN(nVersion), END(nNonce));
     }
 
     int64_t GetBlockTime() const

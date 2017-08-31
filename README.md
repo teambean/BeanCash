@@ -1,4 +1,4 @@
-# BeanCash
+# Bean Cash
 Bean Cash, Digital Currency re-branded from BitBean
 
 "Bean Cash is Bitcoin's Big Little Brother - Fast..Simple..Secure..More Than a Digital Currency!"
@@ -32,21 +32,21 @@ business, you may contact Bean Core via telephone:  1 (406) 213-4656
 Bean Cash Specifications
 -----------------------------------------------------------------------------------------------------
 
-**Bean Generation**: Pure Proof of Bean (PoB), Proof of Work (PoW) distribution ended at block 10,000
+**Bean Generation**: Proof of Bean (PoB), Proof of Work (PoW) distribution ended at block 10,000
 
 **Proof of Work Algorithm**: SHA-256
 
-**PoW Block Reward**: 100000 BITB
+**PoW Block Reward**: 100,000 BITB
 
-**PoW Blocks**: 10000
+**PoW Blocks**: 10,000
 
 **PoB Block Reward**: 1000 BITB (1 SPROUT)
                           
 **Target Blocktime**: 1 minute
 
-**RPC Port**: 22461
+**RPC Port**: 22461 (Testnet: 22463)
 
-**Port**: 22460
+**Port**: 22460 (Testnet: 22462)
 
 **Time to Maturity**: 110 Confirmations
 
@@ -59,18 +59,16 @@ Bean Cash Monetary Units
 ------------------------------------------------------------------------------------------
 
 Sprout = ß1,000 (BITB)
-Bean = ß1 (BITB)
-mBean = ß.001 (BITB)
-uBean = ß.000001 (BITB)
+BITB = ß1
+mBITB = ß.001 (BITB)
+uBITB = ß.000001 (BITB)
 Adzuki = ß.00000001 (BITB)
+BEAN (Reserved for new class of Bean, Project Aurora)
 
 Support
 ------------------------------------------------------------------------------------------
 www.beancash.org
-Community Support:  https://livechat.beancash.org
+Community Support:  https://live.beancash.org
 Twitter:  @BeanCash_BEAN
 admin@beancash.org
-
-IRC: #beancash (Freenode IRC Network)
-
-Developer support:  #beancore on the Freenode IRC Network or devcore@beancash.org
+Support:  support@beancash.org
