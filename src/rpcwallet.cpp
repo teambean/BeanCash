@@ -423,11 +423,11 @@ Value verifymessage(const Array& params, bool fHelp)
     ss << strMessageMagic;
     ss << strMessage;
 
-    CKey key;
-    if (!key.SetCompactSignature(Hash(ss.begin(), ss.end()), vchSig))
-        return false;
+    CPubKey pubkey;
+    if (!pubkey.RecoverCompact(Hash(ss.begin(), ss.end()), vchSig))
+    return false;
 
-    return (key.GetPubKey().GetID() == keyID);
+    return (pubkey.GetID() == keyID);
 }
 
 
@@ -807,7 +807,7 @@ Value addmultisigaddress(const Array& params, bool fHelp)
             if (!pwalletMain->GetPubKey(keyID, vchPubKey))
                 throw runtime_error(
                     strprintf("no full public key for address %s",ks.c_str()));
-            if (!vchPubKey.IsValid() || !pubkeys[i].SetPubKey(vchPubKey))
+            if (!vchPubKey.IsFullyValid())
                 throw runtime_error(" Invalid public key: "+ks);
         }
 
@@ -815,7 +815,7 @@ Value addmultisigaddress(const Array& params, bool fHelp)
         else if (IsHex(ks))
         {
             CPubKey vchPubKey(ParseHex(ks));
-            if (!vchPubKey.IsValid() || !pubkeys[i].SetPubKey(vchPubKey))
+            if (!vchPubKey.IsFullyValid())
                 throw runtime_error(" Invalid public key: "+ks);
         }
         else

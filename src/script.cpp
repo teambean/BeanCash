@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2015-2018 Bean Core www.beancash.org
+// Copyright (c) 2015-2019 Bean Core www.beancash.org
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -1271,24 +1271,12 @@ bool CheckSig(vector<unsigned char> vchSig, vector<unsigned char> vchPubKey, CSc
     if (signatureCache.Get(sighash, vchSig, vchPubKey))
         return true;
 
-    CKey key;
-    if (!key.SetPubKey(vchPubKey))
-        return false;
-
-    if (!key.Verify(sighash, vchSig))
+   if (!CPubKey(vchPubKey).Verify(sighash, vchsig))
         return false;
 
     signatureCache.Set(sighash, vchSig, vchPubKey);
     return true;
 }
-
-
-
-
-
-
-
-
 
 //
 // Return public keys or hashes from scriptPubKey, for 'standard' transaction types.
@@ -2024,12 +2012,13 @@ void CScript::SetDestination(const CTxDestination& dest)
     boost::apply_visitor(CScriptVisitor(this), dest);
 }
 
-void CScript::SetMultisig(int nRequired, const std::vector<CKey>& keys)
+void CScript::SetMultisig(int nRequired, const std::vector<CCPubKey>& keys)
 {
     this->clear();
 
     *this << EncodeOP_N(nRequired);
-    for (const CKey& key : keys)
-        *this << key.GetPubKey();
+
+    for (const CPubKey& key : keys)
+        *this << key;
     *this << EncodeOP_N(keys.size()) << OP_CHECKMULTISIG;
 }

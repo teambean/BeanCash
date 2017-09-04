@@ -402,21 +402,19 @@ bool inline CBitbeanAddressVisitor::operator()(const CNoDestination &id) const {
 class CBitbeanSecret : public CBase58Data
 {
 public:
-    void SetSecret(const CSecret& vchSecret, bool fCompressed)
+    void SetKey(const CKey& vchSecret)
     {
-        assert(vchSecret.size() == 32);
-        SetData(128 + (fTestNet ? CBitbeanAddress::PUBKEY_ADDRESS_TEST : CBitbeanAddress::PUBKEY_ADDRESS), &vchSecret[0], vchSecret.size());
-        if (fCompressed)
+        assert(vchSecretIsValid());
+        SetData(128 + (fTestNet ? CBitbeanAddress::PUBKEY_ADDRESS_TEST : CBitbeanAddress::PUBKEY_ADDRESS), vchSecret.begin(), vchSecret.size());
+        if (vchSecret.IsCompressed())
             vchData.push_back(1);
     }
 
-    CSecret GetSecret(bool &fCompressedOut)
+    CKey GetKey()
     {
-        CSecret vchSecret;
-        vchSecret.resize(32);
-        memcpy(&vchSecret[0], &vchData[0], 32);
-        fCompressedOut = vchData.size() == 33;
-        return vchSecret;
+        CKey ret;
+        ret.Set(&vchData[0], &vchData[32], vchData.size() > 32 && vchData[32] == 1);
+        return ret;
     }
 
     bool IsValid() const
@@ -447,9 +445,9 @@ public:
         return SetString(strSecret.c_str());
     }
 
-    CBitbeanSecret(const CSecret& vchSecret, bool fCompressed)
+    CBitbeanSecret(const CKey& vchSecret)
     {
-        SetSecret(vchSecret, fCompressed);
+        SetKey(vchSecret);
     }
 
     CBitbeanSecret()
