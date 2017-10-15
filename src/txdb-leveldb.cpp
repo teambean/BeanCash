@@ -349,11 +349,12 @@ bool CTxDB::LoadBlockIndex()
         ssKey.write(iterator->key().data(), iterator->key().size());
         CDataStream ssValue(SER_DISK, CLIENT_VERSION);
         ssValue.write(iterator->value().data(), iterator->value().size());
+        // Unserialize
         string strType;
         ssKey >> strType;
         // Did we reach the end of the data to read?
         if (strType != "blockindex")
-            break;
+            break; // if shutdown requested or finished loading block index
         CDiskBlockIndex diskindex;
         ssValue >> diskindex;
 
