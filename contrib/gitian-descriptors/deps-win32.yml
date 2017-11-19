@@ -1,0 +1,61 @@
+---
+name: "bitcoin-deps"
+suites:
+- "lucid"
+architectures:
+- "i386"
+packages: 
+- "mingw32"
+- "git-core"
+- "zip"
+- "faketime"
+- "wine"
+reference_datetime: "2011-01-30 00:00:00"
+remotes: []
+files:
+- "openssl-1.0.1j.tar.gz"
+- "db-5.3.28.tar.gz"
+- "zlib-1.2.8.tar.gz"
+- "libpng-1.6.18.tar.gz"
+- "qrencode-3.4.4.tar.bz2"
+script: |
+  #
+  export LD_PRELOAD=/usr/lib/faketime/libfaketime.so.1
+  export FAKETIME=$REFERENCE_DATETIME
+  export TZ=UTC
+  #
+  tar xzf openssl-1.0.1j.tar.gz
+  cd openssl-1.0.1j
+  ./Configure --cross-compile-prefix=i586-mingw32msvc- mingw
+  make
+  cd ..
+  #
+  tar xzf db-5.3.28.tar.gz
+  cd db-5.3.28/build_unix
+  ../dist/configure --enable-mingw --enable-cxx --host=i586-mingw32msvc CFLAGS="-I/usr/i586-mingw32msvc/include"
+  make $MAKEOPTS
+  cd ../..
+  #
+  tar xzf zlib-1.2.8.tar.gz
+  cd zlib-1.2.7
+  make -f win32/Makefile.gcc PREFIX=i586-mingw32msvc- $MAKEOPTS
+  cd ..
+  #
+  tar xzf libpng-1.6.18.tar.gz
+  cd libpng-1.6.18
+  ./configure -disable-shared CC=i586-mingw32msvc-cc AR=i586-mingw32msvc-ar STRIP=i586-mingw32msvc-strip RANLIB=i586-mingw32msvc-ranlib OBJDUMP=i586-mingw32msvc-objdump LD=i586-mingw32msvc-ld LDFLAGS="-L../zlib-1.2.8/" CFLAGS="-I../zlib-1.2.8/"
+  make $MAKEOPTS
+  cd ..
+  #
+  tar xjf qrencode-3.4.4.tar.bz2
+  cd qrencode-3.4.4
+  ./configure CC=i586-mingw32msvc-cc AR=i586-mingw32msvc-ar STRIP=i586-mingw32msvc-strip RANLIB=i586-mingw32msvc-ranlib OBJDUMP=i586-mingw32msvc-objdump LD=i586-mingw32msvc-ld png_LIBS="../libpng-1.6.18/.libs/libpng16.a ../zlib-1.2.8/libz.a" png_CFLAGS="-I../libpng-1.6.18"
+  make $MAKEOPTS
+  cd ..
+  #
+  zip -r $OUTDIR/bitbean-deps-1.1.0.0.zip \
+    $(ls qrencode-*/{qrencode.h,.libs/libqrencode.{,l}a} | sort) \
+    $(ls db-*/build_unix/{libdb_cxx.a,db.h,db_cxx.h,libdb.a,.libs/libdb_cxx-?.?.a} | sort) \
+    $(find openssl-* -name '*.a' -o -name '*.h' | sort) \
+    # Kill wine processes as gitian won't figure out we are done otherwise
+  killall wineserver services.exe explorer.exe winedevice.exe
