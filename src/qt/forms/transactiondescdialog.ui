@@ -220,7 +220,7 @@
       <string>&amp;Close</string>
      </property>
      <property name="icon">
-      <iconset resource="../bitbean.qrc">
+      <iconset resource="../beancash.qrc">
        <normaloff>:/icons/quit</normaloff>:/icons/quit</iconset>
      </property>
     </widget>
@@ -251,7 +251,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../bitbean.qrc"/>
+  <include location="../beancash.qrc"/>
  </resources>
  <connections/>
 </ui>

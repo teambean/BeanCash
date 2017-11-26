@@ -129,7 +129,7 @@ bool parseBitbeanURI(QString uri, SendBeansRecipient *out)
 {
     // Convert Beancash:// to Beancash:
     //
-    //    Cannot handle this later, because bitbean:// will cause Qt to see the part after // as host,
+    //    Cannot handle this later, because beancash:// will cause Qt to see the part after // as host,
     //    which will lower-case it (and thus invalidate the address).
     if(uri.startsWith("Beancash://"))
     {
@@ -252,9 +252,9 @@ void openDebugLogfile()
 
 void openConfigfile()
 {
-    boost::filesystem::path pathConf = GetDataDir() / "bitbean.conf";
+    boost::filesystem::path pathConf = GetDataDir() / "BitBean.conf";
 
-    /* Open bitbean.conf with the associated application */
+    /* Open BitBean.conf with the associated application */
     if (boost::filesystem::exists(pathConf))
         QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(pathConf.string())));
 }
@@ -406,7 +406,7 @@ bool SetStartOnSystemStartup(bool fAutoStart)
         boost::filesystem::ofstream optionFile(GetAutostartFilePath(), std::ios_base::out|std::ios_base::trunc);
         if (!optionFile.good())
             return false;
-        // Write a bitbean.desktop file to the autostart directory:
+        // Write a beancash.desktop file to the autostart directory:
         optionFile << "[Desktop Entry]\n";
         optionFile << "Type=Application\n";
         optionFile << "Name=Beancash\n";

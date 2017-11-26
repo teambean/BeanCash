@@ -327,8 +327,8 @@
    <string>Form</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../bitbean.qrc">
-    <normaloff>:/icons/bitbean</normaloff>:/icons/bitbean</iconset>
+   <iconset resource="../beancash.qrc">
+    <normaloff>:/icons/beancash</normaloff>:/icons/beancash</iconset>
   </property>
   <property name="frameShape">
    <enum>QFrame::StyledPanel</enum>
@@ -457,7 +457,7 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="../bitbean.qrc">
+        <iconset resource="../beancash.qrc">
          <normaloff>:/icons/address-book</normaloff>:/icons/address-book</iconset>
        </property>
        <property name="shortcut">
@@ -474,7 +474,7 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="../bitbean.qrc">
+        <iconset resource="../beancash.qrc">
          <normaloff>:/icons/editpaste</normaloff>:/icons/editpaste</iconset>
        </property>
        <property name="shortcut">
@@ -491,7 +491,7 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset resource="../bitbean.qrc">
+        <iconset resource="../beancash.qrc">
          <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
        </property>
       </widget>
@@ -514,7 +514,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../bitbean.qrc"/>
+  <include location="../beancash.qrc"/>
  </resources>
  <connections/>
 </ui>

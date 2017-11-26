@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2015 Bean Core www.bitbean.org
+// Copyright (c) 2015 Bean Core www.beancash.org
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -128,7 +128,7 @@ void ipcInit(int argc, char *argv[])
     try {
         mq = new message_queue(open_or_create, BITBEANURI_QUEUE_NAME, 2, MAX_URI_LENGTH);
 
-        // Make sure we don't lose any bitbean: URIs
+        // Make sure we don't lose any beancash: URIs
         for (int i = 0; i < 2; i++)
         {
             ptime d = boost::posix_time::microsec_clock::universal_time() + millisec(1);
@@ -140,7 +140,7 @@ void ipcInit(int argc, char *argv[])
                 break;
         }
 
-        // Make sure only one bitbean instance is listening
+        // Make sure only one beancash instance is listening
         message_queue::remove(BITBEANURI_QUEUE_NAME);
         delete mq;
 

@@ -374,7 +374,7 @@
            <string>&amp;Save As...</string>
           </property>
           <property name="icon">
-           <iconset resource="../bitbean.qrc">
+           <iconset resource="../beancash.qrc">
             <normaloff>:/icons/filesave</normaloff>:/icons/filesave</iconset>
           </property>
          </widget>
@@ -395,7 +395,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../bitbean.qrc"/>
+  <include location="../beancash.qrc"/>
  </resources>
  <connections>
   <connection>

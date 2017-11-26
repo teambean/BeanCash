@@ -31,7 +31,7 @@ namespace GUIUtil
     void setupAmountWidget(QLineEdit *widget, QWidget *parent);
 
     // Parse "Beancash:" URI into recipient object, return true on successful parsing
-    // See Bitbean URI definition discussion here: https://bitbeantalk.org/index.php?topic=33490.0
+    // See Bean Cash URI definition discussion here: http://bitbeantalk.org/index.php?topic=33490.0
     bool parseBitbeanURI(const QUrl &uri, SendBeansRecipient *out);
     bool parseBitbeanURI(QString uri, SendBeansRecipient *out);
 

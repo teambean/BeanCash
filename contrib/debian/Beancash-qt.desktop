@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Beancash
+Comment=Bean Digital Cash P2P Currency
+Comment[fr]=Bean Digital Cash, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Bean Digital Cash, eşten eşe kriptografik sanal para birimi
+Exec=/usr/bin/Beancash-qt
+Terminal=false
+Type=Application
+Icon=/usr/share/pixmaps/beancash80.xpm
+MimeType=x-scheme-handler/beancash;
+Categories=Office;

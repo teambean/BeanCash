@@ -1,5 +1,6 @@
 # Copyright (c) 2009-2010 Satoshi Nakamoto
-# Copyright (c) 2015 Bean Core www.bitbean.org
+# Copyright (c) 2015-2017 Bean Core www.bitbean.org
+# Copyright (c) 2017 Bean Core www.beancash.org
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -91,7 +92,7 @@ OBJS= \
     obj/scrypt-x86_64.o \
     
 
-all: BitBeand.exe
+all: Beancashd.exe
 
 LIBS += $(CURDIR)/leveldb/libleveldb.a $(CURDIR)/leveldb/libmemenv.a
 DEFS += -I"$(CURDIR)/leveldb/include"
@@ -110,9 +111,9 @@ obj/%.o: %.cpp $(HEADERS)
 	$(CXX) -c $(CFLAGS) -o $@ $<
 
 
-BitBeand.exe: $(OBJS:obj/%=obj/%)
+Beancashd.exe: $(OBJS:obj/%=obj/%)
 	$(CXX) $(CFLAGS) $(LDFLAGS) -o $@ $(LIBPATHS) $^ $(LIBS) -lshlwapi
-	$(STRIP) BitBeand.exe
+	$(STRIP) Beancashd.exe
 
 obj/scrypt-x86.o: scrypt-x86.S
 	$(CXX) -c $(CFLAGS) -MMD -o $@ $<
@@ -122,7 +123,7 @@ obj/scrypt-x86_64.o: scrypt-x86_64.S
 
 clean:
 	-rm -f obj/*.o
-	-rm -f BitBeand.exe
+	-rm -f Beancashd.exe
 	-rm -f obj/build.h
 	cd leveldb && TARGET_OS=OS_WINDOWS_CROSSCOMPILE $(MAKE) clean && cd ..
 

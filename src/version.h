@@ -1,5 +1,5 @@
 // Copyright (c) 2012 The Bitcoin developers
-// Copyright (c) 2015 Bean Core www.bitbean.org
+// Copyright (c) 2015 Bean Core www.beancash.org
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef BITBEAN_VERSION_H
@@ -44,8 +44,8 @@ static const int MIN_PEER_PROTO_VERSION = 209;
 static const int CADDR_TIME_VERSION = 31402;
 
 // only request blocks from nodes outside this range of versions
-static const int NOBLKS_VERSION_START = 60002;
-static const int NOBLKS_VERSION_END = 60006;
+static const int NOBLKS_VERSION_START = 60013;
+static const int NOBLKS_VERSION_END = 60014;
 
 // BIP 0031, pong message, is enabled for all versions AFTER this one
 static const int BIP0031_VERSION = 60000;

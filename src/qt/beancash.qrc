@@ -2,7 +2,7 @@
     <qresource prefix="/icons">
         <file alias="address-book">res/icons/address-book.png</file>
         <file alias="quit">res/icons/quit.png</file>
-        <file alias="send">res/icons/send.png</file>
+        <file alias="right_arrow">res/icons/send.png</file>
         <file alias="connect_0">res/icons/connect0_16.png</file>
         <file alias="connect_1">res/icons/connect1_16.png</file>
         <file alias="connect_2">res/icons/connect2_16.png</file>
@@ -16,7 +16,7 @@
         <file alias="transaction_4">res/icons/clock4.png</file>
         <file alias="transaction_5">res/icons/clock5.png</file>
         <file alias="options">res/icons/configure.png</file>
-        <file alias="receiving_addresses">res/icons/receive.png</file>
+        <file alias="left_arrow">res/icons/receive.png</file>
         <file alias="editpaste">res/icons/editpaste.png</file>
         <file alias="editcopy">res/icons/editcopy.png</file>
         <file alias="add">res/icons/add.png</file>
@@ -35,8 +35,8 @@
         <file alias="debugwindow">res/icons/debugwindow.png</file>
         <file alias="staking_off">res/icons/staking_off.png</file>
         <file alias="staking_on">res/icons/staking_on.png</file>
-        <file alias="bitbean">res/icons/bitbean-80.png</file>
-        <file alias="toolbar">res/icons/bitbean-16.png</file>
+        <file alias="beancash">res/icons/beancash-80.png</file>
+        <file alias="toolbar">res/icons/beancash-16.png</file>
         <file alias="transaction_confirmed">res/icons/beans-confirmed.png</file>
         <file alias="synced">res/icons/checkmark.png</file>
         <file alias="sprout">res/icons/sprout.png</file>
@@ -49,7 +49,7 @@
         <file alias="splash">res/images/Bean2Moon.png</file>
     </qresource>
     <qresource prefix="/movies">
-        <file alias="update_spinner">res/movies/bitbean_spinner.mng</file>
+        <file alias="update_spinner">res/movies/beancash_spinner.mng</file>
     </qresource>
     <qresource prefix="/translations">
         <file alias="ar">locale/bitbean_ar.ts</file>

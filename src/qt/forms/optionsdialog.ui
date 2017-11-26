@@ -236,7 +236,7 @@
       <enum>QTabWidget::North</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>3</number>
      </property>
      <widget class="QWidget" name="tabMain">
       <attribute name="title">
@@ -246,7 +246,7 @@
        <item>
         <widget class="QLabel" name="transactionFeeInfoLabel">
          <property name="text">
-          <string>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB. A fee of 5 BITB is recommended. Fees help support the Beancash network.</string>
+          <string>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are less than 1 kB. A fee of 5 BEAN is recommended. Fees help support the Bean Cash network.</string>
          </property>
          <property name="textFormat">
           <enum>Qt::PlainText</enum>
@@ -338,10 +338,10 @@
        <item>
         <widget class="QCheckBox" name="bitbeanAtStartup">
          <property name="toolTip">
-          <string>Automatically start Beancash after logging in to the system.</string>
+          <string>Automatically start Bean Cash Core after logging in to the system.</string>
          </property>
          <property name="text">
-          <string>&amp;Start Beancash on system login</string>
+          <string>&amp;Start Bean Cash Core on system login</string>
          </property>
         </widget>
        </item>
@@ -378,7 +378,7 @@
        <item>
         <widget class="QCheckBox" name="mapPortUpnp">
          <property name="toolTip">
-          <string>Automatically open the Beancash client port on the router. This only works when your router supports UPnP and it is enabled.</string>
+          <string>Automatically open the Bean Cash client port on the router. This only works when your router supports UPnP and it is enabled.</string>
          </property>
          <property name="text">
           <string>Map port using &amp;UPnP</string>
@@ -388,7 +388,7 @@
        <item>
         <widget class="QCheckBox" name="connectSocks">
          <property name="toolTip">
-          <string>Connect to the Beancash network through a SOCKS proxy (e.g. when connecting through Tor).</string>
+          <string>Connect to the Bean Cash network through a SOCKS proxy (e.g. when connecting through Tor).</string>
          </property>
          <property name="text">
           <string>&amp;Connect through SOCKS proxy:</string>
@@ -562,7 +562,7 @@
          <item>
           <widget class="QValueComboBox" name="lang">
            <property name="toolTip">
-            <string>The user interface language can be set here. This setting will take effect after restarting Beancash.</string>
+            <string>The user interface language can be set here. This setting will take effect after restarting Bean Cash Core.</string>
            </property>
           </widget>
          </item>
@@ -586,7 +586,7 @@
          <item>
           <widget class="QValueComboBox" name="unit">
            <property name="toolTip">
-            <string>Choose the default subdivision unit to show in the interface and when sending beans.</string>
+            <string>Choose the default subdivision unit to show in the interface and when sending Beans.</string>
            </property>
           </widget>
          </item>
@@ -595,7 +595,7 @@
        <item>
         <widget class="QCheckBox" name="displayAddresses">
          <property name="toolTip">
-          <string>Whether to show Beancash addresses in the transaction list or not.</string>
+          <string>Whether to show Bean Cash addresses in the transaction list or not.</string>
          </property>
          <property name="text">
           <string>&amp;Display addresses in transaction list</string>
@@ -726,7 +726,7 @@
         <string>&amp;OK</string>
        </property>
        <property name="icon">
-        <iconset resource="../bitbean.qrc">
+        <iconset resource="../beancash.qrc">
          <normaloff>:/icons/receiving_addresses</normaloff>:/icons/receiving_addresses</iconset>
        </property>
       </widget>
@@ -744,7 +744,7 @@
         <string>&amp;Cancel</string>
        </property>
        <property name="icon">
-        <iconset resource="../bitbean.qrc">
+        <iconset resource="../beancash.qrc">
          <normaloff>:/icons/quit</normaloff>:/icons/quit</iconset>
        </property>
        <property name="autoDefault">
@@ -765,7 +765,7 @@
         <string>&amp;Apply</string>
        </property>
        <property name="icon">
-        <iconset resource="../bitbean.qrc">
+        <iconset resource="../beancash.qrc">
          <normaloff>:/icons/synced</normaloff>:/icons/synced</iconset>
        </property>
        <property name="autoDefault">
@@ -796,7 +796,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../bitbean.qrc"/>
+  <include location="../beancash.qrc"/>
  </resources>
  <connections/>
 </ui>

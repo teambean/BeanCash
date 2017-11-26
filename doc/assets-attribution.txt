@@ -7,9 +7,9 @@ License: ISC
 Icons:
     src/qt/res/icons/address-book.png
     src/qt/res/icons/beans-confirmed.png
-    src/qt/res/icons/bitbean-16.png
-    src/qt/res/icons/bitbean-80.png
-    src/qt/res/icons/bitbean.ico
+    src/qt/res/icons/beancash-16.png
+    src/qt/res/icons/beancash-80.png
+    src/qt/res/icons/beancash.ico
     src/qt/res/icons/checkmark.png
     src/qt/res/icons/clock1.png
     src/qt/res/icons/clock2.png
@@ -66,6 +66,6 @@ Icon:  src/qt/res/movies/bitbean_spinner.mng
 
 Designer: Shawn Kent
 License: GNU/GPL 
-Site: http://www.bitbean.org
+Site: http://www.beancash.org
 
 

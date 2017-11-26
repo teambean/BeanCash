@@ -22,6 +22,7 @@ CONFIG += static
 greaterThan(QT_MAJOR_VERSION, 4) {
     QT += widgets
     DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
+    QT += concurrent
 }
 
 # for boost 1.37, add -mt to the boost libraries
@@ -113,8 +114,8 @@ contains(USE_DBUS, 1) {
     DEFINES += USE_DBUS
     QT += dbus
 }
-contains(BITBEAN_NEED_QT_PLUGINS, 1) {
-    DEFINES += BITBEAN_NEED_QT_PLUGINS
+contains(BEANCASH_NEED_QT_PLUGINS, 1) {
+    DEFINES += BEANCASH_NEED_QT_PLUGINS
     QTPLUGIN += qcncodecs qjpcodecs qtwcodecs qkrcodecs qtaccessiblewidgets
     }
 
@@ -257,7 +258,7 @@ HEADERS += src/qt/bitbeangui.h \
     src/netbase.h \
     src/clientversion.h \
 
-SOURCES += src/qt/bitbean.cpp src/qt/bitbeangui.cpp \
+SOURCES += src/qt/beancash.cpp src/qt/bitbeangui.cpp \
     src/qt/transactiontablemodel.cpp \
     src/qt/addresstablemodel.cpp \
     src/qt/optionsdialog.cpp \
@@ -326,7 +327,7 @@ SOURCES += src/qt/bitbean.cpp src/qt/bitbeangui.cpp \
     src/pbkdf2.cpp \
 
 RESOURCES += \
-    src/qt/bitbean.qrc
+    src/qt/beancash.qrc
 
 FORMS += \
     src/qt/forms/beancontroldialog.ui \
@@ -351,7 +352,7 @@ FORMS += src/qt/forms/qrcodedialog.ui
 CODECFORTR = UTF-8
 
 # for lrelease/lupdate
-# also add new translations to src/qt/bitbean.qrc under translations/
+# also add new translations to src/qt/beancash.qrc under translations/
 TRANSLATIONS = $$files(src/qt/locale/bitbean_*.ts)
 
 isEmpty(QMAKE_LRELEASE) {
@@ -421,7 +422,7 @@ macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm \
 		src/qt/macnotificationhandler.mm
 macx:LIBS += -framework Foundation -framework ApplicationServices -framework AppKit
 macx:DEFINES += MAC_OSX MSG_NOSIGNAL=0
-macx:ICON = src/qt/res/icons/bitbean.icns
+macx:ICON = src/qt/res/icons/beancash.icns
 macx:TARGET = "Beancash-qt"
 macx:QMAKE_CFLAGS_THREAD += -pthread
 macx:QMAKE_LFLAGS_THREAD += -pthread

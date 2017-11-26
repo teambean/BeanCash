@@ -641,7 +641,7 @@ void BeanControlDialog::updateView()
             {
                 sAddress = CBitbeanAddress(outputAddress).ToString().c_str();
                 
-                // if listMode or change => show bitbean address. In tree mode, address is not shown again for direct wallet address outputs
+                // if listMode or change => show beancash address. In tree mode, address is not shown again for direct wallet address outputs
                 if (!treeMode || (!(sAddress == sWalletAddress)))
                     itemOutput->setText(COLUMN_ADDRESS, sAddress);
                     

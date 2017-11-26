@@ -98,7 +98,7 @@ static void QueueShutdown()
  */
 static std::string Translate(const char* psz)
 {
-    return QCoreApplication::translate("bitbean-core", psz).toStdString();
+    return QCoreApplication::translate("beancash-core", psz).toStdString();
 }
 
 /* Handle runaway exceptions. Shows a message box with the problem and quits the program.
@@ -122,7 +122,7 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForCStrings(QTextCodec::codecForTr());
 #endif
 
-    Q_INIT_RESOURCE(bitbean);
+    Q_INIT_RESOURCE(beancash);
     QApplication app(argc, argv);
 
     // Install global event filter that makes sure that long tooltips can be word-wrapped
@@ -145,7 +145,7 @@ int main(int argc, char *argv[])
     // Application identification (must be set before OptionsModel is initialized,
     // as it is used to locate QSettings)
     app.setOrganizationName("Beancash");
-    //XXX app.setOrganizationDomain("bitbean.org");
+    //XXX app.setOrganizationDomain("beancash.org");
     if(GetBoolArg("-testnet")) // Separate UI settings for testnet
         app.setApplicationName("Beancash-qt-testnet");
     else
@@ -173,11 +173,11 @@ int main(int argc, char *argv[])
     if (qtTranslator.load("qt_" + lang_territory, QLibraryInfo::location(QLibraryInfo::TranslationsPath)))
         app.installTranslator(&qtTranslator);
 
-    // Load e.g. bitbean_de.qm (shortcut "de" needs to be defined in bitbean.qrc)
+    // Load e.g. bitbean_de.qm (shortcut "de" needs to be defined in beancash.qrc)
     if (translatorBase.load(lang, ":/translations/"))
         app.installTranslator(&translatorBase);
 
-    // Load e.g. bitbean_de_DE.qm (shortcut "de_DE" needs to be defined in bitbean.qrc)
+    // Load e.g. bitbean_de_DE.qm (shortcut "de_DE" needs to be defined in beancash.qrc)
     if (translator.load(lang_territory, ":/translations/"))
         app.installTranslator(&translator);
 

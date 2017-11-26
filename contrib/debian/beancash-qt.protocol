@@ -1,6 +1,6 @@
 [Protocol]
-exec=bitbean-qt '%u'
-protocol=bitbean
+exec=Beancash-qt '%u'
+protocol=beancash
 input=none
 output=none
 helper=true

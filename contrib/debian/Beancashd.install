@@ -1,0 +1,2 @@
+debian/bin/Beancashd usr/bin
+src/Beancashd usr/lib/beancash

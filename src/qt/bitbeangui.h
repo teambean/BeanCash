@@ -44,7 +44,7 @@ public:
     */
     void setClientModel(ClientModel *clientModel);
     /** Set the wallet model.
-        The wallet model represents a bitbean wallet, and offers access to the list of transactions, address book and sending
+        The wallet model represents a beancash wallet, and offers access to the list of transactions, address book and sending
         functionality.
     */
     void setWalletModel(WalletModel *walletModel);

@@ -99,7 +99,7 @@
 
 * update wiki download links
 
-* update wiki changelog: https://bitbean.org/wiki/Changelog
+* update wiki changelog: https://beancash.org/wiki/Changelog
 
 * Commit your signature to gitian.sigs:
   pushd gitian.sigs

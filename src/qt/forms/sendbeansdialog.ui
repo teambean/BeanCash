@@ -279,8 +279,8 @@
              <string>Inputs...</string>
             </property>
             <property name="icon">
-             <iconset resource="../bitbean.qrc">
-              <normaloff>:/icons/receiving_addresses</normaloff>:/icons/receiving_addresses</iconset>
+             <iconset resource="../beancash.qrc">
+              <normaloff>:/icons/right_arrow</normaloff>:/icons/right_arrow</iconset>
             </property>
            </widget>
           </item>
@@ -958,7 +958,7 @@
         <string>Add &amp;Recipient</string>
        </property>
        <property name="icon">
-        <iconset resource="../bitbean.qrc">
+        <iconset resource="../beancash.qrc">
          <normaloff>:/icons/add</normaloff>:/icons/add</iconset>
        </property>
        <property name="autoDefault">
@@ -1024,7 +1024,7 @@
         <string>Clear &amp;All</string>
        </property>
        <property name="icon">
-        <iconset resource="../bitbean.qrc">
+        <iconset resource="../beancash.qrc">
          <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
        </property>
        <property name="autoRepeatDelay">
@@ -1158,8 +1158,8 @@
         <string>S&amp;end</string>
        </property>
        <property name="icon">
-        <iconset resource="../bitbean.qrc">
-         <normaloff>:/icons/send</normaloff>:/icons/send</iconset>
+        <iconset resource="../beancash.qrc">
+         <normaloff>:/icons/left_arrow</normaloff>:/icons/left_arrow</iconset>
        </property>
        <property name="default">
         <bool>true</bool>
@@ -1171,7 +1171,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../bitbean.qrc"/>
+  <include location="../beancash.qrc"/>
  </resources>
  <connections/>
 </ui>

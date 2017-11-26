@@ -1,0 +1,5 @@
+Beancash-qt usr/bin
+share/pixmaps/beancash32.xpm usr/share/pixmaps
+share/pixmaps/beancashn80.xpm usr/share/pixmaps
+debian/Beancash-qt.desktop usr/share/applications
+debian/beancash-qt.protocol usr/share/kde4/services/

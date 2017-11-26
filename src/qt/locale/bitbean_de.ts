@@ -10,25 +10,34 @@
         <translation>Über Beancash</translation>
     </message>
     <message>
-        <location line="+54"/>
+        <location line="+39"/>
         <source>&lt;b&gt;Beancash&lt;/b&gt; version</source>
         <translation>&lt;b&gt;Beancash&lt;/b&gt; Version</translation>
     </message>
     <message>
-        <location line="+53"/>
+        <location line="+66"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;This is experimental software. Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;/span&gt;&lt;a href=&quot;http://www.opensource.org/licenses/mit-license.php&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.opensource.org/licenses/mit-license.php&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;. This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;/span&gt;&lt;a href=&quot;https://www.openssl.org/&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.openssl.org/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;) and cryptographic software written by Eric Young (&lt;/span&gt;&lt;a href=&quot;mailto:eay@cryptsoft.com&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;eay@cryptsoft.com&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;) and UPnP software written by Thomas Bernard.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+93"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Liberation Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-style:italic;&quot;&gt;Copyright © 2009-2014 The Bitcoin developers&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-style:italic;&quot;&gt;Copyright © 2012-2014 The Novacoin developers&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-style:italic;&quot;&gt;Copyright © 2014 The Beancash developers&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-style:italic;&quot;&gt;Copyright © 2015 Bean Core www.bitbean.org&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Copyright © 2015-2017 Bean Core www.beancash.org&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+26"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Chief Scientist &amp;amp; Lead Developer: &lt;/span&gt;Shawn Kent&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Designer: &lt;/span&gt;BrunoPro7&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;This is experimental software. Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;/span&gt;&lt;a href=&quot;http://www.opensource.org/licenses/mit-license.php&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.opensource.org/licenses/mit-license.php&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;. This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;/span&gt;&lt;a href=&quot;https://www.openssl.org/&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.openssl.org/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;) and cryptographic software written by Eric Young (&lt;/span&gt;&lt;a href=&quot;mailto:eay@cryptsoft.com&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;eay@cryptsoft.com&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;) and UPnP software written by Thomas Bernard.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <location line="-55"/>
+        <source>Close Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>&amp;Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -54,7 +63,12 @@ Dieses Produkt enthält Software, die vom OpenSSL-Projekt zur Verwendung im Open
         <translation>Adressbuch</translation>
     </message>
     <message>
-        <location line="+28"/>
+        <location line="+12"/>
+        <source>These are your Bean Cash addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
         <source>Double-click to edit address or label</source>
         <translation>Doppelklicken, um die Adresse oder die Bezeichnung zu bearbeiten</translation>
     </message>
@@ -69,17 +83,21 @@ Dieses Produkt enthält Software, die vom OpenSSL-Projekt zur Verwendung im Open
         <translation>Ausgewählte Adresse in die Zwischenablage kopieren</translation>
     </message>
     <message>
-        <location line="-17"/>
+        <location line="+37"/>
+        <source>Sign a message to prove you own a Bean Cash address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-54"/>
         <source>&amp;New Address</source>
         <translation>&amp;Neue Adresse</translation>
     </message>
     <message>
-        <location line="-52"/>
         <source>These are your Beancash addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>Das sind Ihre Beancash Adressen um Zahlungen zu erhalten. Sie werden vielleicht verschiedene an jeden Sender vergeben, damit Sie im Auge behalten können wer sie bezahlt.</translation>
+        <translation type="obsolete">Das sind Ihre Beancash Adressen um Zahlungen zu erhalten. Sie werden vielleicht verschiedene an jeden Sender vergeben, damit Sie im Auge behalten können wer sie bezahlt.</translation>
     </message>
     <message>
-        <location line="+72"/>
+        <location line="+20"/>
         <source>&amp;Copy Address</source>
         <translation>Adresse &amp;kopieren</translation>
     </message>
@@ -89,27 +107,22 @@ Dieses Produkt enthält Software, die vom OpenSSL-Projekt zur Verwendung im Open
         <translation>&amp;QR Code anzeigen</translation>
     </message>
     <message>
-        <location line="+17"/>
-        <source>Sign a message to prove you own a Beancash address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
+        <location line="+20"/>
         <source>Sign &amp;Message</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+39"/>
+        <location line="+19"/>
+        <source>Verify a message to ensure it was signed with a specified Bean Cash address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
         <source>Delete the currently selected address from the list</source>
         <translation>Ausgewählte Adresse aus der Liste entfernen</translation>
     </message>
     <message>
-        <location line="-20"/>
-        <source>Verify a message to ensure it was signed with a specified Beancash address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
+        <location line="-17"/>
         <source>&amp;Verify Message</source>
         <translation type="unfinished">Nachricht &amp;verifizieren</translation>
     </message>
@@ -119,17 +132,17 @@ Dieses Produkt enthält Software, die vom OpenSSL-Projekt zur Verwendung im Open
         <translation>&amp;Löschen</translation>
     </message>
     <message>
-        <location filename="../addressbookpage.cpp" line="+65"/>
+        <location filename="../addressbookpage.cpp" line="+67"/>
         <source>Copy &amp;Label</source>
         <translation>&amp;Bezeichnung kopieren</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+1"/>
         <source>&amp;Edit</source>
         <translation>&amp;Editieren</translation>
     </message>
     <message>
-        <location line="+250"/>
+        <location line="+249"/>
         <source>Export Address Book Data</source>
         <translation type="unfinished"></translation>
     </message>
@@ -200,14 +213,22 @@ Dieses Produkt enthält Software, die vom OpenSSL-Projekt zur Verwendung im Open
         <translation>Anteil der im Netz reift und nur Zinsen kreiert.</translation>
     </message>
     <message>
-        <location filename="../askpassphrasedialog.cpp" line="+35"/>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation>Geben Sie die neue Passphrase für die Wallet ein.&lt;br&gt;Bitte benutzen Sie eine Passphrase bestehend aus &lt;b&gt;10 oder mehr zufälligen Zeichen&lt;/b&gt; oder &lt;b&gt;8 oder mehr Wörtern&lt;/b&gt;.</translation>
+        <translation type="obsolete">Geben Sie die neue Passphrase für die Wallet ein.&lt;br&gt;Bitte benutzen Sie eine Passphrase bestehend aus &lt;b&gt;10 oder mehr zufälligen Zeichen&lt;/b&gt; oder &lt;b&gt;8 oder mehr Wörtern&lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source>Encrypt wallet</source>
+        <translation type="obsolete">Wallet verschlüsseln</translation>
+    </message>
+    <message>
+        <location filename="../askpassphrasedialog.cpp" line="+35"/>
+        <source>Enter the new passphrase for your Keys.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Encrypt wallet</source>
-        <translation>Wallet verschlüsseln</translation>
+        <source>Encrypt Keys</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+7"/>
@@ -321,47 +342,47 @@ Dieses Produkt enthält Software, die vom OpenSSL-Projekt zur Verwendung im Open
 <context>
     <name>BeanControlDialog</name>
     <message>
-        <location filename="../forms/beancontroldialog.ui" line="+14"/>
+        <location filename="../forms/beancontroldialog.ui" line="+159"/>
         <source>Bean Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+39"/>
         <source>Quantity:</source>
         <translation type="unfinished">Anzahl:</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+40"/>
         <source>Bytes:</source>
         <translation type="unfinished">Byte:</translation>
     </message>
     <message>
-        <location line="+48"/>
+        <location line="+56"/>
         <source>Amount:</source>
         <translation type="unfinished">Betrag:</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+40"/>
         <source>Priority:</source>
         <translation type="unfinished">Priorität:</translation>
     </message>
     <message>
-        <location line="+48"/>
+        <location line="+56"/>
         <source>Fee:</source>
         <translation type="unfinished">Gebühr:</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+41"/>
         <source>Low Output:</source>
         <translation type="unfinished">Zu geringer Ausgabebetrag:</translation>
     </message>
     <message>
-        <location line="+51"/>
+        <location line="+59"/>
         <source>After Fee:</source>
         <translation type="unfinished">Abzüglich Gebühr:</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+41"/>
         <source>Change:</source>
         <translation type="unfinished">Wechselgeld:</translation>
     </message>
@@ -371,17 +392,17 @@ Dieses Produkt enthält Software, die vom OpenSSL-Projekt zur Verwendung im Open
         <translation type="unfinished">Alles (de)selektieren</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+19"/>
         <source>Tree mode</source>
         <translation type="unfinished">Baumansicht</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+22"/>
         <source>List mode</source>
         <translation type="unfinished">Listenansicht</translation>
     </message>
     <message>
-        <location line="+45"/>
+        <location line="+51"/>
         <source>Amount</source>
         <translation type="unfinished">Betrag</translation>
     </message>
@@ -575,42 +596,25 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>BitbeanGUI</name>
     <message>
-        <location filename="../bitbean.cpp" line="+109"/>
-        <source>A fatal error occurred. Beancash can no longer continue safely and will quit.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../bitbeangui.cpp" line="+89"/>
         <source>Beancash</source>
-        <translation type="unfinished">Beancash</translation>
+        <translation type="obsolete">Beancash</translation>
     </message>
     <message>
-        <location line="+0"/>
-        <source>Vault</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+135"/>
+        <location filename="../bitbeangui.cpp" line="+215"/>
         <source>&amp;Overview</source>
         <translation type="unfinished">&amp;Übersicht</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Show general overview of wallet</source>
-        <translation type="unfinished">Allgemeine Wallet-Übersicht anzeigen</translation>
+        <translation type="obsolete">Allgemeine Wallet-Übersicht anzeigen</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+6"/>
         <source>&amp;Send Beans</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Send Beans to a Beancash address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
+        <location line="+6"/>
         <source>&amp;Receive Beans</source>
         <translation type="unfinished"></translation>
     </message>
@@ -650,12 +654,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished">Anwendung beenden</translation>
     </message>
     <message>
-        <location line="+3"/>
-        <source>&amp;About Beancash</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="+4"/>
         <source>Show information about Beancash</source>
         <translation type="unfinished"></translation>
     </message>
@@ -685,52 +684,33 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished">&amp;Anzeigen / Verstecken</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>&amp;Encrypt Wallet...</source>
-        <translation type="unfinished">Wallet &amp;verschlüsseln...</translation>
+        <translation type="obsolete">Wallet &amp;verschlüsseln...</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Encrypt or decrypt wallet</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+2"/>
         <source>&amp;Backup Wallet...</source>
-        <translation type="unfinished">Wallet &amp;sichern...</translation>
+        <translation type="obsolete">Wallet &amp;sichern...</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Backup wallet to another location</source>
-        <translation type="unfinished">Eine Wallet-Sicherungskopie erstellen und abspeichern</translation>
+        <translation type="obsolete">Eine Wallet-Sicherungskopie erstellen und abspeichern</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+6"/>
         <source>&amp;Change Passphrase...</source>
         <translation type="unfinished">Passphrase &amp;ändern...</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Change the passphrase used for wallet encryption</source>
-        <translation type="unfinished">Ändert die Passphrase, die für die Wallet-Verschlüsselung benutzt wird</translation>
+        <translation type="obsolete">Ändert die Passphrase, die für die Wallet-Verschlüsselung benutzt wird</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>&amp;Unlock Wallet...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="+3"/>
         <source>Unlock wallet</source>
         <translation type="unfinished">Wallet entsperren</translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>&amp;Lock Wallet</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Lock wallet</source>
         <translation type="unfinished"></translation>
     </message>
@@ -755,17 +735,16 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>&amp;Debug window</source>
-        <translation type="unfinished">&amp;Debugfenster</translation>
+        <translation type="obsolete">&amp;Debugfenster</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Open debugging and diagnostic console</source>
         <translation type="unfinished">Debugging- und Diagnosekonsole öffnen</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+30"/>
         <source>&amp;File</source>
         <translation type="unfinished">&amp;Datei</translation>
     </message>
@@ -785,7 +764,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="unfinished">Registerkartenleiste</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+9"/>
         <source>Actions toolbar</source>
         <translation type="unfinished"></translation>
     </message>
@@ -801,9 +780,74 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <source>Beancash client</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location line="-352"/>
+        <source>Bean Cash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Core v1.1.2.2RC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+135"/>
+        <source>Overview of general information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Send Beans to a Bean Cash address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>&amp;About Bean Cash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>&amp;Encrypt Keys...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Encrypt or decrypt vault</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>&amp;Backup Keys...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Backup keys to another location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Change the passphrase used for encrypting keys</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>&amp;Unlock Vault...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>&amp;Lock Vault</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>&amp;Debug Window</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message numerus="yes">
-        <location line="+70"/>
-        <source>%n active connection(s) to Beancash network</source>
+        <location line="+225"/>
+        <source>%n active connection(s) to the Bean Cash network</source>
         <translation type="unfinished">
             <numerusform></numerusform>
             <numerusform></numerusform>
@@ -912,7 +956,7 @@ Typ: %3
 Adresse: %4</translation>
     </message>
     <message>
-        <location line="+100"/>
+        <location line="+121"/>
         <location line="+15"/>
         <source>URI handling</source>
         <translation type="unfinished"></translation>
@@ -987,32 +1031,32 @@ Adresse: %4</translation>
     </message>
     <message>
         <location line="+4"/>
-        <source>Staking.&lt;br&gt;Your weight is %1&lt;br&gt;Network weight is %2&lt;br&gt;Expected time to earn reward is %3</source>
+        <source>Sprouting.&lt;br&gt;Your weight is %1&lt;br&gt;Network weight is %2&lt;br&gt;Expected time to earn reward is %3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+6"/>
-        <source>Not staking because wallet is locked</source>
+        <source>Not Sprouting because vault is locked</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Not staking because wallet is offline</source>
+        <source>Not Sprouting because vault is offline</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Not staking because wallet is syncing</source>
+        <source>Not Sprouting because vault is syncing</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Not staking because you don&apos;t have mature beans</source>
+        <source>Not Sprouting because you don&apos;t have mature Beans</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
-        <source>Not staking</source>
+        <source>Not Sprouting</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1422,7 +1466,7 @@ Adresse: %4</translation>
 <context>
     <name>GUIUtil::HelpMessageBox</name>
     <message>
-        <location filename="../guiutil.cpp" line="+424"/>
+        <location filename="../guiutil.cpp" line="+433"/>
         <location line="+12"/>
         <source>Beancash-qt</source>
         <translation type="unfinished"></translation>
@@ -1481,12 +1525,7 @@ Adresse: %4</translation>
         <translation>Transaktions&amp;gebühr bezahlen</translation>
     </message>
     <message>
-        <location line="-15"/>
-        <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB. Fee 5 recommended. Fees help support the Beancash network.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+46"/>
+        <location line="+31"/>
         <source>Reserved amount does not participate in sprouting and is therefore spendable at any time.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1496,17 +1535,15 @@ Adresse: %4</translation>
         <translation>Reserviert</translation>
     </message>
     <message>
-        <location line="+31"/>
         <source>Automatically start Beancash after logging in to the system.</source>
-        <translation>Automatisch Beancash starten beim Einloggen in das System.</translation>
+        <translation type="obsolete">Automatisch Beancash starten beim Einloggen in das System.</translation>
     </message>
     <message>
-        <location line="+3"/>
         <source>&amp;Start Beancash on system login</source>
-        <translation>&amp;Starte Beancash bei Systemstart</translation>
+        <translation type="obsolete">&amp;Starte Beancash bei Systemstart</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+41"/>
         <source>Detach block and address databases at shutdown. This means they can be moved to another data directory, but it slows down shutdown. The wallet is always detached.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1521,18 +1558,37 @@ Adresse: %4</translation>
         <translation>&amp;Netzwerk</translation>
     </message>
     <message>
-        <location line="+6"/>
         <source>Automatically open the Beancash client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Automatisch den Beancash client port auf dem Router öffnen. Das funktioniert nur wenn der Router UPnP unterstützt und UPnP aktiviert ist.</translation>
+        <translation type="obsolete">Automatisch den Beancash client port auf dem Router öffnen. Das funktioniert nur wenn der Router UPnP unterstützt und UPnP aktiviert ist.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+9"/>
         <source>Map port using &amp;UPnP</source>
         <translation>Portweiterleitung via &amp;UPnP</translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Connect to the Beancash network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <location line="-135"/>
+        <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are less than 1 kB. A fee of 5 BEAN is recommended. Fees help support the Bean Cash network.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+92"/>
+        <source>Automatically start Bean Cash Core after logging in to the system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>&amp;Start Bean Cash Core on system login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+37"/>
+        <source>Automatically open the Bean Cash client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Connect to the Bean Cash network through a SOCKS proxy (e.g. when connecting through Tor).</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1607,21 +1663,30 @@ Adresse: %4</translation>
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting Beancash.</source>
-        <translation>Die Sprache der GUI kann hier verändert werden. Die Einstellung wird nach einem Neustart übernommen.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Bean Cash Core.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+24"/>
+        <source>Choose the default subdivision unit to show in the interface and when sending Beans.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Whether to show Bean Cash addresses in the transaction list or not.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The user interface language can be set here. This setting will take effect after restarting Beancash.</source>
+        <translation type="obsolete">Die Sprache der GUI kann hier verändert werden. Die Einstellung wird nach einem Neustart übernommen.</translation>
+    </message>
+    <message>
+        <location line="-22"/>
         <source>&amp;Unit to show amounts in:</source>
         <translation>&amp;Einheit der Beträge:</translation>
     </message>
     <message>
-        <location line="+13"/>
-        <source>Choose the default subdivision unit to show in the interface and when sending beans.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+19"/>
+        <location line="+32"/>
         <source>Whether to show bean control features or not.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1635,12 +1700,11 @@ Adresse: %4</translation>
         <translation type="obsolete">Wählen Sie die Standarduntereinheit, die in der Benutzeroberfläche und beim Überweisen von Bitcoins angezeigt werden soll.</translation>
     </message>
     <message>
-        <location line="-13"/>
         <source>Whether to show Beancash addresses in the transaction list or not.</source>
-        <translation>Beancash Adressen in der Überweisung anzeigen oder nicht.</translation>
+        <translation type="obsolete">Beancash Adressen in der Überweisung anzeigen oder nicht.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="-10"/>
         <source>&amp;Display addresses in transaction list</source>
         <translation>Adressen in der Transaktionsliste &amp;anzeigen</translation>
     </message>
@@ -1653,17 +1717,17 @@ Adresse: %4</translation>
         <translation type="obsolete">Coin &amp;control features anzeigen (nur experten!)</translation>
     </message>
     <message>
-        <location line="+118"/>
+        <location line="+125"/>
         <source>&amp;OK</source>
         <translation>&amp;OK</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+18"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Abbrechen</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+21"/>
         <source>&amp;Apply</source>
         <translation>&amp;Anwenden</translation>
     </message>
@@ -1703,126 +1767,134 @@ Adresse: %4</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+17"/>
-        <location line="+454"/>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Beancash network after a connection is established, but this process has not completed yet.</source>
-        <translation>Die angezeigte Information kann falsch sein. Die Brieftasche synchronisiert automatisch mit dem Beancash Netzwerk nachdem eine Verbindung zustande gekommen ist, aber dieser Prozess ist nicht abgeschlossen.</translation>
+        <translation type="obsolete">Die angezeigte Information kann falsch sein. Die Brieftasche synchronisiert automatisch mit dem Beancash Netzwerk nachdem eine Verbindung zustande gekommen ist, aber dieser Prozess ist nicht abgeschlossen.</translation>
     </message>
     <message>
-        <location line="-331"/>
+        <location line="+84"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your current spendable balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+37"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Newly Sprouted Beans that are still maturing, not yet counted towards the current total balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
         <source>Unconfirmed:</source>
         <translation>Unbestätigt:</translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Beans that are still unconfirmed, which are not counted towards the total balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+78"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The current, total amount of Beans contained in your Bean Vault.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+26"/>
+        <source>Bean Cash Network</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+141"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Total supply of Beans that exist (monetary supply).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Wallet</source>
         <translation type="obsolete">Wallet</translation>
     </message>
     <message>
-        <location line="-74"/>
+        <location line="-337"/>
         <source>Spendable:</source>
         <translation>Ausgabebereit:</translation>
     </message>
     <message>
-        <location line="+18"/>
         <source>Your current spendable balance</source>
-        <translation>Ihr aktuell verfügbarer Kontostand</translation>
+        <translation type="obsolete">Ihr aktuell verfügbarer Kontostand</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+37"/>
         <source>Sprouting:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+18"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sprouting beans that do not yet count toward the current total balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+37"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Beans that have yet to be confirmed, and not currently counted towards the total balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+19"/>
+        <location line="+74"/>
         <source>Immature:</source>
         <translation>Unreif:</translation>
     </message>
     <message>
         <location line="+15"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Newly sprouted beans that have not matured yet.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Newly sprouted Beans that havn&apos;t matured yet.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+44"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The current total number of beans in your Bean Vault.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+26"/>
-        <source>Beancash Network</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+13"/>
+        <location line="+83"/>
         <source>Bean Stalk Height:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+12"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Currently reported Block height of the Bean Cash Network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
         <source>Sprouting Difficulty:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+12"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Current Difficulty level to find a new block and Sprout new Beans.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
         <source>Bean Weight:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+12"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Cumulative weight of all Beans actively competing to Sprout on the Network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
         <source>Connections:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+12"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Number of direct connections with Bean Core nodes on the Bean Cash network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
         <source>Total Beans:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+12"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Block height of Beancash Network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+3"/>
-        <location line="+15"/>
-        <location line="+15"/>
-        <location line="+15"/>
-        <location line="+15"/>
+        <location line="-101"/>
+        <location line="+29"/>
+        <location line="+29"/>
+        <location line="+29"/>
+        <location line="+29"/>
         <source>0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-48"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Difficulty of sprouting new beans.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <location line="-389"/>
+        <location line="+454"/>
+        <source>The displayed information may be out of date. Your node automatically synchronizes with the Bean Cash network after a connection is established, but this process has not completed yet.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+15"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Cummaltive weight of Beancashs that are competing to sprout on the Network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+15"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Total direct connections with other stalks on the network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+15"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Total Bean Monetary supply.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+51"/>
+        <location line="-17"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;New Transactions&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1862,7 +1934,7 @@ Adresse: %4</translation>
         <translation>QR Code Dialog</translation>
     </message>
     <message>
-        <location line="+59"/>
+        <location line="+69"/>
         <source>Request Payment</source>
         <translation>Zahlung anfordern</translation>
     </message>
@@ -1882,7 +1954,7 @@ Adresse: %4</translation>
         <translation>Nachricht:</translation>
     </message>
     <message>
-        <location line="+71"/>
+        <location line="+82"/>
         <source>&amp;Save As...</source>
         <translation>&amp; Speichern als...</translation>
     </message>
@@ -1915,7 +1987,7 @@ Adresse: %4</translation>
 <context>
     <name>RPCConsole</name>
     <message>
-        <location filename="../forms/rpcconsole.ui" line="+224"/>
+        <location filename="../forms/rpcconsole.ui" line="+248"/>
         <source>Client name</source>
         <translation>Clientname</translation>
     </message>
@@ -1929,27 +2001,27 @@ Adresse: %4</translation>
         <location line="+53"/>
         <location line="+23"/>
         <location line="+23"/>
-        <location filename="../rpcconsole.cpp" line="+348"/>
+        <location line="+165"/>
+        <location filename="../rpcconsole.cpp" line="+352"/>
         <source>N/A</source>
         <translation>k.A.</translation>
     </message>
     <message>
-        <location line="-217"/>
+        <location line="-382"/>
         <source>Client version</source>
         <translation>Clientversion</translation>
     </message>
     <message>
-        <location line="-45"/>
+        <location line="-51"/>
         <source>&amp;Information</source>
         <translation>&amp;Information</translation>
     </message>
     <message>
-        <location line="+68"/>
         <source>Using OpenSSL version</source>
-        <translation>Verwendete OpenSSL-Version</translation>
+        <translation type="obsolete">Verwendete OpenSSL-Version</translation>
     </message>
     <message>
-        <location line="+49"/>
+        <location line="+123"/>
         <source>Startup time</source>
         <translation>Startzeit</translation>
     </message>
@@ -1964,9 +2036,28 @@ Adresse: %4</translation>
         <translation>Anzahl Verbindungen</translation>
     </message>
     <message>
-        <location line="+23"/>
         <source>On testnet</source>
-        <translation>Am Testnetz</translation>
+        <translation type="obsolete">Am Testnetz</translation>
+    </message>
+    <message>
+        <location line="-181"/>
+        <source>Bean Cash - Debug Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+37"/>
+        <source>Bean Cash Core</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+59"/>
+        <source>Using OpenSSL version:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+108"/>
+        <source>On Testnet</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+23"/>
@@ -1989,18 +2080,33 @@ Adresse: %4</translation>
         <translation>Letzte Blockzeit</translation>
     </message>
     <message>
-        <location line="+52"/>
+        <location line="+61"/>
+        <source>Open the Bean Cash debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
         <source>&amp;Open</source>
         <translation>&amp;Öffnen</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+26"/>
+        <source>Open Bean Cash Configuration file from the current data directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>&amp;Edit Config File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
         <source>Command-line options</source>
         <translation>Kommandozeilen Optionen:</translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Show the Beancash-qt help message to get a list with possible Beancash command-line options.</source>
+        <location line="+19"/>
+        <source>Show the Beancash-qt help message to get a list of possible Bean Cash command-line options.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2009,37 +2115,45 @@ Adresse: %4</translation>
         <translation>&amp;Zeigen</translation>
     </message>
     <message>
+        <location line="+27"/>
+        <source>Berkeley DB version:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location line="+24"/>
         <source>&amp;Console</source>
         <translation>&amp;Konsole</translation>
     </message>
     <message>
-        <location line="-260"/>
+        <location line="+99"/>
+        <source>Close window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-446"/>
         <source>Build date</source>
         <translation>Erstellungsdatum</translation>
     </message>
     <message>
-        <location line="-104"/>
         <source>Beancash - Debug window</source>
-        <translation>Beancash - Debug Fenster</translation>
+        <translation type="obsolete">Beancash - Debug Fenster</translation>
     </message>
     <message>
-        <location line="+25"/>
         <source>Beancash Core</source>
-        <translation>Beancash Kern</translation>
+        <translation type="obsolete">Beancash Kern</translation>
     </message>
     <message>
-        <location line="+279"/>
+        <location line="+200"/>
         <source>Debug log file</source>
         <translation>Debugprotokolldatei</translation>
     </message>
     <message>
-        <location line="+7"/>
-        <source>Open the Beancash debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+102"/>
+        <location line="+193"/>
         <source>Clear console</source>
         <translation>Konsole zurücksetzen</translation>
     </message>
@@ -2074,17 +2188,17 @@ Adresse: %4</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+76"/>
+        <location line="+78"/>
         <source>Bean Control Features</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+63"/>
         <source>Inputs...</source>
         <translation type="unfinished">Eingaben...</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+16"/>
         <source>automatically selected</source>
         <translation type="unfinished">automatisch ausgewählt</translation>
     </message>
@@ -2094,13 +2208,13 @@ Adresse: %4</translation>
         <translation type="unfinished">Unzureichender Kontostand!</translation>
     </message>
     <message>
-        <location line="+77"/>
+        <location line="+85"/>
         <source>Quantity:</source>
         <translation type="unfinished">Anzahl:</translation>
     </message>
     <message>
         <location line="+22"/>
-        <location line="+35"/>
+        <location line="+43"/>
         <source>0</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2110,20 +2224,20 @@ Adresse: %4</translation>
         <translation type="unfinished">Byte:</translation>
     </message>
     <message>
-        <location line="+51"/>
+        <location line="+59"/>
         <source>Amount:</source>
         <translation type="unfinished">Betrag:</translation>
     </message>
     <message>
         <location line="+22"/>
-        <location line="+86"/>
-        <location line="+86"/>
-        <location line="+32"/>
+        <location line="+102"/>
+        <location line="+102"/>
+        <location line="+40"/>
         <source>0.00 BC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-191"/>
+        <location line="-223"/>
         <source>Priority:</source>
         <translation type="unfinished">Priorität:</translation>
     </message>
@@ -2133,12 +2247,12 @@ Adresse: %4</translation>
         <translation type="unfinished">mittel</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+40"/>
         <source>Fee:</source>
         <translation type="unfinished">Gebühr:</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+43"/>
         <source>Low Output:</source>
         <translation type="unfinished">Zu geringer Ausgabebetrag:</translation>
     </message>
@@ -2148,22 +2262,22 @@ Adresse: %4</translation>
         <translation type="unfinished">nein</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+40"/>
         <source>After Fee:</source>
         <translation type="unfinished">Abzüglich Gebühr:</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+43"/>
         <source>Change</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+50"/>
+        <location line="+55"/>
         <source>custom change address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+106"/>
+        <location line="+149"/>
         <source>Send to multiple recipients at once</source>
         <translation type="unfinished">In einer Transaktion an mehrere Empfänger auf einmal überweisen</translation>
     </message>
@@ -2173,7 +2287,7 @@ Adresse: %4</translation>
         <translation type="unfinished">Empfänger &amp;hinzufügen</translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+63"/>
         <source>Remove all transaction fields</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2183,17 +2297,17 @@ Adresse: %4</translation>
         <translation type="unfinished">&amp;Zurücksetzen</translation>
     </message>
     <message>
-        <location line="+28"/>
+        <location line="+35"/>
         <source>Balance:</source>
         <translation type="unfinished">Kontostand:</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+22"/>
         <source>123.456 BC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+74"/>
         <source>Confirm the send action</source>
         <translation type="unfinished">Überweisung bestätigen</translation>
     </message>
@@ -2321,33 +2435,33 @@ Adresse: %4</translation>
 <context>
     <name>SendBeansEntry</name>
     <message>
-        <location filename="../forms/sendbeansentry.ui" line="+192"/>
+        <location filename="../forms/sendbeansentry.ui" line="+327"/>
         <source>Form</source>
         <translation type="unfinished">Formular</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+24"/>
         <source>A&amp;mount:</source>
         <translation type="unfinished">&amp;Betrag:</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+18"/>
         <source>Pay &amp;To:</source>
         <translation type="unfinished">&amp;Empfänger:</translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+37"/>
         <location filename="../sendbeansentry.cpp" line="+25"/>
         <source>Enter a label for this address to add it to your address book</source>
         <translation type="unfinished">Adressbezeichnung eingeben (diese wird zusammen mit der Adresse dem Adressbuch hinzugefügt)</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+14"/>
         <source>&amp;Label:</source>
         <translation type="unfinished">&amp;Bezeichnung:</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+24"/>
         <source>The address to send the payment to  (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
         <translation type="unfinished">Empfängeradresse (z.b. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
     </message>
@@ -2565,12 +2679,12 @@ Adresse: %4</translation>
     </message>
     <message>
         <location line="+13"/>
-        <location line="+124"/>
+        <location line="+135"/>
         <source>&amp;Sign Message</source>
         <translation>Nachricht &amp;signieren</translation>
     </message>
     <message>
-        <location line="-118"/>
+        <location line="-124"/>
         <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
         <translation>Sie können Nachrichten mit ihren Adressen signieren, um den Besitz dieser Adressen zu beweisen. Bitte nutzen Sie diese Funktion mit Vorsicht und nehmen Sie sich vor Phishingangriffen in Acht. Signieren Sie nur Nachrichten, mit denen Sie vollständig einverstanden sind.</translation>
     </message>
@@ -2581,18 +2695,18 @@ Adresse: %4</translation>
     </message>
     <message>
         <location line="+10"/>
-        <location line="+203"/>
+        <location line="+243"/>
         <source>Choose an address from the address book</source>
         <translation>Eine Adresse aus dem Adressbuch wählen</translation>
     </message>
     <message>
-        <location line="-193"/>
-        <location line="+203"/>
+        <location line="-233"/>
+        <location line="+243"/>
         <source>Alt+A</source>
         <translation>Alt+A</translation>
     </message>
     <message>
-        <location line="-193"/>
+        <location line="-233"/>
         <source>Paste address from clipboard</source>
         <translation>Adresse aus der Zwischenablage einfügen</translation>
     </message>
@@ -2612,29 +2726,49 @@ Adresse: %4</translation>
         <translation>Aktuelle Signatur in die Zwischenablage kopieren</translation>
     </message>
     <message>
-        <location line="+21"/>
-        <source>Sign the message to prove you own this Beancash address</source>
-        <translation>Signiere die Nachricht um zu beweisen das du Besitzer dieser Beancash Adresse bist.</translation>
+        <location line="+27"/>
+        <source>Sign the message to prove you own this Bean Cash address</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+186"/>
+        <source>Verify the message to ensure it was signed with the specified Bean Cash address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign the message to prove you own this Beancash address</source>
+        <translation type="obsolete">Signiere die Nachricht um zu beweisen das du Besitzer dieser Beancash Adresse bist.</translation>
+    </message>
+    <message>
+        <location line="-163"/>
         <source>Reset all sign message fields</source>
         <translation>Alle &quot;Nachricht signieren&quot;-Felder zurücksetzen</translation>
     </message>
     <message>
         <location line="+3"/>
-        <location line="+146"/>
+        <location line="+186"/>
         <source>Clear &amp;All</source>
         <translation>&amp;Zurücksetzen</translation>
     </message>
     <message>
-        <location line="-87"/>
-        <location line="+70"/>
+        <location line="-166"/>
+        <source>Close Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <location line="+186"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">&amp;Abbrechen</translation>
+    </message>
+    <message>
+        <location line="-130"/>
+        <location line="+84"/>
         <source>&amp;Verify Message</source>
         <translation>Nachricht &amp;verifizieren</translation>
     </message>
     <message>
-        <location line="-64"/>
+        <location line="-70"/>
         <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
         <translation>Geben Sie die signierende Adresse, Nachricht (achten Sie darauf Zeilenumbrüche, Leerzeichen, Tabulatoren usw. exakt zu kopieren) und Signatur unten ein, um die Nachricht zu verifizieren. Vorsicht, interpretieren Sie nicht mehr in die Signatur, als in der signierten Nachricht selber enthalten ist, um nicht von einem Man-in-the-middle-Angriff hinters Licht geführt zu werden.</translation>
     </message>
@@ -2644,14 +2778,14 @@ Adresse: %4</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+40"/>
-        <source>Verify the message to ensure it was signed with the specified Beancash address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+17"/>
+        <location line="+69"/>
         <source>Reset all verify message fields</source>
         <translation>Alle &quot;Nachricht verifizieren&quot;-Felder zurücksetzen</translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Close window</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
@@ -2670,7 +2804,7 @@ Adresse: %4</translation>
         <translation>Beancash Signatur eingeben</translation>
     </message>
     <message>
-        <location line="+82"/>
+        <location line="+92"/>
         <location line="+81"/>
         <source>The entered address is invalid.</source>
         <translation>Die eingegebene Adresse ist ungültig.</translation>
@@ -2936,7 +3070,12 @@ Adresse: %4</translation>
         <translation>Transaktionsdetails</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+28"/>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+24"/>
         <source>This pane shows a detailed description of the transaction</source>
         <translation>Dieser Bereich zeigt eine detaillierte Beschreibung der Transaktion an</translation>
     </message>
@@ -3254,7 +3393,7 @@ Adresse: %4</translation>
     </message>
 </context>
 <context>
-    <name>bitbean-core</name>
+    <name>beancash-core</name>
     <message>
         <location filename="../bitbeanstrings.cpp" line="+8"/>
         <source>To use the %s option</source>

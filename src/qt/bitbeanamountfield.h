@@ -8,7 +8,7 @@ class QDoubleSpinBox;
 class QValueComboBox;
 QT_END_NAMESPACE
 
-/** Widget for entering bitbean amounts.
+/** Widget for entering beancash amounts.
   */
 class BitbeanAmountField: public QWidget
 {

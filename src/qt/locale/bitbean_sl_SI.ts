@@ -10,25 +10,34 @@
         <translation>O Beancash</translation>
     </message>
     <message>
-        <location line="+54"/>
+        <location line="+39"/>
         <source>&lt;b&gt;Beancash&lt;/b&gt; version</source>
         <translation>&lt;b&gt;Beancash&lt;/b&gt; verzija</translation>
     </message>
     <message>
-        <location line="+53"/>
+        <location line="+66"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;This is experimental software. Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;/span&gt;&lt;a href=&quot;http://www.opensource.org/licenses/mit-license.php&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.opensource.org/licenses/mit-license.php&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;. This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;/span&gt;&lt;a href=&quot;https://www.openssl.org/&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.openssl.org/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;) and cryptographic software written by Eric Young (&lt;/span&gt;&lt;a href=&quot;mailto:eay@cryptsoft.com&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;eay@cryptsoft.com&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;) and UPnP software written by Thomas Bernard.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+93"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Liberation Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-style:italic;&quot;&gt;Copyright © 2009-2014 The Bitcoin developers&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-style:italic;&quot;&gt;Copyright © 2012-2014 The Novacoin developers&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-style:italic;&quot;&gt;Copyright © 2014 The Beancash developers&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-style:italic;&quot;&gt;Copyright © 2015 Bean Core www.bitbean.org&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Copyright © 2015-2017 Bean Core www.beancash.org&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+26"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Chief Scientist &amp;amp; Lead Developer: &lt;/span&gt;Shawn Kent&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Designer: &lt;/span&gt;BrunoPro7&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;This is experimental software. Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;/span&gt;&lt;a href=&quot;http://www.opensource.org/licenses/mit-license.php&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.opensource.org/licenses/mit-license.php&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;. This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;/span&gt;&lt;a href=&quot;https://www.openssl.org/&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.openssl.org/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;) and cryptographic software written by Eric Young (&lt;/span&gt;&lt;a href=&quot;mailto:eay@cryptsoft.com&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;eay@cryptsoft.com&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;) and UPnP software written by Thomas Bernard.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <location line="-55"/>
+        <source>Close Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>&amp;Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -54,7 +63,12 @@ Ta proizvod vključuje softver razvit s strani projekta OpenSSL za uporabo v Ope
         <translation>Imenik</translation>
     </message>
     <message>
-        <location line="+28"/>
+        <location line="+12"/>
+        <source>These are your Bean Cash addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
         <source>Double-click to edit address or label</source>
         <translation>Dvakrat kliknite za urejanje naslovov ali oznak</translation>
     </message>
@@ -69,17 +83,21 @@ Ta proizvod vključuje softver razvit s strani projekta OpenSSL za uporabo v Ope
         <translation>Kopiraj trenutno izbrani naslov v odložišče</translation>
     </message>
     <message>
-        <location line="-17"/>
+        <location line="+37"/>
+        <source>Sign a message to prove you own a Bean Cash address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-54"/>
         <source>&amp;New Address</source>
         <translation>&amp;Nov naslov</translation>
     </message>
     <message>
-        <location line="-52"/>
         <source>These are your Beancash addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>To so vaši Beancash naslovi za prejemanje plačil. Priporočeno je da vsakemu pošiljatelju namenite drugega in tako dobite večji pregled nad svojimi nakazili.</translation>
+        <translation type="obsolete">To so vaši Beancash naslovi za prejemanje plačil. Priporočeno je da vsakemu pošiljatelju namenite drugega in tako dobite večji pregled nad svojimi nakazili.</translation>
     </message>
     <message>
-        <location line="+72"/>
+        <location line="+20"/>
         <source>&amp;Copy Address</source>
         <translation>&amp;Kopiraj naslov</translation>
     </message>
@@ -89,27 +107,30 @@ Ta proizvod vključuje softver razvit s strani projekta OpenSSL za uporabo v Ope
         <translation>Prikaži &amp;QR kodo</translation>
     </message>
     <message>
-        <location line="+17"/>
         <source>Sign a message to prove you own a Beancash address</source>
-        <translation>Podpišite sporočilo, kot dokazilo lastništva Beancash naslova</translation>
+        <translation type="obsolete">Podpišite sporočilo, kot dokazilo lastništva Beancash naslova</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+20"/>
         <source>Sign &amp;Message</source>
         <translation>Podpiši &amp;sporočilo</translation>
     </message>
     <message>
-        <location line="+39"/>
+        <location line="+19"/>
+        <source>Verify a message to ensure it was signed with a specified Bean Cash address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
         <source>Delete the currently selected address from the list</source>
         <translation>Izbriši izbran naslov iz seznama</translation>
     </message>
     <message>
-        <location line="-20"/>
         <source>Verify a message to ensure it was signed with a specified Beancash address</source>
-        <translation>Potrdi sporočilo, da zagotovite, da je bilo podpisano z izbranim Beancash naslovom</translation>
+        <translation type="obsolete">Potrdi sporočilo, da zagotovite, da je bilo podpisano z izbranim Beancash naslovom</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="-17"/>
         <source>&amp;Verify Message</source>
         <translation>&amp;Potrdi sporočilo</translation>
     </message>
@@ -119,17 +140,17 @@ Ta proizvod vključuje softver razvit s strani projekta OpenSSL za uporabo v Ope
         <translation>&amp;Izbriši</translation>
     </message>
     <message>
-        <location filename="../addressbookpage.cpp" line="+65"/>
+        <location filename="../addressbookpage.cpp" line="+67"/>
         <source>Copy &amp;Label</source>
         <translation>Kopiraj &amp;oznako</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+1"/>
         <source>&amp;Edit</source>
         <translation>&amp;Uredi</translation>
     </message>
     <message>
-        <location line="+250"/>
+        <location line="+249"/>
         <source>Export Address Book Data</source>
         <translation>Izvozi podatke imenika</translation>
     </message>
@@ -200,14 +221,22 @@ Ta proizvod vključuje softver razvit s strani projekta OpenSSL za uporabo v Ope
         <translation>Samo za staking.</translation>
     </message>
     <message>
-        <location filename="../askpassphrasedialog.cpp" line="+35"/>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation>Vnesite novo geslo za vstop v denarnico.&lt;br/&gt;Prosimo, da geslo sestavite iz &lt;b&gt; 10 ali več naključnih znakov&lt;/b&gt; oz. &lt;b&gt;osem ali več besed&lt;/b&gt;.</translation>
+        <translation type="obsolete">Vnesite novo geslo za vstop v denarnico.&lt;br/&gt;Prosimo, da geslo sestavite iz &lt;b&gt; 10 ali več naključnih znakov&lt;/b&gt; oz. &lt;b&gt;osem ali več besed&lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source>Encrypt wallet</source>
+        <translation type="obsolete">Šifriraj denarnico</translation>
+    </message>
+    <message>
+        <location filename="../askpassphrasedialog.cpp" line="+35"/>
+        <source>Enter the new passphrase for your Keys.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Encrypt wallet</source>
-        <translation>Šifriraj denarnico</translation>
+        <source>Encrypt Keys</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+7"/>
@@ -329,47 +358,47 @@ Ta proizvod vključuje softver razvit s strani projekta OpenSSL za uporabo v Ope
 <context>
     <name>BeanControlDialog</name>
     <message>
-        <location filename="../forms/beancontroldialog.ui" line="+14"/>
+        <location filename="../forms/beancontroldialog.ui" line="+159"/>
         <source>Bean Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+39"/>
         <source>Quantity:</source>
         <translation type="unfinished">Količina:</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+40"/>
         <source>Bytes:</source>
         <translation type="unfinished">Biti:</translation>
     </message>
     <message>
-        <location line="+48"/>
+        <location line="+56"/>
         <source>Amount:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+40"/>
         <source>Priority:</source>
         <translation type="unfinished">Prednostno mesto:</translation>
     </message>
     <message>
-        <location line="+48"/>
+        <location line="+56"/>
         <source>Fee:</source>
         <translation type="unfinished">Provizija:</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+41"/>
         <source>Low Output:</source>
         <translation type="unfinished">Nizek output:</translation>
     </message>
     <message>
-        <location line="+51"/>
+        <location line="+59"/>
         <source>After Fee:</source>
         <translation type="unfinished">Po proviziji:</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+41"/>
         <source>Change:</source>
         <translation type="unfinished">Sprememba:</translation>
     </message>
@@ -379,17 +408,17 @@ Ta proizvod vključuje softver razvit s strani projekta OpenSSL za uporabo v Ope
         <translation type="unfinished">od/obkljukaj vse</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+19"/>
         <source>Tree mode</source>
         <translation type="unfinished">Drevo</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+22"/>
         <source>List mode</source>
         <translation type="unfinished">Seznam</translation>
     </message>
     <message>
-        <location line="+45"/>
+        <location line="+51"/>
         <source>Amount</source>
         <translation type="unfinished">Količina</translation>
     </message>
@@ -597,42 +626,29 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
 <context>
     <name>BitbeanGUI</name>
     <message>
-        <location filename="../bitbean.cpp" line="+109"/>
         <source>A fatal error occurred. Beancash can no longer continue safely and will quit.</source>
-        <translation type="unfinished">Prišlo je do usodne napake. Program Beancash se ne more več varno nadaljevati in se bo zato zaprl. </translation>
+        <translation type="obsolete">Prišlo je do usodne napake. Program Beancash se ne more več varno nadaljevati in se bo zato zaprl. </translation>
     </message>
     <message>
-        <location filename="../bitbeangui.cpp" line="+89"/>
         <source>Beancash</source>
-        <translation type="unfinished">Beancash</translation>
+        <translation type="obsolete">Beancash</translation>
     </message>
     <message>
-        <location line="+0"/>
-        <source>Vault</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+135"/>
+        <location filename="../bitbeangui.cpp" line="+215"/>
         <source>&amp;Overview</source>
         <translation type="unfinished">&amp;Pregled</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Show general overview of wallet</source>
-        <translation type="unfinished">Pokaži splošen pregled denarnice</translation>
+        <translation type="obsolete">Pokaži splošen pregled denarnice</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+6"/>
         <source>&amp;Send Beans</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Send Beans to a Beancash address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
+        <location line="+6"/>
         <source>&amp;Receive Beans</source>
         <translation type="unfinished"></translation>
     </message>
@@ -672,12 +688,11 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation type="unfinished">Izhod iz aplikacije</translation>
     </message>
     <message>
-        <location line="+3"/>
         <source>&amp;About Beancash</source>
-        <translation type="unfinished">&amp;O Beancash</translation>
+        <translation type="obsolete">&amp;O Beancash</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+4"/>
         <source>Show information about Beancash</source>
         <translation type="unfinished">Pokaži informacije o Beancash</translation>
     </message>
@@ -707,52 +722,45 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation type="unfinished">&amp;Prikaži / Skrij</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>&amp;Encrypt Wallet...</source>
-        <translation type="unfinished">&amp;Šifriraj denarnico ...</translation>
+        <translation type="obsolete">&amp;Šifriraj denarnico ...</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Encrypt or decrypt wallet</source>
-        <translation type="unfinished">Šifriraj ali dešifriraj denarnico</translation>
+        <translation type="obsolete">Šifriraj ali dešifriraj denarnico</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>&amp;Backup Wallet...</source>
-        <translation type="unfinished">&amp;Ustvari varnostno kopijo denarnice ...</translation>
+        <translation type="obsolete">&amp;Ustvari varnostno kopijo denarnice ...</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Backup wallet to another location</source>
-        <translation type="unfinished">Napravi varnostno kopijo denarnice na drugo lokacijo</translation>
+        <translation type="obsolete">Napravi varnostno kopijo denarnice na drugo lokacijo</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+6"/>
         <source>&amp;Change Passphrase...</source>
         <translation type="unfinished">&amp;Spremeni geslo ...</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Change the passphrase used for wallet encryption</source>
-        <translation type="unfinished">Spremeni šifrirno geslo denarnice</translation>
+        <translation type="obsolete">Spremeni šifrirno geslo denarnice</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>&amp;Unlock Wallet...</source>
-        <translation type="unfinished">&amp;Odkleni denarnico...</translation>
+        <translation type="obsolete">&amp;Odkleni denarnico...</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+3"/>
         <source>Unlock wallet</source>
         <translation type="unfinished">Odkleni denarnico</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>&amp;Lock Wallet</source>
-        <translation type="unfinished">&amp;Zakleni denarnico</translation>
+        <translation type="obsolete">&amp;Zakleni denarnico</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Lock wallet</source>
         <translation type="unfinished">Zakleni denarnico</translation>
     </message>
@@ -777,17 +785,16 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation type="unfinished">Izvozi podatke v izbranem zavihku v datoteko</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>&amp;Debug window</source>
-        <translation type="unfinished">&amp;Razhroščevalno okno</translation>
+        <translation type="obsolete">&amp;Razhroščevalno okno</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Open debugging and diagnostic console</source>
         <translation type="unfinished">Odpri razhroščevalno in diagnostično konzolo</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+30"/>
         <source>&amp;File</source>
         <translation type="unfinished">&amp;Datoteka</translation>
     </message>
@@ -807,7 +814,7 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation type="unfinished">Orodna vrstica zavihkov</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+9"/>
         <source>Actions toolbar</source>
         <translation type="unfinished">Orodna vrsticai</translation>
     </message>
@@ -824,13 +831,87 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation type="unfinished">Beancash program</translation>
     </message>
     <message numerus="yes">
-        <location line="+70"/>
         <source>%n active connection(s) to Beancash network</source>
-        <translation type="unfinished">
+        <translation type="obsolete">
             <numerusform>%n aktivne povezave na Beancash omrežje</numerusform>
             <numerusform>%n aktivnih povezav na Beancash omrežje</numerusform>
             <numerusform>%n aktivnih povezav na Beancash omrežje</numerusform>
             <numerusform>%n aktivnih povezav na Beancash omrežje</numerusform>
+        </translation>
+    </message>
+    <message>
+        <location line="-352"/>
+        <source>Bean Cash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Core v1.1.2.2RC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+135"/>
+        <source>Overview of general information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Send Beans to a Bean Cash address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>&amp;About Bean Cash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>&amp;Encrypt Keys...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Encrypt or decrypt vault</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>&amp;Backup Keys...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Backup keys to another location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Change the passphrase used for encrypting keys</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>&amp;Unlock Vault...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>&amp;Lock Vault</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>&amp;Debug Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <location line="+225"/>
+        <source>%n active connection(s) to the Bean Cash network</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
+            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -947,7 +1028,7 @@ Naslov: %4
 </translation>
     </message>
     <message>
-        <location line="+100"/>
+        <location line="+121"/>
         <location line="+15"/>
         <source>URI handling</source>
         <translation type="unfinished">Rokovanje z URI</translation>
@@ -1030,33 +1111,53 @@ Naslov: %4
     </message>
     <message>
         <location line="+4"/>
-        <source>Staking.&lt;br&gt;Your weight is %1&lt;br&gt;Network weight is %2&lt;br&gt;Expected time to earn reward is %3</source>
-        <translation type="unfinished">Deležeje [Staking].&lt;br&gt;Teža vašega deleženja je %1&lt;br&gt;Teža celotne mreže deleženja je %2&lt;br&gt;Pričakovan čas do prejema nagrade %3</translation>
+        <source>Sprouting.&lt;br&gt;Your weight is %1&lt;br&gt;Network weight is %2&lt;br&gt;Expected time to earn reward is %3</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+6"/>
-        <source>Not staking because wallet is locked</source>
-        <translation type="unfinished">Ne deležite ker je denarnica zakljenjena</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Not staking because wallet is offline</source>
-        <translation type="unfinished">Ne deležite ker denarnica ni povezana</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Not staking because wallet is syncing</source>
-        <translation type="unfinished">Ne deležite ker se denarnica sinhronizira z omrežjem</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Not staking because you don&apos;t have mature beans</source>
+        <source>Not Sprouting because vault is locked</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
+        <source>Not Sprouting because vault is offline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Not Sprouting because vault is syncing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Not Sprouting because you don&apos;t have mature Beans</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Not Sprouting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Staking.&lt;br&gt;Your weight is %1&lt;br&gt;Network weight is %2&lt;br&gt;Expected time to earn reward is %3</source>
+        <translation type="obsolete">Deležeje [Staking].&lt;br&gt;Teža vašega deleženja je %1&lt;br&gt;Teža celotne mreže deleženja je %2&lt;br&gt;Pričakovan čas do prejema nagrade %3</translation>
+    </message>
+    <message>
+        <source>Not staking because wallet is locked</source>
+        <translation type="obsolete">Ne deležite ker je denarnica zakljenjena</translation>
+    </message>
+    <message>
+        <source>Not staking because wallet is offline</source>
+        <translation type="obsolete">Ne deležite ker denarnica ni povezana</translation>
+    </message>
+    <message>
+        <source>Not staking because wallet is syncing</source>
+        <translation type="obsolete">Ne deležite ker se denarnica sinhronizira z omrežjem</translation>
+    </message>
+    <message>
         <source>Not staking</source>
-        <translation type="unfinished">Ne deležite</translation>
+        <translation type="obsolete">Ne deležite</translation>
     </message>
 </context>
 <context>
@@ -1738,7 +1839,7 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
 <context>
     <name>GUIUtil::HelpMessageBox</name>
     <message>
-        <location filename="../guiutil.cpp" line="+424"/>
+        <location filename="../guiutil.cpp" line="+433"/>
         <location line="+12"/>
         <source>Beancash-qt</source>
         <translation>Beancash-qt</translation>
@@ -1805,12 +1906,7 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation type="obsolete">Rezervirana količina ne deleži in je tako na voljo za potrošnjo.</translation>
     </message>
     <message>
-        <location line="-15"/>
-        <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB. Fee 5 recommended. Fees help support the Beancash network.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+46"/>
+        <location line="+31"/>
         <source>Reserved amount does not participate in sprouting and is therefore spendable at any time.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1820,17 +1916,15 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation>Rezerva</translation>
     </message>
     <message>
-        <location line="+31"/>
         <source>Automatically start Beancash after logging in to the system.</source>
-        <translation>Avtomatično zaženi Beancash ob zagonu sistema.</translation>
+        <translation type="obsolete">Avtomatično zaženi Beancash ob zagonu sistema.</translation>
     </message>
     <message>
-        <location line="+3"/>
         <source>&amp;Start Beancash on system login</source>
-        <translation>&amp;Zaženi Beancash ob prijavi v sistem</translation>
+        <translation type="obsolete">&amp;Zaženi Beancash ob prijavi v sistem</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+41"/>
         <source>Detach block and address databases at shutdown. This means they can be moved to another data directory, but it slows down shutdown. The wallet is always detached.</source>
         <translation>Loči podatkovne baze blokov in naslovov ob zaustavitvi. To pomeni da jih lahko prenesete na drugo lokacijo, a upočasni zaustavitev. Denarnica je vedno ločena. </translation>
     </message>
@@ -1845,19 +1939,42 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation>&amp;Omrežje</translation>
     </message>
     <message>
-        <location line="+6"/>
         <source>Automatically open the Beancash client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Avtomatično odpri vrata na routerju za Beancash program. To deluje le če vaš router podpira UPnP in je ta omogočen. </translation>
+        <translation type="obsolete">Avtomatično odpri vrata na routerju za Beancash program. To deluje le če vaš router podpira UPnP in je ta omogočen. </translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+9"/>
         <source>Map port using &amp;UPnP</source>
         <translation>Začrtaj vrata z &amp;UPnP</translation>
     </message>
     <message>
-        <location line="+7"/>
         <source>Connect to the Beancash network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation>Poveži se na Beancash omrežje skozi SOCKS proxy (npr. ko se povezujete prek Tora)</translation>
+        <translation type="obsolete">Poveži se na Beancash omrežje skozi SOCKS proxy (npr. ko se povezujete prek Tora)</translation>
+    </message>
+    <message>
+        <location line="-135"/>
+        <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are less than 1 kB. A fee of 5 BEAN is recommended. Fees help support the Bean Cash network.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+92"/>
+        <source>Automatically start Bean Cash Core after logging in to the system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>&amp;Start Bean Cash Core on system login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+37"/>
+        <source>Automatically open the Bean Cash client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Connect to the Bean Cash network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1931,21 +2048,30 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting Beancash.</source>
-        <translation>Tu lahko nastavite jezik uporabniškega vmesnika. Nastavitve bodo pričele delovati ob ponovnem zagonu Beancash aplikacije. </translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Bean Cash Core.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+24"/>
+        <source>Choose the default subdivision unit to show in the interface and when sending Beans.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Whether to show Bean Cash addresses in the transaction list or not.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The user interface language can be set here. This setting will take effect after restarting Beancash.</source>
+        <translation type="obsolete">Tu lahko nastavite jezik uporabniškega vmesnika. Nastavitve bodo pričele delovati ob ponovnem zagonu Beancash aplikacije. </translation>
+    </message>
+    <message>
+        <location line="-22"/>
         <source>&amp;Unit to show amounts in:</source>
         <translation>&amp;Enota prikaza količin:</translation>
     </message>
     <message>
-        <location line="+13"/>
-        <source>Choose the default subdivision unit to show in the interface and when sending beans.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+19"/>
+        <location line="+32"/>
         <source>Whether to show bean control features or not.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1959,12 +2085,11 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation type="obsolete">Izberite privzeto delitev enot, ki naj bodo prikazane v vmesniku ob pošiljanju kovancev.</translation>
     </message>
     <message>
-        <location line="-13"/>
         <source>Whether to show Beancash addresses in the transaction list or not.</source>
-        <translation>Izbira prikaza Beancash naslovov v seznamu transakcij.</translation>
+        <translation type="obsolete">Izbira prikaza Beancash naslovov v seznamu transakcij.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="-10"/>
         <source>&amp;Display addresses in transaction list</source>
         <translation>&amp;Prikaz naslovov v seznamu transakcij</translation>
     </message>
@@ -1977,17 +2102,17 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation type="obsolete">Prikaži lastnosti &amp;kontrole kovancev (samo za strokovnjake!)</translation>
     </message>
     <message>
-        <location line="+118"/>
+        <location line="+125"/>
         <source>&amp;OK</source>
         <translation>&amp;Potrdi</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+18"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Prekini</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+21"/>
         <source>&amp;Apply</source>
         <translation>&amp;Uporabi</translation>
     </message>
@@ -2027,17 +2152,15 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+17"/>
-        <location line="+454"/>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Beancash network after a connection is established, but this process has not completed yet.</source>
-        <translation>Prikazane informacije so morda zastarele. Vaša denarnica se avtomatično sinhronizira z Beancash omrežjem, ko je vzpostavljena povezava, toda ta proces še ni bil zaključen.</translation>
+        <translation type="obsolete">Prikazane informacije so morda zastarele. Vaša denarnica se avtomatično sinhronizira z Beancash omrežjem, ko je vzpostavljena povezava, toda ta proces še ni bil zaključen.</translation>
     </message>
     <message>
         <source>Stake:</source>
         <translation type="obsolete">Deleženje:</translation>
     </message>
     <message>
-        <location line="-331"/>
+        <location line="+140"/>
         <source>Unconfirmed:</source>
         <translation>Nepotrjeni:</translation>
     </message>
@@ -2051,43 +2174,48 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation>Razpoložljivi:</translation>
     </message>
     <message>
-        <location line="+18"/>
         <source>Your current spendable balance</source>
-        <translation>Vaše trenutno razpoložljivo stanje</translation>
+        <translation type="obsolete">Vaše trenutno razpoložljivo stanje</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+37"/>
         <source>Sprouting:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+18"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sprouting beans that do not yet count toward the current total balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+37"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Beans that have yet to be confirmed, and not currently counted towards the total balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+19"/>
+        <location line="+74"/>
         <source>Immature:</source>
         <translation>Nezreli:</translation>
     </message>
     <message>
-        <location line="+15"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Newly sprouted beans that have not matured yet.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <location line="-93"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your current spendable balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+44"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The current total number of beans in your Bean Vault.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <location line="-67"/>
+        <location line="+454"/>
+        <source>The displayed information may be out of date. Your node automatically synchronizes with the Bean Cash network after a connection is established, but this process has not completed yet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-350"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Newly Sprouted Beans that are still maturing, not yet counted towards the current total balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+37"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Beans that are still unconfirmed, which are not counted towards the total balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+78"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The current, total amount of Beans contained in your Bean Vault.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+26"/>
-        <source>Beancash Network</source>
+        <source>Bean Cash Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2096,61 +2224,66 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+12"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Currently reported Block height of the Bean Cash Network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
         <source>Sprouting Difficulty:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+12"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Current Difficulty level to find a new block and Sprout new Beans.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
         <source>Bean Weight:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+12"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Cumulative weight of all Beans actively competing to Sprout on the Network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
         <source>Connections:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+12"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Number of direct connections with Bean Core nodes on the Bean Cash network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
         <source>Total Beans:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+12"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Block height of Beancash Network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Total supply of Beans that exist (monetary supply).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+3"/>
-        <location line="+15"/>
-        <location line="+15"/>
-        <location line="+15"/>
-        <location line="+15"/>
+        <location line="-113"/>
+        <location line="+29"/>
+        <location line="+29"/>
+        <location line="+29"/>
+        <location line="+29"/>
         <source>0</source>
         <translation type="unfinished">0</translation>
     </message>
     <message>
-        <location line="-48"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Difficulty of sprouting new beans.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <location line="-214"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Newly sprouted Beans that havn&apos;t matured yet.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+15"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Cummaltive weight of Beancashs that are competing to sprout on the Network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+15"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Total direct connections with other stalks on the network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+15"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Total Bean Monetary supply.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+51"/>
+        <location line="+262"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;New Transactions&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2194,7 +2327,7 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation>QR koda </translation>
     </message>
     <message>
-        <location line="+59"/>
+        <location line="+69"/>
         <source>Request Payment</source>
         <translation>Zahtevaj plačilo</translation>
     </message>
@@ -2214,7 +2347,7 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation>Sporočilo:</translation>
     </message>
     <message>
-        <location line="+71"/>
+        <location line="+82"/>
         <source>&amp;Save As...</source>
         <translation>&amp;Shrani kot...</translation>
     </message>
@@ -2247,7 +2380,7 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
 <context>
     <name>RPCConsole</name>
     <message>
-        <location filename="../forms/rpcconsole.ui" line="+224"/>
+        <location filename="../forms/rpcconsole.ui" line="+248"/>
         <source>Client name</source>
         <translation>Ime odjemalca</translation>
     </message>
@@ -2261,27 +2394,27 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <location line="+53"/>
         <location line="+23"/>
         <location line="+23"/>
-        <location filename="../rpcconsole.cpp" line="+348"/>
+        <location line="+165"/>
+        <location filename="../rpcconsole.cpp" line="+352"/>
         <source>N/A</source>
         <translation>Neznano</translation>
     </message>
     <message>
-        <location line="-217"/>
+        <location line="-382"/>
         <source>Client version</source>
         <translation>Različica odjemalca</translation>
     </message>
     <message>
-        <location line="-45"/>
+        <location line="-51"/>
         <source>&amp;Information</source>
         <translation>&amp;Informacije</translation>
     </message>
     <message>
-        <location line="+68"/>
         <source>Using OpenSSL version</source>
-        <translation>OpenSSL različica v rabi</translation>
+        <translation type="obsolete">OpenSSL različica v rabi</translation>
     </message>
     <message>
-        <location line="+49"/>
+        <location line="+123"/>
         <source>Startup time</source>
         <translation>Čas zagona</translation>
     </message>
@@ -2296,9 +2429,28 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation>Število povezav</translation>
     </message>
     <message>
-        <location line="+23"/>
         <source>On testnet</source>
-        <translation>Na testnet</translation>
+        <translation type="obsolete">Na testnet</translation>
+    </message>
+    <message>
+        <location line="-181"/>
+        <source>Bean Cash - Debug Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+37"/>
+        <source>Bean Cash Core</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+59"/>
+        <source>Using OpenSSL version:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+108"/>
+        <source>On Testnet</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+23"/>
@@ -2321,19 +2473,38 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation>Čas zadnjega bloka</translation>
     </message>
     <message>
-        <location line="+52"/>
+        <location line="+61"/>
+        <source>Open the Bean Cash debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
         <source>&amp;Open</source>
         <translation>&amp;Odpri</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+26"/>
+        <source>Open Bean Cash Configuration file from the current data directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>&amp;Edit Config File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
         <source>Command-line options</source>
         <translation>Možnosti ukazne vrstice.</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+19"/>
+        <source>Show the Beancash-qt help message to get a list of possible Bean Cash command-line options.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Show the Beancash-qt help message to get a list with possible Beancash command-line options.</source>
-        <translation>Prikaži Beancash-qt sporočilo za pomoč , ki prikaže vse možnosti ukazne vrstice Beancash aplikacije</translation>
+        <translation type="obsolete">Prikaži Beancash-qt sporočilo za pomoč , ki prikaže vse možnosti ukazne vrstice Beancash aplikacije</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2341,37 +2512,49 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation>&amp;Prikaži</translation>
     </message>
     <message>
+        <location line="+27"/>
+        <source>Berkeley DB version:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location line="+24"/>
         <source>&amp;Console</source>
         <translation>&amp;Konzola</translation>
     </message>
     <message>
-        <location line="-260"/>
+        <location line="+99"/>
+        <source>Close window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-446"/>
         <source>Build date</source>
         <translation>Datum izgradnje</translation>
     </message>
     <message>
-        <location line="-104"/>
         <source>Beancash - Debug window</source>
-        <translation>Beancash - okno za odpravljanje napak</translation>
+        <translation type="obsolete">Beancash - okno za odpravljanje napak</translation>
     </message>
     <message>
-        <location line="+25"/>
         <source>Beancash Core</source>
-        <translation>Beancash jedro</translation>
+        <translation type="obsolete">Beancash jedro</translation>
     </message>
     <message>
-        <location line="+279"/>
+        <location line="+200"/>
         <source>Debug log file</source>
         <translation>Razhroščevalna dnevniška datoteka</translation>
     </message>
     <message>
-        <location line="+7"/>
         <source>Open the Beancash debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Odpri Beancash datoteko zapisov odpravljanja napak iz trenutnega direktorija podatkov. Če so datoteke zapisov velike, to lahko traja nekaj sekund.</translation>
+        <translation type="obsolete">Odpri Beancash datoteko zapisov odpravljanja napak iz trenutnega direktorija podatkov. Če so datoteke zapisov velike, to lahko traja nekaj sekund.</translation>
     </message>
     <message>
-        <location line="+102"/>
+        <location line="+193"/>
         <source>Clear console</source>
         <translation>Počisti konzolo</translation>
     </message>
@@ -2406,17 +2589,17 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+76"/>
+        <location line="+78"/>
         <source>Bean Control Features</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+63"/>
         <source>Inputs...</source>
         <translation type="unfinished">Vnosi...</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+16"/>
         <source>automatically selected</source>
         <translation type="unfinished">samodejno izbran</translation>
     </message>
@@ -2426,13 +2609,13 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation type="unfinished">Premalo sredstev!</translation>
     </message>
     <message>
-        <location line="+77"/>
+        <location line="+85"/>
         <source>Quantity:</source>
         <translation type="unfinished">Količina:</translation>
     </message>
     <message>
         <location line="+22"/>
-        <location line="+35"/>
+        <location line="+43"/>
         <source>0</source>
         <translation type="unfinished">0</translation>
     </message>
@@ -2442,20 +2625,20 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation type="unfinished">Biti:</translation>
     </message>
     <message>
-        <location line="+51"/>
+        <location line="+59"/>
         <source>Amount:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+22"/>
-        <location line="+86"/>
-        <location line="+86"/>
-        <location line="+32"/>
+        <location line="+102"/>
+        <location line="+102"/>
+        <location line="+40"/>
         <source>0.00 BC</source>
         <translation type="unfinished">123.456 BC {0.00 ?}</translation>
     </message>
     <message>
-        <location line="-191"/>
+        <location line="-223"/>
         <source>Priority:</source>
         <translation type="unfinished">Prednostno mesto:</translation>
     </message>
@@ -2465,12 +2648,12 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation type="unfinished">srednje</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+40"/>
         <source>Fee:</source>
         <translation type="unfinished">Provizija:</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+43"/>
         <source>Low Output:</source>
         <translation type="unfinished">Nizek output:</translation>
     </message>
@@ -2480,22 +2663,22 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation type="unfinished">ne</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+40"/>
         <source>After Fee:</source>
         <translation type="unfinished">Po proviziji:</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+43"/>
         <source>Change</source>
         <translation type="unfinished">Sprememba</translation>
     </message>
     <message>
-        <location line="+50"/>
+        <location line="+55"/>
         <source>custom change address</source>
         <translation type="unfinished">izbira spremembe naslova</translation>
     </message>
     <message>
-        <location line="+106"/>
+        <location line="+149"/>
         <source>Send to multiple recipients at once</source>
         <translation type="unfinished">Pošlji več prejemnikom hkrati</translation>
     </message>
@@ -2505,7 +2688,7 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation type="unfinished">Dodaj &amp;prejemnika</translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+63"/>
         <source>Remove all transaction fields</source>
         <translation type="unfinished">Odstrani vsa polja transakcij</translation>
     </message>
@@ -2515,17 +2698,17 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+28"/>
+        <location line="+35"/>
         <source>Balance:</source>
         <translation type="unfinished">Dobroimetje:</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+22"/>
         <source>123.456 BC</source>
         <translation type="unfinished">123.456 BC</translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+74"/>
         <source>Confirm the send action</source>
         <translation type="unfinished">Potrdi odlivno dejanje</translation>
     </message>
@@ -2653,33 +2836,33 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
 <context>
     <name>SendBeansEntry</name>
     <message>
-        <location filename="../forms/sendbeansentry.ui" line="+192"/>
+        <location filename="../forms/sendbeansentry.ui" line="+327"/>
         <source>Form</source>
         <translation type="unfinished">Oblika</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+24"/>
         <source>A&amp;mount:</source>
         <translation type="unfinished">K&amp;oličina:</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+18"/>
         <source>Pay &amp;To:</source>
         <translation type="unfinished">Prejemnik &amp;plačila:</translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+37"/>
         <location filename="../sendbeansentry.cpp" line="+25"/>
         <source>Enter a label for this address to add it to your address book</source>
         <translation type="unfinished">Vnesite oznako za ta naslov, ki bo shranjena v imenik</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+14"/>
         <source>&amp;Label:</source>
         <translation type="unfinished">&amp;Oznaka:</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+24"/>
         <source>The address to send the payment to  (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
         <translation type="unfinished">Naslov kamor želite poslati plačilo (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
     </message>
@@ -2973,12 +3156,12 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     </message>
     <message>
         <location line="+13"/>
-        <location line="+124"/>
+        <location line="+135"/>
         <source>&amp;Sign Message</source>
         <translation>&amp;Podpiši sporočilo</translation>
     </message>
     <message>
-        <location line="-118"/>
+        <location line="-124"/>
         <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
         <translation>Sporočila lahko podpišete s svojim naslovom, da dokažete lastništvo. Bodite previdni, saj vas lahko phishing napadi skušajo pretentati v to, da jim prepišete svojo identiteto. Podpisujte le jasne in razločne izjave, s katerimi se strinjate.</translation>
     </message>
@@ -2989,18 +3172,18 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     </message>
     <message>
         <location line="+10"/>
-        <location line="+203"/>
+        <location line="+243"/>
         <source>Choose an address from the address book</source>
         <translation>Izberite naslov iz imenika</translation>
     </message>
     <message>
-        <location line="-193"/>
-        <location line="+203"/>
+        <location line="-233"/>
+        <location line="+243"/>
         <source>Alt+A</source>
         <translation>Alt+A</translation>
     </message>
     <message>
-        <location line="-193"/>
+        <location line="-233"/>
         <source>Paste address from clipboard</source>
         <translation>Prilepi naslov iz odložišča</translation>
     </message>
@@ -3020,29 +3203,49 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation>Kopiraj trenutno izbrani naslov v odložišče</translation>
     </message>
     <message>
-        <location line="+21"/>
-        <source>Sign the message to prove you own this Beancash address</source>
-        <translation>Podpišite sporočilo, kot dokazilo lastništva Beancash naslova</translation>
+        <location line="+27"/>
+        <source>Sign the message to prove you own this Bean Cash address</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+186"/>
+        <source>Verify the message to ensure it was signed with the specified Bean Cash address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign the message to prove you own this Beancash address</source>
+        <translation type="obsolete">Podpišite sporočilo, kot dokazilo lastništva Beancash naslova</translation>
+    </message>
+    <message>
+        <location line="-163"/>
         <source>Reset all sign message fields</source>
         <translation>Ponastavite vse polja sporočila s podpisom</translation>
     </message>
     <message>
         <location line="+3"/>
-        <location line="+146"/>
+        <location line="+186"/>
         <source>Clear &amp;All</source>
         <translation>Počisti &amp;vse </translation>
     </message>
     <message>
-        <location line="-87"/>
-        <location line="+70"/>
+        <location line="-166"/>
+        <source>Close Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <location line="+186"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">&amp;Prekini</translation>
+    </message>
+    <message>
+        <location line="-130"/>
+        <location line="+84"/>
         <source>&amp;Verify Message</source>
         <translation>&amp;Potrdi sporočilo</translation>
     </message>
     <message>
-        <location line="-64"/>
+        <location line="-70"/>
         <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
         <translation>Vnesite naslov za podpis, sporočilo (poskribte da točno skopirate presledke med vrsticami, črkami, itd.) in podpis spodaj, da potrdite sporočilo Da se ognete napadom posrednika, bodite pozorni, da ne boste v podpisu ugledali več, kot je v podpisanemu sporočilu samem.</translation>
     </message>
@@ -3052,14 +3255,18 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation>Naslov s katerim je bilo podpisano sporočilo (npr. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
     </message>
     <message>
-        <location line="+40"/>
         <source>Verify the message to ensure it was signed with the specified Beancash address</source>
-        <translation>Potrdite sporočilo, da zagotovite, da je bilo podpisano z izbranim Beancash naslovom</translation>
+        <translation type="obsolete">Potrdite sporočilo, da zagotovite, da je bilo podpisano z izbranim Beancash naslovom</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+69"/>
         <source>Reset all verify message fields</source>
         <translation>Ponastavite vse polja sporočila potrditve</translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Close window</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
@@ -3078,7 +3285,7 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation>Vnesite Beancash podpis</translation>
     </message>
     <message>
-        <location line="+82"/>
+        <location line="+92"/>
         <location line="+81"/>
         <source>The entered address is invalid.</source>
         <translation>Vnešeni naslov ni veljaven.</translation>
@@ -3350,7 +3557,12 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation>Podrobnosti transakcije</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+28"/>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+24"/>
         <source>This pane shows a detailed description of the transaction</source>
         <translation>To podokno prikazuje podroben opis transakcije</translation>
     </message>
@@ -3670,7 +3882,7 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
     </message>
 </context>
 <context>
-    <name>bitbean-core</name>
+    <name>beancash-core</name>
     <message>
         <location filename="../bitbeanstrings.cpp" line="+8"/>
         <source>To use the %s option</source>

@@ -4,7 +4,7 @@
 #include <QString>
 #include <QAbstractListModel>
 
-/** Bitbean unit definitions. Encapsulates parsing and formatting
+/** Bean Cash unit definitions. Encapsulates parsing and formatting
    and serves as list model for drop-down selection boxes.
 */
 class BitbeanUnits: public QAbstractListModel
@@ -12,7 +12,7 @@ class BitbeanUnits: public QAbstractListModel
 public:
     explicit BitbeanUnits(QObject *parent);
 
-    /** Bitbean units.
+    /** Beancash units.
       @note Please add only sensible ones
      */
     enum Unit

@@ -10,25 +10,34 @@
         <translation>Sobre Beancash</translation>
     </message>
     <message>
-        <location line="+54"/>
+        <location line="+39"/>
         <source>&lt;b&gt;Beancash&lt;/b&gt; version</source>
         <translation>versió &lt;b&gt;Beancash&lt;/b&gt;</translation>
     </message>
     <message>
-        <location line="+53"/>
+        <location line="+66"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;This is experimental software. Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;/span&gt;&lt;a href=&quot;http://www.opensource.org/licenses/mit-license.php&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.opensource.org/licenses/mit-license.php&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;. This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;/span&gt;&lt;a href=&quot;https://www.openssl.org/&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.openssl.org/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;) and cryptographic software written by Eric Young (&lt;/span&gt;&lt;a href=&quot;mailto:eay@cryptsoft.com&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;eay@cryptsoft.com&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;) and UPnP software written by Thomas Bernard.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+93"/>
         <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
 p, li { white-space: pre-wrap; }
 &lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Liberation Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-style:italic;&quot;&gt;Copyright © 2009-2014 The Bitcoin developers&lt;/span&gt;&lt;/p&gt;
 &lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-style:italic;&quot;&gt;Copyright © 2012-2014 The Novacoin developers&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-style:italic;&quot;&gt;Copyright © 2014 The Beancash developers&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:8pt; font-style:italic;&quot;&gt;Copyright © 2015 Bean Core www.bitbean.org&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt;Copyright © 2015-2017 Bean Core www.beancash.org&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+26"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Chief Scientist &amp;amp; Lead Developer: &lt;/span&gt;Shawn Kent&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Designer: &lt;/span&gt;BrunoPro7&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;This is experimental software. Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;/span&gt;&lt;a href=&quot;http://www.opensource.org/licenses/mit-license.php&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.opensource.org/licenses/mit-license.php&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;. This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;/span&gt;&lt;a href=&quot;https://www.openssl.org/&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.openssl.org/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;) and cryptographic software written by Eric Young (&lt;/span&gt;&lt;a href=&quot;mailto:eay@cryptsoft.com&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;eay@cryptsoft.com&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;) and UPnP software written by Thomas Bernard.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <location line="-55"/>
+        <source>Close Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>&amp;Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -57,7 +66,12 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Llibreta d&apos;adreces</translation>
     </message>
     <message>
-        <location line="+28"/>
+        <location line="+12"/>
+        <source>These are your Bean Cash addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
         <source>Double-click to edit address or label</source>
         <translation>Feu doble clic per editar l&apos;adreça o l&apos;etiqueta</translation>
     </message>
@@ -72,17 +86,21 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Copiar l&apos;adreça seleccionada al porta-retalls del sistema</translation>
     </message>
     <message>
-        <location line="-17"/>
+        <location line="+37"/>
+        <source>Sign a message to prove you own a Bean Cash address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-54"/>
         <source>&amp;New Address</source>
         <translation>&amp;Nova adreça</translation>
     </message>
     <message>
-        <location line="-52"/>
         <source>These are your Beancash addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
-        <translation>Aquestes són les teves adreces de Beancash per rebre els pagaments. És possible que vulgueu donar una diferent a cada remitent per a poder realitzar un seguiment de qui li está pagant.</translation>
+        <translation type="obsolete">Aquestes són les teves adreces de Beancash per rebre els pagaments. És possible que vulgueu donar una diferent a cada remitent per a poder realitzar un seguiment de qui li está pagant.</translation>
     </message>
     <message>
-        <location line="+72"/>
+        <location line="+20"/>
         <source>&amp;Copy Address</source>
         <translation>&amp;Copiar adreça</translation>
     </message>
@@ -92,27 +110,30 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Mostra el códi &amp;QR</translation>
     </message>
     <message>
-        <location line="+17"/>
         <source>Sign a message to prove you own a Beancash address</source>
-        <translation>Signar un missatge per demostrar que és propietari d&apos;una adreça Beancash</translation>
+        <translation type="obsolete">Signar un missatge per demostrar que és propietari d&apos;una adreça Beancash</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+20"/>
         <source>Sign &amp;Message</source>
         <translation>Signar &amp;Message</translation>
     </message>
     <message>
-        <location line="+39"/>
+        <location line="+19"/>
+        <source>Verify a message to ensure it was signed with a specified Bean Cash address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
         <source>Delete the currently selected address from the list</source>
         <translation>Esborrar l&apos;adreça sel·leccionada</translation>
     </message>
     <message>
-        <location line="-20"/>
         <source>Verify a message to ensure it was signed with a specified Beancash address</source>
-        <translation>Comproveu el missatge per assegurar-se que es va signar amb una adreça Beancash especificada.</translation>
+        <translation type="obsolete">Comproveu el missatge per assegurar-se que es va signar amb una adreça Beancash especificada.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="-17"/>
         <source>&amp;Verify Message</source>
         <translation>&amp;Verificar el missatge</translation>
     </message>
@@ -122,17 +143,17 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>&amp;Esborrar</translation>
     </message>
     <message>
-        <location filename="../addressbookpage.cpp" line="+65"/>
+        <location filename="../addressbookpage.cpp" line="+67"/>
         <source>Copy &amp;Label</source>
         <translation>Copiar &amp;Etiqueta</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+1"/>
         <source>&amp;Edit</source>
         <translation>&amp;Editar</translation>
     </message>
     <message>
-        <location line="+250"/>
+        <location line="+249"/>
         <source>Export Address Book Data</source>
         <translation>Exportar dades de la llibreta d&apos;adreces </translation>
     </message>
@@ -203,14 +224,22 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>Només per a fer &quot;stake&quot;</translation>
     </message>
     <message>
-        <location filename="../askpassphrasedialog.cpp" line="+35"/>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
-        <translation>Introdueixi la nova contrasenya al moneder&lt;br/&gt;Si us plau useu una contrasenya de &lt;b&gt;10 o més caracters aleatoris&lt;/b&gt;, o &lt;b&gt;vuit o més paraules&lt;/b&gt;.</translation>
+        <translation type="obsolete">Introdueixi la nova contrasenya al moneder&lt;br/&gt;Si us plau useu una contrasenya de &lt;b&gt;10 o més caracters aleatoris&lt;/b&gt;, o &lt;b&gt;vuit o més paraules&lt;/b&gt;.</translation>
+    </message>
+    <message>
+        <source>Encrypt wallet</source>
+        <translation type="obsolete">Xifrar el moneder</translation>
+    </message>
+    <message>
+        <location filename="../askpassphrasedialog.cpp" line="+35"/>
+        <source>Enter the new passphrase for your Keys.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
-        <source>Encrypt wallet</source>
-        <translation>Xifrar el moneder</translation>
+        <source>Encrypt Keys</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+7"/>
@@ -332,47 +361,47 @@ This product includes software developed by the OpenSSL Project for use in the O
 <context>
     <name>BeanControlDialog</name>
     <message>
-        <location filename="../forms/beancontroldialog.ui" line="+14"/>
+        <location filename="../forms/beancontroldialog.ui" line="+159"/>
         <source>Bean Control</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+39"/>
         <source>Quantity:</source>
         <translation type="unfinished">Quantitat:</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+40"/>
         <source>Bytes:</source>
         <translation type="unfinished">Bytes:</translation>
     </message>
     <message>
-        <location line="+48"/>
+        <location line="+56"/>
         <source>Amount:</source>
         <translation type="unfinished">Quantitat:</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+40"/>
         <source>Priority:</source>
         <translation type="unfinished">Prioritat:</translation>
     </message>
     <message>
-        <location line="+48"/>
+        <location line="+56"/>
         <source>Fee:</source>
         <translation type="unfinished">Quota:</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+41"/>
         <source>Low Output:</source>
         <translation type="unfinished">Sortida baixa:</translation>
     </message>
     <message>
-        <location line="+51"/>
+        <location line="+59"/>
         <source>After Fee:</source>
         <translation type="unfinished">Quota posterior:</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+41"/>
         <source>Change:</source>
         <translation type="unfinished">Canvi:</translation>
     </message>
@@ -382,17 +411,17 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation type="unfinished">(de)seleccionar tot</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+19"/>
         <source>Tree mode</source>
         <translation type="unfinished">Mode arbre</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+22"/>
         <source>List mode</source>
         <translation type="unfinished">Mode llista</translation>
     </message>
     <message>
-        <location line="+45"/>
+        <location line="+51"/>
         <source>Amount</source>
         <translation type="unfinished">Quantitat</translation>
     </message>
@@ -600,42 +629,29 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
 <context>
     <name>BitbeanGUI</name>
     <message>
-        <location filename="../bitbean.cpp" line="+109"/>
         <source>A fatal error occurred. Beancash can no longer continue safely and will quit.</source>
-        <translation type="unfinished">S&apos;ha produït un error fatal. Beancash ja no pot continuar de forma segura i es tancarà.</translation>
+        <translation type="obsolete">S&apos;ha produït un error fatal. Beancash ja no pot continuar de forma segura i es tancarà.</translation>
     </message>
     <message>
-        <location filename="../bitbeangui.cpp" line="+89"/>
         <source>Beancash</source>
-        <translation type="unfinished">Beancash</translation>
+        <translation type="obsolete">Beancash</translation>
     </message>
     <message>
-        <location line="+0"/>
-        <source>Vault</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+135"/>
+        <location filename="../bitbeangui.cpp" line="+215"/>
         <source>&amp;Overview</source>
         <translation type="unfinished">&amp;Panorama general</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Show general overview of wallet</source>
-        <translation type="unfinished">Mostra panorama general del moneder</translation>
+        <translation type="obsolete">Mostra panorama general del moneder</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+6"/>
         <source>&amp;Send Beans</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+1"/>
-        <source>Send Beans to a Beancash address</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+5"/>
+        <location line="+6"/>
         <source>&amp;Receive Beans</source>
         <translation type="unfinished"></translation>
     </message>
@@ -675,12 +691,11 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation type="unfinished">Sortir de l&apos;aplicació</translation>
     </message>
     <message>
-        <location line="+3"/>
         <source>&amp;About Beancash</source>
-        <translation type="unfinished">&amp;Sobre Beancash</translation>
+        <translation type="obsolete">&amp;Sobre Beancash</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+4"/>
         <source>Show information about Beancash</source>
         <translation type="unfinished">Mostra informació sobre Beancash</translation>
     </message>
@@ -710,52 +725,45 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation type="unfinished">&amp;Mostrar / Amagar</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>&amp;Encrypt Wallet...</source>
-        <translation type="unfinished">&amp;Xifrar moneder</translation>
+        <translation type="obsolete">&amp;Xifrar moneder</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Encrypt or decrypt wallet</source>
-        <translation type="unfinished">Xifrar o desxifrar moneder</translation>
+        <translation type="obsolete">Xifrar o desxifrar moneder</translation>
     </message>
     <message>
-        <location line="+2"/>
         <source>&amp;Backup Wallet...</source>
-        <translation type="unfinished">&amp;Realitzar copia de seguretat del moneder...</translation>
+        <translation type="obsolete">&amp;Realitzar copia de seguretat del moneder...</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Backup wallet to another location</source>
-        <translation type="unfinished">Realitzar còpia de seguretat del moneder a un altre directori</translation>
+        <translation type="obsolete">Realitzar còpia de seguretat del moneder a un altre directori</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+6"/>
         <source>&amp;Change Passphrase...</source>
         <translation type="unfinished">&amp;Canviar contrasenya...</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Change the passphrase used for wallet encryption</source>
-        <translation type="unfinished">Canviar la constrasenya d&apos;encriptació del moneder</translation>
+        <translation type="obsolete">Canviar la constrasenya d&apos;encriptació del moneder</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>&amp;Unlock Wallet...</source>
-        <translation type="unfinished">&amp;Desbloquejar moneder</translation>
+        <translation type="obsolete">&amp;Desbloquejar moneder</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+3"/>
         <source>Unlock wallet</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>&amp;Lock Wallet</source>
-        <translation type="unfinished">&amp;Bloquejar moneder</translation>
+        <translation type="obsolete">&amp;Bloquejar moneder</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Lock wallet</source>
         <translation type="unfinished">Bloquejar moneder</translation>
     </message>
@@ -780,17 +788,16 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation type="unfinished">Exportar les dades de la pestanya actual a un arxiu</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>&amp;Debug window</source>
-        <translation type="unfinished">&amp;Finestra de depuració</translation>
+        <translation type="obsolete">&amp;Finestra de depuració</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Open debugging and diagnostic console</source>
         <translation type="unfinished">Obrir la consola de diagnòstic i depuració</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+30"/>
         <source>&amp;File</source>
         <translation type="unfinished">&amp;Arxiu</translation>
     </message>
@@ -810,7 +817,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation type="unfinished">Barra d&apos;eines de seccions</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+9"/>
         <source>Actions toolbar</source>
         <translation type="unfinished">Barra d&apos;eines d&apos;accions</translation>
     </message>
@@ -827,11 +834,84 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation type="unfinished">Client Beancash</translation>
     </message>
     <message numerus="yes">
-        <location line="+70"/>
         <source>%n active connection(s) to Beancash network</source>
-        <translation type="unfinished">
+        <translation type="obsolete">
             <numerusform>%n conexió activa a la xarxa Beancash</numerusform>
             <numerusform>%n conexions actives a la xarxa Beancash</numerusform>
+            <numerusform></numerusform>
+        </translation>
+    </message>
+    <message>
+        <location line="-352"/>
+        <source>Bean Cash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Core v1.1.2.2RC</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+135"/>
+        <source>Overview of general information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Send Beans to a Bean Cash address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>&amp;About Bean Cash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>&amp;Encrypt Keys...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Encrypt or decrypt vault</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>&amp;Backup Keys...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Backup keys to another location</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Change the passphrase used for encrypting keys</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>&amp;Unlock Vault...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>&amp;Lock Vault</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>&amp;Debug Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message numerus="yes">
+        <location line="+225"/>
+        <source>%n active connection(s) to the Bean Cash network</source>
+        <translation type="unfinished">
+            <numerusform></numerusform>
+            <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
     </message>
@@ -940,7 +1020,7 @@ Address: %4
         <translation type="unfinished">Data: %1\nQuantitat %2\n Tipus: %3\n Adreça: %4\n</translation>
     </message>
     <message>
-        <location line="+100"/>
+        <location line="+121"/>
         <location line="+15"/>
         <source>URI handling</source>
         <translation type="unfinished">Manejant URI</translation>
@@ -1019,33 +1099,53 @@ Address: %4
     </message>
     <message>
         <location line="+4"/>
-        <source>Staking.&lt;br&gt;Your weight is %1&lt;br&gt;Network weight is %2&lt;br&gt;Expected time to earn reward is %3</source>
-        <translation type="unfinished">Fent &quot;stake&quot;.&lt;br&gt;El teu pes és %1&lt;br&gt;El pes de la xarxa és %2&lt;br&gt;El temps estimat per a guanyar una recompensa és 3%</translation>
+        <source>Sprouting.&lt;br&gt;Your weight is %1&lt;br&gt;Network weight is %2&lt;br&gt;Expected time to earn reward is %3</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+6"/>
-        <source>Not staking because wallet is locked</source>
-        <translation type="unfinished">No s&apos;està fent &quot;stake&quot; perquè el moneder esa bloquejat</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Not staking because wallet is offline</source>
-        <translation type="unfinished">No s&apos;està fent &quot;stake&quot; perquè el moneder està fora de línia</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Not staking because wallet is syncing</source>
-        <translation type="unfinished">No s&apos;està fent &quot;stake&quot; perquè el moneder està sincronitzant</translation>
-    </message>
-    <message>
-        <location line="+2"/>
-        <source>Not staking because you don&apos;t have mature beans</source>
+        <source>Not Sprouting because vault is locked</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+2"/>
+        <source>Not Sprouting because vault is offline</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Not Sprouting because vault is syncing</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Not Sprouting because you don&apos;t have mature Beans</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Not Sprouting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Staking.&lt;br&gt;Your weight is %1&lt;br&gt;Network weight is %2&lt;br&gt;Expected time to earn reward is %3</source>
+        <translation type="obsolete">Fent &quot;stake&quot;.&lt;br&gt;El teu pes és %1&lt;br&gt;El pes de la xarxa és %2&lt;br&gt;El temps estimat per a guanyar una recompensa és 3%</translation>
+    </message>
+    <message>
+        <source>Not staking because wallet is locked</source>
+        <translation type="obsolete">No s&apos;està fent &quot;stake&quot; perquè el moneder esa bloquejat</translation>
+    </message>
+    <message>
+        <source>Not staking because wallet is offline</source>
+        <translation type="obsolete">No s&apos;està fent &quot;stake&quot; perquè el moneder està fora de línia</translation>
+    </message>
+    <message>
+        <source>Not staking because wallet is syncing</source>
+        <translation type="obsolete">No s&apos;està fent &quot;stake&quot; perquè el moneder està sincronitzant</translation>
+    </message>
+    <message>
         <source>Not staking</source>
-        <translation type="unfinished">No s&apos;està fent &quot;stake&quot; </translation>
+        <translation type="obsolete">No s&apos;està fent &quot;stake&quot; </translation>
     </message>
 </context>
 <context>
@@ -1713,7 +1813,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
 <context>
     <name>GUIUtil::HelpMessageBox</name>
     <message>
-        <location filename="../guiutil.cpp" line="+424"/>
+        <location filename="../guiutil.cpp" line="+433"/>
         <location line="+12"/>
         <source>Beancash-qt</source>
         <translation>Beancash-qt</translation>
@@ -1780,12 +1880,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation type="obsolete">La quantitat reservada no participa en fer &quot;stake&quot; i per tant esta disponible en qualsevol moment.</translation>
     </message>
     <message>
-        <location line="-15"/>
-        <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are 1 kB. Fee 5 recommended. Fees help support the Beancash network.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+46"/>
+        <location line="+31"/>
         <source>Reserved amount does not participate in sprouting and is therefore spendable at any time.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1795,17 +1890,15 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Reserva</translation>
     </message>
     <message>
-        <location line="+31"/>
         <source>Automatically start Beancash after logging in to the system.</source>
-        <translation>Inicia automàticament Beancash després d&apos;entrar en el sistema.</translation>
+        <translation type="obsolete">Inicia automàticament Beancash després d&apos;entrar en el sistema.</translation>
     </message>
     <message>
-        <location line="+3"/>
         <source>&amp;Start Beancash on system login</source>
-        <translation>&amp;Iniciar Beancash amb l&apos;inici de sessió</translation>
+        <translation type="obsolete">&amp;Iniciar Beancash amb l&apos;inici de sessió</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+41"/>
         <source>Detach block and address databases at shutdown. This means they can be moved to another data directory, but it slows down shutdown. The wallet is always detached.</source>
         <translation>Separeu el bloc i les bases de dades d&apos;adreces en apagar l&apos;equip. En aquest cas es pot moure a un altre directori de dades, però alenteix l&apos;apagada. El moneder està sempre separat.</translation>
     </message>
@@ -1820,19 +1913,42 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>&amp;Xarxa</translation>
     </message>
     <message>
-        <location line="+6"/>
         <source>Automatically open the Beancash client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation>Obrir automàticament el port de client Beancash en el router. Això només funciona quan el router és compatible amb UPnP i està habilitat.</translation>
+        <translation type="obsolete">Obrir automàticament el port de client Beancash en el router. Això només funciona quan el router és compatible amb UPnP i està habilitat.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+9"/>
         <source>Map port using &amp;UPnP</source>
         <translation>Obrir ports amb &amp;UPnP</translation>
     </message>
     <message>
-        <location line="+7"/>
         <source>Connect to the Beancash network through a SOCKS proxy (e.g. when connecting through Tor).</source>
-        <translation>Connecteu-vos a la xarxa Beancash través d&apos;un proxy SOCKS (per exemple, quan es connecta a través de Tor).</translation>
+        <translation type="obsolete">Connecteu-vos a la xarxa Beancash través d&apos;un proxy SOCKS (per exemple, quan es connecta a través de Tor).</translation>
+    </message>
+    <message>
+        <location line="-135"/>
+        <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are less than 1 kB. A fee of 5 BEAN is recommended. Fees help support the Bean Cash network.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+92"/>
+        <source>Automatically start Bean Cash Core after logging in to the system.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>&amp;Start Bean Cash Core on system login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+37"/>
+        <source>Automatically open the Bean Cash client port on the router. This only works when your router supports UPnP and it is enabled.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Connect to the Bean Cash network through a SOCKS proxy (e.g. when connecting through Tor).</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
@@ -1906,21 +2022,30 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+13"/>
-        <source>The user interface language can be set here. This setting will take effect after restarting Beancash.</source>
-        <translation>L&apos;idioma de la interfície d&apos;usuari es pot configurar aquí. Aquesta configuració s&apos;aplicarà després de reiniciar Beancash.</translation>
+        <source>The user interface language can be set here. This setting will take effect after restarting Bean Cash Core.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+11"/>
+        <location line="+24"/>
+        <source>Choose the default subdivision unit to show in the interface and when sending Beans.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>Whether to show Bean Cash addresses in the transaction list or not.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The user interface language can be set here. This setting will take effect after restarting Beancash.</source>
+        <translation type="obsolete">L&apos;idioma de la interfície d&apos;usuari es pot configurar aquí. Aquesta configuració s&apos;aplicarà després de reiniciar Beancash.</translation>
+    </message>
+    <message>
+        <location line="-22"/>
         <source>&amp;Unit to show amounts in:</source>
         <translation>&amp;Unitats per mostrar les quantitats en:</translation>
     </message>
     <message>
-        <location line="+13"/>
-        <source>Choose the default subdivision unit to show in the interface and when sending beans.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+19"/>
+        <location line="+32"/>
         <source>Whether to show bean control features or not.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1934,12 +2059,11 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation type="obsolete">Sel·lecciona la unitat de subdivisió per defecte per mostrar en la interficie quan s&apos;envien monedes.</translation>
     </message>
     <message>
-        <location line="-13"/>
         <source>Whether to show Beancash addresses in the transaction list or not.</source>
-        <translation>Per mostrar Beancash adreces a la llista de transaccions o no.</translation>
+        <translation type="obsolete">Per mostrar Beancash adreces a la llista de transaccions o no.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="-10"/>
         <source>&amp;Display addresses in transaction list</source>
         <translation>&amp;Mostrar adreces al llistat de transaccions</translation>
     </message>
@@ -1952,17 +2076,17 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation type="obsolete">Mostrar controls i característiques de la moneda (només per a experts!)</translation>
     </message>
     <message>
-        <location line="+118"/>
+        <location line="+125"/>
         <source>&amp;OK</source>
         <translation>&amp;OK</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+18"/>
         <source>&amp;Cancel</source>
         <translation>&amp;Cancel·la</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+21"/>
         <source>&amp;Apply</source>
         <translation>&amp;Aplicar</translation>
     </message>
@@ -2002,17 +2126,15 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+17"/>
-        <location line="+454"/>
         <source>The displayed information may be out of date. Your wallet automatically synchronizes with the Beancash network after a connection is established, but this process has not completed yet.</source>
-        <translation>La informació mostrada pot estar fora de data. El seu moneder es sincronitza automàticament amb la xarxa Beancash després d&apos;establir una connexió, però aquest procés no s&apos;ha completat encara.</translation>
+        <translation type="obsolete">La informació mostrada pot estar fora de data. El seu moneder es sincronitza automàticament amb la xarxa Beancash després d&apos;establir una connexió, però aquest procés no s&apos;ha completat encara.</translation>
     </message>
     <message>
         <source>Stake:</source>
         <translation type="obsolete">En &quot;stake&quot;:</translation>
     </message>
     <message>
-        <location line="-331"/>
+        <location line="+140"/>
         <source>Unconfirmed:</source>
         <translation>Sense confirmar:</translation>
     </message>
@@ -2026,43 +2148,48 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Disponible:</translation>
     </message>
     <message>
-        <location line="+18"/>
         <source>Your current spendable balance</source>
-        <translation>El balanç de saldo actual disponible</translation>
+        <translation type="obsolete">El balanç de saldo actual disponible</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+37"/>
         <source>Sprouting:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+18"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Sprouting beans that do not yet count toward the current total balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+37"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Beans that have yet to be confirmed, and not currently counted towards the total balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+19"/>
+        <location line="+74"/>
         <source>Immature:</source>
         <translation>Immatur:</translation>
     </message>
     <message>
-        <location line="+15"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Newly sprouted beans that have not matured yet.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <location line="-93"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your current spendable balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+44"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The current total number of beans in your Bean Vault.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <location line="-67"/>
+        <location line="+454"/>
+        <source>The displayed information may be out of date. Your node automatically synchronizes with the Bean Cash network after a connection is established, but this process has not completed yet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-350"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Newly Sprouted Beans that are still maturing, not yet counted towards the current total balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+37"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Beans that are still unconfirmed, which are not counted towards the total balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+78"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The current, total amount of Beans contained in your Bean Vault.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+26"/>
-        <source>Beancash Network</source>
+        <source>Bean Cash Network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2071,61 +2198,66 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+12"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Currently reported Block height of the Bean Cash Network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
         <source>Sprouting Difficulty:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+12"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Current Difficulty level to find a new block and Sprout new Beans.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
         <source>Bean Weight:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+12"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Cumulative weight of all Beans actively competing to Sprout on the Network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
         <source>Connections:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+14"/>
+        <location line="+12"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Number of direct connections with Bean Core nodes on the Bean Cash network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
         <source>Total Beans:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+12"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Block height of Beancash Network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Total supply of Beans that exist (monetary supply).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+3"/>
-        <location line="+15"/>
-        <location line="+15"/>
-        <location line="+15"/>
-        <location line="+15"/>
+        <location line="-113"/>
+        <location line="+29"/>
+        <location line="+29"/>
+        <location line="+29"/>
+        <location line="+29"/>
         <source>0</source>
         <translation type="unfinished">0</translation>
     </message>
     <message>
-        <location line="-48"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Difficulty of sprouting new beans.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <location line="-214"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Newly sprouted Beans that havn&apos;t matured yet.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+15"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Cummaltive weight of Beancashs that are competing to sprout on the Network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+15"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Total direct connections with other stalks on the network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+15"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Total Bean Monetary supply.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+51"/>
+        <location line="+262"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;New Transactions&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2169,7 +2301,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Diàleg de codi QR</translation>
     </message>
     <message>
-        <location line="+59"/>
+        <location line="+69"/>
         <source>Request Payment</source>
         <translation>Sol·licitud de pagament</translation>
     </message>
@@ -2189,7 +2321,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Missatge:</translation>
     </message>
     <message>
-        <location line="+71"/>
+        <location line="+82"/>
         <source>&amp;Save As...</source>
         <translation>&amp;Desa com ...</translation>
     </message>
@@ -2222,7 +2354,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
 <context>
     <name>RPCConsole</name>
     <message>
-        <location filename="../forms/rpcconsole.ui" line="+224"/>
+        <location filename="../forms/rpcconsole.ui" line="+248"/>
         <source>Client name</source>
         <translation>Nom del client</translation>
     </message>
@@ -2236,27 +2368,27 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <location line="+53"/>
         <location line="+23"/>
         <location line="+23"/>
-        <location filename="../rpcconsole.cpp" line="+348"/>
+        <location line="+165"/>
+        <location filename="../rpcconsole.cpp" line="+352"/>
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
     <message>
-        <location line="-217"/>
+        <location line="-382"/>
         <source>Client version</source>
         <translation>Versió del client</translation>
     </message>
     <message>
-        <location line="-45"/>
+        <location line="-51"/>
         <source>&amp;Information</source>
         <translation>&amp;Informació</translation>
     </message>
     <message>
-        <location line="+68"/>
         <source>Using OpenSSL version</source>
-        <translation>Utilitzant OpenSSL versió</translation>
+        <translation type="obsolete">Utilitzant OpenSSL versió</translation>
     </message>
     <message>
-        <location line="+49"/>
+        <location line="+123"/>
         <source>Startup time</source>
         <translation>&amp;Temps d&apos;inici</translation>
     </message>
@@ -2271,9 +2403,28 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Nombre de connexions</translation>
     </message>
     <message>
-        <location line="+23"/>
         <source>On testnet</source>
-        <translation>A testnet</translation>
+        <translation type="obsolete">A testnet</translation>
+    </message>
+    <message>
+        <location line="-181"/>
+        <source>Bean Cash - Debug Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+37"/>
+        <source>Bean Cash Core</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+59"/>
+        <source>Using OpenSSL version:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+108"/>
+        <source>On Testnet</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+23"/>
@@ -2296,19 +2447,38 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Últim temps de bloc</translation>
     </message>
     <message>
-        <location line="+52"/>
+        <location line="+61"/>
+        <source>Open the Bean Cash debug log file from the current data directory. This can take a few seconds for large log files.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
         <source>&amp;Open</source>
         <translation>&amp;Obrir</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+26"/>
+        <source>Open Bean Cash Configuration file from the current data directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>&amp;Edit Config File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
         <source>Command-line options</source>
         <translation>Opcions de la línia d&apos;ordres</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+19"/>
+        <source>Show the Beancash-qt help message to get a list of possible Bean Cash command-line options.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Show the Beancash-qt help message to get a list with possible Beancash command-line options.</source>
-        <translation>Mostra el missatge d&apos;ajuda de Beancash-qt per obtenir una llista amb les possibles opcions de línia d&apos;ordres Beancash.</translation>
+        <translation type="obsolete">Mostra el missatge d&apos;ajuda de Beancash-qt per obtenir una llista amb les possibles opcions de línia d&apos;ordres Beancash.</translation>
     </message>
     <message>
         <location line="+3"/>
@@ -2316,37 +2486,49 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>&amp;Mostra</translation>
     </message>
     <message>
+        <location line="+27"/>
+        <source>Berkeley DB version:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location line="+24"/>
         <source>&amp;Console</source>
         <translation>&amp;Consola</translation>
     </message>
     <message>
-        <location line="-260"/>
+        <location line="+99"/>
+        <source>Close window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-446"/>
         <source>Build date</source>
         <translation>Data de compilació</translation>
     </message>
     <message>
-        <location line="-104"/>
         <source>Beancash - Debug window</source>
-        <translation>Beancash - Finestra Depuració</translation>
+        <translation type="obsolete">Beancash - Finestra Depuració</translation>
     </message>
     <message>
-        <location line="+25"/>
         <source>Beancash Core</source>
-        <translation>Nucli Beancash</translation>
+        <translation type="obsolete">Nucli Beancash</translation>
     </message>
     <message>
-        <location line="+279"/>
+        <location line="+200"/>
         <source>Debug log file</source>
         <translation>Dietàri de depuració</translation>
     </message>
     <message>
-        <location line="+7"/>
         <source>Open the Beancash debug log file from the current data directory. This can take a few seconds for large log files.</source>
-        <translation>Obriu el fitxer de registre de depuració Beancash des del directori de dades actual. Això pot trigar uns segons en els arxius de registre de grans dimensions.</translation>
+        <translation type="obsolete">Obriu el fitxer de registre de depuració Beancash des del directori de dades actual. Això pot trigar uns segons en els arxius de registre de grans dimensions.</translation>
     </message>
     <message>
-        <location line="+102"/>
+        <location line="+193"/>
         <source>Clear console</source>
         <translation>Netejar consola</translation>
     </message>
@@ -2381,17 +2563,17 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+76"/>
+        <location line="+78"/>
         <source>Bean Control Features</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+63"/>
         <source>Inputs...</source>
         <translation type="unfinished">Entrades</translation>
     </message>
     <message>
-        <location line="+7"/>
+        <location line="+16"/>
         <source>automatically selected</source>
         <translation type="unfinished">Seleccionat automàticament</translation>
     </message>
@@ -2401,13 +2583,13 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation type="unfinished">Fons insuficient</translation>
     </message>
     <message>
-        <location line="+77"/>
+        <location line="+85"/>
         <source>Quantity:</source>
         <translation type="unfinished">Quantitat:</translation>
     </message>
     <message>
         <location line="+22"/>
-        <location line="+35"/>
+        <location line="+43"/>
         <source>0</source>
         <translation type="unfinished">0</translation>
     </message>
@@ -2417,20 +2599,20 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation type="unfinished">Bytes:</translation>
     </message>
     <message>
-        <location line="+51"/>
+        <location line="+59"/>
         <source>Amount:</source>
         <translation type="unfinished">Quantitat:</translation>
     </message>
     <message>
         <location line="+22"/>
-        <location line="+86"/>
-        <location line="+86"/>
-        <location line="+32"/>
+        <location line="+102"/>
+        <location line="+102"/>
+        <location line="+40"/>
         <source>0.00 BC</source>
         <translation type="unfinished">123.456 BC {0.00 ?}</translation>
     </message>
     <message>
-        <location line="-191"/>
+        <location line="-223"/>
         <source>Priority:</source>
         <translation type="unfinished">Prioritat:</translation>
     </message>
@@ -2440,12 +2622,12 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation type="unfinished">mig</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+40"/>
         <source>Fee:</source>
         <translation type="unfinished">Quota:</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+43"/>
         <source>Low Output:</source>
         <translation type="unfinished">Sortida baixa:</translation>
     </message>
@@ -2455,22 +2637,22 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation type="unfinished">no</translation>
     </message>
     <message>
-        <location line="+32"/>
+        <location line="+40"/>
         <source>After Fee:</source>
         <translation type="unfinished">Quota posterior:</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+43"/>
         <source>Change</source>
         <translation type="unfinished">Canvi</translation>
     </message>
     <message>
-        <location line="+50"/>
+        <location line="+55"/>
         <source>custom change address</source>
         <translation type="unfinished">Adreça de canvi pròpia</translation>
     </message>
     <message>
-        <location line="+106"/>
+        <location line="+149"/>
         <source>Send to multiple recipients at once</source>
         <translation type="unfinished">Enviar a multiples destinataris al mateix temps</translation>
     </message>
@@ -2480,7 +2662,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation type="unfinished">Afegir &amp;Destinatari</translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+63"/>
         <source>Remove all transaction fields</source>
         <translation type="unfinished">Traieu tots els camps de transacció</translation>
     </message>
@@ -2490,17 +2672,17 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation type="unfinished">Esborrar &amp;Tot</translation>
     </message>
     <message>
-        <location line="+28"/>
+        <location line="+35"/>
         <source>Balance:</source>
         <translation type="unfinished">Balanç:</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+22"/>
         <source>123.456 BC</source>
         <translation type="unfinished">123.456 BC</translation>
     </message>
     <message>
-        <location line="+31"/>
+        <location line="+74"/>
         <source>Confirm the send action</source>
         <translation type="unfinished">Confirmi l&apos;acció d&apos;enviament</translation>
     </message>
@@ -2628,33 +2810,33 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
 <context>
     <name>SendBeansEntry</name>
     <message>
-        <location filename="../forms/sendbeansentry.ui" line="+192"/>
+        <location filename="../forms/sendbeansentry.ui" line="+327"/>
         <source>Form</source>
         <translation type="unfinished">Formulari</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+24"/>
         <source>A&amp;mount:</source>
         <translation type="unfinished">Q&amp;uantitat:</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+18"/>
         <source>Pay &amp;To:</source>
         <translation type="unfinished">Pagar &amp;A:</translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+37"/>
         <location filename="../sendbeansentry.cpp" line="+25"/>
         <source>Enter a label for this address to add it to your address book</source>
         <translation type="unfinished">Introdueixi una etiquera per a aquesta adreça per afegir-la a la llibreta d&apos;adreces</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+14"/>
         <source>&amp;Label:</source>
         <translation type="unfinished">&amp;Etiqueta:</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+24"/>
         <source>The address to send the payment to  (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
         <translation type="unfinished">L&apos;adreça per a enviar el pagament (per exemple: 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
     </message>
@@ -2948,12 +3130,12 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+13"/>
-        <location line="+124"/>
+        <location line="+135"/>
         <source>&amp;Sign Message</source>
         <translation>&amp;Signar Missatge</translation>
     </message>
     <message>
-        <location line="-118"/>
+        <location line="-124"/>
         <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
         <translation>Pots signar missatges amb la teva adreça per provar que són teus. Sigues cautelòs al signar qualsevol cosa, ja que els atacs phising poden intentar confondre&apos;t per a que els hi signis amb la teva identitat. Tan sols signa als documents completament detallats amb els que hi estàs d&apos;acord.</translation>
     </message>
@@ -2964,18 +3146,18 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+10"/>
-        <location line="+203"/>
+        <location line="+243"/>
         <source>Choose an address from the address book</source>
         <translation>Trieu una adreça de la llibreta d&apos;adreces</translation>
     </message>
     <message>
-        <location line="-193"/>
-        <location line="+203"/>
+        <location line="-233"/>
+        <location line="+243"/>
         <source>Alt+A</source>
         <translation>Alta+A</translation>
     </message>
     <message>
-        <location line="-193"/>
+        <location line="-233"/>
         <source>Paste address from clipboard</source>
         <translation>Enganxar adreça del porta-retalls</translation>
     </message>
@@ -2995,29 +3177,49 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Copiar la signatura actual al porta-retalls del sistema</translation>
     </message>
     <message>
-        <location line="+21"/>
-        <source>Sign the message to prove you own this Beancash address</source>
-        <translation>Signar un missatge per demostrar que és propietari d&apos;aquesta adreça Beancash</translation>
+        <location line="+27"/>
+        <source>Sign the message to prove you own this Bean Cash address</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+186"/>
+        <source>Verify the message to ensure it was signed with the specified Bean Cash address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign the message to prove you own this Beancash address</source>
+        <translation type="obsolete">Signar un missatge per demostrar que és propietari d&apos;aquesta adreça Beancash</translation>
+    </message>
+    <message>
+        <location line="-163"/>
         <source>Reset all sign message fields</source>
         <translation>Neteja tots els camps de clau</translation>
     </message>
     <message>
         <location line="+3"/>
-        <location line="+146"/>
+        <location line="+186"/>
         <source>Clear &amp;All</source>
         <translation>Esborrar &amp;Tot</translation>
     </message>
     <message>
-        <location line="-87"/>
-        <location line="+70"/>
+        <location line="-166"/>
+        <source>Close Window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <location line="+186"/>
+        <source>&amp;Cancel</source>
+        <translation type="unfinished">&amp;Cancel·la</translation>
+    </message>
+    <message>
+        <location line="-130"/>
+        <location line="+84"/>
         <source>&amp;Verify Message</source>
         <translation>&amp;Verificar el missatge</translation>
     </message>
     <message>
-        <location line="-64"/>
+        <location line="-70"/>
         <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
         <translation>Introdueixi l&apos;adreça signant, missatge (assegura&apos;t que copies salts de línia, espais, tabuladors, etc excactament tot el text) i la signatura a sota per verificar el missatge. Per evitar ser enganyat per un atac home-entre-mig, vés amb compte de no llegir més en la signatura del que hi ha al missatge signat mateix.</translation>
     </message>
@@ -3027,14 +3229,18 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>La direcció que va ser signada amb un missatge (per exemple 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
     </message>
     <message>
-        <location line="+40"/>
         <source>Verify the message to ensure it was signed with the specified Beancash address</source>
-        <translation>Comproveu el missatge per assegurar-se que es va signar amb l&apos;adreça Beancash especificada.</translation>
+        <translation type="obsolete">Comproveu el missatge per assegurar-se que es va signar amb l&apos;adreça Beancash especificada.</translation>
     </message>
     <message>
-        <location line="+17"/>
+        <location line="+69"/>
         <source>Reset all verify message fields</source>
         <translation>Neteja tots els camps de verificació de missatge</translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Close window</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../signverifymessagedialog.cpp" line="+27"/>
@@ -3053,7 +3259,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Introduïu la signatura Beancash</translation>
     </message>
     <message>
-        <location line="+82"/>
+        <location line="+92"/>
         <location line="+81"/>
         <source>The entered address is invalid.</source>
         <translation>L&apos;adreça intoduïda és invàlida.</translation>
@@ -3322,7 +3528,12 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>Detall de la transacció</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+28"/>
+        <source>&amp;Close</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+24"/>
         <source>This pane shows a detailed description of the transaction</source>
         <translation>Aquest panell mostra una descripció detallada de la transacció</translation>
     </message>
@@ -3641,7 +3852,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
 </context>
 <context>
-    <name>bitbean-core</name>
+    <name>beancash-core</name>
     <message>
         <location filename="../bitbeanstrings.cpp" line="+8"/>
         <source>To use the %s option</source>

@@ -1,9 +1,10 @@
 # Copyright (c) 2009-2010 Satoshi Nakamoto
-# Copyright (c) 2015 Bean Core www.bitbean.org
+# Copyright (c) 2015-2017 Bean Core www.bitbean.org
+# Copyright (c) 2017 Bean Core www.beancash.org
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-USE_UPNP:=0
+USE_UPNP:=-
 
 LINK:=$(CXX)
 
@@ -128,7 +129,7 @@ OBJS= \
     obj/scrypt-x86.o \
     obj/scrypt-x86_64.o \
     
-all: BitBeand
+all: Beancashd
 
 LIBS += $(CURDIR)/leveldb/libleveldb.a $(CURDIR)/leveldb/libmemenv.a
 DEFS += $(addprefix -I,$(CURDIR)/leveldb/include)
@@ -163,11 +164,11 @@ obj/%.o: %.cpp
 	  rm -f $(@:%.o=%.d)
 
 
-BitBeand: $(OBJS:obj/%=obj/%)
+Beancashd: $(OBJS:obj/%=obj/%)
 	$(LINK) $(xCXXFLAGS) -o $@ $^ $(xLDFLAGS) $(LIBS)
 
 clean:
-	-rm -f BitBeand
+	-rm -f Beancashd
 	-rm -f obj/*.o
 	-rm -f obj/*.P
 	-rm -f obj/build.h

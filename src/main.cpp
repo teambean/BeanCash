@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2015 Bean Core www.bitbean.org
+// Copyright (c) 2015 Bean Core www.beancash.org
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -43,7 +43,6 @@ CBigNum bnProofOfWorkLimitTestNet(~uint256(0) >> 16);
 
 static const int64_t nTargetTimespan = 60 * 60;  // Beancash - every 1 hour
 unsigned int nTargetSpacing = 1 * 60; // Beancash - 1 minute
-static const int64_t nInterval = nTargetTimespan / nTargetSpacing;
 
 static const int64_t nDiffChangeTarget = 1;
 
@@ -1319,7 +1318,7 @@ bool CTransaction::ConnectInputs(CTxDB& txdb, MapPrevTx inputs, map<uint256, CTx
 {
     // Take over previous transactions' spent pointers
     // fBlock is true when this is called from AcceptBlock when a new best-block is added to the blockchain
-    // fMiner is true when called from the internal bitbean miner
+    // fMiner is true when called from the internal beancash miner
     // ... both are false when called from CTransaction::AcceptToMemoryPool
     if (!IsBeanBase())
     {

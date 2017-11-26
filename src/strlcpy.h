@@ -1,6 +1,6 @@
 /*
  * Copyright (c) 1998 Todd C. Miller <Todd.Miller@courtesan.com>
- * Copyright (c) 2015 Bean Core www.bitbean.org
+ * Copyright (c) 2015 Bean Core www.beancash.org
  *
  * Permission to use, copy, modify, and distribute this software for any
  * purpose with or without fee is hereby granted, provided that the above

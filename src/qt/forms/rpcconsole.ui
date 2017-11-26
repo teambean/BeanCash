@@ -195,7 +195,7 @@
    </font>
   </property>
   <property name="windowTitle">
-   <string>Beancash - Debug window</string>
+   <string>Bean Cash - Debug Window</string>
   </property>
   <widget class="QTabWidget" name="tabWidget">
    <property name="enabled">
@@ -232,7 +232,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Beancash Core</string>
+        <string>Bean Cash Core</string>
        </property>
       </widget>
      </item>
@@ -399,7 +399,7 @@
      <item row="9" column="0">
       <widget class="QLabel" name="label_8">
        <property name="text">
-        <string>On testnet</string>
+        <string>On Testnet</string>
        </property>
       </widget>
      </item>
@@ -536,13 +536,13 @@
         </font>
        </property>
        <property name="toolTip">
-        <string>Open the Beancash debug log file from the current data directory. This can take a few seconds for large log files.</string>
+        <string>Open the Bean Cash debug log file from the current data directory. This can take a few seconds for large log files.</string>
        </property>
        <property name="text">
         <string>&amp;Open</string>
        </property>
        <property name="icon">
-        <iconset resource="../bitbean.qrc">
+        <iconset resource="../beancash.qrc">
          <normaloff>:/icons/overview</normaloff>:/icons/overview</iconset>
        </property>
        <property name="autoDefault">
@@ -565,13 +565,13 @@
         </font>
        </property>
        <property name="toolTip">
-        <string>Open Beancash Configuration file from the current data directory</string>
+        <string>Open Bean Cash Configuration file from the current data directory</string>
        </property>
        <property name="text">
         <string>&amp;Edit Config File</string>
        </property>
        <property name="icon">
-        <iconset resource="../bitbean.qrc">
+        <iconset resource="../beancash.qrc">
          <normaloff>:/icons/signmessage</normaloff>:/icons/signmessage</iconset>
        </property>
        <property name="autoDefault">
@@ -607,13 +607,13 @@
         </font>
        </property>
        <property name="toolTip">
-        <string>Show the Beancash-qt help message to get a list with possible Beancash command-line options.</string>
+        <string>Show the Beancash-qt help message to get a list of possible Bean Cash command-line options.</string>
        </property>
        <property name="text">
         <string>&amp;Show</string>
        </property>
        <property name="icon">
-        <iconset resource="../bitbean.qrc">
+        <iconset resource="../beancash.qrc">
          <normaloff>:/icons/debugwindow</normaloff>:/icons/debugwindow</iconset>
        </property>
        <property name="autoDefault">
@@ -716,7 +716,7 @@
           <string/>
          </property>
          <property name="icon">
-          <iconset resource="../bitbean.qrc">
+          <iconset resource="../beancash.qrc">
            <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
          </property>
          <property name="shortcut">
@@ -766,7 +766,7 @@
     <string>&amp;Close</string>
    </property>
    <property name="icon">
-    <iconset resource="../bitbean.qrc">
+    <iconset resource="../beancash.qrc">
      <normaloff>:/icons/quit</normaloff>:/icons/quit</iconset>
    </property>
    <property name="autoDefault">
@@ -777,7 +777,7 @@
   <zorder>tabWidget</zorder>
  </widget>
  <resources>
-  <include location="../bitbean.qrc"/>
+  <include location="../beancash.qrc"/>
  </resources>
  <connections/>
 </ui>

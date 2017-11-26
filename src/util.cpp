@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2015 Bean Core www.bitbean.org
+// Copyright (c) 2015 Bean Core www.beancash.org
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -200,6 +200,7 @@ uint256 GetRandHash()
 
 
 static FILE* fileout = NULL;
+static FILE* conffile = NULL;
 
 inline int OutputDebugStringF(const char* pszFormat, ...)
 {
@@ -221,6 +222,12 @@ inline int OutputDebugStringF(const char* pszFormat, ...)
             boost::filesystem::path pathDebug = GetDataDir() / "debug.log";
             fileout = fopen(pathDebug.string().c_str(), "a");
             if (fileout) setbuf(fileout, NULL); // unbuffered
+	    // Create BitBean.conf if none exists
+		boost::filesystem::path pathConf = GetDataDir() / "BitBean.conf";
+		conffile = fopen(pathConf.string().c_str(), "a");
+		if(!conffile) {
+			fprintf(stderr, "Error: unable to create BitBean.conf\n");
+		}
         }
         if (fileout)
         {

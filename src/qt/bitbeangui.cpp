@@ -1,5 +1,5 @@
 /*
- * Qt4 bitbean GUI.
+ * Qt4 beancash GUI.
  *
  * W.J. van der Laan 2011-2012
  * The Bitcoin Developers 2011-2012
@@ -81,8 +81,8 @@ BitbeanGUI::BitbeanGUI(QWidget *parent):
     setWindowTitle(tr("Bean Cash") + " - " + tr("Core v1.1.2.2RC"));
     qApp->setStyleSheet("QMainWindow { border-image: url(:images/bkg);border:none; } QProgressBar { background: transparent; border: 1px solid gray; border-radius: 7px; padding: 1px; text-align: center; } QProgressBar::chunk { background: QLinearGradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #d3eeaf, stop: 1 #9fd555); border-radius: 7px; margin: 0px; } QMenu { background-color: #d3eeaf; color: black; } QMenu::item { color: black; background: transparent; } QMenu::item:selected { background-color: #9fd555; } QMenuBar { background-color: #d3eeaf; color: black; } QPushButton {background-color: #d3eeaf; } QLineEdit { background-color: white; } QToolTip { color: #000000; background-color: #d3eeaf; border-radius: 7px; border: 1px solid black; } QTabWidget::pane {background-color: white; color: black } QTabWidget::tab-bar {left: 5px;} QTabBar::tab {background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #d3eeaf, stop: 1 #9fd555); border: 2px solid #C4C4C3; border-bottom-color: #C2C7CB; border-top-left-radius: 7px; border-top-right-radius: 7px; min-width: 8ex; padding: 2px; color: black; } QTabBar::tab:selected {border-color: #9fd555; border-bottom-color: #d3eeaf; background-color: white; color: black; } QTabBar:tab:!selected {margin-top: 3px; } ");
 #ifndef Q_OS_MAC
-    qApp->setWindowIcon(QIcon(":icons/bitbean"));
-    setWindowIcon(QIcon(":icons/bitbean"));
+    qApp->setWindowIcon(QIcon(":icons/beancash"));
+    setWindowIcon(QIcon(":icons/beancash"));
 #else
     setUnifiedTitleAndToolBarOnMac(true);
     QApplication::setAttribute(Qt::AA_DontShowIconsInMenus);
@@ -213,18 +213,18 @@ void BitbeanGUI::createActions()
     QActionGroup *tabGroup = new QActionGroup(this);
 
     overviewAction = new QAction(QIcon(":/icons/overview"), tr("&Overview"), this);
-    overviewAction->setToolTip(tr("Show general overview of wallet"));
+    overviewAction->setToolTip(tr("Overview of general information"));
     overviewAction->setCheckable(true);
     overviewAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_1));
     tabGroup->addAction(overviewAction);
 
-    sendBeansAction = new QAction(QIcon(":/icons/send"), tr("&Send Beans"), this);
-    sendBeansAction->setToolTip(tr("Send Beans to a Beancash address"));
+    sendBeansAction = new QAction(QIcon(":/icons/left_arrow"), tr("&Send Beans"), this);
+    sendBeansAction->setToolTip(tr("Send Beans to a Bean Cash address"));
     sendBeansAction->setCheckable(true);
     sendBeansAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_2));
     tabGroup->addAction(sendBeansAction);
 
-    receiveBeansAction = new QAction(QIcon(":/icons/receiving_addresses"), tr("&Receive Beans"), this);
+    receiveBeansAction = new QAction(QIcon(":/icons/right_arrow"), tr("&Receive Beans"), this);
     receiveBeansAction->setToolTip(tr("Show the list of addresses for receiving payments"));
     receiveBeansAction->setCheckable(true);
     receiveBeansAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_3));
@@ -257,7 +257,7 @@ void BitbeanGUI::createActions()
     quitAction->setToolTip(tr("Quit application"));
     quitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
     quitAction->setMenuRole(QAction::QuitRole);
-    aboutAction = new QAction(QIcon(":/icons/bitbean"), tr("&About Beancash"), this);
+    aboutAction = new QAction(QIcon(":/icons/beancash"), tr("&About Bean Cash"), this);
     aboutAction->setToolTip(tr("Show information about Beancash"));
     aboutAction->setMenuRole(QAction::AboutRole);
     aboutQtAction = new QAction(QIcon(":/trolltech/qmessagebox/images/qtlogo-64.png"), tr("About &Qt"), this);
@@ -266,7 +266,7 @@ void BitbeanGUI::createActions()
     optionsAction = new QAction(QIcon(":/icons/options"), tr("&Options..."), this);
     optionsAction->setToolTip(tr("Modify configuration options for Beancash"));
     optionsAction->setMenuRole(QAction::PreferencesRole);
-    toggleHideAction = new QAction(QIcon(":/icons/bitbean"), tr("&Show / Hide"), this);
+    toggleHideAction = new QAction(QIcon(":/icons/beancash"), tr("&Show / Hide"), this);
     encryptWalletAction = new QAction(QIcon(":/icons/lock_closed"), tr("&Encrypt Keys..."), this);
     encryptWalletAction->setToolTip(tr("Encrypt or decrypt vault"));
     encryptWalletAction->setCheckable(true);
@@ -283,7 +283,7 @@ void BitbeanGUI::createActions()
 
     exportAction = new QAction(QIcon(":/icons/export"), tr("&Export..."), this);
     exportAction->setToolTip(tr("Export the data in the current tab to a file"));
-    openRPCConsoleAction = new QAction(QIcon(":/icons/debugwindow"), tr("&Debug window"), this);
+    openRPCConsoleAction = new QAction(QIcon(":/icons/debugwindow"), tr("&Debug Window"), this);
     openRPCConsoleAction->setToolTip(tr("Open debugging and diagnostic console"));
 
     connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
@@ -508,7 +508,7 @@ void BitbeanGUI::setNumConnections(int count)
     default: icon = ":/icons/connect_4"; break;
     }
     labelConnectionsIcon->setPixmap(QIcon(icon).pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
-    labelConnectionsIcon->setToolTip(tr("%n active connection(s) to Beancash network", "", count));
+    labelConnectionsIcon->setToolTip(tr("%n active connection(s) to the Bean Cash network", "", count));
 }
 
 void BitbeanGUI::setNumBlocks(int count, int nTotalBlocks)
@@ -1000,21 +1000,21 @@ void BitbeanGUI::updateStakingIcon()
             }
 
             labelStakingIcon->setPixmap(QIcon(":/icons/staking_on").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
-            labelStakingIcon->setToolTip(tr("Staking.<br>Your weight is %1<br>Network weight is %2<br>Expected time to earn reward is %3").arg(nWeight).arg(nNetworkWeight).arg(text));
+            labelStakingIcon->setToolTip(tr("Sprouting.<br>Your weight is %1<br>Network weight is %2<br>Expected time to earn reward is %3").arg(nWeight).arg(nNetworkWeight).arg(text));
         }
         else
         {
             labelStakingIcon->setPixmap(QIcon(":/icons/staking_off").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
             if (pwalletMain && pwalletMain->IsLocked())
-                labelStakingIcon->setToolTip(tr("Not staking because wallet is locked"));
+                labelStakingIcon->setToolTip(tr("Not Sprouting because vault is locked"));
             else if (vNodes.empty())
-                labelStakingIcon->setToolTip(tr("Not staking because wallet is offline"));
+                labelStakingIcon->setToolTip(tr("Not Sprouting because vault is offline"));
             else if (IsInitialBlockDownload())
-                labelStakingIcon->setToolTip(tr("Not staking because wallet is syncing"));
+                labelStakingIcon->setToolTip(tr("Not Sprouting because vault is syncing"));
             else if (!nWeight)
-                labelStakingIcon->setToolTip(tr("Not staking because you don't have mature beans"));
+                labelStakingIcon->setToolTip(tr("Not Sprouting because you don't have mature Beans"));
             else
-                labelStakingIcon->setToolTip(tr("Not staking"));
+                labelStakingIcon->setToolTip(tr("Not Sprouting"));
         }
     }
 }

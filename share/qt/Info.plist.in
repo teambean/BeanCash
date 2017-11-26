@@ -17,7 +17,7 @@
   <string>APPL</string>
 
   <key>CFBundleGetInfoString</key>
-  <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@, Copyright © 2009-@COPYRIGHT_YEAR@ The Bitcoin Core developers</string>
+  <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@, Copyright © 2015-@COPYRIGHT_YEAR@ Bean Core www.beancash.org</string>
 
   <key>CFBundleShortVersionString</key>
   <string>@CLIENT_VERSION_MAJOR@.@CLIENT_VERSION_MINOR@.@CLIENT_VERSION_REVISION@</string>
@@ -29,10 +29,10 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>Bitcoin-Qt</string>
+  <string>Beancash-Qt</string>
 
   <key>CFBundleIdentifier</key>
-  <string>org.bitbean.BitBean-Qt</string>
+  <string>org.beancash.Beancash-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -40,10 +40,10 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>org.bitbean.BitbeanPayment</string>
+      <string>org.beancash.BeancashPayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
-        <string>bitbean</string>
+        <string>beancash</string>
       </array>
     </dict>
   </array>
@@ -52,9 +52,9 @@
   <array>
     <dict>
       <key>UTTypeIdentifier</key>
-      <string>org.bitbean.paymentrequest</string>
+      <string>org.beancash.paymentrequest</string>
       <key>UTTypeDescription</key>
-      <string>Bitcoin payment request</string>
+      <string>Beancash payment request</string>
       <key>UTTypeConformsTo</key>
       <array>
         <string>public.data</string>
@@ -62,10 +62,10 @@
       <key>UTTypeTagSpecification</key>
       <dict>
         <key>public.mime-type</key>
-        <string>application/x-bitbean-payment-request</string>
+        <string>application/x-beancash-payment-request</string>
         <key>public.filename-extension</key>
         <array>
-          <string>bitbeanpaymentrequest</string>
+          <string>beancashpaymentrequest</string>
         </array>
       </dict>
     </dict>
@@ -78,7 +78,7 @@
       <string>Editor</string>
       <key>LSItemContentTypes</key>
       <array>
-        <string>org.bitbean.paymentrequest</string>
+        <string>org.beancash.paymentrequest</string>
       </array>
       <key>LSHandlerRank</key>
       <string>Owner</string>

@@ -247,7 +247,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="../bitbean.qrc">
+            <iconset resource="../beancash.qrc">
              <normaloff>:/icons/address-book</normaloff>:/icons/address-book</iconset>
            </property>
            <property name="shortcut">
@@ -267,7 +267,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="../bitbean.qrc">
+            <iconset resource="../beancash.qrc">
              <normaloff>:/icons/editpaste</normaloff>:/icons/editpaste</iconset>
            </property>
            <property name="shortcut">
@@ -313,7 +313,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="../bitbean.qrc">
+            <iconset resource="../beancash.qrc">
              <normaloff>:/icons/editcopy</normaloff>:/icons/editcopy</iconset>
            </property>
            <property name="autoDefault">
@@ -334,13 +334,13 @@
             </font>
            </property>
            <property name="toolTip">
-            <string>Sign the message to prove you own this Beancash address</string>
+            <string>Sign the message to prove you own this Bean Cash address</string>
            </property>
            <property name="text">
             <string>&amp;Sign Message</string>
            </property>
            <property name="icon">
-            <iconset resource="../bitbean.qrc">
+            <iconset resource="../beancash.qrc">
              <normaloff>:/icons/signmessage</normaloff>:/icons/signmessage</iconset>
            </property>
            <property name="autoDefault">
@@ -363,7 +363,7 @@
             <string>Clear &amp;All</string>
            </property>
            <property name="icon">
-            <iconset resource="../bitbean.qrc">
+            <iconset resource="../beancash.qrc">
              <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
            </property>
            <property name="autoDefault">
@@ -386,7 +386,7 @@
             <string>&amp;Cancel</string>
            </property>
            <property name="icon">
-            <iconset resource="../bitbean.qrc">
+            <iconset resource="../beancash.qrc">
              <normaloff>:/icons/quit</normaloff>:/icons/quit</iconset>
            </property>
           </widget>
@@ -490,7 +490,7 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset resource="../bitbean.qrc">
+            <iconset resource="../beancash.qrc">
              <normaloff>:/icons/address-book</normaloff>:/icons/address-book</iconset>
            </property>
            <property name="shortcut">
@@ -520,13 +520,13 @@
             </font>
            </property>
            <property name="toolTip">
-            <string>Verify the message to ensure it was signed with the specified Beancash address</string>
+            <string>Verify the message to ensure it was signed with the specified Bean Cash address</string>
            </property>
            <property name="text">
             <string>&amp;Verify Message</string>
            </property>
            <property name="icon">
-            <iconset resource="../bitbean.qrc">
+            <iconset resource="../beancash.qrc">
              <normaloff>:/icons/verifymessage</normaloff>:/icons/verifymessage</iconset>
            </property>
            <property name="autoDefault">
@@ -549,7 +549,7 @@
             <string>Clear &amp;All</string>
            </property>
            <property name="icon">
-            <iconset resource="../bitbean.qrc">
+            <iconset resource="../beancash.qrc">
              <normaloff>:/icons/remove</normaloff>:/icons/remove</iconset>
            </property>
            <property name="autoDefault">
@@ -572,7 +572,7 @@
             <string>&amp;Cancel</string>
            </property>
            <property name="icon">
-            <iconset resource="../bitbean.qrc">
+            <iconset resource="../beancash.qrc">
              <normaloff>:/icons/quit</normaloff>:/icons/quit</iconset>
            </property>
           </widget>
@@ -635,7 +635,7 @@
   </customwidget>
  </customwidgets>
  <resources>
-  <include location="../bitbean.qrc"/>
+  <include location="../beancash.qrc"/>
  </resources>
  <connections/>
 </ui>

@@ -1,5 +1,5 @@
 // Copyright (c) 2012 The Bitcoin developers
-// Copyright (c) 2015 Bean Core www.bitbean.org
+// Copyright (c) 2015 Bean Core www.beancash.org
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #include <string>
@@ -12,7 +12,7 @@
 const std::string CLIENT_NAME("Bean Core");
 
 // Client version number
-#define CLIENT_VERSION_SUFFIX   "RC1"
+#define CLIENT_VERSION_SUFFIX   "RC"
 
 
 // The following part of the code determines the CLIENT_BUILD variable.

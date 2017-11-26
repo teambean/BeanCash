@@ -204,8 +204,8 @@
    <string>Passphrase Dialog</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../bitbean.qrc">
-    <normaloff>:/icons/bitbean</normaloff>:/icons/bitbean</iconset>
+   <iconset resource="../beancash.qrc">
+    <normaloff>:/icons/beancash</normaloff>:/icons/beancash</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -336,7 +336,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../bitbean.qrc"/>
+  <include location="../beancash.qrc"/>
  </resources>
  <connections>
   <connection>

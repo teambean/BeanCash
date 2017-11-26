@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2015 Bean Core www.bitbean.org
+// Copyright (c) 2015 Bean Core www.beancash.org
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -77,7 +77,7 @@ Value getstakinginfo(const Array& params, bool fHelp)
     Object obj;
 
     obj.push_back(Pair("Enabled", GetBoolArg("-staking", true)));
-    obj.push_back(Pair("Staking", staking));
+    obj.push_back(Pair("Sprouting", staking));
     obj.push_back(Pair("Errors", GetWarnings("statusbar")));
 
     obj.push_back(Pair("Current Block Size", (uint64_t)nLastBlockSize));
@@ -104,10 +104,10 @@ Value getworkex(const Array& params, bool fHelp)
         );
 
     if (vNodes.empty())
-        throw JSONRPCError(-9, "Beancash is not connected!");
+        throw JSONRPCError(-9, "Bean Core is not connected to the Bean Cash network!");
 
     if (IsInitialBlockDownload())
-        throw JSONRPCError(-10, "Beancash is downloading blocks...");
+        throw JSONRPCError(-10, "Bean Core is downloading blocks from the Bean Cash network...");
 
     if (pindexBest->nHeight >= LAST_POW_BLOCK)
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
