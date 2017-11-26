@@ -37,7 +37,7 @@ const std::string CLIENT_NAME("Bean Core");
 // git will put "#define GIT_ARCHIVE 1" on the next line inside archives. 
 #define GIT_ARCHIVE 1
 #ifdef GIT_ARCHIVE
-#    define GIT_COMMIT_ID "32a928e"
+#    define GIT_COMMIT_ID "8b5449f042176055457db6368f171903e16c8dea"
 #    define GIT_COMMIT_DATE "$Format:%cD"
 #endif
 
