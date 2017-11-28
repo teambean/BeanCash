@@ -228,8 +228,12 @@ Eric Young (eay@cryptsoft.com) y el software UPnP escrito por Thomas Bernard.</t
     </message>
     <message>
         <location line="+3"/>
+        <source>For Sprouting only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>For staking only</source>
-        <translation>Para &quot;Staking&quot; solamente</translation>
+        <translation type="obsolete">Para &quot;Staking&quot; solamente</translation>
     </message>
     <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
@@ -637,8 +641,9 @@ Esto significa que se requiere una cuota de al menos %2.</translation>
 <context>
     <name>BitbeanGUI</name>
     <message>
+        <location filename="../beancash.cpp" line="+109"/>
         <source>A fatal error occurred. Beancash can no longer continue safely and will quit.</source>
-        <translation type="obsolete">Se ha producido un error fatal. Beancash ya no puede continuar de forma segura y cerrará.</translation>
+        <translation type="unfinished">Se ha producido un error fatal. Beancash ya no puede continuar de forma segura y cerrará.</translation>
     </message>
     <message>
         <source>Beancash</source>
@@ -4178,9 +4183,13 @@ Si el archivo no existe, créelo con permiso de lectura solamente del propietari
 </translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation type="unfinished">Escuchar conexiones JSON-RPC en &lt;port&gt; (predeterminado: 15715 o testnet: 25715)</translation>
+        <translation type="obsolete">Escuchar conexiones JSON-RPC en &lt;port&gt; (predeterminado: 15715 o testnet: 25715)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 22463)</source>
+        <translation type="unfinished">Escuchar conexiones JSON-RPC en &lt;port&gt; (predeterminado: 15715 o testnet: 25715) {15715 ?} {22463)?}</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -4496,8 +4505,12 @@ Si el archivo no existe, créelo con permiso de lectura solamente del propietari
     </message>
     <message>
         <location line="+1"/>
+        <source>Error: Wallet unlocked for sprouting only, unable to create transaction.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Error: Wallet unlocked for staking only, unable to create transaction.</source>
-        <translation type="unfinished">Error: Monedero desbloqueado sólo para hacer &quot;stake&quot;, no es posible crear una transacción.</translation>
+        <translation type="obsolete">Error: Monedero desbloqueado sólo para hacer &quot;stake&quot;, no es posible crear una transacción.</translation>
     </message>
     <message>
         <location line="+1"/>

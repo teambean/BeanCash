@@ -207,8 +207,12 @@ Copyright © 2014 para pengembang Beancash</translation>
     </message>
     <message>
         <location line="+3"/>
+        <source>For Sprouting only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>For staking only</source>
-        <translation>Hanya untuk staking</translation>
+        <translation type="obsolete">Hanya untuk staking</translation>
     </message>
     <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
@@ -1067,6 +1071,11 @@ Alamat: %4
     <message>
         <source>Not staking</source>
         <translation type="obsolete">Lagi tidak staking</translation>
+    </message>
+    <message>
+        <location filename="../beancash.cpp" line="+109"/>
+        <source>A fatal error occurred. Beancash can no longer continue safely and will quit.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3718,7 +3727,7 @@ Jika berkas tidak ada, buatlah dengan permisi berkas hanya-dapat-dibaca-oleh-pem
     </message>
     <message>
         <location line="+1"/>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 22463)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4029,8 +4038,12 @@ Jika berkas tidak ada, buatlah dengan permisi berkas hanya-dapat-dibaca-oleh-pem
     </message>
     <message>
         <location line="+1"/>
+        <source>Error: Wallet unlocked for sprouting only, unable to create transaction.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Error: Wallet unlocked for staking only, unable to create transaction.</source>
-        <translation type="unfinished">Eror: Dompet hanya di-buka hanya untuk staking, transaksi gagal dilaksanakan</translation>
+        <translation type="obsolete">Eror: Dompet hanya di-buka hanya untuk staking, transaksi gagal dilaksanakan</translation>
     </message>
     <message>
         <location line="+1"/>

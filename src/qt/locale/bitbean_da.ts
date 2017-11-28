@@ -225,8 +225,12 @@ Produktet indeholder software, som er udviklet af OpenSSL Project til brug i Ope
     </message>
     <message>
         <location line="+3"/>
+        <source>For Sprouting only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>For staking only</source>
-        <translation>Kun til renteberegning</translation>
+        <translation type="obsolete">Kun til renteberegning</translation>
     </message>
     <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
@@ -634,8 +638,9 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
 <context>
     <name>BitbeanGUI</name>
     <message>
+        <location filename="../beancash.cpp" line="+109"/>
         <source>A fatal error occurred. Beancash can no longer continue safely and will quit.</source>
-        <translation type="obsolete">Der opstod en fejl under forsøg på at gemme dataene i tegnebogen til den nye placering.</translation>
+        <translation type="unfinished">Der opstod en fejl under forsøg på at gemme dataene i tegnebogen til den nye placering.</translation>
     </message>
     <message>
         <source>Beancash</source>
@@ -4166,9 +4171,13 @@ Hvis filen ikke eksisterer, opret den og giv ingen andre end ejeren læserettigh
         <translation type="unfinished">Adgangskode til JSON-RPC-forbindelser</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation type="unfinished">Spor efter JSON-RPC-forbindelser på &lt;port&gt; (default: 15715 eller Testnet: 25715)</translation>
+        <translation type="obsolete">Spor efter JSON-RPC-forbindelser på &lt;port&gt; (default: 15715 eller Testnet: 25715)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 22463)</source>
+        <translation type="unfinished">Spor efter JSON-RPC-forbindelser på &lt;port&gt; (default: 15715 eller Testnet: 25715) {15715 ?} {22463)?}</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -4479,8 +4488,12 @@ Hvis filen ikke eksisterer, opret den og giv ingen andre end ejeren læserettigh
     </message>
     <message>
         <location line="+1"/>
+        <source>Error: Wallet unlocked for sprouting only, unable to create transaction.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Error: Wallet unlocked for staking only, unable to create transaction.</source>
-        <translation type="unfinished">Fejl: Pung låst for at udregne rente, ude af stand til at skabe transaktion.</translation>
+        <translation type="obsolete">Fejl: Pung låst for at udregne rente, ude af stand til at skabe transaktion.</translation>
     </message>
     <message>
         <location line="+1"/>

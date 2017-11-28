@@ -92,7 +92,7 @@ QT_TRANSLATE_NOOP("beancash-core", "Send trace/debug info to debugger"),
 QT_TRANSLATE_NOOP("beancash-core", "Username for JSON-RPC connections"),
 QT_TRANSLATE_NOOP("beancash-core", "Password for JSON-RPC connections"),
 QT_TRANSLATE_NOOP("beancash-core", ""
-"Listen for JSON-RPC connections on <port> (default: 15715 or testnet: 25715)"),
+"Listen for JSON-RPC connections on <port> (default: 15715 or testnet: 22463)"),
 QT_TRANSLATE_NOOP("beancash-core", "Allow JSON-RPC connections from specified IP address"),
 QT_TRANSLATE_NOOP("beancash-core", "Send commands to node running on <ip> (default: 127.0.0.1)"),
 QT_TRANSLATE_NOOP("beancash-core", ""
@@ -177,7 +177,7 @@ QT_TRANSLATE_NOOP("beancash-core", ""
 "Unable to bind to %s on this computer. Beancash is probably already running."),
 QT_TRANSLATE_NOOP("beancash-core", "Unable to bind to %s on this computer (bind returned error %d, %s)"),
 QT_TRANSLATE_NOOP("beancash-core", "Error: Wallet locked, unable to create transaction  "),
-QT_TRANSLATE_NOOP("beancash-core", "Error: Wallet unlocked for staking only, unable to create transaction."),
+QT_TRANSLATE_NOOP("beancash-core", "Error: Wallet unlocked for sprouting only, unable to create transaction."),
 QT_TRANSLATE_NOOP("beancash-core", ""
 "Error: This transaction requires a transaction fee of at least %s because of "
 "its amount, complexity, or use of recently received funds  "),

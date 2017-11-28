@@ -225,8 +225,12 @@ This product includes software developed by the OpenSSL Project for use in the O
     </message>
     <message>
         <location line="+3"/>
+        <source>For Sprouting only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>For staking only</source>
-        <translation>Pour &quot;staking&quot; seulement</translation>
+        <translation type="obsolete">Pour &quot;staking&quot; seulement</translation>
     </message>
     <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
@@ -634,8 +638,9 @@ Les montants inférieurs à  0.546 fois les frais minimum de relais apparaissent
 <context>
     <name>BitbeanGUI</name>
     <message>
+        <location filename="../beancash.cpp" line="+109"/>
         <source>A fatal error occurred. Beancash can no longer continue safely and will quit.</source>
-        <translation type="obsolete">Une erreur fatale a été rencontrée. L&apos;application Beancash ne peut plus être s&apos;exécuter de façon correcte et doit se terminer.</translation>
+        <translation type="unfinished">Une erreur fatale a été rencontrée. L&apos;application Beancash ne peut plus être s&apos;exécuter de façon correcte et doit se terminer.</translation>
     </message>
     <message>
         <source>Beancash</source>
@@ -4167,9 +4172,13 @@ Si le fichier n&apos;existe pas, créez-le avec les droits de lecture seule acco
         <translation type="unfinished">Mot de passe pour les connexions JSON-RPC</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation type="unfinished">Écouter les connexions JSON-RPC sur le &lt;port&gt; (default: 15715 or testnet: 25715)</translation>
+        <translation type="obsolete">Écouter les connexions JSON-RPC sur le &lt;port&gt; (default: 15715 or testnet: 25715)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 22463)</source>
+        <translation type="unfinished">Écouter les connexions JSON-RPC sur le &lt;port&gt; (default: 15715 or testnet: 25715) {15715 ?} {22463)?}</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -4480,8 +4489,12 @@ Si le fichier n&apos;existe pas, créez-le avec les droits de lecture seule acco
     </message>
     <message>
         <location line="+1"/>
+        <source>Error: Wallet unlocked for sprouting only, unable to create transaction.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Error: Wallet unlocked for staking only, unable to create transaction.</source>
-        <translation type="unfinished">Erreur: Portefeuille déverrouillé uniquement pour &quot;stacking&quot; , impossible d&apos;effectuer cette transaction</translation>
+        <translation type="obsolete">Erreur: Portefeuille déverrouillé uniquement pour &quot;stacking&quot; , impossible d&apos;effectuer cette transaction</translation>
     </message>
     <message>
         <location line="+1"/>

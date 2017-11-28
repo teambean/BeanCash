@@ -225,8 +225,12 @@ Dit product bevat software ontwikkeld door het OpenSSL Project voor gebruik in d
     </message>
     <message>
         <location line="+3"/>
+        <source>For Sprouting only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>For staking only</source>
-        <translation>Alleen voor staking</translation>
+        <translation type="obsolete">Alleen voor staking</translation>
     </message>
     <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
@@ -634,8 +638,9 @@ Dit betekend dat een fee van %2 is vereist.</translation>
 <context>
     <name>BitbeanGUI</name>
     <message>
+        <location filename="../beancash.cpp" line="+109"/>
         <source>A fatal error occurred. Beancash can no longer continue safely and will quit.</source>
-        <translation type="obsolete">Een fatale fout . BTestcoin kan niet langer veilig doorgaan en sluit af.</translation>
+        <translation type="unfinished">Een fatale fout . BTestcoin kan niet langer veilig doorgaan en sluit af.</translation>
     </message>
     <message>
         <source>Beancash</source>
@@ -4165,9 +4170,13 @@ Als het bestand niet bestaat, maak het dan aan, met een alleen-lezen permissie.<
         <translation type="unfinished">Wachtwoord voor JSON-RPC-verbindingen</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation type="unfinished">Wacht op JSON-RPC-connecties op &lt;poort&gt; (standaard: 15715 of testnet: 25715) </translation>
+        <translation type="obsolete">Wacht op JSON-RPC-connecties op &lt;poort&gt; (standaard: 15715 of testnet: 25715) </translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 22463)</source>
+        <translation type="unfinished">Wacht op JSON-RPC-connecties op &lt;poort&gt; (standaard: 15715 of testnet: 25715)  {15715 ?} {22463)?}</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -4478,8 +4487,12 @@ Als het bestand niet bestaat, maak het dan aan, met een alleen-lezen permissie.<
     </message>
     <message>
         <location line="+1"/>
+        <source>Error: Wallet unlocked for sprouting only, unable to create transaction.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Error: Wallet unlocked for staking only, unable to create transaction.</source>
-        <translation type="unfinished">Fout: Portemonnee ontgrendeld voor alleen staking, niet in staat om de transactie te maken.</translation>
+        <translation type="obsolete">Fout: Portemonnee ontgrendeld voor alleen staking, niet in staat om de transactie te maken.</translation>
     </message>
     <message>
         <location line="+1"/>

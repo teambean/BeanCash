@@ -191,7 +191,7 @@ p, li { white-space: pre-wrap; }
     </message>
     <message>
         <location line="+3"/>
-        <source>For staking only</source>
+        <source>For Sprouting only</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1016,6 +1016,11 @@ Address: %4
     <message>
         <location line="+2"/>
         <source>Not Sprouting</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../beancash.cpp" line="+109"/>
+        <source>A fatal error occurred. Beancash can no longer continue safely and will quit.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3238,7 +3243,7 @@ If the file does not exist, create it with owner-readable-only file permissions.
     </message>
     <message>
         <location line="+1"/>
-        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 22463)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3549,7 +3554,7 @@ If the file does not exist, create it with owner-readable-only file permissions.
     </message>
     <message>
         <location line="+1"/>
-        <source>Error: Wallet unlocked for staking only, unable to create transaction.</source>
+        <source>Error: Wallet unlocked for sprouting only, unable to create transaction.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

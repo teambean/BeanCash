@@ -42,7 +42,7 @@ void ThreadRPCServer3(void* parg);
 
 static inline unsigned short GetDefaultRPCPort()
 {
-    return GetBoolArg("-testnet", false) ? 25715 : 22461;
+    return GetBoolArg("-testnet", false) ? 22463 : 22461;
 }
 
 Object JSONRPCError(int code, const string& message)
@@ -246,7 +246,7 @@ static const CRPCCommand vRPCCommands[] =
     { "getinfo",                &getinfo,                true,   false },
     { "getsubsidy",             &getsubsidy,             true,   false },
     { "getmininginfo",          &getmininginfo,          true,   false },
-    { "getstakinginfo",         &getstakinginfo,         true,   false },
+    { "getsproutinginfo",       &getsproutinginfo,       true,   false },
     { "getnewaddress",          &getnewaddress,          true,   false },
     { "getnewpubkey",           &getnewpubkey,           true,   false },
     { "getaccountaddress",      &getaccountaddress,      true,   false },

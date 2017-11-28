@@ -2474,7 +2474,9 @@ bool LoadBlockIndex(bool fAllowNew)
         pchMessageStart[2] = 0xc2;
         pchMessageStart[3] = 0xaf;
 
-        bnTrustedModulus.SetHex("f0d14cf72623dacfe738d0892b599be0f31052239cddd95a3f25101c801dc990453b38c9434efe3f372db39a32c2bb44cbaea72d62c8931fa785b0ec44531308df3e46069be5573e49bb29f4d479bfc3d162f57a5965db03810be7636da265bfced9c01a6b0296c77910ebdc8016f70174f0f18a57b3b971ac43a934c6aedbc5c866764a3622b5b7e3f9832b8b3f133c849dbcc0396588abcd1e41048555746e4823fb8aba5b3d23692c6857fccce733d6bb6ec1d5ea0afafecea14a0f6f798b6b27f77dc989c557795cc39a0940ef6bb29a7fc84135193a55bcfc2f01dd73efad1b69f45a55198bd0e6bef4d338e452f6a420f1ae2b1167b923f76633ab6e55");
+        // bnTrustedModulus.SetHex("f0d14cf72623dacfe738d0892b599be0f31052239cddd95a3f25101c801dc990453b38c9434efe3f372db39a32c2bb44cbaea72d62c8931fa785b0ec44531308df3e46069be5573e49bb29f4d479bfc3d162f57a5965db03810be7636da265bfced9c01a6b0296c77910ebdc8016f70174f0f18a57b3b971ac43a934c6aedbc5c866764a3622b5b7e3f9832b8b3f133c849dbcc0396588abcd1e41048555746e4823fb8aba5b3d23692c6857fccce733d6bb6ec1d5ea0afafecea14a0f6f798b6b27f77dc989c557795cc39a0940ef6bb29a7fc84135193a55bcfc2f01dd73efad1b69f45a55198bd0e6bef4d338e452f6a420f1ae2b1167b923f76633ab6e55");
+        bnTrustedModulus.SetHex("00012a4a3133204665622032303135202d204269744265616e206c61756e6368657320616e64206368616e6765732074686520776f726c642077697468206974277320617765736f6d656e657373");
+
         bnProofOfWorkLimit = bnProofOfWorkLimitTestNet; // 16 bits PoW target limit for testnet
         nStakeMinAge = 1 * 60 * 60; // test net min age is 1 hour
         nBeanbaseMaturity = 10; // test maturity is 10 blocks
@@ -2501,25 +2503,38 @@ bool LoadBlockIndex(bool fAllowNew)
 
         // Genesis block
 
-        // MainNet:
+        // OldMainNet:
 
         //CBlock(hash=000001faef25dec4fbcf906e6242621df2c183bf232f263d0ba5b101911e4563, ver=1, hashPrevBlock=0000000000000000000000000000000000000000000000000000000000000000, hashMerkleRoot=12630d16a97f24b287c8c2594dda5fb98c9e6c70fc61d44191931ea2aa08dc90, nTime=1393221600, nBits=1e0fffff, nNonce=164482, vtx=1, vchBlockSig=)
         //  Beanbase(hash=12630d16a9, nTime=1393221600, ver=1, vin.size=1, vout.size=1, nLockTime=0)
         //    CTxIn(COutPoint(0000000000, 4294967295), beanbase 00012a24323020466562203230313420426974636f696e2041544d7320636f6d6520746f20555341)
         //    CTxOut(empty)
         //  vMerkleTree: 12630d16a9
-        //block.nTime = 1423862862 
-        //block.nNonce = 620091 
-        //block.nVersion = 1 
-        //block.hashMerkleRoot = da3215e78c191c4e5dd00e8ac2b57f71b20cdcad0c37562d39912df09a2f4d34 
-        //block.GetHash = 000009d2f828234d65299216e258242a4ea75d1b8d8a71d076377145068f08de
-        // TestNet:
+
+        // OldTestNet:
 
         //CBlock(hash=0000724595fb3b9609d441cbfb9577615c292abf07d996d3edabc48de843642d, ver=1, hashPrevBlock=0000000000000000000000000000000000000000000000000000000000000000, hashMerkleRoot=12630d16a97f24b287c8c2594dda5fb98c9e6c70fc61d44191931ea2aa08dc90, nTime=1393221600, nBits=1f00ffff, nNonce=216178, vtx=1, vchBlockSig=)
         //  Beanbase(hash=12630d16a9, nTime=1393221600, ver=1, vin.size=1, vout.size=1, nLockTime=0)
         //    CTxIn(COutPoint(0000000000, 4294967295), beanbase 00012a24323020466562203230313420426974636f696e2041544d7320636f6d6520746f20555341)
         //    CTxOut(empty)
         //  vMerkleTree: 12630d16a9
+
+        // NewMainNet:
+
+        //block.nTime = 1423862862
+        //block.nNonce = 620091 
+        //block.nVersion = 1 
+        //block.hashMerkleRoot = da3215e78c191c4e5dd00e8ac2b57f71b20cdcad0c37562d39912df09a2f4d34 
+        //block.GetHash = 000009d2f828234d65299216e258242a4ea75d1b8d8a71d076377145068f08de
+
+
+        // NewTestNet:
+
+        //CBlock(hash=0000021cddf3e66033819044559ebf09acdb95dd79b1743d367d03224e10674b, ver=1, hashPrevBlock=0000000000000000000000000000000000000000000000000000000000000000, hashMerkleRoot=da3215e78c191c4e5dd00e8ac2b57f71b20cdcad0c37562d39912df09a2f4d34, nTime=1423862862, nBits=1f00ffff, nNonce=98938, vtx=1, vchBlockSig=)
+        //  Beanbase(hash=da3215e78c, nTime=1423862862, ver=1, vin.size=1, vout.size=1, nLockTime=0)
+        //    CTxIn(COutPoint(0000000000, 4294967295), beanbase 00012a4a3133204665622032303135202d204269744265616e206c61756e6368657320616e64206368616e6765732074686520776f726c642077697468206974277320617765736f6d656e657373)
+        //    CTxOut(empty)
+        //  vMerkleTree: da3215e78c
 
         const char* pszTimestamp = "13 Feb 2015 - BitBean launches and changes the world with it's awesomeness";
         CTransaction txNew;
@@ -2535,13 +2550,9 @@ bool LoadBlockIndex(bool fAllowNew)
         block.nVersion = 1;
         block.nTime    = 1423862862;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
-        block.nNonce   = !fTestNet ? 620091 : 620091;
-
-
-
+        block.nNonce   = !fTestNet ? 620091 : 98938;
 
         assert(block.hashMerkleRoot == uint256("0xda3215e78c191c4e5dd00e8ac2b57f71b20cdcad0c37562d39912df09a2f4d34"));
-
 
 	    block.print();
         assert(block.GetHash() == (!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet));

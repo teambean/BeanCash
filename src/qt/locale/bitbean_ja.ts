@@ -225,8 +225,12 @@ MIT/X11 ソフトウェア ライセンスの下で配布されています。�
     </message>
     <message>
         <location line="+3"/>
+        <source>For Sprouting only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>For staking only</source>
-        <translation>賭けるのみ</translation>
+        <translation type="obsolete">賭けるのみ</translation>
     </message>
     <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
@@ -634,8 +638,9 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
 <context>
     <name>BitbeanGUI</name>
     <message>
+        <location filename="../beancash.cpp" line="+109"/>
         <source>A fatal error occurred. Beancash can no longer continue safely and will quit.</source>
-        <translation type="obsolete">致命的エラー。安全に続きができないため、バラックコインQTは閉じます。</translation>
+        <translation type="unfinished">致命的エラー。安全に続きができないため、バラックコインQTは閉じます。</translation>
     </message>
     <message>
         <source>Beancash</source>
@@ -4139,9 +4144,13 @@ If the file does not exist, create it with owner-readable-only file permissions.
         <translation type="unfinished">JSON-RPC 接続のパスワード</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation type="unfinished">&lt;port&gt; で JSON-RPC 接続をリスン (デフォルト: 15715かtestnet は 25715)</translation>
+        <translation type="obsolete">&lt;port&gt; で JSON-RPC 接続をリスン (デフォルト: 15715かtestnet は 25715)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 22463)</source>
+        <translation type="unfinished">&lt;port&gt; で JSON-RPC 接続をリスン (デフォルト: 15715かtestnet は 25715) {15715 ?} {22463)?}</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -4452,8 +4461,12 @@ If the file does not exist, create it with owner-readable-only file permissions.
     </message>
     <message>
         <location line="+1"/>
+        <source>Error: Wallet unlocked for sprouting only, unable to create transaction.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Error: Wallet unlocked for staking only, unable to create transaction.</source>
-        <translation type="unfinished">エラー：アンロックされたウォレットは賭けるためだけで、処理を作られない。</translation>
+        <translation type="obsolete">エラー：アンロックされたウォレットは賭けるためだけで、処理を作られない。</translation>
     </message>
     <message>
         <location line="+1"/>

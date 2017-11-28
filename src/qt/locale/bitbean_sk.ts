@@ -225,8 +225,12 @@ Tento produkt obsahuje softvér vyvinutý projektom OpenSSL Project pre použiti
     </message>
     <message>
         <location line="+3"/>
+        <source>For Sprouting only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>For staking only</source>
-        <translation>Len pre stávkovanie</translation>
+        <translation type="obsolete">Len pre stávkovanie</translation>
     </message>
     <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
@@ -634,8 +638,9 @@ To znamená, že je potrebný poplatok aspoň %2.</translation>
 <context>
     <name>BitbeanGUI</name>
     <message>
+        <location filename="../beancash.cpp" line="+109"/>
         <source>A fatal error occurred. Beancash can no longer continue safely and will quit.</source>
-        <translation type="obsolete">Došlo k závažnej chybe. Beancash už nemôže pokračovať bezpečne a bude ukončený.</translation>
+        <translation type="unfinished">Došlo k závažnej chybe. Beancash už nemôže pokračovať bezpečne a bude ukončený.</translation>
     </message>
     <message>
         <source>Beancash</source>
@@ -4188,9 +4193,13 @@ Ak súbor neexistuje, vytvorte ho s oprávnením pre čítanie len vlastníkom (
         <translation type="unfinished">Heslo pre JSON-rPC spojenia</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation type="unfinished">Počúvajte pre JSON-RPC spojenie na &lt;port&gt; (predvolené: 15715 alebo testovaciasieť: 25715)</translation>
+        <translation type="obsolete">Počúvajte pre JSON-RPC spojenie na &lt;port&gt; (predvolené: 15715 alebo testovaciasieť: 25715)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 22463)</source>
+        <translation type="unfinished">Počúvajte pre JSON-RPC spojenie na &lt;port&gt; (predvolené: 15715 alebo testovaciasieť: 25715) {15715 ?} {22463)?}</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -4501,8 +4510,12 @@ Ak súbor neexistuje, vytvorte ho s oprávnením pre čítanie len vlastníkom (
     </message>
     <message>
         <location line="+1"/>
+        <source>Error: Wallet unlocked for sprouting only, unable to create transaction.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Error: Wallet unlocked for staking only, unable to create transaction.</source>
-        <translation type="unfinished">Chyba: Peňaženka odomknuté len pre stávkovanie, nemožné vytvoriť transakciu.</translation>
+        <translation type="obsolete">Chyba: Peňaženka odomknuté len pre stávkovanie, nemožné vytvoriť transakciu.</translation>
     </message>
     <message>
         <location line="+1"/>

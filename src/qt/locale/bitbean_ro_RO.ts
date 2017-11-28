@@ -225,8 +225,12 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
     </message>
     <message>
         <location line="+3"/>
+        <source>For Sprouting only</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>For staking only</source>
-        <translation>Doar pentru staking</translation>
+        <translation type="obsolete">Doar pentru staking</translation>
     </message>
     <message>
         <source>Enter the new passphrase to the wallet.&lt;br/&gt;Please use a passphrase of &lt;b&gt;10 or more random characters&lt;/b&gt;, or &lt;b&gt;eight or more words&lt;/b&gt;.</source>
@@ -634,8 +638,9 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
 <context>
     <name>BitbeanGUI</name>
     <message>
+        <location filename="../beancash.cpp" line="+109"/>
         <source>A fatal error occurred. Beancash can no longer continue safely and will quit.</source>
-        <translation type="obsolete">A apărut o eroare fatală. Beancash nu mai poate continua în condiții de siguranță și va iesi.</translation>
+        <translation type="unfinished">A apărut o eroare fatală. Beancash nu mai poate continua în condiții de siguranță și va iesi.</translation>
     </message>
     <message>
         <source>Beancash</source>
@@ -4189,9 +4194,13 @@ Dacă fișierul nu există, creează-l cu permisiuni de citire doar de către pr
         <translation type="unfinished">Parola pentru conexiunile JSON-RPC</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 25715)</source>
-        <translation type="unfinished">Ascultă pentru conexiuni JSON-RPC pe &lt;port&gt; (implicit:15715 sau testnet: 25715)</translation>
+        <translation type="obsolete">Ascultă pentru conexiuni JSON-RPC pe &lt;port&gt; (implicit:15715 sau testnet: 25715)</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Listen for JSON-RPC connections on &lt;port&gt; (default: 15715 or testnet: 22463)</source>
+        <translation type="unfinished">Ascultă pentru conexiuni JSON-RPC pe &lt;port&gt; (implicit:15715 sau testnet: 25715) {15715 ?} {22463)?}</translation>
     </message>
     <message>
         <location line="+2"/>
@@ -4502,8 +4511,12 @@ Dacă fișierul nu există, creează-l cu permisiuni de citire doar de către pr
     </message>
     <message>
         <location line="+1"/>
+        <source>Error: Wallet unlocked for sprouting only, unable to create transaction.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Error: Wallet unlocked for staking only, unable to create transaction.</source>
-        <translation type="unfinished">Eroare: portofel blocat doar pentru staking, tranzactia nu s-a creat.</translation>
+        <translation type="obsolete">Eroare: portofel blocat doar pentru staking, tranzactia nu s-a creat.</translation>
     </message>
     <message>
         <location line="+1"/>
