@@ -1,4 +1,4 @@
-IDI_ICON1 ICON DISCARDABLE "icons/bitbean.ico"
+IDI_ICON1 ICON DISCARDABLE "icons/beancash.ico"
 
 #include <windows.h>             // needed for VERSIONINFO
 #include "../../clientversion.h" // holds the needed client version information
@@ -19,13 +19,13 @@ BEGIN
         BLOCK "040904E4" // U.S. English - multilingual (hex)
         BEGIN
             VALUE "CompanyName",        "Bean Core"
-            VALUE "FileDescription",    "BitBean-Qt (OSS GUI client for BitBean)"
+            VALUE "FileDescription",    "Beancash-Qt (OSS GUI client for Bean Cash)"
             VALUE "FileVersion",        VER_FILEVERSION_STR
-            VALUE "InternalName",       "BitBean-qt"
-            VALUE "LegalCopyright",     "2009-2014 The Bitcoin developers, 2012-2014 The NovaCoin & PPCoin developers, 2015 The BitBean developers, 2015 Bean Core www.bitbean.org"
+            VALUE "InternalName",       "Beancash-qt"
+            VALUE "LegalCopyright",     "2009-2014 The Bitcoin developers, 2012-2014 The NovaCoin & PPCoin developers, 2015-2017 The BitBean developers www.bitbean.org, 2017 Bean Core www.beancash.org"
             VALUE "LegalTrademarks1",   "Distributed under the MIT/X11 software license, see the accompanying file COPYING or http://www.opensource.org/licenses/mit-license.php."
-            VALUE "OriginalFilename",   "BitBean-qt.exe"
-            VALUE "ProductName",        "BitBean-Qt"
+            VALUE "OriginalFilename",   "Beancash-qt.exe"
+            VALUE "ProductName",        "Bean Cash Core"
             VALUE "ProductVersion",     VER_PRODUCTVERSION_STR
         END
     END

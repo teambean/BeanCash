@@ -11,7 +11,7 @@
   </array>
 
   <key>CFBundleIconFile</key>
-  <string>bitbean.icns</string>
+  <string>beancash.icns</string>
 
   <key>CFBundlePackageType</key>
   <string>APPL</string>
