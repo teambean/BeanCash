@@ -2,7 +2,7 @@ TEMPLATE = app
 TARGET = Beancash-qt
 VERSION = 1.1.2.2
 INCLUDEPATH += src src/json src/qt
-DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
+DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE __NO_SYSTEM_INCLUDES
 CONFIG += no_include_pwd
 CONFIG += thread
 
@@ -57,7 +57,9 @@ UI_DIR = build
 # use: qmake "RELEASE=1"
 contains(RELEASE, 1) {
     # Mac: compile for maximum compatibility (10.5, 32-bit)
-    macx:QMAKE_CXXFLAGS += -mmacosx-version-min=10.5 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.5.sdk
+    macx:QMAKE_CXXFLAGS += -mmacosx-version-min=10.9 -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
+    macx:QMAKE_CFLAGS += -mmacosx-version-min=10.9 -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
+    macx:QMAKE_OBJECTIVE_CFLAGS += -mmacosx-version-min=10.9 -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
 
     !windows:!macx {
         # Linux: static link
@@ -121,6 +123,7 @@ contains(BEANCASH_NEED_QT_PLUGINS, 1) {
 INCLUDEPATH += src/leveldb/include src/leveldb/helpers
 LIBS += $$PWD/src/leveldb/libleveldb.a $$PWD/src/leveldb/libmemenv.a
 SOURCES += src/txdb-leveldb.cpp \
+    src/qt/macnotificationhandler.mm
 
 !win32 {
     # we use QMAKE_CXXFLAGS_RELEASE even without RELEASE=1 because we use RELEASE to indicate linking preferences not -O preferences
@@ -256,6 +259,7 @@ HEADERS += src/qt/bitbeangui.h \
     src/version.h \
     src/netbase.h \
     src/clientversion.h \
+    src/qt/macnotificationhandler.h
 
 SOURCES += src/qt/beancash.cpp src/qt/bitbeangui.cpp \
     src/qt/transactiontablemodel.cpp \
@@ -348,6 +352,15 @@ SOURCES += src/qt/qrcodedialog.cpp
 FORMS += src/qt/forms/qrcodedialog.ui
 }
 
+contains(BEANCASH_QT_TEST, 1) {
+SOURCES += src/qt/test/test_main.cpp \
+    src/qt/test/uritests.cpp
+HEADERS += src/qt/test/uritests.h
+DEPENDPATH += src/qt/test
+QT += testlib
+TARGET = Beancash-qt_test
+DEFINES += BEANCASH_QT_TEST
+}
 CODECFORTR = UTF-8
 
 # for lrelease/lupdate
@@ -377,28 +390,85 @@ isEmpty(BOOST_LIB_SUFFIX) {
     windows:BOOST_LIB_SUFFIX = -mgw49-mt-s-1_59
 }
 
-isEmpty(BOOST_THREAD_LIB_SUFFIX) {
-    BOOST_THREAD_LIB_SUFFIX = $$BOOST_LIB_SUFFIX
-}
-
-isEmpty(BDB_LIB_PATH) {
-    macx:BDB_LIB_PATH = /opt/local/lib/db53
-}
-
-isEmpty(BDB_LIB_SUFFIX) {
-    macx:BDB_LIB_SUFFIX = -5.3
-}
-
-isEmpty(BDB_INCLUDE_PATH) {
-    macx:BDB_INCLUDE_PATH = /opt/local/include/db53
+macx: {
+    isEmpty(DEPSDIR) {
+        # Uses Homebrew if installed, otherwise defaults to MacPorts
+        check_dir = /usr/local/Cellar
+        exists($$check_dir) {
+            DEPSDIR = /usr/local
+        }
+        !exists($$check_dir) {
+            DEPSDIR = /opt/local
+        }
 }
 
 isEmpty(BOOST_LIB_PATH) {
-    macx:BOOST_LIB_PATH = /opt/local/lib
-}
+        BOOST_LIB_PATH = $$DEPSDIR/lib
+    }
 
-isEmpty(BOOST_INCLUDE_PATH) {
-    macx:BOOST_INCLUDE_PATH = /opt/local/include
+    isEmpty(BOOST_INCLUDE_PATH) {
+        BOOST_INCLUDE_PATH = $$DEPSDIR/include
+    }
+
+    isEmpty(BDB_LIB_PATH) {
+        BDB_LIB_PATH = $$DEPSDIR/lib
+    }
+
+    isEmpty(BDB_INCLUDE_PATH) {
+        BDB_INCLUDE_PATH = $$DEPSDIR/include
+    }
+
+    isEmpty(OPENSSL_LIB_PATH) {
+        OPENSSL_LIB_PATH = $$DEPSDIR/lib
+    }
+
+    isEmpty(OPENSSL_INCLUDE_PATH) {
+        OPENSSL_INCLUDE_PATH = $$DEPSDIR/include
+    }
+
+    contains(USE_QRCODE, 1) {
+        isEmpty(QRCODE_LIB_PATH) {
+            QRCODE_LIB_PATH = $$DEPSDIR/lib
+        }
+        isEmpty(QRCODE_INCLUDE_PATH) {
+            QRCODE_INCLUDE_PATH = $$DEPSDIR/include
+        }
+     }
+
+    HEADERS += src/qt/macdockiconhandler.h src/qt/macnotificationhandler.h
+    OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm src/qt/macnotificationhandler.mm
+
+    contains(RELEASE, 1) {
+        LIBS += -framework Foundation -framework ApplicationServices -framework AppKit -framework CoreServices \
+        $$BDB_LIB_PATH/libdb_cxx$$BDB_LIB_SUFFIX.a \
+        $$BOOST_LIB_PATH/libboost_system.a \
+        $$BOOST_LIB_PATH/libboost_filesystem.a \
+        $$BOOST_LIB_PATH/libboost_program_options.a \
+        $$BOOST_LIB_PATH/libboost_thread.a \
+        $$BOOST_LIB_PATH/libboost_chrono.a \
+        $$OPENSSL_LIB_PATH/libssl.a \
+        $$OPENSSL_LIB_PATH/libcrypto.a
+     } else {
+        LIBS += -framework Foundation -framework ApplicationServices -framework AppKit -framework CoreServices \
+        $$BDB_LIB_PATH/libdb_cxx$$BDB_LIB_SUFFIX.dylib \
+        $$BOOST_LIB_PATH/libboost_system-mt.dylib \
+        $$BOOST_LIB_PATH/libboost_filesystem-mt.dylib \
+        $$BOOST_LIB_PATH/libboost_program_options-mt.dylib \
+        $$BOOST_LIB_PATH/libboost_thread-mt.dylib \
+        $$BOOST_LIB_PATH/libboost_chrono-mt.dylib \
+        $$OPENSSL_LIB_PATH/libssl.a \
+        $$OPENSSL_LIB_PATH/libcrypto.a
+    }
+
+    DEFINES += MAC_OSX MSG_NOSIGNAL=0
+    # osx 10.9 has changed the stdlib default to libc++. To prevent some link error, you may need to use libstdc++
+    QMAKE_CXXFLAGS += -stdlib=libstdc++
+
+    ICON = src/qt/res/icons/beancash.icns
+    TARGET = "Beancash-Qt"
+
+    QMAKE_CFLAGS_THREAD += -pthread
+    QMAKE_CXXFLAGS_THREAD += -pthread
 }
 
 windows:DEFINES += WIN32
@@ -414,18 +484,6 @@ windows:!contains(MINGW_THREAD_BUGFIX, 0) {
     DEFINES += _MT BOOST_THREAD_PROVIDES_GENERIC_SHARED_MUTEX_ON_WIN
     QMAKE_LIBS_QT_ENTRY = -lmingwthrd $$QMAKE_LIBS_QT_ENTRY
 }
-
-macx:HEADERS += src/qt/macdockiconhandler.h \
-		src/qt/macnotificationhandler.h
-macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm \
-		src/qt/macnotificationhandler.mm
-macx:LIBS += -framework Foundation -framework ApplicationServices -framework AppKit
-macx:DEFINES += MAC_OSX MSG_NOSIGNAL=0
-macx:ICON = src/qt/res/icons/beancash.icns
-macx:TARGET = "Beancash-qt"
-macx:QMAKE_CFLAGS_THREAD += -pthread
-macx:QMAKE_LFLAGS_THREAD += -pthread
-macx:QMAKE_CXXFLAGS_THREAD += -pthread
 
 # Set libraries and includes at end, to use platform-defined defaults if not overridden
 INCLUDEPATH += $$BOOST_INCLUDE_PATH $$BDB_INCLUDE_PATH $$OPENSSL_INCLUDE_PATH $$QRENCODE_INCLUDE_PATH

@@ -222,11 +222,11 @@ inline int OutputDebugStringF(const char* pszFormat, ...)
             boost::filesystem::path pathDebug = GetDataDir() / "debug.log";
             fileout = fopen(pathDebug.string().c_str(), "a");
             if (fileout) setbuf(fileout, NULL); // unbuffered
-	    // Create BitBean.conf if none exists
-		boost::filesystem::path pathConf = GetDataDir() / "BitBean.conf";
+        // Create Beancash.conf if none exists
+        boost::filesystem::path pathConf = GetDataDir() / "Beancash.conf";
 		conffile = fopen(pathConf.string().c_str(), "a");
 		if(!conffile) {
-			fprintf(stderr, "Error: unable to create BitBean.conf\n");
+            fprintf(stderr, "Error: unable to create Beancash.conf\n");
 		}
         }
         if (fileout)
@@ -1084,14 +1084,14 @@ void ReadConfigFile(map<string, string>& mapSettingsRet,
 {
     boost::filesystem::ifstream streamConfig(GetConfigFile());
     if (!streamConfig.good())
-        return; // No bitbean.conf file is OK
+        return; // No Beancash.conf file is OK
 
     set<string> setOptions;
     setOptions.insert("*");
 
     for (boost::program_options::detail::config_file_iterator it(streamConfig, setOptions), end; it != end; ++it)
     {
-        // Don't overwrite existing settings so command line settings override bitbean.conf
+        // Don't overwrite existing settings so command line settings override Beancash.conf
         string strKey = string("-") + it->string_key;
         if (mapSettingsRet.count(strKey) == 0)
         {

@@ -252,9 +252,9 @@ void openDebugLogfile()
 
 void openConfigfile()
 {
-    boost::filesystem::path pathConf = GetDataDir() / "BitBean.conf";
+    boost::filesystem::path pathConf = GetDataDir() / "Beancash.conf";
 
-    /* Open BitBean.conf with the associated application */
+    /* Open Beancash.conf with the associated application */
     if (boost::filesystem::exists(pathConf))
         QDesktopServices::openUrl(QUrl::fromLocalFile(QString::fromStdString(pathConf.string())));
 }

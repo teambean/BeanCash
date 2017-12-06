@@ -134,7 +134,7 @@ bool AppInit(int argc, char* argv[])
         //
         // Parameters
         //
-        // If Qt is used, parameters/bitbean.conf are parsed in qt/bitbean.cpp's main()
+        // If Qt is used, parameters/beancash.conf are parsed in qt/bitbean.cpp's main()
         ParseParameters(argc, argv);
         if (!boost::filesystem::is_directory(GetDataDir(false)))
         {
