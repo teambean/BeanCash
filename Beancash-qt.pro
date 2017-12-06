@@ -122,8 +122,7 @@ contains(BEANCASH_NEED_QT_PLUGINS, 1) {
 
 INCLUDEPATH += src/leveldb/include src/leveldb/helpers
 LIBS += $$PWD/src/leveldb/libleveldb.a $$PWD/src/leveldb/libmemenv.a
-SOURCES += src/txdb-leveldb.cpp \
-    src/qt/macnotificationhandler.mm
+SOURCES += src/txdb-leveldb.cpp
 
 !win32 {
     # we use QMAKE_CXXFLAGS_RELEASE even without RELEASE=1 because we use RELEASE to indicate linking preferences not -O preferences
@@ -391,6 +390,9 @@ isEmpty(BOOST_LIB_SUFFIX) {
 }
 
 macx: {
+    HEADERS += src/qt/macdockiconhandler.h src/qt/macnotificationhandler.h
+    OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm src/qt/macnotificationhandler.mm
+
     isEmpty(DEPSDIR) {
         # Uses Homebrew if installed, otherwise defaults to MacPorts
         check_dir = /usr/local/Cellar
@@ -434,9 +436,6 @@ isEmpty(BOOST_LIB_PATH) {
             QRCODE_INCLUDE_PATH = $$DEPSDIR/include
         }
      }
-
-    HEADERS += src/qt/macdockiconhandler.h src/qt/macnotificationhandler.h
-    OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm src/qt/macnotificationhandler.mm
 
     contains(RELEASE, 1) {
         LIBS += -framework Foundation -framework ApplicationServices -framework AppKit -framework CoreServices \
