@@ -252,7 +252,7 @@ std::string HelpMessage()
         "  -bind=<addr>           " + _("Bind to given address. Use [host]:port notation for IPv6") + "\n" +
         "  -dnsseed               " + _("Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)") + "\n" +
         "  -forcednsseed          " + _("Always query for peer addresses via DNS lookup (default: 0)") + "\n" +
-        "  -sprout                " + _("Sprout your beans to support the network and grow new beans! (default: 1)") + "\n" +
+        "  -sprouting                " + _("Sprout your beans to support the network and grow new beans! (default: 1)") + "\n" +
         "  -synctime              " + _("Sync time with other nodes. Disable if time on your system is precise e.g. syncing with NTP (default: 1)") + "\n" +
         "  -cppolicy              " + _("Sync checkpoints policy (default: strict)") + "\n" +
         "  -banscore=<n>          " + _("Threshold for disconnecting misbehaving peers (default: 100)") + "\n" +

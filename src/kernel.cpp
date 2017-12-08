@@ -29,7 +29,7 @@ int64_t GetWeight(int64_t nIntervalBeginning, int64_t nIntervalEnd)
 {
     // Kernel hash weight starts from 0 at the min age
     // this change increases active beans participating the hash and helps
-    // to secure the network when proof-of-sprout difficulty is low
+    // to secure the network when Proof of Bean Sprouting difficulty is low
 
     return min(nIntervalEnd - nIntervalBeginning - nStakeMinAge, (int64_t)nStakeMaxAge);
 }

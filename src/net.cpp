@@ -1873,7 +1873,7 @@ void StartNode(void* parg)
         printf("Error; NewThread(ThreadDumpAddress) failed\n");
 
     // Mine proof-of-stake blocks in the background
-    if (!GetBoolArg("-sprout", true))
+    if (!GetBoolArg("-sprouting", true))
         printf("Sprouting disabled\n");
     else
         if (!NewThread(ThreadStakeMiner, pwalletMain))
