@@ -186,23 +186,22 @@ memenv_test : helpers/memenv/memenv_test.o $(MEMENVLIBRARY) $(LIBRARY) $(TESTHAR
 ifeq ($(PLATFORM), IOS)
 # For iOS, create universal object files to be used on both the simulator and
 # a device.
-PLATFORMSROOT=/Applications/Xcode.app/Contents/Developer/Platforms
-SIMULATORROOT=$(PLATFORMSROOT)/iPhoneSimulator.platform/Developer
-DEVICEROOT=$(PLATFORMSROOT)/iPhoneOS.platform/Developer
-IOSVERSION=$(shell defaults read $(PLATFORMSROOT)/iPhoneOS.platform/version CFBundleShortVersionString)
+SIMULATORSDSK=$(shell xcrun -sdk iphonesimulator --show-sdk-path)
+DEVICESDK=$(shell xcrun -sdk iphoneos --show-sdk-path)
+IOSARCH=-arch armv6 -arch arm7 -arch -armv7s -arch arm64
 
 .cc.o:
 	mkdir -p ios-x86/$(dir $@)
-	$(CXX) $(CXXFLAGS) -isysroot $(SIMULATORROOT)/SDKs/iPhoneSimulator$(IOSVERSION).sdk -arch i686 -c $< -o ios-x86/$@
+	$(CXX) $(CXXFLAGS) -isysroot "$(SIMULATORSDK)" -arch i686 -c $< -o ios-x86/$@
 	mkdir -p ios-arm/$(dir $@)
-	xcrun -sdk iphoneos $(CXX) $(CXXFLAGS) -isysroot $(DEVICEROOT)/SDKs/iPhoneOS$(IOSVERSION).sdk -arch armv6 -arch armv7 -c $< -o ios-arm/$@
+	xcrun -sdk iphoneos $(CXX) $(CXXFLAGS) -isysroot "$(DEVICESDK)" $(IOSARCH) -c $< -o ios-arm/$@
 	lipo ios-x86/$@ ios-arm/$@ -create -output $@
 
 .c.o:
 	mkdir -p ios-x86/$(dir $@)
-	$(CC) $(CFLAGS) -isysroot $(SIMULATORROOT)/SDKs/iPhoneSimulator$(IOSVERSION).sdk -arch i686 -c $< -o ios-x86/$@
+	$(CC) $(CFLAGS) -isysroot "$(SIMULATORSDK)" -arch i686 -ARCH x86_64 -c $< -o ios-x86/$@
 	mkdir -p ios-arm/$(dir $@)
-	xcrun -sdk iphoneos $(CC) $(CFLAGS) -isysroot $(DEVICEROOT)/SDKs/iPhoneOS$(IOSVERSION).sdk -arch armv6 -arch armv7 -c $< -o ios-arm/$@
+	xcrun -sdk iphoneos $(CC) $(CFLAGS) -isysroot "$(DEVICESDK)" $(IOSARCH) -c $< -o ios-arm/$@
 	lipo ios-x86/$@ ios-arm/$@ -create -output $@
 
 else
