@@ -183,7 +183,7 @@
    </palette>
   </property>
   <property name="windowTitle">
-   <string>About Beancash</string>
+   <string>About Bean Cash</string>
   </property>
   <property name="windowIcon">
    <iconset resource="../beancash.qrc">
@@ -302,7 +302,7 @@
        <property name="font">
         <font>
          <family>Liberation Sans</family>
-         <pointsize>12</pointsize>
+         <pointsize>10</pointsize>
          <italic>true</italic>
         </font>
        </property>
@@ -381,6 +381,19 @@ p, li { white-space: pre-wrap; }
       <set>Qt::LinksAccessibleByMouse|Qt::TextSelectableByKeyboard|Qt::TextSelectableByMouse</set>
      </property>
     </widget>
+   </item>
+   <item row="0" column="3">
+    <spacer name="horizontalSpacer_4">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
    </item>
   </layout>
   <widget class="QWidget" name="verticalLayoutWidget">
