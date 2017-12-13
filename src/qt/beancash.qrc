@@ -47,6 +47,7 @@
         <file alias="bkg">res/images/BeanSky.png</file>
         <file alias="about">res/images/about.png</file>
         <file alias="splash">res/images/Bean2Moon.png</file>
+        <file alias="beancore">res/images/beancorelogo.png</file>
     </qresource>
     <qresource prefix="/movies">
         <file alias="update_spinner">res/movies/beancash_spinner.mng</file>
