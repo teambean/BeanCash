@@ -165,8 +165,8 @@
    <string>Welcome to the BitBean Vault</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../bitbean.qrc">
-    <normaloff>:/icons/bitbean</normaloff>:/icons/bitbean</iconset>
+   <iconset resource="../beancash.qrc">
+    <normaloff>:/icons/beancash</normaloff>:/icons/beancash</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
@@ -202,7 +202,7 @@
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="../bitbean.qrc">:/icons/bitbean</pixmap>
+      <pixmap>:/icons/bitbean</pixmap>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
@@ -426,6 +426,7 @@
  </widget>
  <resources>
   <include location="../bitbean.qrc"/>
+  <include location="../beancash.qrc"/>
  </resources>
  <connections>
   <connection>

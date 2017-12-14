@@ -245,6 +245,10 @@
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../beancash.qrc">
+    <normaloff>:/icons/beancash</normaloff>:/icons/beancash</iconset>
+  </property>
   <layout class="QFormLayout" name="formLayout_3">
    <item row="0" column="0">
     <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -805,6 +809,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../beancash.qrc"/>
+ </resources>
  <connections/>
 </ui>

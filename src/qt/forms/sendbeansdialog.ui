@@ -137,6 +137,10 @@
   <property name="windowTitle">
    <string>Send Beans</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../beancash.qrc">
+    <normaloff>:/icons/beancash</normaloff>:/icons/beancash</iconset>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout" stretch="0,1,0">
    <property name="bottomMargin">
     <number>8</number>
@@ -873,7 +877,7 @@
         <x>0</x>
         <y>0</y>
         <width>828</width>
-        <height>144</height>
+        <height>157</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">

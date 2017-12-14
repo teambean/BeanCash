@@ -197,6 +197,10 @@
   <property name="windowTitle">
    <string>Bean Cash - Debug Window</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../beancash.qrc">
+    <normaloff>:/icons/beancash</normaloff>:/icons/beancash</iconset>
+  </property>
   <widget class="QTabWidget" name="tabWidget">
    <property name="enabled">
     <bool>true</bool>

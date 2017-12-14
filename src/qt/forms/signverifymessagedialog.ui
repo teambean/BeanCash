@@ -191,6 +191,10 @@
   <property name="windowTitle">
    <string>Signatures - Sign / Verify a Message</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../beancash.qrc">
+    <normaloff>:/icons/beancash</normaloff>:/icons/beancash</iconset>
+  </property>
   <property name="modal">
    <bool>true</bool>
   </property>

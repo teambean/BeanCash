@@ -158,6 +158,10 @@
   <property name="windowTitle">
    <string>Bean Control</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../beancash.qrc">
+    <normaloff>:/icons/beancash</normaloff>:/icons/beancash</iconset>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <layout class="QHBoxLayout" name="horizontalLayoutTop" stretch="0,0,0,0">
@@ -918,6 +922,8 @@
    <header>beancontroltreewidget.h</header>
   </customwidget>
  </customwidgets>
- <resources/>
+ <resources>
+  <include location="../beancash.qrc"/>
+ </resources>
  <connections/>
 </ui>

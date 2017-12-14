@@ -191,6 +191,10 @@
   <property name="windowTitle">
    <string>QR Code Dialog</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../beancash.qrc">
+    <normaloff>:/icons/beancash</normaloff>:/icons/beancash</iconset>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
     <widget class="QLabel" name="lblQRCode">

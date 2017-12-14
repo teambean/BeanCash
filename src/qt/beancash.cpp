@@ -124,6 +124,7 @@ int main(int argc, char *argv[])
 
     Q_INIT_RESOURCE(beancash);
     QApplication app(argc, argv);
+    app.setWindowIcon(QIcon("./icons/icon.png"));
 
     // Install global event filter that makes sure that long tooltips can be word-wrapped
     app.installEventFilter(new GUIUtil::ToolTipToRichTextFilter(TOOLTIP_WRAP_THRESHOLD, &app));

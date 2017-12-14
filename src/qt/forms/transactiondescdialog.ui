@@ -191,6 +191,10 @@
   <property name="windowTitle">
    <string>Transaction details</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../beancash.qrc">
+    <normaloff>:/icons/beancash</normaloff>:/icons/beancash</iconset>
+  </property>
   <layout class="QGridLayout" name="gridLayout">
    <item row="1" column="0">
     <spacer name="horizontalSpacer_2">

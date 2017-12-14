@@ -257,14 +257,14 @@ void BitbeanGUI::createActions()
     quitAction->setToolTip(tr("Quit application"));
     quitAction->setShortcut(QKeySequence(Qt::CTRL + Qt::Key_Q));
     quitAction->setMenuRole(QAction::QuitRole);
-    aboutAction = new QAction(QIcon(":/icons/beancash"), tr("&About Bean Cash"), this);
-    aboutAction->setToolTip(tr("Show information about Beancash"));
+    aboutAction = new QAction(QIcon(":/icons/about"), tr("&About Bean Cash"), this);
+    aboutAction->setToolTip(tr("Show information about Bean Cash"));
     aboutAction->setMenuRole(QAction::AboutRole);
     aboutQtAction = new QAction(QIcon(":/trolltech/qmessagebox/images/qtlogo-64.png"), tr("About &Qt"), this);
     aboutQtAction->setToolTip(tr("Show information about Qt"));
     aboutQtAction->setMenuRole(QAction::AboutQtRole);
     optionsAction = new QAction(QIcon(":/icons/options"), tr("&Options..."), this);
-    optionsAction->setToolTip(tr("Modify configuration options for Beancash"));
+    optionsAction->setToolTip(tr("Modify configuration options for Bean Cash"));
     optionsAction->setMenuRole(QAction::PreferencesRole);
     toggleHideAction = new QAction(QIcon(":/icons/beancash"), tr("&Show / Hide"), this);
     encryptWalletAction = new QAction(QIcon(":/icons/lock_closed"), tr("&Encrypt Keys..."), this);

@@ -191,6 +191,10 @@
   <property name="windowTitle">
    <string>Edit Address</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="../beancash.qrc">
+    <normaloff>:/icons/beancash</normaloff>:/icons/beancash</iconset>
+  </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <layout class="QFormLayout" name="formLayout">
@@ -251,7 +255,9 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="../beancash.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>buttonBox</sender>
