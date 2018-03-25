@@ -44,12 +44,12 @@ Debian (tested under Ubuntu 16.04 LTS - 25/03/2018)
         cd /libs/boost_1_59_0
         ./bootstrap.sh
         mkdir build-boost
-        ./ b2 --build-dir=/build-boost toolset=gcc stage
+        ./b2 --build-dir=/build-boost toolset=gcc stage
 
     berkley db
     ::
 
-        cd  /libs/db-5.3.28.NC
+        cd /libs/db-5.3.28.NC
         cd build-unix
         ../dist/configure --enable-cxx
         make
