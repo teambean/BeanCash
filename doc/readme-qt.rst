@@ -16,7 +16,7 @@ Debian (tested under Ubuntu 16.04 LTS - 25/03/2018)
         sudo apt-get install qt5-default qt5-qmake qtbase5-dev-tools qttools5-dev-tools
         sudo apt-get install build-essential
 
-- now we download and the compile the three libraries: (update this when libraries changes)
+- now download and compile the three libraries: (update this when libraries changes)
 
 .. _`OpenSSL 1.0.1.j`: https://ftp.openssl.org/source/old/1.0.1/openssl-1.0.1j.tar.gz
 .. _`Berkley DB 5.3.28.NC` : http://download.oracle.com/otn/berkeley-db/db-5.3.28.NC.zip
@@ -42,7 +42,7 @@ Debian (tested under Ubuntu 16.04 LTS - 25/03/2018)
     ::
 
         cd /libs/boost_1_59_0
-        ./configure
+        ./bootstrap.sh
         mkdir build-boost
         ./ b2 --build-dir=/build-boost toolset=gcc stage
 
