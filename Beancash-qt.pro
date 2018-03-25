@@ -6,6 +6,11 @@ DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE __NO_SYSTEM_INCLU
 CONFIG += no_include_pwd
 CONFIG += thread
 
+#USE RELEASE=1
+#USE_UPNP=- # default 1 ('-' means don't use)
+#USE_O3=1  # default 0
+#USE_DBUS=1 # default 1
+
 contains(RELEASE, 1) {
     message(building in RELEASE mode)
 }
@@ -40,9 +45,6 @@ BDB_LIB_SUFFIX=-5.3
 #    BOOST_INCLUDE_PATH, BOOST_LIB_PATH, BDB_INCLUDE_PATH,
 #    BDB_LIB_PATH, OPENSSL_INCLUDE_PATH and OPENSSL_LIB_PATH respectively
 
-#USE_UPNP=- # default 1 ('-' means don't use)
-#USE_O3=1  # default 0
-#USE_DBUS=1 # default 1
 
 # ------- modify those to point to the correct folders ----- #
 
@@ -95,6 +97,7 @@ contains(RELEASE, 1) {
 
 !win32 {
     # for extra security against potential buffer overflows: enable GCCs Stack Smashing Protection
+    message(GCCs Stack Smashing protection enabled)
     QMAKE_CXXFLAGS *= -fstack-protector-all --param ssp-buffer-size=1
     QMAKE_LFLAGS *= -fstack-protector-all --param ssp-buffer-size=1
     # We need to exclude this for Windows cross compile with MinGW 4.2.x, as it will result in a non-working executable!
@@ -138,18 +141,20 @@ contains(USE_UPNP, -) {
 isEmpty(USE_DBUS) {
     message("USE_DBUS not set, fallback to $USE_DBUS=1")
     USE_DBUS=1
-} else {
-    message(Building without DBUS (Freedesktop notifications) support)
 }
+
 contains(USE_DBUS, 1) {
     message(Building with DBUS (Freedesktop notifications) support)
     DEFINES += USE_DBUS
     QT += dbus
+}else {
+    message(Building without DBUS (Freedesktop notifications) support)
 }
+
 contains(BEANCASH_NEED_QT_PLUGINS, 1) {
     DEFINES += BEANCASH_NEED_QT_PLUGINS
     QTPLUGIN += qcncodecs qjpcodecs qtwcodecs qkrcodecs qtaccessiblewidgets
-    }
+}
 
 INCLUDEPATH += src/leveldb/include src/leveldb/helpers
 LIBS += $$PWD/src/leveldb/libleveldb.a $$PWD/src/leveldb/libmemenv.a
@@ -424,8 +429,6 @@ OTHER_FILES += \
 }
 
 # usefull debugging
-
-
 macx{
     !exists(DEPSDIR) {
         # Uses Homebrew if installed, otherwise defaults to MacPorts
@@ -440,7 +443,6 @@ macx{
         }
     }
 }
-
 
 !exists(BOOST_LIB_PATH) {
     message(BOOST_LIB_PATH point to an empty folder)
