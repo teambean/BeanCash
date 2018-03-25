@@ -4,29 +4,85 @@ Beancash-qt: Qt5 GUI for Beancash
 Build instructions
 ===================
 
-Debian
--------
+Debian (tested under Ubuntu 16.04 LTS - 25/03/2018)
+---------------------------------------------------
 
-First, make sure that the required packages for Qt5 development of your
-distribution are installed, for Debian and Ubuntu these are:
-
-::
-
-    apt-get install qt5-default qt5-qmake qtbase5-dev-tools qttools5-dev-tools \
-        build-essential libboost-dev libboost-system-dev \
-        libboost-filesystem-dev libboost-program-options-dev libboost-thread-dev \
-        libssl-dev libdb++-dev
-
-then execute the following:
+- make sure that the required packages:
 
 ::
 
-    qmake
+        sudo apt-get update
+        sudo apt-get upgrade
+        sudo apt-get install qt5-default qt5-qmake qtbase5-dev-tools qttools5-dev-tools
+        sudo apt-get install build-essential
+
+- now we download and the compile the three libraries: (update this when libraries changes)
+
+.. _`OpenSSL 1.0.1.j`: https://ftp.openssl.org/source/old/1.0.1/openssl-1.0.1j.tar.gz
+.. _`Berkley DB 5.3.28.NC` : http://download.oracle.com/otn/berkeley-db/db-5.3.28.NC.zip
+.. _`Boost 1.59.0` : http://sourceforge.net/projects/boost/files/boost/1.59.0/boost_1_59_0.tar.gz
+
+    - boost : `Boost 1.59.0`_
+    - db : `Berkley DB 5.3.28.NC`_
+    - openssl : `OpenSSL 1.0.1.j`_
+
+- Prepare a directory path/to/libs (we'll refer to it as /libs) where you would like to store those libraries.
+
+- Unzip all three archives inside /libs resulting in:
+
+::
+
+        libs/boost_1_59_0
+        libs/db-5.3.28.NC
+        libs/openssl-1.0.1j
+
+- Now compile all the libraries.
+
+    boost 1.59.0
+    ::
+
+        cd /libs/boost_1_59_0
+        ./configure
+        mkdir build-boost
+        ./ b2 --build-dir=/build-boost toolset=gcc stage
+
+    berkley db
+    ::
+
+        cd  /libs/db-5.3.28.NC
+        cd build-unix
+        ../dist/configure --enable-cxx
+        make
+
+    openssl1.0.1j
+    ::
+
+        cd /libs/openssl-1.0.1j
+        ./config
+        make
+
+- In order to instruct the compiler to find the libraries modify some global variables insides Beancash-qt.pro
+
+::
+
+       BOOST_INCLUDE_PATH=/full/path/to/libs/boost_1_59_0
+       BOOST_LIB_PATH=/full/path/to/libs/stage/lib
+
+       OPENSSL_INCLUDE_PATH=/full/path/to/libs/openssl-1.0.1j/include
+       OPENSSL_LIB_PATH=/full/path/to/libs/openssl-1.0.1j
+
+       BDB_INCLUDE_PATH=/full/path/to/libs/db-5.3.28.NC/build_unix
+       BDB_LIB_PATH=/full/path/to/libs/db-5.3.28.NC/build_unix
+
+- Now we can compile the application.
+
+::
+
+    cd /path/beancash/
+    qmake USE_UPNP=- RELEASE=1 (other flags: USE_O3=1 to use compilation optimization, USE_DBUS=1 which build with notification support (enabled by default))
     make
 
-Alternatively, install Qt Creator and open the `Beancash-qt.pro` file.
-
-An executable named `Beancash-qt` will be built.
+- After compilation An executable named `Beancash-qt` will be built.
 
 
 Windows
