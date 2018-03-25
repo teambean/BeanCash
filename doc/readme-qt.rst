@@ -7,7 +7,7 @@ Build instructions
 Debian (tested under Ubuntu 16.04 LTS - 25/03/2018)
 ---------------------------------------------------
 
-- make sure that the required packages:
+- make sure to have the required packages:
 
 ::
 
