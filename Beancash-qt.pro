@@ -44,21 +44,21 @@ BDB_LIB_SUFFIX=-5.3
 #USE_O3=1  # default 0
 #USE_DBUS=1 # default 1
 
-!win32{
-    BOOST_INCLUDE_PATH=/path/to/lib/boost_1_59_0
-    BOOST_LIB_PATH=/path/to/lib/boost_1_59_0/stage/lib
+# ------- modify those to point to the correct folders ----- #
 
-    OPENSSL_INCLUDE_PATH=/path/to/libs/openssl-1.0.1j/include
-    OPENSSL_LIB_PATH=/path/to/lib/openssl-1.0.1j
+BOOST_INCLUDE_PATH=/path/to/lib/boost_1_59_0
+BOOST_LIB_PATH=/path/to/lib/boost_1_59_0/stage/lib
 
-    BDB_INCLUDE_PATH=/path/to/lib/db-5.3.28.NC/build_unix
-    BDB_LIB_PATH=/path/to/lib/db-5.3.28.NC/build_unix
+OPENSSL_INCLUDE_PATH=/path/to/libs/openssl-1.0.1j/include
+OPENSSL_LIB_PATH=/path/to/lib/openssl-1.0.1j
 
-    MINIUPNPC_INCLUDE_PATH=
-    MINIUPNPC_LIB_PATH=
-    QRENCODE_INCLUDE_PATH=
-    QRENCODE_LIB_PATH=
-}
+BDB_INCLUDE_PATH=/path/to/lib/db-5.3.28.NC/build_unix
+BDB_LIB_PATH=/path/to/lib/db-5.3.28.NC/build_unix
+
+MINIUPNPC_INCLUDE_PATH=
+MINIUPNPC_LIB_PATH=
+QRENCODE_INCLUDE_PATH=
+QRENCODE_LIB_PATH=
 
 win32 {
     BOOST_LIB_SUFFIX=-mgw49-mt-s-1_59
@@ -73,6 +73,8 @@ win32 {
     QRENCODE_INCLUDE_PATH=C:/deps/qrencode-3.4.4
     QRENCODE_LIB_PATH=C:/deps/qrencode-3.4.4/.libs
 }
+
+# ----------------- #
 
 OBJECTS_DIR = build
 MOC_DIR = build
@@ -200,6 +202,7 @@ contains(QMAKE_TARGET.arch, x86_64) | contains(QMAKE_TARGET.arch, amd64) {
     QMAKE_CXXFLAGS += -mssse3
     QMAKE_CFLAGS += -mssse3
 }
+
 
 QMAKE_CXXFLAGS_WARN_ON = -fdiagnostics-show-option -Wall -Wextra -Wno-ignored-qualifiers -Wformat -Wformat-security -Wno-unused-parameter -Wstack-protector
 
@@ -409,21 +412,22 @@ OTHER_FILES += \
     doc/*.rst doc/*.txt doc/README README.md res/Beancash-qt.rc
 
 # platform specific defaults, if not overridden on command line
-isEmpty(BOOST_LIB_SUFFIX) {
+!exists(BOOST_LIB_SUFFIX) {
     macx{
-        message(since BOOST_LIB_SUFFIX is empty we add (platform specific) to BOOST_LIB_SUFFIX -mt)
+        message(since BOOST_LIB_SUFFIX is empty we add to BOOST_LIB_SUFFIX -mt)
         BOOST_LIB_SUFFIX = -mt
     }
     windows{
-        message(since BOOST_LIB_SUFFIX is empty we add (platform specific) to BOOST_LIB_SUFFIX -mgw49-mt-s-1_59)
+        message(since BOOST_LIB_SUFFIX is empty we add to BOOST_LIB_SUFFIX -mgw49-mt-s-1_59)
         BOOST_LIB_SUFFIX = -mgw49-mt-s-1_59
     }
 }
 
 # usefull debugging
 
+
 macx{
-    isEmpty(DEPSDIR) {
+    !exists(DEPSDIR) {
         # Uses Homebrew if installed, otherwise defaults to MacPorts
         check_dir = /usr/local/Cellar
         exists($$check_dir) {
@@ -438,7 +442,7 @@ macx{
 }
 
 
-isEmpty(BOOST_LIB_PATH) {
+!exists(BOOST_LIB_PATH) {
     message(BOOST_LIB_PATH point to an empty folder)
     macx: {
         message(falling back to: $DEPSDIR/lib)
@@ -446,7 +450,7 @@ isEmpty(BOOST_LIB_PATH) {
     }
 }
 
-isEmpty(BOOST_INCLUDE_PATH) {
+!exists(BOOST_INCLUDE_PATH) {
     message(BOOST_INCLUDE_PATH point to an empty folder)
     macx: {
         message(falling back to: $DEPSDIR/include)
@@ -454,7 +458,7 @@ isEmpty(BOOST_INCLUDE_PATH) {
     }
 }
 
-isEmpty(BDB_LIB_PATH) {
+!exists(BDB_LIB_PATH) {
     message(BDB_LIB_PATH point to an empty folder)
     macx: {
         message(falling back to: $DEPSDIR/lib)
@@ -462,7 +466,7 @@ isEmpty(BDB_LIB_PATH) {
     }
 }
 
-isEmpty(BDB_INCLUDE_PATH) {
+!exists(BDB_INCLUDE_PATH) {
     message(BDB_INCLUDE_PATH point to an empty folder)
     macx: {
         message(falling back to: $DEPSDIR/include)
@@ -470,7 +474,7 @@ isEmpty(BDB_INCLUDE_PATH) {
     }
 }
 
-isEmpty(OPENSSL_LIB_PATH) {
+!exists(OPENSSL_LIB_PATH) {
     message(OPENSSL_LIB_PATH point to an empty folder)
     macx: {
         message(falling back to: $DEPSDIR/lib)
@@ -478,7 +482,7 @@ isEmpty(OPENSSL_LIB_PATH) {
     }
 }
 
-isEmpty(OPENSSL_INCLUDE_PATH) {
+!exists(OPENSSL_INCLUDE_PATH) {
     message(OPENSSL_INCLUDE_PATH point to an empty folder)
     macx: {
         message(falling back to: $DEPSDIR/include)
@@ -492,11 +496,11 @@ macx: {
     OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm src/qt/macnotificationhandler.mm
 
     contains(USE_QRCODE, 1){
-        isEmpty(QRCODE_LIB_PATH) {
+        !exists(QRCODE_LIB_PATH) {
             message(QRCODE_LIB_PATH point to an empty folder, falling back to: $DEPSDIR/lib)
             QRCODE_LIB_PATH = $$DEPSDIR/lib
         }
-        isEmpty(QRCODE_INCLUDE_PATH) {
+        !exists(QRCODE_INCLUDE_PATH) {
             message(QRCODE_INCLUDE_PATH point to an empty folder, falling back to: $DEPSDIR/include)
             QRCODE_INCLUDE_PATH = $$DEPSDIR/include
         }
@@ -504,7 +508,6 @@ macx: {
 
 
     contains(RELEASE, 1) {
-        message(Release build)
         LIBS += -framework Foundation -framework ApplicationServices -framework AppKit -framework CoreServices \
         $$BDB_LIB_PATH/libdb_cxx$$BDB_LIB_SUFFIX.a \
         $$BOOST_LIB_PATH/libboost_system.a \
@@ -576,5 +579,4 @@ netbsd-*|freebsd-*|openbsd-* {
     # libexecinfo is needed for back trace
     LIBS += -lexecinfo
 }
-
 system($$QMAKE_LRELEASE -silent $$_PRO_FILE_)
