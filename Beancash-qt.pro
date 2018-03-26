@@ -189,7 +189,7 @@ QMAKE_CLEAN += $$PWD/src/leveldb/libleveldb.a; cd $$PWD/src/leveldb ; $(MAKE) cl
 }
 
 contains(USE_O3, 1) {
-    message(Building O3 optimization flag)
+    message(Building with O3 optimization flag)
     QMAKE_CXXFLAGS_RELEASE -= -O2
     QMAKE_CFLAGS_RELEASE -= -O2
     QMAKE_CXXFLAGS += -O3
@@ -200,14 +200,13 @@ contains(QMAKE_TARGET.arch, i386) | contains(QMAKE_TARGET.arch, i686) {
     message("x86 platform, adding -msse2 & -mssse3 flags")
     QMAKE_CXXFLAGS += -msse2 -mssse3
     QMAKE_CFLAGS += -msse2 -mssse3
-    }
+}
 
 contains(QMAKE_TARGET.arch, x86_64) | contains(QMAKE_TARGET.arch, amd64) {
     message("x86_64 platform, setting -mssse3 flag")
     QMAKE_CXXFLAGS += -mssse3
     QMAKE_CFLAGS += -mssse3
 }
-
 
 QMAKE_CXXFLAGS_WARN_ON = -fdiagnostics-show-option -Wall -Wextra -Wno-ignored-qualifiers -Wformat -Wformat-security -Wno-unused-parameter -Wstack-protector
 
@@ -393,6 +392,7 @@ contains(BEANCASH_QT_TEST, 1) {
     TARGET = Beancash-qt_test
     DEFINES += BEANCASH_QT_TEST
 }
+
 CODECFORTR = UTF-8
 
 # for lrelease/lupdate
@@ -404,6 +404,7 @@ isEmpty(QMAKE_LRELEASE) {
     else:QMAKE_LRELEASE = $$[QT_INSTALL_BINS]/lrelease
 }
 isEmpty(QM_DIR):QM_DIR = $$PWD/src/qt/locale
+
 # automatically build translations, so they can be included in resource file
 TSQM.name = lrelease ${QMAKE_FILE_IN}
 TSQM.input = TRANSLATIONS
@@ -492,7 +493,6 @@ macx{
     }
 }
 
-
 macx: {
     HEADERS += src/qt/macdockiconhandler.h src/qt/macnotificationhandler.h
     OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm src/qt/macnotificationhandler.mm
@@ -507,7 +507,6 @@ macx: {
             QRCODE_INCLUDE_PATH = $$DEPSDIR/include
         }
     }
-
 
     contains(RELEASE, 1) {
         LIBS += -framework Foundation -framework ApplicationServices -framework AppKit -framework CoreServices \
@@ -581,4 +580,5 @@ netbsd-*|freebsd-*|openbsd-* {
     # libexecinfo is needed for back trace
     LIBS += -lexecinfo
 }
+
 system($$QMAKE_LRELEASE -silent $$_PRO_FILE_)
