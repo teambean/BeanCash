@@ -78,7 +78,7 @@ BitbeanGUI::BitbeanGUI(QWidget *parent):
     nWeight(0)
 {
     resize(850, 550);
-    setWindowTitle(tr("Bean Cash") + " - " + tr("Core v1.1.2.2RC"));
+    setWindowTitle(tr("Bean Cash") + " - " + tr("Core v1.1.2.2RC") + " - " + tr("Bitbeaner sucks));
     qApp->setStyleSheet("QMainWindow { border-image: url(:images/bkg);border:none; } QProgressBar { background: transparent; border: 1px solid gray; border-radius: 7px; padding: 1px; text-align: center; } QProgressBar::chunk { background: QLinearGradient(x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #d3eeaf, stop: 1 #9fd555); border-radius: 7px; margin: 0px; } QMenu { background-color: #d3eeaf; color: black; } QMenu::item { color: black; background: transparent; } QMenu::item:selected { background-color: #9fd555; } QMenuBar { background-color: #d3eeaf; color: black; } QPushButton {background-color: #d3eeaf; } QLineEdit { background-color: white; } QToolTip { color: #000000; background-color: #d3eeaf; border-radius: 7px; border: 1px solid black; } QTabWidget::pane {background-color: white; color: black } QTabWidget::tab-bar {left: 5px;} QTabBar::tab {background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #d3eeaf, stop: 1 #9fd555); border: 2px solid #C4C4C3; border-bottom-color: #C2C7CB; border-top-left-radius: 7px; border-top-right-radius: 7px; min-width: 8ex; padding: 2px; color: black; } QTabBar::tab:selected {border-color: #9fd555; border-bottom-color: #d3eeaf; background-color: white; color: black; } QTabBar:tab:!selected {margin-top: 3px; } ");
 #ifndef Q_OS_MAC
     qApp->setWindowIcon(QIcon(":icons/beancash"));
@@ -990,7 +990,7 @@ void BitbeanGUI::updateStakingIcon()
             {
                 text = tr("%n minute(s)", "", nEstimateTime/60);
             }
-            else if (nEstimateTime < 72*60*60)
+            else if (nEstimateTime < 24*60*60)
             {
                 text = tr("%n hour(s)", "", nEstimateTime/(60*60));
             }
@@ -999,7 +999,7 @@ void BitbeanGUI::updateStakingIcon()
                 text = tr("%n day(s)", "", nEstimateTime/(60*60*24));
             }
 
-labelStakingIcon->setPixmap(QIcon(":/icons/staking_on").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
+            labelStakingIcon->setPixmap(QIcon(":/icons/staking_on").pixmap(STATUSBAR_ICONSIZE,STATUSBAR_ICONSIZE));
             labelStakingIcon->setToolTip(tr("Sprouting.<br>Your weight is %1<br>Network weight is %2<br>Expected time to earn reward is %3").arg(nWeight).arg(nNetworkWeight).arg(text));
         }
         else
