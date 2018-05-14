@@ -38,4 +38,4 @@ Without UPNP:
 cd src && \
     make -f makefile.unix USE_UPNP= && \
     strip Beancashd
-    ```
+```
