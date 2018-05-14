@@ -25,8 +25,8 @@ make
 ```
 
 ###Beancash daemon Compile###
-#(Recommend Daemon)
-#With UPNP:
+###(Recommend Daemon)###
+###With UPNP:###
 ```
 cd src && \
     make -f makefile.unix && \
