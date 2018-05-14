@@ -1,58 +1,33 @@
 TEMPLATE = app
-TARGET = Beancash-qt
+TARGET = Linda-qt
 VERSION = 1.1.2.2
 INCLUDEPATH += src src/json src/qt
 QT += network
 DEFINES += ENABLE_WALLET
-DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE __NO_SYSTEM_INCLUDES
+DEFINES += BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE
 CONFIG += no_include_pwd
 CONFIG += thread
-
-reaterThan(QT_MAJOR_VERSION, 4) {
-    QT += widgets
-    DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
-}
-
-#USE RELEASE=1
-#USE_UPNP=- # default 1 ('-' means don't use)
-#USE_O3=1  # default 0
-#USE_DBUS=1 # default 1
-
-contains(RELEASE, 1) {
-    message(building in RELEASE mode)
-}
-
-win32:os2 {
-    CONFIG += release
-} else {
-    CONFIG += debug_and_release
-}
-
-freebsd-g++: QMAKE_TARGET.arch = $$QMAKE_HOST.arch
-linux-g++: QMAKE_TARGET.arch = $$QMAKE_HOST.arch
-*-g++-32: QMAKE_TARGET.arch = i686
-*-g++-64: QMAKE_TARGET.arch = x86_64
-
-CONFIG += static
 
 greaterThan(QT_MAJOR_VERSION, 4) {
     QT += widgets
     DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
 }
 
-# for boost 1.37, add -mt to the boost libraries
-# use: qmake BOOST_LIB_SUFFIX=-mt
-# for boost thread win32 with _win32 sufix
-# use: BOOST_THREAD_LIB_SUFFIX=_win32-...
-# or when linking against a specific BerkelyDB version:
-
-BDB_LIB_SUFFIX=-5.3
-
-# Dependency library locations can be customized with:
-#    BOOST_INCLUDE_PATH, BOOST_LIB_PATH, BDB_INCLUDE_PATH,
-#    BDB_LIB_PATH, OPENSSL_INCLUDE_PATH and OPENSSL_LIB_PATH respectively
-
-
+windows {
+	DEPS_PATH = /c/deps
+	SECP256K1_LIB_PATH = src/secp256k1/.libs
+	SECP256K1_INCLUDE_PATH = src/secp256k1/include
+	MINIUPNPC_LIB_PATH = $$DEPS_PATH/miniupnpc
+	MINIUPNPC_INCLUDE_PATH = $$DEPS_PATH
+	BOOST_LIB_PATH = $$DEPS_PATH/boost_1_58_0/stage/lib
+	BOOST_INCLUDE_PATH = $$DEPS_PATH/boost_1_58_0
+	BOOST_LIB_SUFFIX= -mgw73-mt-s-1_58
+	BDB_LIB_PATH = $$DEPS_PATH/db-5.0.32.NC/build_unix
+	BDB_INCLUDE_PATH = $$DEPS_PATH/db-5.0.32.NC/build_unix
+#uncomment and modify below if you don't to want to use openssl static lib provided by mingw-w64 package
+	#OPENSSL_LIB_PATH = $$DEPS_PATH/
+	#OPENSSL_INCLUDE_PATH = $$DEPS_PATH/
+}
 linux {
 	DEPS_PATH = $(HOME)/deps
 	SECP256K1_LIB_PATH = src/secp256k1/.libs
@@ -68,21 +43,18 @@ linux {
 	OPENSSL_INCLUDE_PATH = $$DEPS_PATH/openssl-1.0.2g/include
 }
 
-win32 {
-    BOOST_LIB_SUFFIX=-mgw49-mt-s-1_59
-    BOOST_INCLUDE_PATH=C:/deps/boost_1_59_0
-    BOOST_LIB_PATH=C:/deps/boost_1_59_0/stage/lib
-    BDB_INCLUDE_PATH=C:/deps/db-5.3.28/build_unix
-    BDB_LIB_PATH=C:/deps/db-5.3.28/build_unix
-    OPENSSL_INCLUDE_PATH=C:/deps/openssl-1.0.1j/include
-    OPENSSL_LIB_PATH=C:/deps/openssl-1.0.1j
-    MINIUPNPC_INCLUDE_PATH=C:/deps/
-    MINIUPNPC_LIB_PATH=C:/deps/miniupnpc
-    QRENCODE_INCLUDE_PATH=C:/deps/qrencode-3.4.4
-    QRENCODE_LIB_PATH=C:/deps/qrencode-3.4.4/.libs
-}
 
-# ----------------- #
+# for boost 1.37, add -mt to the boost libraries
+# use: qmake BOOST_LIB_SUFFIX=-mt
+# for boost thread win32 with _win32 sufix
+# use: BOOST_THREAD_LIB_SUFFIX=_win32-...
+# or when linking against a specific BerkelyDB version: BDB_LIB_SUFFIX=-4.8
+
+# Dependency library locations can be customized with:
+#    BOOST_INCLUDE_PATH, BOOST_LIB_PATH, BDB_INCLUDE_PATH,
+#    BDB_LIB_PATH, OPENSSL_INCLUDE_PATH and OPENSSL_LIB_PATH respectively
+
+
 
 OBJECTS_DIR = build
 MOC_DIR = build
@@ -91,9 +63,7 @@ UI_DIR = build
 # use: qmake "RELEASE=1"
 contains(RELEASE, 1) {
     # Mac: compile for maximum compatibility (10.5, 32-bit)
-    macx:QMAKE_CXXFLAGS += -mmacosx-version-min=10.9 -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
-    macx:QMAKE_CFLAGS += -mmacosx-version-min=10.9 -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
-    macx:QMAKE_OBJECTIVE_CFLAGS += -mmacosx-version-min=10.9 -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk
+    macx:QMAKE_CXXFLAGS += -mmacosx-version-min=10.5 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.5.sdk
 
     !windows:!macx {
         # Linux: static link
@@ -102,21 +72,15 @@ contains(RELEASE, 1) {
 }
 
 !win32 {
-    # for extra security against potential buffer overflows: enable GCCs Stack Smashing Protection
-    message(GCCs Stack Smashing protection enabled)
-    QMAKE_CXXFLAGS *= -fstack-protector-all --param ssp-buffer-size=1
-    QMAKE_LFLAGS *= -fstack-protector-all --param ssp-buffer-size=1
-    # We need to exclude this for Windows cross compile with MinGW 4.2.x, as it will result in a non-working executable!
-    # This can be enabled for Windows, when we switch to MinGW >= 4.4.x.
+# for extra security against potential buffer overflows: enable GCCs Stack Smashing Protection
+QMAKE_CXXFLAGS *= -fstack-protector-all --param ssp-buffer-size=1
+QMAKE_LFLAGS *= -fstack-protector-all --param ssp-buffer-size=1
+# We need to exclude this for Windows cross compile with MinGW 4.2.x, as it will result in a non-working executable!
+# This can be enabled for Windows, when we switch to MinGW >= 4.4.x.
 }
 # for extra security on Windows: enable ASLR and DEP via GCC linker flags
 win32:QMAKE_LFLAGS *= -Wl,--dynamicbase -Wl,--nxcompat -static
-
-contains(RELEASE, 1) {
-    QMAKE_LFLAGS += -static-libstdc++
-}
-
-win32:contains(QMAKE_HOST.arch, x86):{QMAKE_LFLAGS *= -Wl,--large-address-aware }
+win32:QMAKE_LFLAGS += -static-libgcc -static-libstdc++
 
 # use: qmake "USE_QRCODE=1"
 # libqrencode (http://fukuchi.org/works/qrencode/index.en.html) must be installed for support
@@ -144,28 +108,26 @@ contains(USE_UPNP, -) {
 }
 
 # use: qmake "USE_DBUS=1" or qmake "USE_DBUS=0"
-isEmpty(USE_DBUS) {
-    message("USE_DBUS not set, fallback to $USE_DBUS=1")
+linux:count(USE_DBUS, 0) {
     USE_DBUS=1
 }
-
 contains(USE_DBUS, 1) {
     message(Building with DBUS (Freedesktop notifications) support)
     DEFINES += USE_DBUS
     QT += dbus
-}else {
-    message(Building without DBUS (Freedesktop notifications) support)
 }
 
-contains(BEANCASH_NEED_QT_PLUGINS, 1) {
-    DEFINES += BEANCASH_NEED_QT_PLUGINS
+contains(BITCOIN_NEED_QT_PLUGINS, 1) {
+    DEFINES += BITCOIN_NEED_QT_PLUGINS
     QTPLUGIN += qcncodecs qjpcodecs qtwcodecs qkrcodecs qtaccessiblewidgets
 }
+
+# LIBSEC256K1 SUPPORT
+QMAKE_CXXFLAGS *= -DUSE_SECP256K1
 
 INCLUDEPATH += src/leveldb/include src/leveldb/helpers
 LIBS += $$PWD/src/leveldb/libleveldb.a $$PWD/src/leveldb/libmemenv.a
 SOURCES += src/txdb-leveldb.cpp
-
 !win32 {
     # we use QMAKE_CXXFLAGS_RELEASE even without RELEASE=1 because we use RELEASE to indicate linking preferences not -O preferences
     genleveldb.commands = cd $$PWD/src/leveldb && CC=$$QMAKE_CC CXX=$$QMAKE_CXX $(MAKE) OPT=\"$$QMAKE_CXXFLAGS $$QMAKE_CXXFLAGS_RELEASE\" libleveldb.a libmemenv.a
@@ -175,7 +137,7 @@ SOURCES += src/txdb-leveldb.cpp
         QMAKE_RANLIB = $$replace(QMAKE_STRIP, strip, ranlib)
     }
     LIBS += -lshlwapi
-    !win32 {genleveldb.commands = cd $$PWD/src/leveldb && CC=$$QMAKE_CC CXX=$$QMAKE_CXX TARGET_OS=OS_WINDOWS_CROSSCOMPILE $(MAKE) OPT=\"$$QMAKE_CXXFLAGS $$QMAKE_CXXFLAGS_RELEASE\" libleveldb.a libmemenv.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libleveldb.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libmemenv.a}
+    #genleveldb.commands = cd $$PWD/src/leveldb && CC=$$QMAKE_CC CXX=$$QMAKE_CXX TARGET_OS=OS_WINDOWS_CROSSCOMPILE $(MAKE) OPT=\"$$QMAKE_CXXFLAGS $$QMAKE_CXXFLAGS_RELEASE\" libleveldb.a libmemenv.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libleveldb.a && $$QMAKE_RANLIB $$PWD/src/leveldb/libmemenv.a
 }
 genleveldb.target = $$PWD/src/leveldb/libleveldb.a
 genleveldb.depends = FORCE
@@ -185,7 +147,7 @@ QMAKE_EXTRA_TARGETS += genleveldb
 QMAKE_CLEAN += $$PWD/src/leveldb/libleveldb.a; cd $$PWD/src/leveldb ; $(MAKE) clean
 
 # regenerate src/build.h
-!win32|contains(USE_BUILD_INFO, 1) {
+!windows|contains(USE_BUILD_INFO, 1) {
     genbuild.depends = FORCE
     genbuild.commands = cd $$PWD; /bin/sh share/genbuild.sh $$OUT_PWD/build/build.h
     genbuild.target = $$OUT_PWD/build/build.h
@@ -195,62 +157,61 @@ QMAKE_CLEAN += $$PWD/src/leveldb/libleveldb.a; cd $$PWD/src/leveldb ; $(MAKE) cl
 }
 
 contains(USE_O3, 1) {
-    message(Building with O3 optimization flag)
+    message(Building O3 optimization flag)
     QMAKE_CXXFLAGS_RELEASE -= -O2
     QMAKE_CFLAGS_RELEASE -= -O2
     QMAKE_CXXFLAGS += -O3
     QMAKE_CFLAGS += -O3
 }
 
-contains(QMAKE_TARGET.arch, i386) | contains(QMAKE_TARGET.arch, i686) {
-    message("x86 platform, adding -msse2 & -mssse3 flags")
-    QMAKE_CXXFLAGS += -msse2 -mssse3
-    QMAKE_CFLAGS += -msse2 -mssse3
-}
+*-g++-32 {
+    message("32 platform, adding -msse2 flag")
 
-contains(QMAKE_TARGET.arch, x86_64) | contains(QMAKE_TARGET.arch, amd64) {
-    message("x86_64 platform, setting -mssse3 flag")
-    QMAKE_CXXFLAGS += -mssse3
-    QMAKE_CFLAGS += -mssse3
+    QMAKE_CXXFLAGS += -msse2
+    QMAKE_CFLAGS += -msse2
 }
 
 QMAKE_CXXFLAGS_WARN_ON = -fdiagnostics-show-option -Wall -Wextra -Wno-ignored-qualifiers -Wformat -Wformat-security -Wno-unused-parameter -Wstack-protector
 
 # Input
 DEPENDPATH += src src/json src/qt
-HEADERS += src/qt/bitbeangui.h \
+HEADERS += src/qt/bitcoingui.h \
     src/qt/transactiontablemodel.h \
     src/qt/addresstablemodel.h \
     src/qt/optionsdialog.h \
-    src/qt/beancontroldialog.h \
-    src/qt/beancontroltreewidget.h \
-    src/qt/sendbeansdialog.h \
+    src/qt/coincontroldialog.h \
+    src/qt/coincontroltreewidget.h \
+    src/qt/sendcoinsdialog.h \
     src/qt/addressbookpage.h \
     src/qt/signverifymessagedialog.h \
     src/qt/aboutdialog.h \
     src/qt/editaddressdialog.h \
-    src/qt/bitbeanaddressvalidator.h \
+    src/qt/bitcoinaddressvalidator.h \
     src/alert.h \
     src/addrman.h \
     src/base58.h \
     src/bignum.h \
+    src/chainparams.h \
+    src/chainparamsseeds.h \
     src/checkpoints.h \
     src/compat.h \
-    src/beancontrol.h \
+    src/coincontrol.h \
     src/sync.h \
     src/util.h \
+    src/hash.h \
     src/uint256.h \
     src/kernel.h \
     src/scrypt.h \
     src/pbkdf2.h \
     src/serialize.h \
-    src/strlcpy.h \
+    src/core.h \
     src/main.h \
     src/miner.h \
     src/net.h \
     src/key.h \
     src/db.h \
     src/txdb.h \
+    src/txmempool.h \
     src/walletdb.h \
     src/script.h \
     src/init.h \
@@ -270,53 +231,81 @@ HEADERS += src/qt/bitbeangui.h \
     src/qt/guiconstants.h \
     src/qt/optionsmodel.h \
     src/qt/monitoreddatamapper.h \
+    src/qt/trafficgraphwidget.h \
     src/qt/transactiondesc.h \
     src/qt/transactiondescdialog.h \
-    src/qt/bitbeanamountfield.h \
+    src/qt/bitcoinamountfield.h \
     src/wallet.h \
     src/keystore.h \
     src/qt/transactionfilterproxy.h \
     src/qt/transactionview.h \
     src/qt/walletmodel.h \
-    src/bitbeanrpc.h \
+    src/rpcclient.h \
+    src/rpcprotocol.h \
+    src/rpcserver.h \
+    src/timedata.h \
     src/qt/overviewpage.h \
     src/qt/csvmodelwriter.h \
     src/crypter.h \
-    src/qt/sendbeansentry.h \
+    src/qt/sendcoinsentry.h \
     src/qt/qvalidatedlineedit.h \
-    src/qt/bitbeanunits.h \
+    src/qt/bitcoinunits.h \
     src/qt/qvaluecombobox.h \
     src/qt/askpassphrasedialog.h \
     src/protocol.h \
     src/qt/notificator.h \
-    src/qt/qtipcserver.h \
+    src/qt/paymentserver.h \
     src/allocators.h \
     src/ui_interface.h \
     src/qt/rpcconsole.h \
     src/version.h \
     src/netbase.h \
     src/clientversion.h \
-    src/qt/macnotificationhandler.h
+    src/threadsafety.h \
+    src/tinyformat.h \
+    src/stealth.h \
+    src/qt/flowlayout.h \
+    src/qt/darksendconfig.h \
+    src/masternode.h \
+    src/keepass.h \
+    src/darksend.h \
+    src/instantx.h \
+    src/activemasternode.h \
+    src/spork.h \
+    src/crypto/common.h \
+    src/crypto/hmac_sha256.h \
+    src/crypto/hmac_sha512.h \
+    src/crypto/rfc6979_hmac_sha256.h \
+    src/crypto/ripemd160.h \
+    src/crypto/sha1.h \
+    src/crypto/sha256.h \
+    src/crypto/sha512.h \
+    src/eccryptoverify.h \
+    src/qt/masternodemanager.h
 
-SOURCES += src/qt/beancash.cpp src/qt/bitbeangui.cpp \
+SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/transactiontablemodel.cpp \
     src/qt/addresstablemodel.cpp \
     src/qt/optionsdialog.cpp \
-    src/qt/sendbeansdialog.cpp \
-    src/qt/beancontroldialog.cpp \
-    src/qt/beancontroltreewidget.cpp \
+    src/qt/sendcoinsdialog.cpp \
+    src/qt/coincontroldialog.cpp \
+    src/qt/coincontroltreewidget.cpp \
     src/qt/addressbookpage.cpp \
     src/qt/signverifymessagedialog.cpp \
     src/qt/aboutdialog.cpp \
     src/qt/editaddressdialog.cpp \
-    src/qt/bitbeanaddressvalidator.cpp \
+    src/qt/bitcoinaddressvalidator.cpp \
     src/alert.cpp \
+    src/chainparams.cpp \
     src/version.cpp \
     src/sync.cpp \
+    src/txmempool.cpp \
     src/util.cpp \
+    src/hash.cpp \
     src/netbase.cpp \
     src/key.cpp \
     src/script.cpp \
+    src/core.cpp \
     src/main.cpp \
     src/miner.cpp \
     src/init.cpp \
@@ -330,33 +319,38 @@ SOURCES += src/qt/beancash.cpp src/qt/bitbeangui.cpp \
     src/qt/transactionrecord.cpp \
     src/qt/optionsmodel.cpp \
     src/qt/monitoreddatamapper.cpp \
+    src/qt/trafficgraphwidget.cpp \
     src/qt/transactiondesc.cpp \
     src/qt/transactiondescdialog.cpp \
-    src/qt/bitbeanstrings.cpp \
-    src/qt/bitbeanamountfield.cpp \
+    src/qt/bitcoinstrings.cpp \
+    src/qt/bitcoinamountfield.cpp \
     src/wallet.cpp \
     src/keystore.cpp \
     src/qt/transactionfilterproxy.cpp \
     src/qt/transactionview.cpp \
     src/qt/walletmodel.cpp \
-    src/bitbeanrpc.cpp \
+    src/rpcclient.cpp \
+    src/rpcprotocol.cpp \
+    src/rpcserver.cpp \
     src/rpcdump.cpp \
+    src/rpcmisc.cpp \
     src/rpcnet.cpp \
     src/rpcmining.cpp \
     src/rpcwallet.cpp \
     src/rpcblockchain.cpp \
     src/rpcrawtransaction.cpp \
+    src/timedata.cpp \
     src/qt/overviewpage.cpp \
     src/qt/csvmodelwriter.cpp \
     src/crypter.cpp \
-    src/qt/sendbeansentry.cpp \
+    src/qt/sendcoinsentry.cpp \
     src/qt/qvalidatedlineedit.cpp \
-    src/qt/bitbeanunits.cpp \
+    src/qt/bitcoinunits.cpp \
     src/qt/qvaluecombobox.cpp \
     src/qt/askpassphrasedialog.cpp \
     src/protocol.cpp \
     src/qt/notificator.cpp \
-    src/qt/qtipcserver.cpp \
+    src/qt/paymentserver.cpp \
     src/qt/rpcconsole.cpp \
     src/noui.cpp \
     src/kernel.cpp \
@@ -365,52 +359,63 @@ SOURCES += src/qt/beancash.cpp src/qt/bitbeangui.cpp \
     src/scrypt-x86_64.S \
     src/scrypt.cpp \
     src/pbkdf2.cpp \
+    src/stealth.cpp \
+    src/qt/flowlayout.cpp \
+    src/qt/darksendconfig.cpp \
+    src/masternode.cpp \
+    src/keepass.cpp \
+    src/darksend.cpp \
+    src/rpcdarksend.cpp \
+    src/instantx.cpp \
+    src/activemasternode.cpp \
+    src/spork.cpp \
+    src/masternodeconfig.cpp \
+    src/crypto/hmac_sha256.cpp \
+    src/crypto/hmac_sha512.cpp \
+    src/crypto/rfc6979_hmac_sha256.cpp \
+    src/crypto/ripemd160.cpp \
+    src/crypto/sha1.cpp \
+    src/crypto/sha256.cpp \
+    src/crypto/sha512.cpp \
+    src/eccryptoverify.cpp \
+    src/qt/masternodemanager.cpp
 
 RESOURCES += \
-    src/qt/beancash.qrc
+    src/qt/bitcoin.qrc
 
 FORMS += \
-    src/qt/forms/beancontroldialog.ui \
-    src/qt/forms/sendbeansdialog.ui \
+    src/qt/forms/coincontroldialog.ui \
+    src/qt/forms/sendcoinsdialog.ui \
     src/qt/forms/addressbookpage.ui \
     src/qt/forms/signverifymessagedialog.ui \
     src/qt/forms/aboutdialog.ui \
     src/qt/forms/editaddressdialog.ui \
     src/qt/forms/transactiondescdialog.ui \
     src/qt/forms/overviewpage.ui \
-    src/qt/forms/sendbeansentry.ui \
+    src/qt/forms/sendcoinsentry.ui \
     src/qt/forms/askpassphrasedialog.ui \
     src/qt/forms/rpcconsole.ui \
     src/qt/forms/optionsdialog.ui \
+    src/qt/forms/darksendconfig.ui \
+    src/qt/forms/masternodemanager.ui
 
 contains(USE_QRCODE, 1) {
-    HEADERS += src/qt/qrcodedialog.h
-    SOURCES += src/qt/qrcodedialog.cpp
-    FORMS += src/qt/forms/qrcodedialog.ui
-}
-
-contains(BEANCASH_QT_TEST, 1) {
-    SOURCES += src/qt/test/test_main.cpp \
-        src/qt/test/uritests.cpp
-    HEADERS += src/qt/test/uritests.h
-    DEPENDPATH += src/qt/test
-    QT += testlib
-    TARGET = Beancash-qt_test
-    DEFINES += BEANCASH_QT_TEST
+HEADERS += src/qt/qrcodedialog.h
+SOURCES += src/qt/qrcodedialog.cpp
+FORMS += src/qt/forms/qrcodedialog.ui
 }
 
 CODECFORTR = UTF-8
 
 # for lrelease/lupdate
-# also add new translations to src/qt/beancash.qrc under translations/
-TRANSLATIONS = $$files(src/qt/locale/beancash_*.ts)
+# also add new translations to src/qt/bitcoin.qrc under translations/
+TRANSLATIONS = $$files(src/qt/locale/bitcoin_*.ts)
 
 isEmpty(QMAKE_LRELEASE) {
     win32:QMAKE_LRELEASE = $$[QT_INSTALL_BINS]\\lrelease.exe
     else:QMAKE_LRELEASE = $$[QT_INSTALL_BINS]/lrelease
 }
 isEmpty(QM_DIR):QM_DIR = $$PWD/src/qt/locale
-
 # automatically build translations, so they can be included in resource file
 TSQM.name = lrelease ${QMAKE_FILE_IN}
 TSQM.input = TRANSLATIONS
@@ -421,134 +426,42 @@ QMAKE_EXTRA_COMPILERS += TSQM
 
 # "Other files" to show in Qt Creator
 OTHER_FILES += \
-    doc/*.rst doc/*.txt doc/README README.md res/Beancash-qt.rc
+    doc/*.rst doc/*.txt doc/README README.md res/bitcoin-qt.rc
 
 # platform specific defaults, if not overridden on command line
-!exists(BOOST_LIB_SUFFIX) {
-    macx{
-        message(since BOOST_LIB_SUFFIX is empty we add to BOOST_LIB_SUFFIX -mt)
-        BOOST_LIB_SUFFIX = -mt
-    }
-    windows{
-        message(since BOOST_LIB_SUFFIX is empty we add to BOOST_LIB_SUFFIX -mgw49-mt-s-1_59)
-        BOOST_LIB_SUFFIX = -mgw49-mt-s-1_59
-    }
+isEmpty(BOOST_LIB_SUFFIX) {
+    macx:BOOST_LIB_SUFFIX = -mt
+    windows:BOOST_LIB_SUFFIX = -mt
 }
 
-# usefull debugging
-macx{
-    !exists(DEPSDIR) {
-        # Uses Homebrew if installed, otherwise defaults to MacPorts
-        check_dir = /usr/local/Cellar
-        exists($$check_dir) {
-            message(DEPSIDR its empty, falling back to /usr/local)
-            DEPSDIR = /usr/local
-        }
-        !exists($$check_dir) {
-            message(DEPSIDR its empty (ando neither $$check_dir its), falling back to /upt/local)
-            DEPSDIR = /opt/local
-        }
-    }
+isEmpty(BOOST_THREAD_LIB_SUFFIX) {
+    BOOST_THREAD_LIB_SUFFIX = $$BOOST_LIB_SUFFIX
+    #win32:BOOST_THREAD_LIB_SUFFIX = _win32$$BOOST_LIB_SUFFIX
+    #else:BOOST_THREAD_LIB_SUFFIX = $$BOOST_LIB_SUFFIX
 }
 
-!exists(BOOST_LIB_PATH) {
-    message(BOOST_LIB_PATH point to an empty folder)
-    macx: {
-        message(falling back to: $DEPSDIR/lib)
-        BOOST_LIB_PATH = $$DEPSDIR/lib
-    }
+isEmpty(BDB_LIB_PATH) {
+    macx:BDB_LIB_PATH = /opt/local/lib/db48
 }
 
-!exists(BOOST_INCLUDE_PATH) {
-    message(BOOST_INCLUDE_PATH point to an empty folder)
-    macx: {
-        message(falling back to: $DEPSDIR/include)
-        BOOST_INCLUDE_PATH = $$DEPSDIR/include
-    }
+isEmpty(BDB_LIB_SUFFIX) {
+    macx:BDB_LIB_SUFFIX = -4.8
 }
 
-!exists(BDB_LIB_PATH) {
-    message(BDB_LIB_PATH point to an empty folder)
-    macx: {
-        message(falling back to: $DEPSDIR/lib)
-        BDB_LIB_PATH = $$DEPSDIR/lib
-    }
+isEmpty(BDB_INCLUDE_PATH) {
+    macx:BDB_INCLUDE_PATH = /opt/local/include/db48
 }
 
-!exists(BDB_INCLUDE_PATH) {
-    message(BDB_INCLUDE_PATH point to an empty folder)
-    macx: {
-        message(falling back to: $DEPSDIR/include)
-        BDB_INCLUDE_PATH = $$DEPSDIR/include
-    }
+isEmpty(BOOST_LIB_PATH) {
+    macx:BOOST_LIB_PATH = /opt/local/lib
 }
 
-!exists(OPENSSL_LIB_PATH) {
-    message(OPENSSL_LIB_PATH point to an empty folder)
-    macx: {
-        message(falling back to: $DEPSDIR/lib)
-        OPENSSL_LIB_PATH = $$DEPSDIR/lib
-    }
-}
-
-!exists(OPENSSL_INCLUDE_PATH) {
-    message(OPENSSL_INCLUDE_PATH point to an empty folder)
-    macx: {
-        message(falling back to: $DEPSDIR/include)
-        OPENSSL_INCLUDE_PATH = $$DEPSDIR/include
-    }
-}
-
-macx: {
-    HEADERS += src/qt/macdockiconhandler.h src/qt/macnotificationhandler.h
-    OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm src/qt/macnotificationhandler.mm
-
-    contains(USE_QRCODE, 1){
-        !exists(QRCODE_LIB_PATH) {
-            message(QRCODE_LIB_PATH point to an empty folder, falling back to: $DEPSDIR/lib)
-            QRCODE_LIB_PATH = $$DEPSDIR/lib
-        }
-        !exists(QRCODE_INCLUDE_PATH) {
-            message(QRCODE_INCLUDE_PATH point to an empty folder, falling back to: $DEPSDIR/include)
-            QRCODE_INCLUDE_PATH = $$DEPSDIR/include
-        }
-    }
-
-    contains(RELEASE, 1) {
-        LIBS += -framework Foundation -framework ApplicationServices -framework AppKit -framework CoreServices \
-        $$BDB_LIB_PATH/libdb_cxx$$BDB_LIB_SUFFIX.a \
-        $$BOOST_LIB_PATH/libboost_system.a \
-        $$BOOST_LIB_PATH/libboost_filesystem.a \
-        $$BOOST_LIB_PATH/libboost_program_options.a \
-        $$BOOST_LIB_PATH/libboost_thread.a \
-        $$BOOST_LIB_PATH/libboost_chrono.a \
-        $$OPENSSL_LIB_PATH/libssl.a \
-        $$OPENSSL_LIB_PATH/libcrypto.a
-     } else {
-        LIBS += -framework Foundation -framework ApplicationServices -framework AppKit -framework CoreServices \
-        $$BDB_LIB_PATH/libdb_cxx$$BDB_LIB_SUFFIX.dylib \
-        $$BOOST_LIB_PATH/libboost_system-mt.dylib \
-        $$BOOST_LIB_PATH/libboost_filesystem-mt.dylib \
-        $$BOOST_LIB_PATH/libboost_program_options-mt.dylib \
-        $$BOOST_LIB_PATH/libboost_thread-mt.dylib \
-        $$BOOST_LIB_PATH/libboost_chrono-mt.dylib \
-        $$OPENSSL_LIB_PATH/libssl.a \
-        $$OPENSSL_LIB_PATH/libcrypto.a
-    }
-
-    DEFINES += MAC_OSX MSG_NOSIGNAL=0
-    # osx 10.9 has changed the stdlib default to libc++. To prevent some link error, you may need to use libstdc++
-    QMAKE_CXXFLAGS += -stdlib=libstdc++
-
-    ICON = src/qt/res/icons/beancash.icns
-    TARGET = "Beancash-Qt"
-
-    QMAKE_CFLAGS_THREAD += -pthread
-    QMAKE_CXXFLAGS_THREAD += -pthread
+isEmpty(BOOST_INCLUDE_PATH) {
+    macx:BOOST_INCLUDE_PATH = /opt/local/include
 }
 
 windows:DEFINES += WIN32
-windows:RC_FILE = src/qt/res/Beancash-qt.rc
+windows:RC_FILE = src/qt/res/bitcoin-qt.rc
 
 windows:!contains(MINGW_THREAD_BUGFIX, 0) {
     # At least qmake's win32-g++-cross profile is missing the -lmingwthrd
@@ -561,13 +474,25 @@ windows:!contains(MINGW_THREAD_BUGFIX, 0) {
     QMAKE_LIBS_QT_ENTRY = -lmingwthrd $$QMAKE_LIBS_QT_ENTRY
 }
 
+macx:HEADERS += src/qt/macdockiconhandler.h
+macx:OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm
+macx:LIBS += -framework Foundation -framework ApplicationServices -framework AppKit
+macx:DEFINES += MAC_OSX MSG_NOSIGNAL=0
+macx:ICON = src/qt/res/icons/bitcoin.icns
+macx:TARGET = "Beancash-Qt"
+macx:QMAKE_CFLAGS_THREAD += -pthread
+macx:QMAKE_LFLAGS_THREAD += -pthread
+macx:QMAKE_CXXFLAGS_THREAD += -pthread
+macx:QMAKE_INFO_PLIST = share/qt/Info.plist
+
 # Set libraries and includes at end, to use platform-defined defaults if not overridden
-INCLUDEPATH += $$BOOST_INCLUDE_PATH $$BDB_INCLUDE_PATH $$OPENSSL_INCLUDE_PATH $$QRENCODE_INCLUDE_PATH
-LIBS += $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,)
+INCLUDEPATH += $$SECP256K1_INCLUDE_PATH $$BOOST_INCLUDE_PATH $$BDB_INCLUDE_PATH $$OPENSSL_INCLUDE_PATH $$QRENCODE_INCLUDE_PATH
+LIBS += $$join(SECP256K1_LIB_PATH,,-L,) $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,)
 LIBS += -lssl -lcrypto -ldb_cxx$$BDB_LIB_SUFFIX
 # -lgdi32 has to happen after -lcrypto (see  #681)
 windows:LIBS += -lws2_32 -lshlwapi -lmswsock -lole32 -loleaut32 -luuid -lgdi32
-LIBS += -lboost_system$$BOOST_LIB_SUFFIX -lboost_filesystem$$BOOST_LIB_SUFFIX -lboost_program_options$$BOOST_LIB_SUFFIX -lboost_thread$$BOOST_LIB_SUFFIX
+LIBS += -lsecp256k1
+LIBS += -lboost_system$$BOOST_LIB_SUFFIX -lboost_filesystem$$BOOST_LIB_SUFFIX -lboost_program_options$$BOOST_LIB_SUFFIX -lboost_thread$$BOOST_THREAD_LIB_SUFFIX
 windows:LIBS += -lboost_chrono$$BOOST_LIB_SUFFIX
 
 contains(RELEASE, 1) {
@@ -580,11 +505,6 @@ contains(RELEASE, 1) {
 !windows:!macx {
     DEFINES += LINUX
     LIBS += -lrt -ldl
-}
-
-netbsd-*|freebsd-*|openbsd-* {
-    # libexecinfo is needed for back trace
-    LIBS += -lexecinfo
 }
 
 system($$QMAKE_LRELEASE -silent $$_PRO_FILE_)
