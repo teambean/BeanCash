@@ -990,7 +990,7 @@ void BitbeanGUI::updateStakingIcon()
             {
                 text = tr("%n minute(s)", "", nEstimateTime/60);
             }
-            else if (nEstimateTime < 24*60*60)
+            else if (nEstimateTime < 72*60*60)
             {
                 text = tr("%n hour(s)", "", nEstimateTime/(60*60));
             }
