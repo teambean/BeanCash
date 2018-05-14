@@ -41,5 +41,5 @@ cd src && \
 ```
 
 If this guide helped you compile your wallet without having the unnecessary headaches the "official" guides would give you<br />
-and you want to buy me a beer for it:<br />
+and you want to buy me a beer for it, it would be appreciated:<br />
 Beancash: 2HaJKvzBwnB3VMjHNPUtiqjfHBXk4aiKRC
