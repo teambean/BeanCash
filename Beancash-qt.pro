@@ -175,43 +175,39 @@ QMAKE_CXXFLAGS_WARN_ON = -fdiagnostics-show-option -Wall -Wextra -Wno-ignored-qu
 
 # Input
 DEPENDPATH += src src/json src/qt
-HEADERS += src/qt/bitcoingui.h \
+HEADERS += src/qt/bitbeangui.h \
     src/qt/transactiontablemodel.h \
     src/qt/addresstablemodel.h \
     src/qt/optionsdialog.h \
-    src/qt/coincontroldialog.h \
-    src/qt/coincontroltreewidget.h \
-    src/qt/sendcoinsdialog.h \
+    src/qt/beancontroldialog.h \
+    src/qt/beancontroltreewidget.h \
+    src/qt/sendbeansdialog.h \
     src/qt/addressbookpage.h \
     src/qt/signverifymessagedialog.h \
     src/qt/aboutdialog.h \
     src/qt/editaddressdialog.h \
-    src/qt/bitcoinaddressvalidator.h \
+    src/qt/bitbeanaddressvalidator.h \
     src/alert.h \
     src/addrman.h \
     src/base58.h \
     src/bignum.h \
-    src/chainparams.h \
-    src/chainparamsseeds.h \
     src/checkpoints.h \
     src/compat.h \
-    src/coincontrol.h \
+    src/beancontrol.h \
     src/sync.h \
     src/util.h \
-    src/hash.h \
     src/uint256.h \
     src/kernel.h \
     src/scrypt.h \
     src/pbkdf2.h \
     src/serialize.h \
-    src/core.h \
+    src/strlcpy.h \
     src/main.h \
     src/miner.h \
     src/net.h \
     src/key.h \
     src/db.h \
     src/txdb.h \
-    src/txmempool.h \
     src/walletdb.h \
     src/script.h \
     src/init.h \
@@ -231,81 +227,53 @@ HEADERS += src/qt/bitcoingui.h \
     src/qt/guiconstants.h \
     src/qt/optionsmodel.h \
     src/qt/monitoreddatamapper.h \
-    src/qt/trafficgraphwidget.h \
     src/qt/transactiondesc.h \
     src/qt/transactiondescdialog.h \
-    src/qt/bitcoinamountfield.h \
+    src/qt/bitbeanamountfield.h \
     src/wallet.h \
     src/keystore.h \
     src/qt/transactionfilterproxy.h \
     src/qt/transactionview.h \
     src/qt/walletmodel.h \
-    src/rpcclient.h \
-    src/rpcprotocol.h \
-    src/rpcserver.h \
-    src/timedata.h \
+    src/bitbeanrpc.h \
     src/qt/overviewpage.h \
     src/qt/csvmodelwriter.h \
     src/crypter.h \
-    src/qt/sendcoinsentry.h \
+    src/qt/sendbeansentry.h \
     src/qt/qvalidatedlineedit.h \
-    src/qt/bitcoinunits.h \
+    src/qt/bitbeanunits.h \
     src/qt/qvaluecombobox.h \
     src/qt/askpassphrasedialog.h \
     src/protocol.h \
     src/qt/notificator.h \
-    src/qt/paymentserver.h \
+    src/qt/qtipcserver.h \
     src/allocators.h \
     src/ui_interface.h \
     src/qt/rpcconsole.h \
     src/version.h \
     src/netbase.h \
     src/clientversion.h \
-    src/threadsafety.h \
-    src/tinyformat.h \
-    src/stealth.h \
-    src/qt/flowlayout.h \
-    src/qt/darksendconfig.h \
-    src/masternode.h \
-    src/keepass.h \
-    src/darksend.h \
-    src/instantx.h \
-    src/activemasternode.h \
-    src/spork.h \
-    src/crypto/common.h \
-    src/crypto/hmac_sha256.h \
-    src/crypto/hmac_sha512.h \
-    src/crypto/rfc6979_hmac_sha256.h \
-    src/crypto/ripemd160.h \
-    src/crypto/sha1.h \
-    src/crypto/sha256.h \
-    src/crypto/sha512.h \
-    src/eccryptoverify.h \
-    src/qt/masternodemanager.h
+    src/qt/macnotificationhandler.h
 
-SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
+SOURCES += src/qt/beancash.cpp src/qt/bitbeangui.cpp \
     src/qt/transactiontablemodel.cpp \
     src/qt/addresstablemodel.cpp \
     src/qt/optionsdialog.cpp \
-    src/qt/sendcoinsdialog.cpp \
-    src/qt/coincontroldialog.cpp \
-    src/qt/coincontroltreewidget.cpp \
+    src/qt/sendbeansdialog.cpp \
+    src/qt/beancontroldialog.cpp \
+    src/qt/beancontroltreewidget.cpp \
     src/qt/addressbookpage.cpp \
     src/qt/signverifymessagedialog.cpp \
     src/qt/aboutdialog.cpp \
     src/qt/editaddressdialog.cpp \
-    src/qt/bitcoinaddressvalidator.cpp \
+    src/qt/bitbeanaddressvalidator.cpp \
     src/alert.cpp \
-    src/chainparams.cpp \
     src/version.cpp \
     src/sync.cpp \
-    src/txmempool.cpp \
     src/util.cpp \
-    src/hash.cpp \
     src/netbase.cpp \
     src/key.cpp \
     src/script.cpp \
-    src/core.cpp \
     src/main.cpp \
     src/miner.cpp \
     src/init.cpp \
@@ -319,38 +287,33 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/qt/transactionrecord.cpp \
     src/qt/optionsmodel.cpp \
     src/qt/monitoreddatamapper.cpp \
-    src/qt/trafficgraphwidget.cpp \
     src/qt/transactiondesc.cpp \
     src/qt/transactiondescdialog.cpp \
-    src/qt/bitcoinstrings.cpp \
-    src/qt/bitcoinamountfield.cpp \
+    src/qt/bitbeanstrings.cpp \
+    src/qt/bitbeanamountfield.cpp \
     src/wallet.cpp \
     src/keystore.cpp \
     src/qt/transactionfilterproxy.cpp \
     src/qt/transactionview.cpp \
     src/qt/walletmodel.cpp \
-    src/rpcclient.cpp \
-    src/rpcprotocol.cpp \
-    src/rpcserver.cpp \
+    src/bitbeanrpc.cpp \
     src/rpcdump.cpp \
-    src/rpcmisc.cpp \
     src/rpcnet.cpp \
     src/rpcmining.cpp \
     src/rpcwallet.cpp \
     src/rpcblockchain.cpp \
     src/rpcrawtransaction.cpp \
-    src/timedata.cpp \
     src/qt/overviewpage.cpp \
     src/qt/csvmodelwriter.cpp \
     src/crypter.cpp \
-    src/qt/sendcoinsentry.cpp \
+    src/qt/sendbeansentry.cpp \
     src/qt/qvalidatedlineedit.cpp \
-    src/qt/bitcoinunits.cpp \
+    src/qt/bitbeanunits.cpp \
     src/qt/qvaluecombobox.cpp \
     src/qt/askpassphrasedialog.cpp \
     src/protocol.cpp \
     src/qt/notificator.cpp \
-    src/qt/paymentserver.cpp \
+    src/qt/qtipcserver.cpp \
     src/qt/rpcconsole.cpp \
     src/noui.cpp \
     src/kernel.cpp \
@@ -359,57 +322,45 @@ SOURCES += src/qt/bitcoin.cpp src/qt/bitcoingui.cpp \
     src/scrypt-x86_64.S \
     src/scrypt.cpp \
     src/pbkdf2.cpp \
-    src/stealth.cpp \
-    src/qt/flowlayout.cpp \
-    src/qt/darksendconfig.cpp \
-    src/masternode.cpp \
-    src/keepass.cpp \
-    src/darksend.cpp \
-    src/rpcdarksend.cpp \
-    src/instantx.cpp \
-    src/activemasternode.cpp \
-    src/spork.cpp \
-    src/masternodeconfig.cpp \
-    src/crypto/hmac_sha256.cpp \
-    src/crypto/hmac_sha512.cpp \
-    src/crypto/rfc6979_hmac_sha256.cpp \
-    src/crypto/ripemd160.cpp \
-    src/crypto/sha1.cpp \
-    src/crypto/sha256.cpp \
-    src/crypto/sha512.cpp \
-    src/eccryptoverify.cpp \
-    src/qt/masternodemanager.cpp
 
 RESOURCES += \
-    src/qt/bitcoin.qrc
+    src/qt/beancash.qrc
 
 FORMS += \
-    src/qt/forms/coincontroldialog.ui \
-    src/qt/forms/sendcoinsdialog.ui \
+    src/qt/forms/beancontroldialog.ui \
+    src/qt/forms/sendbeansdialog.ui \
     src/qt/forms/addressbookpage.ui \
     src/qt/forms/signverifymessagedialog.ui \
     src/qt/forms/aboutdialog.ui \
     src/qt/forms/editaddressdialog.ui \
     src/qt/forms/transactiondescdialog.ui \
     src/qt/forms/overviewpage.ui \
-    src/qt/forms/sendcoinsentry.ui \
+    src/qt/forms/sendbeansentry.ui \
     src/qt/forms/askpassphrasedialog.ui \
     src/qt/forms/rpcconsole.ui \
     src/qt/forms/optionsdialog.ui \
-    src/qt/forms/darksendconfig.ui \
-    src/qt/forms/masternodemanager.ui
 
 contains(USE_QRCODE, 1) {
-HEADERS += src/qt/qrcodedialog.h
-SOURCES += src/qt/qrcodedialog.cpp
-FORMS += src/qt/forms/qrcodedialog.ui
+    HEADERS += src/qt/qrcodedialog.h
+    SOURCES += src/qt/qrcodedialog.cpp
+    FORMS += src/qt/forms/qrcodedialog.ui
+}
+
+contains(BEANCASH_QT_TEST, 1) {
+    SOURCES += src/qt/test/test_main.cpp \
+        src/qt/test/uritests.cpp
+    HEADERS += src/qt/test/uritests.h
+    DEPENDPATH += src/qt/test
+    QT += testlib
+    TARGET = Beancash-qt_test
+    DEFINES += BEANCASH_QT_TEST
 }
 
 CODECFORTR = UTF-8
 
 # for lrelease/lupdate
-# also add new translations to src/qt/bitcoin.qrc under translations/
-TRANSLATIONS = $$files(src/qt/locale/bitcoin_*.ts)
+# also add new translations to src/qt/beancash.qrc under translations/
+TRANSLATIONS = $$files(src/qt/locale/beancash_*.ts)
 
 isEmpty(QMAKE_LRELEASE) {
     win32:QMAKE_LRELEASE = $$[QT_INSTALL_BINS]\\lrelease.exe
@@ -426,7 +377,7 @@ QMAKE_EXTRA_COMPILERS += TSQM
 
 # "Other files" to show in Qt Creator
 OTHER_FILES += \
-    doc/*.rst doc/*.txt doc/README README.md res/bitcoin-qt.rc
+    doc/*.rst doc/*.txt doc/README README.md res/Beancash-qt.rc
 
 # platform specific defaults, if not overridden on command line
 isEmpty(BOOST_LIB_SUFFIX) {
