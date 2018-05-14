@@ -24,9 +24,9 @@ qmake "USE_UPNP=1" Beancash-qt.pro
 make
 ```
 
-###Beancash daemon Compile###
-###(Recommend Daemon)###
-###With UPNP:###
+###Beancash daemon Compile###<br />
+(Recommend Daemon)<br />
+With UPNP:<br />
 ```
 cd src && \
     make -f makefile.unix && \
