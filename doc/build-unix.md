@@ -25,14 +25,8 @@ apt-get -y install libqt5gui5 libqt5core5a libqt5dbus5 qttools5-dev qttools5-dev
 ###Beancash QT Compile###
 ```
 git clone -b non-static --single-branch https://github.com/Crazyhead90/BeanCash.git Beancash
-```
-```
 cd Beancash
-```
-```
 qmake "USE_UPNP=1" Beancash-qt.pro
-```
-```
 make
 ```
 
