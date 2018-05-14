@@ -15,8 +15,6 @@ greaterThan(QT_MAJOR_VERSION, 4) {
 
 windows {
 	DEPS_PATH = /c/deps
-	SECP256K1_LIB_PATH = src/secp256k1/.libs
-	SECP256K1_INCLUDE_PATH = src/secp256k1/include
 	MINIUPNPC_LIB_PATH = $$DEPS_PATH/miniupnpc
 	MINIUPNPC_INCLUDE_PATH = $$DEPS_PATH
 	BOOST_LIB_PATH = $$DEPS_PATH/boost_1_58_0/stage/lib
@@ -30,8 +28,6 @@ windows {
 }
 linux {
 	DEPS_PATH = $(HOME)/deps
-	SECP256K1_LIB_PATH = src/secp256k1/.libs
-	SECP256K1_INCLUDE_PATH = src/secp256k1/include
 ## comment below dependencies if u don't need to compile a static binary on linux
 	MINIUPNPC_LIB_PATH = $$DEPS_PATH/miniupnpc
 	MINIUPNPC_INCLUDE_PATH = $$DEPS_PATH
