@@ -8,6 +8,11 @@ DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE __NO_SYSTEM_INCLU
 CONFIG += no_include_pwd
 CONFIG += thread
 
+reaterThan(QT_MAJOR_VERSION, 4) {
+    QT += widgets
+    DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
+}
+
 #USE RELEASE=1
 #USE_UPNP=- # default 1 ('-' means don't use)
 #USE_O3=1  # default 0
