@@ -1,5 +1,5 @@
 TEMPLATE = app
-TARGET = Linda-qt
+TARGET = Beancash-qt
 VERSION = 1.1.2.2
 INCLUDEPATH += src src/json src/qt
 QT += network
