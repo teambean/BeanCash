@@ -40,6 +40,5 @@ cd src && \
     strip Beancashd
 ```
 
-If this guide helped you compile your wallet without having the unnecessary headaches the "official" guides would give you<br />
-and you want to buy me a beer for it, it would be appreciated:<br />
+If this guide helped you compile your wallet without having the unnecessary wasted time and headaches the "official" guides would give you and you want to buy me a beer for it, it would be appreciated:<br />
 Beancash: 2HaJKvzBwnB3VMjHNPUtiqjfHBXk4aiKRC
