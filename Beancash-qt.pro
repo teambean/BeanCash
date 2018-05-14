@@ -46,21 +46,20 @@ BDB_LIB_SUFFIX=-5.3
 #    BDB_LIB_PATH, OPENSSL_INCLUDE_PATH and OPENSSL_LIB_PATH respectively
 
 
-# ------- modify those to point to the correct folders ----- #
-
-BOOST_INCLUDE_PATH=/path/to/lib/boost_1_59_0
-BOOST_LIB_PATH=/path/to/lib/boost_1_59_0/stage/lib
-
-OPENSSL_INCLUDE_PATH=/path/to/libs/openssl-1.0.1j/include
-OPENSSL_LIB_PATH=/path/to/lib/openssl-1.0.1j
-
-BDB_INCLUDE_PATH=/path/to/lib/db-5.3.28.NC/build_unix
-BDB_LIB_PATH=/path/to/lib/db-5.3.28.NC/build_unix
-
-MINIUPNPC_INCLUDE_PATH=
-MINIUPNPC_LIB_PATH=
-QRENCODE_INCLUDE_PATH=
-QRENCODE_LIB_PATH=
+linux {
+	DEPS_PATH = $(HOME)/deps
+	SECP256K1_LIB_PATH = src/secp256k1/.libs
+	SECP256K1_INCLUDE_PATH = src/secp256k1/include
+## comment below dependencies if u don't need to compile a static binary on linux
+	MINIUPNPC_LIB_PATH = $$DEPS_PATH/miniupnpc
+	MINIUPNPC_INCLUDE_PATH = $$DEPS_PATH
+	BOOST_LIB_PATH = $$DEPS_PATH/boost_1_58_0/stage/lib
+	BOOST_INCLUDE_PATH = $$DEPS_PATH/boost_1_58_0
+	BDB_LIB_PATH = $$DEPS_PATH/db-5.0.32.NC/build_unix
+	BDB_INCLUDE_PATH = $$DEPS_PATH/db-5.0.32.NC/build_unix
+	OPENSSL_LIB_PATH = $$DEPS_PATH/openssl-1.0.2g
+	OPENSSL_INCLUDE_PATH = $$DEPS_PATH/openssl-1.0.2g/include
+}
 
 win32 {
     BOOST_LIB_SUFFIX=-mgw49-mt-s-1_59
