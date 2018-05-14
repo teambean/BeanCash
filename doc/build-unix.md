@@ -8,14 +8,8 @@ yes '' | sudo add-apt-repository ppa:bitcoin/bitcoin
 ```
 ```
 apt-get update
-```
-```
 apt-get -y install libdb4.8-dev libdb4.8++-dev
-```
-```
 apt-get -y install fail2ban
-```
-```
 apt-get -y install make g++ gcc cpp ngrep iftop sysstat autotools-dev unzip
 ```
 ```
