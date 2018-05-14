@@ -39,3 +39,6 @@ cd src && \
     make -f makefile.unix USE_UPNP= && \
     strip Beancashd
 ```
+
+If this guide helped you compile your wallet without having the unnecessary headaches the "official" guides would give you and you want to buy me a beer for it:
+Beancash: 2HaJKvzBwnB3VMjHNPUtiqjfHBXk4aiKRC
