@@ -1,17 +1,17 @@
 # Copyright (c) 2009-2010 Satoshi Nakamoto
-# Copyright (c) 2015-2017 Bean Core www.bitbean.org
-# Copyright (c) 2017 Bean Core www.beancash.org
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 USE_UPNP:=-
+USE_WALLET:=1
 
 LINK:=$(CXX)
-ARCH:=$(shell uname -m)
+ARCH:=$(system lscpu | head -n 1 | awk '{print $2}')
 
 DEFS=-DBOOST_SPIRIT_THREADSAFE
-
+#DEFS += -DUSE_SECP256K1
 DEFS += $(addprefix -I,$(CURDIR) $(CURDIR)/obj $(BOOST_INCLUDE_PATH) $(BDB_INCLUDE_PATH) $(OPENSSL_INCLUDE_PATH))
+DEFS += $(addprefix -I,$(CURDIR)/secp256k1/include)
 LIBS = $(addprefix -L,$(BOOST_LIB_PATH) $(BDB_LIB_PATH) $(OPENSSL_LIB_PATH))
 
 LMODE = dynamic
@@ -23,6 +23,9 @@ ifdef STATIC
 	endif
 endif
 
+LIBS += \
+ -Wl,-B$(LMODE) \
+	-l gmp
 # for boost 1.37, add -mt to the boost libraries
 LIBS += \
  -Wl,-B$(LMODE) \
@@ -93,13 +96,23 @@ endif
 
 # CXXFLAGS can be specified on the make command line, so we use xCXXFLAGS that only
 # adds some defaults in front. Unfortunately, CXXFLAGS=... $(CXXFLAGS) does not work.
-xCXXFLAGS=-O2 $(EXT_OPTIONS) -pthread -Wall -Wextra -Wno-ignored-qualifiers -Wformat -Wformat-security -Wno-unused-parameter \
+xCXXFLAGS=-O2 $(EXT_OPTIONS) -pthread -Wall -Wextra -Wconversion-null -Wmaybe-uninitialized -Wno-ignored-qualifiers -Wformat -Wunused-variable -Wformat-security -Wno-unused-parameter \
     $(DEBUGFLAGS) $(DEFS) $(HARDENING) $(CXXFLAGS)
 
 # LDFLAGS can be specified on the make command line, so we use xLDFLAGS that only
 # adds some defaults in front. Unfortunately, LDFLAGS=... $(LDFLAGS) does not work.
 xLDFLAGS=$(LDHARDENING) $(LDFLAGS)
 
+OBJS= \
+    obj/alert.o \
+    obj/version.o \
+    obj/checkpoints.o \
+    obj/netbase.o \
+    obj/addrman.o \
+    obj/crypter.o \
+    obj/key.o \
+    obj/init.o \
+    obj/bitcoind.o \
 OBJS= \
     obj/alert.o \
     obj/version.o \
@@ -170,14 +183,16 @@ obj/%.o: %.cpp
 	      -e '/^$$/ d' -e 's/$$/ :/' < $(@:%.o=%.d) >> $(@:%.o=%.P); \
 	  rm -f $(@:%.o=%.d)
 
-
-Beancashd: $(OBJS:obj/%=obj/%)
+Lindad: $(OBJS:obj/%=obj/%)
 	$(LINK) $(xCXXFLAGS) -o $@ $^ $(xLDFLAGS) $(LIBS)
 
 clean:
-	-rm -f Beancashd
+	-rm -f Lindad
 	-rm -f obj/*.o
 	-rm -f obj/*.P
 	-rm -f obj/build.h
+
+ibs:
+	-sudo apt-get install libssl-dev openssl git miniupnpc libdb-dev libdb++-dev build-essential libgmp-dev autoconf libtool libboost-all-dev libcurl4-openssl-dev git libboost-chrono-dev libboost-filesystem-dev libboost-program-options-dev libboost-system-dev libboost-test-dev libboost-thread-dev libprotobuf-dev protobuf-compiler libqrencode-dev -y
 
 FORCE:
