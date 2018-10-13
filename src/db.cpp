@@ -39,8 +39,9 @@ void CDBEnv::EnvShutdown()
     int ret = dbenv.close(0);
     if (ret != 0)
         printf("EnvShutdown exception: %s (%d)\n", DbEnv::strerror(ret), ret);
-    if (!fMockDb)
-        DbEnv(0u).remove(strPath.c_str(), 0);
+    if (!fMockDb) {
+        DbEnv((u_int32_t)0).remove(strPath.c_str(), 0);
+    }
 }
 
 CDBEnv::CDBEnv() : dbenv(DB_CXX_NO_EXCEPTIONS)
