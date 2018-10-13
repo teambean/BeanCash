@@ -1,12 +1,10 @@
 // Copyright (c) 2011-2012 The Bitcoin developers
-// Copyright (c) 2015 Bean Core www.beancash.org
+// Copyright (c) 2015-2018 Bean Core www.beancash.org
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "sync.h"
 #include "util.h"
-
-#include <boost/foreach.hpp>
 
 #ifdef DEBUG_LOCKCONTENTION
 void PrintLockContention(const char* pszName, const char* pszFile, int nLine)
@@ -59,14 +57,14 @@ static void potential_deadlock_detected(const std::pair<void*, void*>& mismatch,
 {
     printf("POTENTIAL DEADLOCK DETECTED\n");
     printf("Previous lock order was:\n");
-    BOOST_FOREACH(const PAIRTYPE(void*, CLockLocation)& i, s2)
+    for (const std::pair<void*, CLockLocation>& i : s2)
     {
         if (i.first == mismatch.first) printf(" (1)");
         if (i.first == mismatch.second) printf(" (2)");
         printf(" %s\n", i.second.ToString().c_str());
     }
     printf("Current lock order is:\n");
-    BOOST_FOREACH(const PAIRTYPE(void*, CLockLocation)& i, s1)
+    for (const std::pair<void*, CLockLocation>& i : s1)
     {
         if (i.first == mismatch.first) printf(" (1)");
         if (i.first == mismatch.second) printf(" (2)");
@@ -85,7 +83,7 @@ static void push_lock(void* c, const CLockLocation& locklocation, bool fTry)
     (*lockstack).push_back(std::make_pair(c, locklocation));
 
     if (!fTry) {
-        BOOST_FOREACH(const PAIRTYPE(void*, CLockLocation)& i, (*lockstack)) {
+        for (const std::pair<void*, CLockLocation>& i : (*lockstack)) {
             if (i.first == c) break;
 
             std::pair<void*, void*> p1 = std::make_pair(i.first, c);

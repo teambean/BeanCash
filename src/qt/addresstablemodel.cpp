@@ -1,3 +1,5 @@
+// Copyright (c) 2018 Bean Core www.beancash.org
+
 #include "addresstablemodel.h"
 #include "guiutil.h"
 #include "walletmodel.h"
@@ -59,7 +61,7 @@ public:
         cachedAddressTable.clear();
         {
             LOCK(wallet->cs_wallet);
-            BOOST_FOREACH(const PAIRTYPE(CTxDestination, std::string)& item, wallet->mapAddressBook)
+            for (const std::pair<CTxDestination, std::string>& item : wallet->mapAddressBook)
             {
                 const CBitbeanAddress& address = item.first;
                 const std::string& strName = item.second;

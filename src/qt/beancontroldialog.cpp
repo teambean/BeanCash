@@ -1,3 +1,5 @@
+// Copyright (c) 2018 Bean Core www.beancash.org
+
 #include "beancontroldialog.h"
 #include "ui_beancontroldialog.h"
 
@@ -449,7 +451,7 @@ void BeanControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
     beanControl->ListSelected(vBeanControl);
     model->getOutputs(vBeanControl, vOutputs);
 
-    BOOST_FOREACH(const COutput& out, vOutputs)
+    for (const COutput& out : vOutputs)
     {
         // Quantity
         nQuantity++;
@@ -590,7 +592,7 @@ void BeanControlDialog::updateView()
     map<QString, vector<COutput> > mapBeans;
     model->listBeans(mapBeans);
 
-    BOOST_FOREACH(PAIRTYPE(QString, vector<COutput>) beans, mapBeans)
+    for (std::pair<QString, vector<COutput>> beans : mapBeans)
     {
         QTreeWidgetItem *itemWalletAddress = new QTreeWidgetItem();
         QString sWalletAddress = beans.first;
@@ -622,7 +624,7 @@ void BeanControlDialog::updateView()
         double dPrioritySum = 0;
         int nChildren = 0;
         int nInputSum = 0;
-        BOOST_FOREACH(const COutput& out, beans.second)
+        for (const COutput& out : beans.second)
         {
             int nInputSize = 148; // 180 if uncompressed public key
             nSum += out.tx->vout[out.i].nValue;
