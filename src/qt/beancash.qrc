@@ -93,4 +93,7 @@
         <file alias="zh_CN">locale/beancash_zh_CN.ts</file>
         <file alias="zh_TW">locale/beancash_zh_TW.ts</file>
     </qresource>
+<qresource prefix="/">
+	<file>res/fonts/helvetica</file>
+</qresource>
 </RCC>

@@ -28,6 +28,8 @@ BitbeanAmountField::BitbeanAmountField(QWidget *parent):
     layout->addWidget(amount);
     unit = new QValueComboBox(this);
     unit->setModel(new BitbeanUnits(this));
+    int width = unit->minimumSizeHint().width();
+    unit->setMinimumWidth(width);
     layout->addWidget(unit);
     layout->addStretch(1);
     layout->setContentsMargins(0,0,0,0);
