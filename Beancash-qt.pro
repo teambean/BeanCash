@@ -6,6 +6,7 @@ DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE __NO_SYSTEM_INCLU
 CONFIG += no_include_pwd
 CONFIG += thread
 CONFIG += C++11
+QMAKE_CXXFLAGS += -std=c++11
 
 win32:os2 {
     CONFIG += release
@@ -261,7 +262,8 @@ HEADERS += src/qt/bitbeangui.h \
     src/clientversion.h \
     src/qt/macnotificationhandler.h
 
-SOURCES += src/qt/beancash.cpp src/qt/bitbeangui.cpp \
+SOURCES += src/qt/beancash.cpp \
+    src/qt/bitbeangui.cpp \
     src/qt/transactiontablemodel.cpp \
     src/qt/addresstablemodel.cpp \
     src/qt/optionsdialog.cpp \
@@ -465,7 +467,7 @@ isEmpty(BOOST_LIB_PATH) {
     QMAKE_CXXFLAGS += -stdlib=libstdc++
 
     ICON = src/qt/res/icons/beancash.icns
-    TARGET = "Beancash-Qt"
+    TARGET = "Beancash-qt"
 
     QMAKE_CFLAGS_THREAD += -pthread
     QMAKE_CXXFLAGS_THREAD += -pthread

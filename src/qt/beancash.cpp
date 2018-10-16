@@ -145,7 +145,7 @@ int main(int argc, char *argv[])
 
     // Application identification (must be set before OptionsModel is initialized,
     // as it is used to locate QSettings)
-    app.setOrganizationName("Beancash");
+    app.setOrganizationName("Bean Core");
     //XXX app.setOrganizationDomain("beancash.org");
     if(GetBoolArg("-testnet")) // Separate UI settings for testnet
         app.setApplicationName("Beancash-qt-testnet");
