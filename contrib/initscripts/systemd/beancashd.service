@@ -1,0 +1,11 @@
+[unit]
+Description=Bean Cash daemon service
+After=network.target
+
+[Service]
+Type=simple
+User=beancash
+ExecStart/opt/beancash/beancashd
+
+[Install]
+WantedBy=multi-user.target

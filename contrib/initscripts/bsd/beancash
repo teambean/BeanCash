@@ -1,0 +1,69 @@
+ 
+#!/bin/sh
+
+# PROVIDE: beancash
+# REQUIRE: LOGIN
+# KEYWORD: shutdown
+
+#
+# Add the following lines to /etc/rc.conf.local or /etc/rc.conf
+# to enable this service:
+#
+# beancash_enable (bool): Set to NO by default. Set this variable to YES if you want to enable Bean Cash daemon.
+# beancash_config (path): Set to /usr/local/etc/Beancash.conf by default.
+# beancash_user:  The user account Bean Cash daemon runs as. It uses 'root' user by default.
+# beancash_group: The group account Bean Cash daemon runs as. It uses 'wheel' group by default.
+# beancash_datadir (str): Default to "/var/db/BitBean". Base data directory.
+
+. /etc/rc.subr
+
+name=beancash
+rcvar=beancash_enable
+
+: ${beancash_enable:=NO}
+: ${beancash_config=/usr/local/etc/Beancash.conf}
+: ${beancash_datadir=/var/db/BitBean}
+: ${beancash_user="root"}
+: ${beancash_group="wheel"}
+
+required_files=${beancash_config}
+command=/usr/local/bin/beancashd
+beancash_chdir=${beancash_datadir}
+pidfile="${beancash_datadir}/beancash.pid"
+stop_cmd=beancash_stop
+command_args="-conf=${beancash_config} -datadir=${beancash_datadir} -daemon -pid=${pidfile}"
+start_precmd="${name}_prestart"
+
+beancash_create_datadir()
+{
+	echo "Creating data directory"
+	eval mkdir -p ${beancash_datadir}
+	[ $? -eq 0 ] && chown -R ${beancash_user}:${beancash_group} ${beancash_datadir}
+}
+
+beancash_prestart()
+{
+	if [ ! -d "${beancash_datadir}/." ]; then
+		beancash_create_datadir || return 1
+	fi
+}
+
+beancash_requirepidfile()
+{
+	if [ ! "0`check_pidfile ${pidfile} ${command}`" -gt 1 ]; then
+		echo "${name} not running? (check $pidfile)."
+		exit 1
+	fi
+}
+
+beancash_stop()
+{
+    beancash_requirepidfile
+
+	echo "Stopping ${name}."
+	eval ${command} -conf=${beancash_config} -datadir=${beancash_datadir} stop
+	wait_for_pids ${rc_pid}
+}
+
+load_rc_config $name
+run_rc_command "$1"
