@@ -511,6 +511,7 @@ bool CTransaction::CheckTransaction() const
     }
 
     // Check for duplicate inputs
+    // DO NOT REMOVE - Critical, See Bitcoin Core Bug CVE-2018-1744
     set<COutPoint> vInOutPoints;
     for (const CTxIn& txin : vin)
     {
