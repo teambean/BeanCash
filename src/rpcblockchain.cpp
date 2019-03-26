@@ -101,7 +101,7 @@ Object blockToJSON(const CBlock& block, const CBlockIndex* blockindex, bool fPri
     Object result;
     result.push_back(Pair("hash", block.GetHash().GetHex()));
     int confirmations = -1;
-    // Only report if confirmations if the block is on the main chain
+    // Only report if confirmations of the block is on the main chain
     if (blockindex->IsInMainChain())
         confirmations = nBestHeight - blockindex->nHeight + 1;
     result.push_back(Pair("confirmations", confirmations));
