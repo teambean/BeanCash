@@ -107,9 +107,7 @@ static void ipcThread2(void* pArg)
             uiInterface.ThreadSafeHandleURI(std::string(buffer, nSize));
             MilliSleep(1000);
         }
-
-        if (fShutdown)
-            break;
+    boost::this_thread::interruption_point();
     }
 
     // Remove message queue

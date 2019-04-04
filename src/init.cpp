@@ -41,69 +41,48 @@ enum Checkpoints::CPMode CheckpointsMode;
 // Shutdown
 //
 
-void ExitTimeout(void* parg)
-{
-#ifdef WIN32
-    MilliSleep(5000);
-    ExitProcess(0);
-#endif
-}
+volatile bool fRequestShutdown = false;
 
 void StartShutdown()
 {
-#ifdef QT_GUI
-    // ensure we leave the Qt main loop for a clean GUI exit (Shutdown() is called in bitbean.cpp afterwards)
-    uiInterface.QueueShutdown();
-#else
-    // Without UI, Shutdown() can simply be started in a new thread
-    NewThread(Shutdown, NULL);
-#endif
+fRequestShutdown = true;
 }
 
-void Shutdown(void* parg)
+void Shutdown()
 {
     static CCriticalSection cs_Shutdown;
-    static bool fTaken;
+    TRY_LOCK(cs_Shutdown, lockShutdown);
+    if (!lockShutdown) return;
 
-    // Make this thread recognisable as the shutdown thread
     RenameThread("Beancash-shutoff");
-
-    bool fFirstThread = false;
-    {
-        TRY_LOCK(cs_Shutdown, lockShutdown);
-        if (lockShutdown)
-        {
-            fFirstThread = !fTaken;
-            fTaken = true;
-        }
-    }
-    static bool fExit;
-    if (fFirstThread)
-    {
-        fShutdown = true;
-        nTransactionsUpdated++;
-//        CTxDB().Close();
-        bitdb.Flush(false);
-        StopNode();
-        bitdb.Flush(true);
-        boost::filesystem::remove(GetPidFile());
-        UnregisterWallet(pwalletMain);
-        delete pwalletMain;
-        NewThread(ExitTimeout, NULL);
-        MilliSleep(50);
-        printf("Beancash exited\n\n");
-        fExit = true;
-#ifndef QT_GUI
-        // ensure non-UI client gets exited here, but let Beancash-qt reach 'return 0;' in bitbean.cpp
+    nTransactionsUpdated++;
+    StopRPCThreads();
+    bitdb.Flush(false);
+    StopeNode();
+    bitdb.Flush(true);
+    boost::filesystem::remove(GetPidFile());
+    UnregisterWallet(pwalletMain);
+    delete pwalletMain;
+    MilliSleep(50);
+    printf("Beancash exited\n\n");
+    #ifndef QT_GUI
+    // ensure non-UI client gets exited here, but let Beancash-qt reach 'return 0;' in beancash.cpp
         exit(0);
-#endif
-    }
-    else
+    #endif
+}
+
+//
+// Signal handlers are very limited in what they are allowed to do
+//
+
+void DetectShutdownThread(boost::thread_group* threadGroup)
+{
+    // Tell main thread to shutdown
+    while (!fRequestShutdown)
     {
-        while (!fExit)
-            MilliSleep(500);
-        MilliSleep(100);
-        ExitThread(0);
+        MilliSleep(200);
+        if (fRequestShutdown)
+            threadGroup->interrupt_all();
     }
 }
 
@@ -128,6 +107,9 @@ void HandleSIGHUP(int)
 #if !defined(QT_GUI)
 bool AppInit(int argc, char* argv[])
 {
+    boost::thread_group threadGroup;
+    boost::thread* DetectShutdownThread = NULL;
+
     bool fRet = false;
     try
     {
@@ -139,7 +121,7 @@ bool AppInit(int argc, char* argv[])
         if (!boost::filesystem::is_directory(GetDataDir(false)))
         {
             fprintf(stderr, "Error: Specified directory does not exist\n");
-            Shutdown(NULL);
+            Shutdown();
         }
         ReadConfigFile(mapArgs, mapMultiArgs);
 
@@ -170,15 +152,28 @@ bool AppInit(int argc, char* argv[])
             exit(ret);
         }
 
-        fRet = AppInit2();
+        DetectShutdownThread = new boost::thread(boost::bind(&DetectShutdownThread, &threadGroup));
+        fRet = AppInit2(threadGroup);
     }
     catch (std::exception& e) {
         PrintException(&e, "AppInit()");
     } catch (...) {
         PrintException(NULL, "AppInit()");
     }
-    if (!fRet)
-        Shutdown(NULL);
+    if (!fRet) {
+        if (DetectShutdownThread)
+          detectShutdownThread->interrupt();
+        threadGroup.interrupt_all();
+    }
+
+    if (DetectShutdownThread()
+    {
+        detectShutdownThread->join();
+        delete detectShutdownThread;
+        detectShutdownThread = NULL;
+    }
+    Shutdown();
+
     return fRet;
 }
 
@@ -187,7 +182,7 @@ int main(int argc, char* argv[])
 {
     bool fRet = false;
 
-    // Connect bitbeand signal handlers
+    // Connect daemon signal handlers
     noui_connect();
 
     fRet = AppInit(argc, argv);
@@ -195,7 +190,7 @@ int main(int argc, char* argv[])
     if (fRet && fDaemon)
         return 0;
 
-    return 1;
+    return (fRet ? 0 : 1);
 }
 #endif
 
@@ -282,6 +277,7 @@ std::string HelpMessage()
         "  -rpcport=<port>        " + _("Listen for JSON-RPC connections on <port> (default: 22461 or testnet: 22463)") + "\n" +
         "  -rpcallowip=<ip>       " + _("Allow JSON-RPC connections from specified IP address") + "\n" +
         "  -rpcconnect=<ip>       " + _("Send commands to node running on <ip> (default: 127.0.0.1)") + "\n" +
+        "  -rpcthreads=<n>        " + _("Use this to set the number of threads to service RPC calls (defult: 4)") + "\n" +
         "  -blocknotify=<cmd>     " + _("Execute command when the best block changes (%s in cmd is replaced by block hash)") + "\n" +
         "  -walletnotify=<cmd>    " + _("Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)") + "\n" +
         "  -confchange            " + _("Require a confirmations for change (default: 0)") + "\n" +
@@ -309,10 +305,10 @@ std::string HelpMessage()
     return strUsage;
 }
 
-/** Initialize beancash.
+/** Initialize Bean cash.
  *  @pre Parameters should be parsed and config file should be read.
  */
-bool AppInit2()
+bool AppInit2(boost::thread_group& threadGroup)
 {
     // ********************************************************* Step 1: setup
 #ifdef _MSC_VER
@@ -422,14 +418,10 @@ bool AppInit2()
 
     bitdb.SetDetach(GetBoolArg("-detachdb", false));
 
-#if !defined(WIN32) && !defined(QT_GUI)
-    fDaemon = GetBoolArg("-daemon");
-#else
-    fDaemon = false;
-#endif
-
     if (fDaemon)
+    {
         fServer = true;
+    }
     else
         fServer = GetBoolArg("-server");
 
@@ -481,29 +473,6 @@ bool AppInit2()
     static boost::interprocess::file_lock lock(pathLockFile.string().c_str());
     if (!lock.try_lock())
         return InitError(strprintf(_("Cannot obtain a lock on data directory %s.  Beancash is probably already running."), strDataDir.c_str()));
-
-#if !defined(WIN32) && !defined(QT_GUI)
-    if (fDaemon)
-    {
-        // Daemonize
-        pid_t pid = fork();
-        if (pid < 0)
-        {
-            fprintf(stderr, "Error: fork() returned %d errno %d\n", pid, errno);
-            return false;
-        }
-        if (pid > 0)
-        {
-            CreatePidFile(GetPidFile(), pid);
-            return true;
-        }
-
-        pid_t sid = setsid();
-        if (sid < 0)
-            fprintf(stderr, "Error: setsid() returned %d errno %d\n", sid, errno);
-    }
-#endif
-
     if (GetBoolArg("-shrinkdebugfile", !fDebug))
         ShrinkDebugFile();
     printf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
@@ -865,11 +834,10 @@ bool AppInit2()
     printf("mapWallet.size() = %" PRIszu "\n",       pwalletMain->mapWallet.size());
     printf("mapAddressBook.size() = %" PRIszu "\n",  pwalletMain->mapAddressBook.size());
 
-    if (!NewThread(StartNode, NULL))
-        InitError(_("Error: could not start node"));
+    StartNode(threadGroup);
 
     if (fServer)
-        NewThread(ThreadRPCServer, NULL);
+        StartRPCThreads();
 
     // ********************************************************* Step 12: finished
 
@@ -882,12 +850,8 @@ bool AppInit2()
      // Add wallet transactions that aren't already in a block to mapTransactions
     pwalletMain->ReacceptWalletTransactions();
 
-#if !defined(QT_GUI)
-    // Loop until process is exit()ed from shutdown() function,
-    // called from ThreadRPCServer thread when a "stop" command is received.
-    while (1)
-        MilliSleep(5000);
-#endif
+    // Run a thread to flush wallet periodically
+    threadGroup.create_thread(boost::bind(&ThreadFlushWalletDB, boost::ref(pwalletMain->strWalletFile)));
 
-    return true;
+    return !fRequestShutdown;
 }

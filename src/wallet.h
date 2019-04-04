@@ -343,7 +343,6 @@ public:
 
     ~CReserveKey()
     {
-        if (!fShutdown)
             ReturnKey();
     }
 
