@@ -730,7 +730,6 @@ static void RPCAcceptHandler(boost::shared_ptr< basic_socket_acceptor<Protocol, 
         delete conn;
     }
 
-    // start HTTP client thread
     else {
         ServiceConnection(conn);
         conn->close();

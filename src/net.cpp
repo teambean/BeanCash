@@ -823,8 +823,7 @@ void ThreadSocketHandler()
         }
         for (CNode* pnode : vNodesCopy)
         {
-            if (fShutdown)
-                return;
+            boost::this_thread::interruption_point();
 
             //
             // Receive
@@ -1022,7 +1021,7 @@ void static ProcessOneShot()
     }
 }
 
-void ThreadOpenConnections2()
+void ThreadOpenConnections()
 {
     // Connect to specific addresses
     if (mapArgs.count("-connect") && mapMultiArgs["-connect"].size() > 0)
@@ -1153,11 +1152,8 @@ void ThreadOpenAddedConnections()
                 OpenNetworkConnection(addr, &grant, strAddNode.c_str());
                 MilliSleep(500);
             }
-            vnThreadsRunning[THREAD_ADDEDCONNECTIONS]--;
             MilliSleep(120000); // Retry every 2 minutes
-            vnThreadsRunning[THREAD_ADDEDCONNECTIONS]++;
         }
-        return;
     }
 
     for (unsigned int i = 0; true; i++)
@@ -1224,7 +1220,7 @@ bool OpenNetworkConnection(const CAddress& addrConnect, CSemaphoreGrant *grantOu
         return false;
 
     CNode* pnode = ConnectNode(addrConnect, strDest);
-   boost::this_thread::interruption_point();
+    boost::this_thread::interruption_point();
     if (!pnode)
         return false;
     if (grantOutbound)
@@ -1235,13 +1231,6 @@ bool OpenNetworkConnection(const CAddress& addrConnect, CSemaphoreGrant *grantOu
 
     return true;
 }
-
-
-
-
-
-
-
 
 void ThreadMessageHandler()
 {
