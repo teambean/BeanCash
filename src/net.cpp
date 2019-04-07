@@ -1022,26 +1022,6 @@ void static ProcessOneShot()
     }
 }
 
-void static ThreadStakeMiner(void* parg)
-{
-    printf("ThreadStakeMiner started\n");
-    CWallet* pwallet = (CWallet*)parg;
-    try
-    {
-        vnThreadsRunning[THREAD_STAKE_MINER]++;
-        StakeMiner(pwallet);
-        vnThreadsRunning[THREAD_STAKE_MINER]--;
-    }
-    catch (std::exception& e) {
-        vnThreadsRunning[THREAD_STAKE_MINER]--;
-        PrintException(&e, "ThreadStakeMiner()");
-    } catch (...) {
-        vnThreadsRunning[THREAD_STAKE_MINER]--;
-        PrintException(NULL, "ThreadStakeMiner()");
-    }
-    printf("ThreadStakeMiner exiting, %d threads remaining\n", vnThreadsRunning[THREAD_STAKE_MINER]);
-}
-
 void ThreadOpenConnections2()
 {
     // Connect to specific addresses
@@ -1518,7 +1498,7 @@ void StartNode(boost::thread_group& thread_Group)
     if (!GetBoolArg("-sprouting", true))
         printf("Sprouting disabled\n");
     else
-       thread_Group.create_thread(boost::bind(&ThreadStakeMiner, pwalletMain));
+       thread_Group.create_thread(boost::bind(&ThreadSprouting, pwalletMain));
 }
 
 bool StopNode()

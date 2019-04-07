@@ -58,7 +58,7 @@ void Shutdown()
     nTransactionsUpdated++;
     StopRPCThreads();
     bitdb.Flush(false);
-    StopeNode();
+    StopNode();
     bitdb.Flush(true);
     boost::filesystem::remove(GetPidFile());
     UnregisterWallet(pwalletMain);
