@@ -6,7 +6,7 @@
 
 #include "db.h"
 #include "net.h"
-#include "init.h"
+#include "main.h"
 #include "strlcpy.h"
 #include "addrman.h"
 #include "ui_interface.h"
@@ -1443,7 +1443,7 @@ void static Discover()
 
 }
 
-void StartNode(boost::thread_group& thread_Group)
+void StartNode(boost::thread_group& threadGroup)
 {
     // Make this thread recognisable as the startup thread
     RenameThread("Beancash-start");
@@ -1463,13 +1463,13 @@ void StartNode(boost::thread_group& thread_Group)
     // Start threads
     //
 
+    // Send and receive from sockets, accept connections
+    threadGroup.create_thread(boost::bind(&TraceThread<void (*)()>, "net", &ThreadSocketHandler));
+
     if (!GetBoolArg("-dnsseed", true))
         printf("DNS seeding disabled\n");
     else
-        threadGroup.create_thread(boost::bind(&TraceThread<boost::function<void()> >, "dnsseed", &ThreadDNSAddressSeed));
-
-    // Send and receive from sockets, accept connections
-    threadGroup.create_thread(boost::bind(&TraceThread<void (*)()>, "net", &ThreadSocketHandler));
+        threadGroup.create_thread(boost::bind(&TraceThread<void (*)()>, "dnsseed", &ThreadDNSAddressSeed));
 
     // Initiate outbound connections from -addnode
     threadGroup.create_thread(boost::bind(&TraceThread<void (*)()>, "addcon", &ThreadOpenAddedConnections));
@@ -1481,13 +1481,7 @@ void StartNode(boost::thread_group& thread_Group)
     threadGroup.create_thread(boost::bind(&TraceThread<void (*)()>, "msghand", &ThreadMessageHandler));
 
     // Dump network addresses
-    threadGroup.create_thread(boost::bind(&TraceThread<void (*)()>, "dumpaddr", &DumpAddresses, 10000));
-
-    // Mine Proof-of-Bean blocks in the background
-    if (!GetBoolArg("-sprouting", true))
-        printf("Sprouting disabled\n");
-    else
-       thread_Group.create_thread(boost::bind(&ThreadSprouting, pwalletMain));
+    threadGroup.create_thread(boost::bind(&LoopForever<void (*)()>, "dumpaddr", &DumpAddresses, 10000));
 }
 
 bool StopNode()

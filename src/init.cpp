@@ -3,11 +3,12 @@
 // Copyright (c) 2015-2018 Bean Core www.beancash.org
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
+#include "init.h"
+#include "main.h"
 #include "txdb.h"
 #include "walletdb.h"
 #include "bitbeanrpc.h"
 #include "net.h"
-#include "init.h"
 #include "util.h"
 #include "ui_interface.h"
 #include "checkpoints.h"
@@ -77,7 +78,6 @@ void Shutdown()
 
 void DetectShutdownThread(boost::thread_group* threadGroup)
 {
-    // Tell main thread to shutdown
     while (!fRequestShutdown)
     {
         MilliSleep(200);
@@ -351,6 +351,9 @@ bool AppInit2(boost::thread_group& threadGroup)
     sa_hup.sa_flags = 0;
     sigaction(SIGHUP, &sa_hup, NULL);
 #endif
+
+threadGroup.create_thread(boost::bind(&DetectShutdownThread, &threadGroup));
+
 
     // ********************************************************* Step 2: parameter interactions
 
@@ -838,6 +841,12 @@ bool AppInit2(boost::thread_group& threadGroup)
 
     if (fServer)
         StartRPCThreads();
+
+    // Mine Proof-of-Bean blocks in the background
+    if (!GetBoolArg("-sprouting", true))
+        printf("Sprouting disabled\n");
+    else
+        threadGroup.create_thread(boost::bind(&ThreadStakeMiner, pwalletMain));
 
     // ********************************************************* Step 12: finished
 

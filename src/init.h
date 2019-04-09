@@ -9,12 +9,13 @@
 #include "wallet.h"
 
 namespace boost {
-    class boost::thread_group;
+    class thread_group;
 }
+
 extern CWallet* pwalletMain;
 void StartShutdown();
 void Shutdown();
-bool AppInit2(boost::thread_group &threadGroup);
+bool AppInit2(boost::thread_group& threadGroup);
 std::string HelpMessage();
 
 #endif

@@ -519,11 +519,11 @@ bool CheckStake(CBlock* pblock, CWallet& wallet)
     return true;
 }
 
-void ThreadSprouting(CWallet *pwallet)
+void ThreadStakeMiner(CWallet *pwallet)
 {
     SetThreadPriority(THREAD_PRIORITY_LOWEST);
 
-    // Make this thread recognisable as the mining thread
+    // Make this thread recognizable as the Sprouting thread
     RenameThread("Beancash-miner");
 
     bool fTryToSync = true;
