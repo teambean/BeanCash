@@ -11,7 +11,7 @@ http://www.beancash.org
 What Is Bean Cash?
 -----------------------------------------------------------------------------------------------------
 
-Bean Cash (Ticker: BEAN) is a re-brand of BitBean (Ticker: BITB). Bean Cash brings forward BitBean's legacy, of a lightening-fast, rock-solid network, with a mature blockchain--that is nearly 3 years old! 3 years is a long time in the "crypto-currency" space! In this time, Beancash has not had a hardfork or transaction roll-back. Bean Core will continue to move development forward with Bean Cash, while working to maintain the integrity of the blockchain. As core developers of Bean Cash, Bean Core sees its role as a steward. Integrity of a currency is of foremost importance. The very first purchaser of Beancash (that may have transfered their Beancash to a Digital Cash "paper wallet"), should be able to redeem those same number of tokens 90 years later, as "Bean Cash". If this is possible in 90 years, then Bean Core and developers of Bean Cash, will have filled the mission: "To be an enduring digital currency, with high integrity, a store of value and a means of exchange of value in every day transactions -- that stands the test of time!"
+Bean Cash (Ticker: BITB) is a re-brand of BitBean (Ticker: BITB). Bean Cash brings forward BitBean's legacy, of a lightening-fast, rock-solid network, with a mature blockchain--that is nearly 3 years old! 3 years is a long time in the "crypto-currency" space! In this time, Beancash has not had a hardfork or transaction roll-back. Bean Core will continue to move development forward with Bean Cash, while working to maintain the integrity of the blockchain. As core developers of Bean Cash, Bean Core sees its role as a steward. Integrity of a currency is of foremost importance. The very first purchaser of Beancash (that may have transfered their Beancash to a Digital Cash "paper wallet"), should be able to redeem those same number of tokens 90 years later, as "Bean Cash". If this is possible in 90 years, then Bean Core and developers of Bean Cash, will have filled the mission: "To be an enduring digital currency, with high integrity, a store of value and a means of exchange of value in every day transactions -- that stands the test of time!"
 
 Bean Cash is a digital currency and network, designed for scalability, speed, and lightening fast transactions! It features an innovative Proof of Bean (PoB) algorithm that more closely resembles traditional Proof of Work (PoW) crypto currencies. Bean Cash is the first digital currency to implement a maximum of 20MB blocks, based off Gavin Andersen's proposals to fix Bitcoin's scalability limitations. Bean Cash is designed from the ground-up to be a transaction-centric and superior form of currency, for exchange of value in on-line purchases (idealy suited for micro-transactions) and purchases with traditional brick-and-mortar merchants. 
 
@@ -36,11 +36,11 @@ Bean Cash Specifications
 
 **Proof of Work Algorithm**: SHA-256
 
-**PoW Block Reward**: 100000 BEAN
+**PoW Block Reward**: 100000 BITB
 
 **PoW Blocks**: 10000
 
-**PoB Block Reward**: 1000 BEAN (1 SPROUT)
+**PoB Block Reward**: 1000 BITB (1 SPROUT)
                           
 **Target Blocktime**: 1 minute
 
@@ -52,28 +52,25 @@ Bean Cash Specifications
 
 **Minimum Time for Beans To Be Elgible to Sprout**: 6 hours
 
-**Maximum Supply (over 95+ years)**: 50 Billion BEAN
+**Maximum Supply (over 95+ years)**: 50 Billion BITB
 
 
 Bean Cash Monetary Units
 ------------------------------------------------------------------------------------------
 
-Sprout = ß1,000 (BEAN)
-Bean = ß1 (BEAN)
-mBean = ß.001 (BEAN)
-uBean = ß.000001 (BEAN)
-Adzuki = ß.00000001 (BEAN)
+Sprout = ß1,000 (BITB)
+Bean = ß1 (BITB)
+mBean = ß.001 (BITB)
+uBean = ß.000001 (BITB)
+Adzuki = ß.00000001 (BITB)
 
 Support
 ------------------------------------------------------------------------------------------
 www.beancash.org
 Community Support:  https://livechat.beancash.org
-Twitter:  @BitBeanCoin
+Twitter:  @BeanCash_BEAN
 admin@beancash.org
 
 IRC: #beancash (Freenode IRC Network)
-
-Telephone Support:  +1 (406) 213-4656  
-(Free for first 15 minutes. 10k BEAN/per hour with 1hr. minimum)
 
 Developer support:  #beancore on the Freenode IRC Network or devcore@beancash.org
