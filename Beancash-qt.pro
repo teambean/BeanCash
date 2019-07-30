@@ -8,6 +8,15 @@ CONFIG += thread
 CONFIG += C++11
 QMAKE_CXXFLAGS += -std=c++11
 
+#USE RELEASE=1
+#USE_UPNP=- # default 1 ('-' means don't use)
+#USE_O3=1  # default 0
+#USE_DBUS=1 # default 1
+
+contains(RELEASE, 1) {
+    message(building in RELEASE mode)
+}
+
 win32:os2 {
     CONFIG += release
 } else {
@@ -38,6 +47,23 @@ BDB_LIB_SUFFIX=-5.3
 #    BOOST_INCLUDE_PATH, BOOST_LIB_PATH, BDB_INCLUDE_PATH,
 #    BDB_LIB_PATH, OPENSSL_INCLUDE_PATH and OPENSSL_LIB_PATH respectively
 
+
+# ------- modify those to point to the correct folders ----- #
+
+BOOST_INCLUDE_PATH=/path/to/lib/boost_1_59_0
+BOOST_LIB_PATH=/path/to/lib/boost_1_59_0/stage/lib
+
+OPENSSL_INCLUDE_PATH=/path/to/libs/openssl-1.0.1j/include
+OPENSSL_LIB_PATH=/path/to/lib/openssl-1.0.1j
+
+BDB_INCLUDE_PATH=/path/to/lib/db-5.3.28.NC/build_unix
+BDB_LIB_PATH=/path/to/lib/db-5.3.28.NC/build_unix
+
+MINIUPNPC_INCLUDE_PATH=
+MINIUPNPC_LIB_PATH=
+QRENCODE_INCLUDE_PATH=
+QRENCODE_LIB_PATH=
+
 win32 {
     BOOST_LIB_SUFFIX=-mgw49-mt-s-1_59
     BOOST_INCLUDE_PATH=C:/deps/boost_1_59_0
@@ -49,6 +75,8 @@ win32 {
     QRENCODE_INCLUDE_PATH=C:/deps/qrencode-3.4.4
     QRENCODE_LIB_PATH=C:/deps/qrencode-3.4.4/.libs
 }
+
+# ----------------- #
 
 OBJECTS_DIR = build
 MOC_DIR = build
@@ -68,17 +96,20 @@ contains(RELEASE, 1) {
 }
 
 !win32 {
-# for extra security against potential buffer overflows: enable GCCs Stack Smashing Protection
-QMAKE_CXXFLAGS *= -fstack-protector-all --param ssp-buffer-size=1
-QMAKE_LFLAGS *= -fstack-protector-all --param ssp-buffer-size=1
-# We need to exclude this for Windows cross compile with MinGW 4.2.x, as it will result in a non-working executable!
-# This can be enabled for Windows, when we switch to MinGW >= 4.4.x.
+    # for extra security against potential buffer overflows: enable GCCs Stack Smashing Protection
+    message(GCCs Stack Smashing protection enabled)
+    QMAKE_CXXFLAGS *= -fstack-protector-all --param ssp-buffer-size=1
+    QMAKE_LFLAGS *= -fstack-protector-all --param ssp-buffer-size=1
+    # We need to exclude this for Windows cross compile with MinGW 4.2.x, as it will result in a non-working executable!
+    # This can be enabled for Windows, when we switch to MinGW >= 4.4.x.
 }
 # for extra security on Windows: enable ASLR and DEP via GCC linker flags
 win32:QMAKE_LFLAGS *= -Wl,--dynamicbase -Wl,--nxcompat -static
+
 contains(RELEASE, 1) {
-QMAKE_LFLAGS += -static-libstdc++
+    QMAKE_LFLAGS += -static-libstdc++
 }
+
 win32:contains(QMAKE_HOST.arch, x86):{QMAKE_LFLAGS *= -Wl,--large-address-aware }
 
 # use: qmake "USE_QRCODE=1"
@@ -90,18 +121,23 @@ contains(USE_QRCODE, 1) {
 }
 
 # use: qmake "USE_DBUS=1" or qmake "USE_DBUS=0"
-linux:count(USE_DBUS, 0) {
+isEmpty(USE_DBUS) {
+    message("USE_DBUS not set, fallback to $USE_DBUS=1")
     USE_DBUS=1
 }
+
 contains(USE_DBUS, 1) {
     message(Building with DBUS (Freedesktop notifications) support)
     DEFINES += USE_DBUS
     QT += dbus
+}else {
+    message(Building without DBUS (Freedesktop notifications) support)
 }
+
 contains(BEANCASH_NEED_QT_PLUGINS, 1) {
     DEFINES += BEANCASH_NEED_QT_PLUGINS
     QTPLUGIN += qcncodecs qjpcodecs qtwcodecs qkrcodecs qtaccessiblewidgets
-    }
+}
 
 INCLUDEPATH += src/leveldb/include src/leveldb/helpers
 LIBS += $$PWD/src/leveldb/libleveldb.a $$PWD/src/leveldb/libmemenv.a
@@ -136,28 +172,24 @@ QMAKE_CLEAN += $$PWD/src/leveldb/libleveldb.a; cd $$PWD/src/leveldb ; $(MAKE) cl
 }
 
 contains(USE_O3, 1) {
-    message(Building O3 optimization flag)
+    message(Building with O3 optimization flag)
     QMAKE_CXXFLAGS_RELEASE -= -O2
     QMAKE_CFLAGS_RELEASE -= -O2
     QMAKE_CXXFLAGS += -O3
     QMAKE_CFLAGS += -O3
 }
 
-contains(QMAKE_TARGET.arch, i386) |
-contains(QMAKE_TARGET.arch, i686) {
+contains(QMAKE_TARGET.arch, i386) | contains(QMAKE_TARGET.arch, i686) {
     message("x86 platform, adding -msse2 & -mssse3 flags")
-
     QMAKE_CXXFLAGS += -msse2 -mssse3
     QMAKE_CFLAGS += -msse2 -mssse3
-    }
+}
 
-contains(QMAKE_TARGET.arch, x86_64) |
-contains(QMAKE_TARGET.arch, amd64) {
+contains(QMAKE_TARGET.arch, x86_64) | contains(QMAKE_TARGET.arch, amd64) {
     message("x86_64 platform, setting -mssse3 flag")
-
     QMAKE_CXXFLAGS += -mssse3
     QMAKE_CFLAGS += -mssse3
-    }
+}
 
 QMAKE_CXXFLAGS_WARN_ON = -fdiagnostics-show-option -Wall -Wextra -Wno-ignored-qualifiers -Wformat -Wformat-security -Wno-unused-parameter -Wstack-protector
 
@@ -330,20 +362,21 @@ FORMS += \
     src/qt/forms/optionsdialog.ui \
 
 contains(USE_QRCODE, 1) {
-HEADERS += src/qt/qrcodedialog.h
-SOURCES += src/qt/qrcodedialog.cpp
-FORMS += src/qt/forms/qrcodedialog.ui
+    HEADERS += src/qt/qrcodedialog.h
+    SOURCES += src/qt/qrcodedialog.cpp
+    FORMS += src/qt/forms/qrcodedialog.ui
 }
 
 contains(BEANCASH_QT_TEST, 1) {
-SOURCES += src/qt/test/test_main.cpp \
-    src/qt/test/uritests.cpp
-HEADERS += src/qt/test/uritests.h
-DEPENDPATH += src/qt/test
-QT += testlib
-TARGET = Beancash-qt_test
-DEFINES += BEANCASH_QT_TEST
+    SOURCES += src/qt/test/test_main.cpp \
+        src/qt/test/uritests.cpp
+    HEADERS += src/qt/test/uritests.h
+    DEPENDPATH += src/qt/test
+    QT += testlib
+    TARGET = Beancash-qt_test
+    DEFINES += BEANCASH_QT_TEST
 }
+
 CODECFORTR = UTF-8
 
 # for lrelease/lupdate
@@ -355,6 +388,7 @@ isEmpty(QMAKE_LRELEASE) {
     else:QMAKE_LRELEASE = $$[QT_INSTALL_BINS]/lrelease
 }
 isEmpty(QM_DIR):QM_DIR = $$PWD/src/qt/locale
+
 # automatically build translations, so they can be included in resource file
 TSQM.name = lrelease ${QMAKE_FILE_IN}
 TSQM.input = TRANSLATIONS
@@ -368,58 +402,95 @@ OTHER_FILES += \
     doc/*.rst doc/*.txt doc/README README.md res/Beancash-qt.rc
 
 # platform specific defaults, if not overridden on command line
-isEmpty(BOOST_LIB_SUFFIX) {
-    macx:BOOST_LIB_SUFFIX = -mt
-    windows:BOOST_LIB_SUFFIX = -mgw49-mt-s-1_59
+!exists(BOOST_LIB_SUFFIX) {
+    macx{
+        message(since BOOST_LIB_SUFFIX is empty we add to BOOST_LIB_SUFFIX -mt)
+        BOOST_LIB_SUFFIX = -mt
+    }
+    windows{
+        message(since BOOST_LIB_SUFFIX is empty we add to BOOST_LIB_SUFFIX -mgw49-mt-s-1_59)
+        BOOST_LIB_SUFFIX = -mgw49-mt-s-1_59
+    }
+}
+
+# usefull debugging
+macx{
+    !exists(DEPSDIR) {
+        # Uses Homebrew if installed, otherwise defaults to MacPorts
+        check_dir = /usr/local/Cellar
+        exists($$check_dir) {
+            message(DEPSIDR its empty, falling back to /usr/local)
+            DEPSDIR = /usr/local
+        }
+        !exists($$check_dir) {
+            message(DEPSIDR its empty (ando neither $$check_dir its), falling back to /upt/local)
+            DEPSDIR = /opt/local
+        }
+    }
+}
+
+!exists(BOOST_LIB_PATH) {
+    message(BOOST_LIB_PATH point to an empty folder)
+    macx: {
+        message(falling back to: $DEPSDIR/lib)
+        BOOST_LIB_PATH = $$DEPSDIR/lib
+    }
+}
+
+!exists(BOOST_INCLUDE_PATH) {
+    message(BOOST_INCLUDE_PATH point to an empty folder)
+    macx: {
+        message(falling back to: $DEPSDIR/include)
+        BOOST_INCLUDE_PATH = $$DEPSDIR/include
+    }
+}
+
+!exists(BDB_LIB_PATH) {
+    message(BDB_LIB_PATH point to an empty folder)
+    macx: {
+        message(falling back to: $DEPSDIR/lib)
+        BDB_LIB_PATH = $$DEPSDIR/lib
+    }
+}
+
+!exists(BDB_INCLUDE_PATH) {
+    message(BDB_INCLUDE_PATH point to an empty folder)
+    macx: {
+        message(falling back to: $DEPSDIR/include)
+        BDB_INCLUDE_PATH = $$DEPSDIR/include
+    }
+}
+
+!exists(OPENSSL_LIB_PATH) {
+    message(OPENSSL_LIB_PATH point to an empty folder)
+    macx: {
+        message(falling back to: $DEPSDIR/lib)
+        OPENSSL_LIB_PATH = $$DEPSDIR/lib
+    }
+}
+
+!exists(OPENSSL_INCLUDE_PATH) {
+    message(OPENSSL_INCLUDE_PATH point to an empty folder)
+    macx: {
+        message(falling back to: $DEPSDIR/include)
+        OPENSSL_INCLUDE_PATH = $$DEPSDIR/include
+    }
 }
 
 macx: {
     HEADERS += src/qt/macdockiconhandler.h src/qt/macnotificationhandler.h
     OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm src/qt/macnotificationhandler.mm
 
-    isEmpty(DEPSDIR) {
-        # Uses Homebrew if installed, otherwise defaults to MacPorts
-        check_dir = /usr/local/Cellar
-        exists($$check_dir) {
-            DEPSDIR = /usr/local
-        }
-        !exists($$check_dir) {
-            DEPSDIR = /opt/local
-        }
-}
-
-isEmpty(BOOST_LIB_PATH) {
-        BOOST_LIB_PATH = $$DEPSDIR/lib
-    }
-
-    isEmpty(BOOST_INCLUDE_PATH) {
-        BOOST_INCLUDE_PATH = $$DEPSDIR/include
-    }
-
-    isEmpty(BDB_LIB_PATH) {
-        BDB_LIB_PATH = $$DEPSDIR/lib
-    }
-
-    isEmpty(BDB_INCLUDE_PATH) {
-        BDB_INCLUDE_PATH = $$DEPSDIR/include
-    }
-
-    isEmpty(OPENSSL_LIB_PATH) {
-        OPENSSL_LIB_PATH = $$DEPSDIR/lib
-    }
-
-    isEmpty(OPENSSL_INCLUDE_PATH) {
-        OPENSSL_INCLUDE_PATH = $$DEPSDIR/include
-    }
-
-    contains(USE_QRCODE, 1) {
-        isEmpty(QRCODE_LIB_PATH) {
+    contains(USE_QRCODE, 1){
+        !exists(QRCODE_LIB_PATH) {
+            message(QRCODE_LIB_PATH point to an empty folder, falling back to: $DEPSDIR/lib)
             QRCODE_LIB_PATH = $$DEPSDIR/lib
         }
-        isEmpty(QRCODE_INCLUDE_PATH) {
+        !exists(QRCODE_INCLUDE_PATH) {
+            message(QRCODE_INCLUDE_PATH point to an empty folder, falling back to: $DEPSDIR/include)
             QRCODE_INCLUDE_PATH = $$DEPSDIR/include
         }
-     }
+    }
 
     contains(RELEASE, 1) {
         LIBS += -framework Foundation -framework ApplicationServices -framework AppKit -framework CoreServices \
