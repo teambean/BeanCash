@@ -2,13 +2,17 @@
 #include "ui_aboutdialog.h"
 #include "clientmodel.h"
 
-#include "version.h"
+// Copyright year (2015-this)
+// Todo: update this to change copyright comments in the source
+const int ABOUTDIALOG_COPYRIGHT_YEAR = 2019;
 
 AboutDialog::AboutDialog(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::AboutDialog)
 {
     ui->setupUi(this);
+        // Set current copyright year
+        ui->copyrightLabel->setText(tr("Copyright ") + tr("2015-%1 Bean Core www.beancash.org").arg(ABOUTDIALOG_COPYRIGHT_YEAR));
 }
 
 void AboutDialog::setModel(ClientModel *model)

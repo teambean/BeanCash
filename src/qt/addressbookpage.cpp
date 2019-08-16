@@ -187,7 +187,6 @@ void AddressBookPage::on_signMessage_clicked()
 {
     QTableView *table = ui->tableView;
     QModelIndexList indexes = table->selectionModel()->selectedRows(AddressTableModel::Address);
-    QString addr;
 
     foreach (QModelIndex index, indexes)
     {
