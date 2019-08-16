@@ -81,8 +81,8 @@ void setupAmountWidget(QLineEdit *widget, QWidget *parent)
 
 bool parseBitbeanURI(const QUrl &uri, SendBeansRecipient *out)
 {
-    // Bitbean: check prefix
-    if(uri.scheme() != QString("Beancash"))
+    // beancash: check prefix
+    if(!uri.isValid() || uri.scheme() != QString("beancash"))
         return false;
 
     SendBeansRecipient rv;
