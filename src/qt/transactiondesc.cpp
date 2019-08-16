@@ -1,4 +1,4 @@
-// Copyright (c) 2018 www.beancash.org
+// Copyright (c) 2019 www.beancash.org
 
 #include "transactiondesc.h"
 
@@ -16,7 +16,7 @@ QString TransactionDesc::FormatTxStatus(const CWalletTx& wtx)
     if (!wtx.IsFinal())
     {
         if (wtx.nLockTime < LOCKTIME_THRESHOLD)
-            return tr("Open for %n block(s)", "", nBestHeight - wtx.nLockTime);
+            return tr("Open for %n block(s)", "", wtx.nLockTime - nBestHeight + 1);
         else
             return tr("Open until %1").arg(GUIUtil::dateTimeStr(wtx.nLockTime));
     }
