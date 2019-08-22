@@ -18,7 +18,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+48"/>
+        <location line="+35"/>
         <source>Close Window</source>
         <translation type="unfinished"></translation>
     </message>
@@ -28,24 +28,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+53"/>
+        <location line="+62"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;This is experimental software. Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://www.opensource.org/licenses/mit-license.php&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.opensource.org/licenses/mit-license.php&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;/span&gt;&lt;a href=&quot;https://www.openssl.org/&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.openssl.org/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;) and cryptographic software written by Eric Young (&lt;/span&gt;&lt;a href=&quot;mailto:eay@cryptsoft.com&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;eay@cryptsoft.com&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+29"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Bean Cash&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+54"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;This is experimental software. Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;/span&gt;&lt;a href=&quot;http://www.opensource.org/licenses/mit-license.php&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.opensource.org/licenses/mit-license.php&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;. This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;/span&gt;&lt;a href=&quot;https://www.openssl.org/&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.openssl.org/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;) and cryptographic software written by Eric Young (&lt;/span&gt;&lt;a href=&quot;mailto:eay@cryptsoft.com&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;eay@cryptsoft.com&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;) and UPnP software written by Thomas Bernard.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+25"/>
-        <source>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:&apos;Liberation Sans&apos;; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Copyright © 2009-2014 The Bitcoin developers&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-style:italic;&quot;&gt;Copyright © 2012-2014 The Novacoin developers&lt;/span&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:12px; margin-bottom:12px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:12pt; font-weight:600;&quot;&gt;Copyright © 2015-2017 Bean Core&lt;/span&gt;&lt;span style=&quot; font-weight:600; font-style:italic;&quot;&gt; &lt;/span&gt;&lt;a href=&quot;http://www.beancash.org&quot;&gt;&lt;span style=&quot; font-size:12pt; text-decoration: underline; color:#2980b9;&quot;&gt;www.beancash.org&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <location line="+45"/>
+        <source>Copyright 2019 Bean Core</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -64,6 +58,16 @@ Distributed under the MIT/X11 software license, see the accompanying file COPYIN
 
 This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (http://www.openssl.org/) and cryptographic software written by Eric Young (eay@cryptsoft.com) and UPnP software written by Thomas Bernard.</source>
         <translation type="obsolete">\n Aquest és software experimental.\n\n Distribuït sota llicència de software MIT/11, veure l&apos;arxiu COPYING o http://www.opensource.org/licenses/mit-license.php.\n\nAquest producte inclou software desarrollat pel projecte OpenSSL per a l&apos;ús de OppenSSL Toolkit (http://www.openssl.org/) i de software criptogràfic escrit per l&apos;Eric Young (eay@cryptsoft.com) i software UPnP escrit per en Thomas Bernard.</translation>
+    </message>
+    <message>
+        <location filename="../aboutdialog.cpp" line="+15"/>
+        <source>Copyright </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>2015-%1 Bean Core www.beancash.org</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -161,7 +165,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation>&amp;Editar</translation>
     </message>
     <message>
-        <location line="+249"/>
+        <location line="+248"/>
         <source>Export Address Book Data</source>
         <translation>Exportar dades de la llibreta d&apos;adreces </translation>
     </message>
@@ -184,7 +188,7 @@ This product includes software developed by the OpenSSL Project for use in the O
 <context>
     <name>AddressTableModel</name>
     <message>
-        <location filename="../addresstablemodel.cpp" line="+144"/>
+        <location filename="../addresstablemodel.cpp" line="+146"/>
         <source>Label</source>
         <translation>Etiqueta</translation>
     </message>
@@ -468,7 +472,7 @@ This product includes software developed by the OpenSSL Project for use in the O
         <translation type="unfinished">Prioritat</translation>
     </message>
     <message>
-        <location filename="../beancontroldialog.cpp" line="+36"/>
+        <location filename="../beancontroldialog.cpp" line="+38"/>
         <source>Copy address</source>
         <translation type="unfinished">Copiar adreça </translation>
     </message>
@@ -641,7 +645,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
 <context>
     <name>BitbeanGUI</name>
     <message>
-        <location filename="../beancash.cpp" line="+109"/>
+        <location filename="../beancash.cpp" line="+102"/>
         <source>A fatal error occurred. Beancash can no longer continue safely and will quit.</source>
         <translation type="unfinished">S&apos;ha produït un error fatal. Beancash ja no pot continuar de forma segura i es tancarà.</translation>
     </message>
@@ -650,7 +654,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation type="obsolete">Beancash</translation>
     </message>
     <message>
-        <location filename="../bitbeangui.cpp" line="+215"/>
+        <location filename="../bitbeangui.cpp" line="+221"/>
         <source>&amp;Overview</source>
         <translation type="unfinished">&amp;Panorama general</translation>
     </message>
@@ -853,7 +857,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         </translation>
     </message>
     <message>
-        <location line="-352"/>
+        <location line="-357"/>
         <source>Bean Cash</source>
         <translation type="unfinished"></translation>
     </message>
@@ -863,7 +867,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+135"/>
+        <location line="+140"/>
         <source>Overview of general information</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1013,11 +1017,15 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+59"/>
-        <source>This transaction is over the size limit.  You can still send it for a fee of %1, which goes to the nodes that process your transaction and helps to support the network.  Do you want to pay the fee?</source>
-        <translation type="unfinished">Aquesta transacció es troba sobre el límit de mida. Encara pot enviar-la amb una comisió de 1%, aquesta va als nodes que processen la seva transacció i ajuda a mantenir la xarxa. Vol pagar la quota?</translation>
+        <source>In order to process your transaction(s) on the Bean Cash Network, a fee of %1 is required. This fee is paid to the node that processes your transaction. Select &lt;OK&gt; to continue and send your transaction(s). </source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+5"/>
+        <source>This transaction is over the size limit.  You can still send it for a fee of %1, which goes to the nodes that process your transaction and helps to support the network.  Do you want to pay the fee?</source>
+        <translation type="obsolete">Aquesta transacció es troba sobre el límit de mida. Encara pot enviar-la amb una comisió de 1%, aquesta va als nodes que processen la seva transacció i ajuda a mantenir la xarxa. Vol pagar la quota?</translation>
+    </message>
+    <message>
+        <location line="+4"/>
         <source>Confirm transaction fee</source>
         <translation type="unfinished">Confirmeu comisió</translation>
     </message>
@@ -1938,16 +1946,15 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation type="obsolete">Obrir automàticament el port de client Beancash en el router. Això només funciona quan el router és compatible amb UPnP i està habilitat.</translation>
     </message>
     <message>
-        <location line="+9"/>
         <source>Map port using &amp;UPnP</source>
-        <translation>Obrir ports amb &amp;UPnP</translation>
+        <translation type="obsolete">Obrir ports amb &amp;UPnP</translation>
     </message>
     <message>
         <source>Connect to the Beancash network through a SOCKS proxy (e.g. when connecting through Tor).</source>
         <translation type="obsolete">Connecteu-vos a la xarxa Beancash través d&apos;un proxy SOCKS (per exemple, quan es connecta a través de Tor).</translation>
     </message>
     <message>
-        <location line="-135"/>
+        <location line="-126"/>
         <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are less than 1 kB. A fee of 5 BEAN is recommended. Fees help support the Bean Cash network.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1963,11 +1970,6 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
     </message>
     <message>
         <location line="+37"/>
-        <source>Automatically open the Bean Cash client port on the router. This only works when your router supports UPnP and it is enabled.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+10"/>
         <source>Connect to the Bean Cash network through a SOCKS proxy (e.g. when connecting through Tor).</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2112,12 +2114,12 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation>&amp;Aplicar</translation>
     </message>
     <message>
-        <location filename="../optionsdialog.cpp" line="+55"/>
+        <location filename="../optionsdialog.cpp" line="+52"/>
         <source>default</source>
         <translation>Per defecte</translation>
     </message>
     <message>
-        <location line="+149"/>
+        <location line="+147"/>
         <location line="+9"/>
         <source>Warning</source>
         <translation>Avís</translation>
@@ -2308,10 +2310,18 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
         <translation type="obsolete">Total de les monedes que s&apos;han posat a fer &quot;stake&quot; (en joc, aposta), i encara no compten per al balanç actual</translation>
     </message>
     <message>
-        <location filename="../overviewpage.cpp" line="+130"/>
+        <location filename="../overviewpage.cpp" line="+136"/>
         <location line="+1"/>
         <source>out of sync</source>
         <translation>Fora de sincronia</translation>
+    </message>
+</context>
+<context>
+    <name>PaymentServer</name>
+    <message>
+        <location filename="../paymentserver.cpp" line="+107"/>
+        <source>Cannot start beancash: click-to-pay handler</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3349,7 +3359,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
 <context>
     <name>TransactionDesc</name>
     <message>
-        <location filename="../transactiondesc.cpp" line="+19"/>
+        <location filename="../transactiondesc.cpp" line="+21"/>
         <source>Open until %1</source>
         <translation>Obert fins %1</translation>
     </message>
@@ -3867,7 +3877,7 @@ En aquest cas es requereix una comisió d&apos;almenys 2%.</translation>
 <context>
     <name>WalletModel</name>
     <message>
-        <location filename="../walletmodel.cpp" line="+206"/>
+        <location filename="../walletmodel.cpp" line="+208"/>
         <source>Sending...</source>
         <translation>Enviant...</translation>
     </message>
@@ -4117,14 +4127,12 @@ If the file does not exist, create it with owner-readable-only file permissions.
         <translation type="unfinished">Mida màxima del buffer d&apos;enviament per a cada connexió, &lt;n&gt;*1000 bytes (default: 5000)</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Use UPnP to map the listening port (default: 1 when listening)</source>
-        <translation type="unfinished">Utilitza UPnP per a mapejar els ports d&apos;escolta (per defecte: 1 quan s&apos;escolta)</translation>
+        <translation type="obsolete">Utilitza UPnP per a mapejar els ports d&apos;escolta (per defecte: 1 quan s&apos;escolta)</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Use UPnP to map the listening port (default: 0)</source>
-        <translation type="unfinished">Utilitza UPnP per a mapejar els ports d&apos;escolta (per defecte: 0)</translation>
+        <translation type="obsolete">Utilitza UPnP per a mapejar els ports d&apos;escolta (per defecte: 0)</translation>
     </message>
     <message>
         <location line="+1"/>
