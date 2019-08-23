@@ -21,7 +21,8 @@ public:
         BitB,
         mBitB,
         uBitB,
-        nokat
+        nokat,
+        Bean
     };
 
     //! @name Static API
