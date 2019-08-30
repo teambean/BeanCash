@@ -286,7 +286,7 @@ void OverviewPage::updateNetworkinfo()
         ui->sproutBox->setText(difficulty);
     }
 
-        // Display Connections
+    // Display Connections
     if(otherStalks > connectionsPrevious)
     {
         ui->connectionBox->setText("<b><font color=\"black\">" + connections + "</font></b>");

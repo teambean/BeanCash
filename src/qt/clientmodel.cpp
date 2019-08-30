@@ -32,9 +32,16 @@ ClientModel::~ClientModel()
     unsubscribeFromCoreSignals();
 }
 
-int ClientModel::getNumConnections() const
+int ClientModel::getNumConnections(unsigned int flags) const
 {
-    return vNodes.size();
+    LOCK(cs_vNodes);
+    if (flags == CONNECTIONS_ALL) // Flag to allow selecting all (In & Out)
+        return vNodes.size();
+    int nNum = 0;
+    for (CNode* pnode : vNodes)
+        if (flags & (pnode->fInbound ? CONNECTIONS_IN : CONNECTIONS_OUT))
+            nNum++;
+    return nNum;
 }
 
 int ClientModel::getNumBlocks() const
