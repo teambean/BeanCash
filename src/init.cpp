@@ -310,6 +310,117 @@ std::string HelpMessage()
     return strUsage;
 }
 
+bool LoadExternalBlockFile(FILE* fileIn)
+{
+    int64_t nStart = GetTimeMillis();
+    int nLoaded = 0;
+    {
+        LOCK(cs_main);
+        try {
+            CAutoFile blkdat(fileIn, SER_DISK, CLIENT_VERSION);
+            unsigned int nPos = 0;
+            while (nPos != std::numeric_limits<uint32_t>::max() && blkdat.good())
+                {
+                boost::this_thread::interruption_point();
+                unsigned char pchData[65536];
+                do {
+                       fseek(blkdat, nPos, SEEK_SET);
+                       int nRead = fread(pchData, 1, sizeof(pchData), blkdat);
+                       if (nRead <= 8)
+                           {
+                               nPos = std::numeric_limits<uint32_t>::max();
+                               break;
+                           }
+                       void* nFind = memchr(pchData, pchMessageStart[0], nRead+1-sizeof(pchMessageStart));
+                       if (nFind)
+                       {
+                        if (memcmp(nFind, pchMessageStart, sizeof(pchMessageStart))==0)
+                        {
+                            nPos += ((unsigned char*)nFind - pchData) + sizeof(pchMessageStart);
+                            break;
+                        }
+                        nPos += ((unsigned char*)nFind - pchData) + 1;
+                       }
+                    else nPos += sizeof(pchData) - sizeof(pchMessageStart) + 1;
+                    boost::this_thread::interruption_point();
+                    } while(true);
+            if (nPos == std::numeric_limits<uint32_t>::max())
+            break;
+            fseek(blkdat, nPos, SEEK_SET);
+            unsigned int nSize;
+            blkdat >> nSize;
+            if (nSize > 0 && nSize <= MAX_BLOCK_SIZE)
+                    {
+                    CBlock block;
+                    blkdat >> block;
+                    LOCK(cs_main);
+                    if (ProcessBlock(NULL,&block))
+                        {
+                            nLoaded++;
+                            nPos += 4 + nSize;
+                        }
+                    }
+                }
+        }
+                    catch (std::exception &e) {
+                        printf("%s() : Deserialize or I/O error caught during load\n",
+                               __PRETTY_FUNCTION__);
+                    }
+    }
+                printf("Loaded %i blocks from external file in %" PRId64 "ms\n", nLoaded, GetTimeMillis() - nStart);
+                return nLoaded > 0;
+}
+
+struct CImportingNow
+{
+    CImportingNow()
+    {
+        assert(fImporting == false);
+        fImporting = true;
+    }
+
+    ~CImportingNow()
+    {
+        assert(fImporting == true);
+        fImporting = false;
+    }
+
+};
+
+
+static void ThreadImport(std::vector<boost::filesystem::path> vImportFiles)
+{
+    RenameThread("beancash-loadblk");
+
+    // hardcoded $DATADIR/bootstrap.dat
+    filesystem::path pathBootstrap = GetDataDir() / "bootstrap.dat";
+    if (filesystem::exists(pathBootstrap))
+    {
+          FILE *file = fopen(pathBootstrap.string().c_str(), "rb");
+          if (file)
+          {
+            CImportingNow imp;
+            filesystem::path pathBootstrapOld = GetDataDir() / "bootstrap.dat.old";
+            printf("Importing blockchain data now...\n");
+            LoadExternalBlockFile(file);
+            RenameOver(pathBootstrap, pathBootstrapOld);
+          }
+    }
+
+    // -loadblock=
+    for (boost::filesystem::path &path : vImportFiles)
+    {
+    FILE *file = fopen(path.string().c_str(), "rb");
+    if (file)
+        {
+            CImportingNow imp;
+            printf("Importing %s...\n", path.string().c_str());
+            LoadExternalBlockFile(file);
+        }
+    }
+}
+
+
 /** Initialize Bean cash.
  *  @pre Parameters should be parsed and config file should be read.
  */
@@ -805,30 +916,14 @@ threadGroup.create_thread(boost::bind(&DetectShutdownThread, &threadGroup));
 
     // ********************************************************* Step 9: import blocks
 
+    std::vector<boost::filesystem::path> vPath;
     if (mapArgs.count("-loadblock"))
     {
-        uiInterface.InitMessage(_("Importing blockchain data file."));
-
         for (string strFile : mapMultiArgs["-loadblock"])
-        {
-            FILE *file = fopen(strFile.c_str(), "rb");
-            if (file)
-                LoadExternalBlockFile(file);
-        }
-        exit(0);
+            vPath.push_back(strFile);
     }
 
-    filesystem::path pathBootstrap = GetDataDir() / "bootstrap.dat";
-    if (filesystem::exists(pathBootstrap)) {
-        uiInterface.InitMessage(_("Importing bootstrap blockchain data file."));
-
-        FILE *file = fopen(pathBootstrap.string().c_str(), "rb");
-        if (file) {
-            filesystem::path pathBootstrapOld = GetDataDir() / "bootstrap.dat.old";
-            LoadExternalBlockFile(file);
-            RenameOver(pathBootstrap, pathBootstrapOld);
-        }
-    }
+    threadGroup.create_thread(boost::bind(&ThreadImport, vPath));
 
     // ********************************************************* Step 10: load peers
 

@@ -41,6 +41,7 @@ static CNode* pnodeLocalHost = NULL;
 uint64_t nLocalHostNonce = 0;
 static std::vector<SOCKET> vhListenSocket;
 CAddrMan addrman;
+bool fImporting = false;
 
 vector<CNode*> vNodes;
 CCriticalSection cs_vNodes;

@@ -2683,67 +2683,8 @@ void PrintBlockTree()
     }
 }
 
-bool LoadExternalBlockFile(FILE* fileIn)
-{
-    int64_t nStart = GetTimeMillis();
 
-    int nLoaded = 0;
-    {
-        LOCK(cs_main);
-        try {
-            CAutoFile blkdat(fileIn, SER_DISK, CLIENT_VERSION);
-            unsigned int nPos = 0;
-            while (nPos != std::numeric_limits<uint32_t>::max() && blkdat.good())
-            {
-                boost::this_thread::interruption_point();
-                unsigned char pchData[65536];
-                do {
-                    fseek(blkdat, nPos, SEEK_SET);
-                    int nRead = fread(pchData, 1, sizeof(pchData), blkdat);
-                    if (nRead <= 8)
-                    {
-                        nPos = std::numeric_limits<uint32_t>::max();
-                        break;
-                    }
-                    void* nFind = memchr(pchData, pchMessageStart[0], nRead+1-sizeof(pchMessageStart));
-                    if (nFind)
-                    {
-                        if (memcmp(nFind, pchMessageStart, sizeof(pchMessageStart))==0)
-                        {
-                            nPos += ((unsigned char*)nFind - pchData) + sizeof(pchMessageStart);
-                            break;
-                        }
-                        nPos += ((unsigned char*)nFind - pchData) + 1;
-                    }
-                    else
-                        nPos += sizeof(pchData) - sizeof(pchMessageStart) + 1;
-                    boost::this_thread::interruption_point();
-                } while(true);
-                if (nPos == std::numeric_limits<uint32_t>::max())
-                    break;
-                fseek(blkdat, nPos, SEEK_SET);
-                unsigned int nSize;
-                blkdat >> nSize;
-                if (nSize > 0 && nSize <= MAX_BLOCK_SIZE)
-                {
-                    CBlock block;
-                    blkdat >> block;
-                    if (ProcessBlock(NULL,&block))
-                    {
-                        nLoaded++;
-                        nPos += 4 + nSize;
-                    }
-                }
-            }
-        }
-        catch (std::exception &e) {
-            printf("%s() : Deserialize or I/O error caught during load\n",
-                   __PRETTY_FUNCTION__);
-        }
-    }
-    printf("Loaded %i blocks from external file in %" PRId64 "ms\n", nLoaded, GetTimeMillis() - nStart);
-    return nLoaded > 0;
-}
+
 
 //////////////////////////////////////////////////////////////////////////////
 //
@@ -2799,12 +2740,6 @@ string GetWarnings(string strFor)
     assert(!"GetWarnings() : invalid parameter");
     return "error";
 }
-
-
-
-
-
-
 
 
 //////////////////////////////////////////////////////////////////////////////
@@ -2957,7 +2892,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
 
         // Ask the first connected node for block updates
         static int nAskedForBlocks = 0;
-        if (!pfrom->fClient && !pfrom->fOneShot &&
+        if (!pfrom->fClient && !pfrom->fOneShot && !fImporting &&
             (pfrom->nStartingHeight > (nBestHeight - 144)) &&
             (pfrom->nVersion < NOBLKS_VERSION_START ||
              pfrom->nVersion >= NOBLKS_VERSION_END) &&
@@ -3102,9 +3037,10 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
             if (fDebug)
                 printf("  got inventory: %s  %s\n", inv.ToString().c_str(), fAlreadyHave ? "have" : "new");
 
-            if (!fAlreadyHave)
-                pfrom->AskFor(inv);
-            else if (inv.type == MSG_BLOCK && mapOrphanBlocks.count(inv.hash)) {
+            if (!fAlreadyHave) {
+                if (!fImporting)
+                    pfrom->AskFor(inv);
+            } else if (inv.type == MSG_BLOCK && mapOrphanBlocks.count(inv.hash)) {
                 pfrom->PushGetBlocks(pindexBest, GetOrphanRoot(mapOrphanBlocks[inv.hash]));
             } else if (nInv == nLastBlock) {
                 // In case we are on a very long side-chain, it is possible that we already have
