@@ -114,8 +114,6 @@ void HandleSIGHUP(int)
 bool AppInit(int argc, char* argv[])
 {
     boost::thread_group threadGroup;
-    boost::thread* DetectShutdownThread = NULL;
-
     bool fRet = false;
     try
     {
@@ -158,7 +156,6 @@ bool AppInit(int argc, char* argv[])
             exit(ret);
         }
 
-        DetectShutdownThread = new boost::thread(boost::bind(&DetectShutdownThread, &threadGroup));
         fRet = AppInit2(threadGroup);
     }
     catch (std::exception& e) {
@@ -167,19 +164,10 @@ bool AppInit(int argc, char* argv[])
         PrintException(NULL, "AppInit()");
     }
     if (!fRet) {
-        if (DetectShutdownThread)
-          detectShutdownThread->interrupt();
+        Shutdown();
         threadGroup.interrupt_all();
+        threadGroup.join_all();
     }
-
-    if (DetectShutdownThread()
-    {
-        detectShutdownThread->join();
-        delete detectShutdownThread;
-        detectShutdownThread = NULL;
-    }
-    Shutdown();
-
     return fRet;
 }
 
