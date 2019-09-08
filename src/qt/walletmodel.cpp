@@ -308,6 +308,16 @@ bool WalletModel::changePassphrase(const SecureString &oldPass, const SecureStri
     return retval;
 }
 
+bool WalletModel::dumpWallet(const QString &filename)
+{
+    return DumpWallet(wallet, filename.toLocal8Bit().data());
+}
+
+bool WalletModel::importWallet(const QString &filename)
+{
+    return ImportWallet(wallet, filename.toLocal8Bit().data());
+}
+
 bool WalletModel::backupWallet(const QString &filename)
 {
     return BackupWallet(*wallet, filename.toLocal8Bit().data());
