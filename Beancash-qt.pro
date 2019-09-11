@@ -279,7 +279,8 @@ HEADERS += src/qt/bitbeangui.h \
     src/qt/macnotificationhandler.h \
     src/qt/paymentserver.h \
     src/qt/trafficgraphwidget.h \
-    src/qt/intro.h
+    src/qt/intro.h \
+    src/limitedmap.h
 
 SOURCES += src/qt/beancash.cpp \
     src/qt/bitbeangui.cpp \
