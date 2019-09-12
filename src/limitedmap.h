@@ -68,7 +68,7 @@ public:
     }
     void update(const_iterator itIn, const mapped_type& v)
     {
-        iterator itTarget = map.erase(itIn->itIn);
+        iterator itTarget = map.find(itIn->first);
         if (itTarget == map.end())
             return;
         std::pair<rmap_iterator, rmap_iterator> itPair = rmap.equal_range(itTarget->second);

@@ -66,10 +66,12 @@ void Shutdown()
     StopRPCThreads();
     bitdb.Flush(false);
     StopNode();
+
     bitdb.Flush(true);
     boost::filesystem::remove(GetPidFile());
     UnregisterWallet(pwalletMain);
     delete pwalletMain;
+
     MilliSleep(50);
     printf("Beancash exited\n\n");
     #ifndef QT_GUI
@@ -114,6 +116,7 @@ void HandleSIGHUP(int)
 bool AppInit(int argc, char* argv[])
 {
     boost::thread_group threadGroup;
+    boost::thread* detectShutdownThread = NULL;
     bool fRet = false;
     try
     {
@@ -155,7 +158,31 @@ bool AppInit(int argc, char* argv[])
             int ret = CommandLineRPC(argc, argv);
             exit(ret);
         }
+#if !defined(WIN32)
+    fDaemon = GetBoolArg("-daemon");
+    if (fDaemon)
+    {
+        // Daemonize
+        pid_t pid = fork();
+        if (pid < 0)
+        {
+            fprintf(stderr, "Error: fork() returned %d errno %d\n", pid, errno);
+            return false;
+        }
+        if (pid > 0) // Parent process, pid is child process ID
+        {
+            CreatePidFile(GetPidFile(), pid);
+            return true;
+        }
+        // Child process fall through to the rest of initialization
 
+        pid_t sid = setsid();
+        if (sid < 0)
+            fprintf(stderr, "Error: setsid() teturned %d errno %d\n", sid, errno);
+    }
+#endif
+
+        detectShutdownThread = new boost::thread(boost::bind(&DetectShutdownThread, &threadGroup));
         fRet = AppInit2(threadGroup);
     }
     catch (std::exception& e) {
@@ -164,10 +191,19 @@ bool AppInit(int argc, char* argv[])
         PrintException(NULL, "AppInit()");
     }
     if (!fRet) {
-        Shutdown();
+        if (detectShutdownThread)
+            detectShutdownThread->interrupted();
         threadGroup.interrupt_all();
-        threadGroup.join_all();
     }
+
+    if (detectShutdownThread)
+    {
+        detectShutdownThread->join();
+        delete detectShutdownThread;
+        detectShutdownThread = NULL;
+    }
+    Shutdown();
+
     return fRet;
 }
 
@@ -457,8 +493,6 @@ bool AppInit2(boost::thread_group& threadGroup)
     sa_hup.sa_flags = 0;
     sigaction(SIGHUP, &sa_hup, NULL);
 #endif
-
-threadGroup.create_thread(boost::bind(&DetectShutdownThread, &threadGroup));
 
 
     // ********************************************************* Step 2: parameter interactions
