@@ -704,7 +704,9 @@ void BitbeanGUI::message(const QString &title, const QString &message, unsigned 
                    QMessageBox::StandardButton buttons;
                    if (!(buttons = (QMessageBox::StandardButton)(style & CClientUIInterface::BTN_MASK)))
                        buttons = QMessageBox::Ok;
-
+                   // Only show messages after initilization is complete
+                   if(!(style & CClientUIInterface::NOSHOWGUI))
+                       showNormalIfMinimized();
                    QMessageBox mBox((QMessageBox::Icon)nMBoxIcon, strTitle, message, buttons);
                    mBox.exec();
                }
