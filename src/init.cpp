@@ -54,6 +54,10 @@ void StartShutdown()
 {
 fRequestShutdown = true;
 }
+bool ShutdownRequested()
+{
+    return fRequestShutdown;
+}
 
 void Shutdown()
 {

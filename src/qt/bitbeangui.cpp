@@ -28,6 +28,7 @@
 #include "rpcconsole.h"
 #include "ui_interface.h"
 #include "wallet.h"
+#include "init.h"
 
 #ifdef Q_OS_MAC
 #include "macdockiconhandler.h"
@@ -1101,6 +1102,12 @@ void BitbeanGUI::showNormalIfMinimized(bool fToggleHidden)
 void BitbeanGUI::toggleHidden()
 {
     showNormalIfMinimized(true);
+}
+
+void BitbeanGUI::detectShutdown()
+{
+    if (ShutdownRequested())
+        QMetaObject::invokeMethod(QCoreApplication::instance(), "quit", Qt::QueuedConnection);
 }
 
 void BitbeanGUI::updateWeight()
