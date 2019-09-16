@@ -43,7 +43,7 @@ private:
     Intro *intro;
 };
 
-#include "intro.moc"
+#include <qt/intro.moc>
 
 FreespaceChecker::FreespaceChecker(Intro *intro)
 {
@@ -61,9 +61,13 @@ void FreespaceChecker::check()
 
     /* Find first parent that exists, so that fs::space does not fail */
     fs::path parentDir = dataDir;
+    fs::path parentDirOld = fs::path();
     while(parentDir.has_parent_path() && !fs::exists(parentDir))
     {
         parentDir = parentDir.parent_path();
+        /* Check for progress and break to prevent a loop */
+        if (parentDirOld == parentDir) break;
+        parentDirOld = parentDir;
     }
 
     try {
@@ -201,7 +205,7 @@ void Intro::setStatus(int status, const QString &message, quint64 bytesAvailable
         } else {
             ui->freeSpace->setStyleSheet("");
         }
-        ui->freeSpace->setText(freeString+".");
+        ui->freeSpace->setText(freeString + ".");
     }
     /* Don't allow confirm in ERROR state */
     ui->buttonBox->button(QDialogButtonBox::Ok)->setEnabled(status != FreespaceChecker::ST_ERROR);
