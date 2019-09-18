@@ -1224,10 +1224,10 @@ public:
     void Set(uint256 hash, const std::vector<unsigned char>& vchSig, const std::vector<unsigned char>& pubKey)
     {
         // DoS prevention: limit cache size to less than 10MB
-        // (~200 bytes per cache entry times 50,000 entries)
-        // Since there are a maximum of 20,000 signature operations per block
-        // 50,000 is a reasonable default.
-        int64_t nMaxCacheSize = GetArg("-maxsigcachesize", 50000);
+        // (~200 bytes per cache entry times 86,000 entries)
+        // Bean Cash will handle over 86,000 transactions per block
+        // Increased from 50000 to 86000 as a more reasonable default for large blocks
+        int64_t nMaxCacheSize = GetArg("-maxsigcachesize", 86000);
         if (nMaxCacheSize <= 0) return;
 
         LOCK(cs_sigcache);
