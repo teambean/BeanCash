@@ -1,9 +1,9 @@
-Building BitBean
+Building Bean Cash
 
-See doc/readme-qt.rst for instructions on building BitBean QT,
+See doc/readme-qt.rst for instructions on building Beancash-QT,
 the intended-for-end-users, nice-graphical-interface, reference
-implementation of BitBean.
+implementation of Bean Cash Core.
 
-See doc/build-*.txt for instructions on building Testcoind,
+See doc/build-*.txt for instructions on building Beancashd,
 the intended-for-services, no-graphical-interface, reference
-implementation of BitBean.
+implementation of Bean Cash Core daemon.

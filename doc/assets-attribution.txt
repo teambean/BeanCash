@@ -1,8 +1,5 @@
-Code: src/strlcpy.h
-Author: Todd C. Miller <Todd.Miller@courtesan.com>
-License: ISC
-
-----------------------------------------------------
+Bean Cash Assets Attribution
+============================
 
 Icons:
     src/qt/res/icons/address-book.png
@@ -65,7 +62,7 @@ Icon:  src/qt/res/movies/bitbean_spinner.mng
 
 
 Designer: Shawn Kent
-License: GNU/GPL 
 Site: http://www.beancash.org
+License: GNU/GPL 
 
 
