@@ -125,6 +125,9 @@ public:
     bool fInbound;
     int nStartingHeight;
     int nMisbehavior;
+    uint64_t nSendBytes;
+    uint64_t nRecvBytes;
+    bool fSyncNode;
     double dPingTime;
     double dPingWait;
 };
@@ -181,11 +184,13 @@ public:
     CDataStream ssSend;
     size_t nSendSize; // total size of all vSendMsg entries
     size_t nSendOffset; // offset inside the first vSendMsg already sent
+    uint64_t nSendBytes;
     std::deque<CSerializeData> vSendMsg;
     CCriticalSection cs_vSend;
 
     std::deque<CNetMessage> vRecvMsg;
     CCriticalSection cs_vRecvMsg;
+    uint64_t nRecvBytes;
     int nRecvVersion;
 
     int64_t nLastSend;
@@ -251,6 +256,8 @@ public:
         nRecvVersion = INIT_PROTO_VERSION;
         nLastSend = 0;
         nLastRecv = 0;
+        nSendBytes = 0;
+        nRecvBytes = 0;
         nTimeConnected = GetTime();
         addr = addrIn;
         addrName = addrNameIn == "" ? addr.ToStringIPPort() : addrNameIn;
