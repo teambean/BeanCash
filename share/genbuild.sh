@@ -11,6 +11,8 @@ else
     exit 1
 fi
 
+TIME=$(date '+%F %T %z')
+
 if [ -e "$(which git)" ]; then
     # clean 'dirty' status of touched files that haven't been modified
     git diff >/dev/null 2>/dev/null 
