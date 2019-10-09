@@ -61,6 +61,30 @@ CCriticalSection cs_setservAddNodeAddresses;
 vector<std::string> vAddedNodes;
 CCriticalSection cs_vAddedNodes;
 
+//
+// Handlers that need to be registered
+//
+static ProcessMessagesHandler fnProcessMessages = NULL;
+static SendMessagesHandler fnSendMessages = NULL;
+static StartShutdownHandler fnStartShutdown = NULL;
+
+void SetProcessMessagesHandler(ProcessMessagesHandler handler)
+{
+    fnProcessMessages = handler;
+}
+
+void SetSendMessagesHandler(SendMessagesHandler handler)
+{
+    fnSendMessages = handler;
+}
+
+void SetStartShutdownHandler(StartShutdownHandler handler)
+{
+    fnStartShutdown = handler;
+}
+
+
+
 static CSemaphore *semOutbound = NULL;
 
 void AddOneShot(string strDest)
@@ -1335,8 +1359,8 @@ void ThreadMessageHandler()
             // Send messages
             {
                 TRY_LOCK(pnode->cs_vSend, lockSend);
-                if (lockSend)
-                    SendMessages(pnode, pnode == pnodeTrickle);
+                if (lockSend && fnSendMessages)
+                                   fnSendMessages(pnode, pnode == pnodeTrickle);
             }
             boost::this_thread::interruption_point();
         }
