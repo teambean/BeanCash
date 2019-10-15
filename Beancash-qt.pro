@@ -133,7 +133,7 @@ contains(USE_DBUS, 1) {
     message(Building with DBUS (Freedesktop notifications) support)
     DEFINES += USE_DBUS
     QT += dbus
-}else {
+} else {
     message(Building without DBUS (Freedesktop notifications) support)
 }
 
@@ -411,7 +411,7 @@ OTHER_FILES += \
         BOOST_LIB_SUFFIX = -mt
     }
     windows{
-        message(since BOOST_LIB_SUFFIX is empty we add to BOOST_LIB_SUFFIX -mgw49-mt-s-1_59)
+#        message(since BOOST_LIB_SUFFIX is empty we add to BOOST_LIB_SUFFIX -mgw49-mt-s-1_59)
         BOOST_LIB_SUFFIX = -mgw49-mt-s-1_59
     }
 }
@@ -430,7 +430,6 @@ macx{
             DEPSDIR = /opt/local
         }
     }
-}
 
 !exists(BOOST_LIB_PATH) {
     message(BOOST_LIB_PATH point to an empty folder)
@@ -479,7 +478,7 @@ macx{
         OPENSSL_INCLUDE_PATH = $$DEPSDIR/include
     }
 }
-
+}
 macx: {
     HEADERS += src/qt/macdockiconhandler.h src/qt/macnotificationhandler.h
     OBJECTIVE_SOURCES += src/qt/macdockiconhandler.mm src/qt/macnotificationhandler.mm
