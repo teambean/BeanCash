@@ -6,7 +6,7 @@ they can be picked up by Qt linguist.
 from subprocess import Popen, PIPE
 import glob
 
-OUT_CPP="src/qt/beancashstrings.cpp"
+OUT_CPP="src/qt/bitbeanstrings.cpp"
 EMPTY=['""']
 
 def parse_po(text):
@@ -62,7 +62,7 @@ f.write("""#include <QtGlobal>
 #define UNUSED
 #endif
 """)
-f.write('static const char UNUSED *beancash_strings[] = {')
+f.write('static const char UNUSED *bitbean_strings[] = {')
 for (msgid, msgstr) in messages:
     if msgid != EMPTY:
         f.write('QT_TRANSLATE_NOOP("beancash-core", %s),\n' % ('\n'.join(msgid)))

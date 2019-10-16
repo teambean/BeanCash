@@ -1,6 +1,7 @@
 #!/bin/bash
 # Copyright (c) 2013 The Bitcoin Core developers
 # Copyright (c) 2015 Bean Core www.bitbean.org
+# Copyright (c) 2017-2019 Bean Core www.beancash.org
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #
@@ -23,10 +24,10 @@ if [ $# -lt 2 ]; then
   exit 1
 fi
 
-DISTDIR=bitbean-1.1.0RC
+DISTDIR=beancash-1.3RC
 
 # Cross-compile for windows first (breaking the mingw/windows build is most common)
-cd /c/deps/bitbean-master
+cd /c/deps/beancash-master
 make distdir
 mkdir -p win32-build
 rsync -av $DISTDIR/ win32-build/
@@ -41,7 +42,7 @@ fi
 make -j$JOBS
 
 # And compile for Linux:
-cd /c/deps/bitbean-master
+cd /c/deps/beancash-master
 make distdir
 mkdir -p linux-build
 rsync -av $DISTDIR/ linux-build/
@@ -59,41 +60,41 @@ make -j$JOBS
 if [ -d "$OUT_DIR" -a -w "$OUT_DIR" ]; then
   set +e
   # Windows:
-  cp /c/deps/bitbean-master/win32-build/src/bitbeand.exe $OUT_DIR/bitbeand.exe
-  cp /c/deps/bitbean-master/win32-build/src/test/test_bitbean.exe $OUT_DIR/test_bitbean.exe
-  cp /c/deps/bitbean-master/win32-build/src/qt/bitbeand-qt.exe $OUT_DIR/bitbean-qt.exe
+  cp /c/deps/beancash-master/win32-build/src/beancashd.exe $OUT_DIR/beancashd.exe
+  cp /c/deps/beancash-master/win32-build/src/test/test_BeanCash.exe $OUT_DIR/test_BeanCash.exe
+  cp /c/deps/beancash-master/win32-build/src/qt/BeanCash-qt.exe $OUT_DIR/BeanCash-qt.exe
   # Linux:
-  cp /c/deps/bitbean-master/linux-build/src/bitbeand $OUT_DIR/bitbeand
-  cp /c/deps/bitbean-master/linux-build/src/test/test_bitbean $OUT_DIR/test_bitbean
-  cp /c/deps/bitbean-master/linux-build/src/qt/bitbeand-qt $OUT_DIR/bitbean-qt
+  cp /c/deps/beancash-master/linux-build/src/beancashd $OUT_DIR/beancashd
+  cp /c/deps/beancash-master/linux-build/src/test/test_BeanCash $OUT_DIR/test_BeanCash
+  cp /c/deps/beancash-master/linux-build/src/qt/BeanCash-qt $OUT_DIR/BeanCash-qt
   set -e
 fi
 
 # Run unit tests and blockchain-tester on Linux:
-cd /c/deps/bitbean-master/linux-build
+cd /c/deps/beancash-master/linux-build
 make check
 
 # Run RPC integration test on Linux:
-/c/deps/bitbean-master/qa/rpc-tests/wallet.sh /c/deps/bitbean-master/linux-build/src
-/c/deps/bitbean-master/qa/rpc-tests/listtransactions.py --srcdir /c/deps/bitbean-master/linux-build/src
+/c/deps/beancash-master/qa/rpc-tests/wallet.sh /c/deps/beancash-master/linux-build/src
+/c/deps/beancash-master/qa/rpc-tests/listtransactions.py --srcdir /c/deps/beancash-master/linux-build/src
 # Clean up cache/ directory that the python regression tests create
 rm -rf cache
 
 if [ $RUN_EXPENSIVE_TESTS = 1 ]; then
   # Run unit tests and blockchain-tester on Windows:
-  cd /c/deps/bitbean-master/win32-build
+  cd /c/deps/beancash-master/win32-build
   make check
 fi
 
 # Clean up builds (pull-tester machine doesn't have infinite disk space)
-cd /c/deps/bitbean-master/linux-build
+cd /c/deps/beancash-master/linux-build
 make clean
-cd /c/deps/bitbean-master/win32-build
+cd /c/deps/beancash-master/win32-build
 make clean
 
 # TODO: Fix code coverage builds on pull-tester machine
 # # Test code coverage
-# cd /c/deps/bitbean-master
+# cd /c/deps/beancash-master
 # make distdir
 # mv $DISTDIR linux-coverage-build
 # cd linux-coverage-build

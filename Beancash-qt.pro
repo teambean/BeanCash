@@ -4,14 +4,20 @@ VERSION = 1.1.2.2
 QT += core gui network
 INCLUDEPATH += src src/json src/qt
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE __NO_SYSTEM_INCLUDES
+greaterThan(QT_MAJOR_VERSION, 4) {
+    QT += widgets
+    DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
+}
 CONFIG += no_include_pwd
 CONFIG += thread
 CONFIG += C++11
+CONFIG += static
+win32:os2 {
+    CONFIG += release
+} else {
+    CONFIG += debug_and_release
+}
 QMAKE_CXXFLAGS += -std=c++11
-
-#USE RELEASE=1
-#USE_O3=1  # default 0
-#USE_DBUS=1 # default 1
 
 greaterThan(QT_MAJOR_VERSION, 4) {
     QT += widgets
@@ -22,23 +28,14 @@ contains(RELEASE, 1) {
     message(building in RELEASE mode)
 }
 
-win32:os2 {
-    CONFIG += release
-} else {
-    CONFIG += debug_and_release
-}
-
 freebsd-g++: QMAKE_TARGET.arch = $$QMAKE_HOST.arch
 linux-g++: QMAKE_TARGET.arch = $$QMAKE_HOST.arch
 *-g++-32: QMAKE_TARGET.arch = i686
 *-g++-64: QMAKE_TARGET.arch = x86_64
 
-CONFIG += static
-
-greaterThan(QT_MAJOR_VERSION, 4) {
-    QT += widgets
-    DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0
-}
+#USE RELEASE=1
+#USE_O3=1  # default 0
+#USE_DBUS=1 # default 1
 
 # for boost 1.37, add -mt to the boost libraries
 # use: qmake BOOST_LIB_SUFFIX=-mt
@@ -96,6 +93,7 @@ contains(RELEASE, 1) {
         # Linux: static link & security hardening
         LIBS += -Wl,-Bstatic -Wl,-z,relro -Wl,-z,now
     }
+    QMAKE_LFLAGS += -static-libstdc++
 }
 
 !win32 {
@@ -109,13 +107,9 @@ contains(RELEASE, 1) {
 # for extra security on Windows: enable ASLR and DEP via GCC linker flags
 win32:QMAKE_LFLAGS *= -Wl,--dynamicbase -Wl,--nxcompat -static
 
-contains(RELEASE, 1) {
-    QMAKE_LFLAGS += -static-libstdc++
-}
-
 win32:contains(QMAKE_HOST.arch, x86):{QMAKE_LFLAGS *= -Wl,--large-address-aware }
 
-# use: qmake "USE_QRCODE=1"
+# use: qmake "USE_QRCODE=1", default is 0
 # libqrencode (http://fukuchi.org/works/qrencode/index.en.html) must be installed for support
 contains(USE_QRCODE, 1) {
     message(Building with QRCode support)
@@ -124,18 +118,20 @@ contains(USE_QRCODE, 1) {
 }
 
 # use: qmake "USE_DBUS=1" or qmake "USE_DBUS=0"
-isEmpty(USE_DBUS) {
-    message("USE_DBUS not set, fallback to $USE_DBUS=1")
-    USE_DBUS=1
-}
-
+#unix | linux {
+#    isEmpty(USE_DBUS) | contains(USE_DBUS, 1) {
+#        message(Building with Freedesktop support(Using DBUS))
+#        USE_DBUS=1
+#        DEFINES += USE_DBUS
+#        QT += dbus
+#    }
+#}
 contains(USE_DBUS, 1) {
-    message(Building with DBUS (Freedesktop notifications) support)
+    message(Building with DBUS (Freedesktop notification) support)
     DEFINES += USE_DBUS
     QT += dbus
-} else {
-    message(Building without DBUS (Freedesktop notifications) support)
 }
+
 
 contains(BEANCASH_NEED_QT_PLUGINS, 1) {
     DEFINES += BEANCASH_NEED_QT_PLUGINS
@@ -402,7 +398,7 @@ QMAKE_EXTRA_COMPILERS += TSQM
 
 # "Other files" to show in Qt Creator
 OTHER_FILES += \
-    doc/*.rst doc/*.txt doc/README README.md res/Beancash-qt.rc
+    contrib/debian/* contrib/gitian-descriptors/* contrib/initscripts/* contrib/macdeploy/* contrib/pythontools/* doc/*.rst doc/*.txt doc/Doxyfile doc/README README.md res/Beancash-qt.rc contrib/* qa/* share/*.sh share/setup*
 
 # platform specific defaults, if not overridden on command line
 !exists(BOOST_LIB_SUFFIX) {

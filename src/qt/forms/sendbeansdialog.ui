@@ -25,9 +25,9 @@
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>211</red>
-        <green>238</green>
-        <blue>175</blue>
+        <red>255</red>
+        <green>154</green>
+        <blue>154</blue>
        </color>
       </brush>
      </colorrole>
@@ -63,9 +63,9 @@
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>211</red>
-        <green>238</green>
-        <blue>175</blue>
+        <red>255</red>
+        <green>154</green>
+        <blue>154</blue>
        </color>
       </brush>
      </colorrole>
@@ -92,18 +92,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>211</red>
-        <green>238</green>
-        <blue>175</blue>
+        <red>255</red>
+        <green>154</green>
+        <blue>154</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>211</red>
-        <green>238</green>
-        <blue>175</blue>
+        <red>255</red>
+        <green>154</green>
+        <blue>154</blue>
        </color>
       </brush>
      </colorrole>
@@ -355,7 +355,16 @@
            <string notr="true"/>
           </property>
           <layout class="QHBoxLayout" name="horizontalLayoutBeanControl5">
-           <property name="margin">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
             <number>0</number>
            </property>
            <item>
@@ -876,12 +885,21 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>828</width>
-        <height>157</height>
+        <width>830</width>
+        <height>160</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
-       <property name="margin">
+       <property name="leftMargin">
+        <number>0</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>0</number>
+       </property>
+       <property name="bottomMargin">
         <number>0</number>
        </property>
        <item>

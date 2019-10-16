@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Copyright (c) 2014 The Bitcoin Core developers
+# Copyright (c) 2019 Bean Core www.beancore.org
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,9 +10,9 @@
 # 4 nodes. 1 2 3 and send transactions between each other,
 # fourth node is a miner.
 # 1 2 3 and each mine a block to start, then
-# miner creates 100 blocks so 1 2 3 each have 50 mature
+# miner creates 100 blocks so 1 2 3 each have 100000 mature
 # coins to spend.
-# Then 5 iterations of 1/2/3 sending coins amongst
+# Then 5 iterations of 1/2/3 sending Beans amongst
 # themselves to get transactions in the wallets,
 # and the miner mining one block.
 #
@@ -22,8 +23,8 @@
 # transaction fees paid mature.
 #
 # Sanity checks done:
-#   Miner balance >= 150*50
-#   Sum(1,2,3,4 balances) == 153*150
+#   Miner balance >= 150*100000
+#   Sum(1,2,3,4 balances) == 153*300000
 #
 # 1/2/3 are shutdown, and their wallets erased.
 # Then restore using wallet.dat backup. And
@@ -39,8 +40,8 @@ if [ $# -lt 1 ]; then
         exit 1
 fi
 
-BITCOIND=${1}/bitcoind
-CLI=${1}/bitcoin-cli
+BEANCASHD=${1}/beancashd
+CLI=${1}/beancash-cli
 
 DIR="${BASH_SOURCE%/*}"
 SENDANDWAIT="${DIR}/send.sh"
@@ -55,7 +56,7 @@ echo "Starting nodes..."
 D4=${D}/node4
 CreateDataDir $D4 port=11030 rpcport=11031
 B4ARGS="-datadir=$D4"
-$BITCOIND $BITCOINDARGS $B4ARGS &
+$BEANCASHD $BEANCASHDARGS $B4ARGS &
 B4PID=$!
 
 # Want default keypool for 1/2/3, and
@@ -64,7 +65,7 @@ B4PID=$!
 function CreateConfDir {
   DIR=$1
   mkdir -p $DIR
-  CONF=$DIR/bitcoin.conf
+  CONF=$DIR/beancash.conf
   echo "regtest=1" >> $CONF
   echo "rpcuser=rt" >> $CONF
   echo "rpcpassword=rt" >> $CONF
@@ -80,17 +81,17 @@ function CreateConfDir {
 D1=${D}/node1
 CreateConfDir $D1 port=11000 rpcport=11001 addnode=127.0.0.1:11030
 B1ARGS="-datadir=$D1"
-$BITCOIND $B1ARGS &
+$BEANCASHD $B1ARGS &
 B1PID=$!
 D2=${D}/node2
 CreateConfDir $D2 port=11010 rpcport=11011 addnode=127.0.0.1:11030
 B2ARGS="-datadir=$D2"
-$BITCOIND $B2ARGS &
+$BEANCASHD $B2ARGS &
 B2PID=$!
 D3=${D}/node3
 CreateConfDir $D3 port=11020 rpcport=11021 addnode=127.0.0.1:11030 addnode=127.0.0.1:11000
 B3ARGS="-datadir=$D3"
-$BITCOIND $BITCOINDARGS $B3ARGS &
+$BEANCASHD $BEANCASHDARGS $B3ARGS &
 B3PID=$!
 
 # Wait until all nodes are at the same block number
@@ -128,7 +129,7 @@ function WaitMemPools {
 
 echo "Generating initial blockchain..."
 
-# 1 block, 50 XBT each == 50 BTC
+# 1 block, 100000 BITB each == 100 SPROUT
 $CLI $B1ARGS setgenerate true 1
 WaitBlocks
 $CLI $B2ARGS setgenerate true 1
@@ -140,9 +141,9 @@ WaitBlocks
 $CLI $B4ARGS setgenerate true 100
 WaitBlocks
 
-CheckBalance "$B1ARGS" 50
-CheckBalance "$B2ARGS" 50
-CheckBalance "$B3ARGS" 50
+CheckBalance "$B1ARGS" 100000
+CheckBalance "$B2ARGS" 100000
+CheckBalance "$B3ARGS" 100000
 CheckBalance "$B4ARGS" 0
 
 echo "Creating transactions..."
@@ -231,11 +232,11 @@ function EraseThree {
   rm $D3/regtest/wallet.dat
 }
 function StartThree {
-  $BITCOIND $BITCOINDARGS $B1ARGS &
+  $BEANCASHD $BEANCASHDARGS $B1ARGS &
   B1PID=$!
-  $BITCOIND $BITCOINDARGS $B2ARGS &
+  $BEANCASHD $BEANCASHDARGS $B2ARGS &
   B2PID=$!
-  $BITCOIND $BITCOINDARGS $B3ARGS &
+  $BEANCASHD $BEANCASHDARGS $B3ARGS &
   B3PID=$!
 }
 

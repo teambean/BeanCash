@@ -20,7 +20,7 @@ SetCompressor /SOLID lzma
 !define MUI_STARTMENUPAGE_REGISTRY_KEY ${REGKEY}
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME StartMenuGroup
 !define MUI_STARTMENUPAGE_DEFAULTFOLDER Beancash
-#!define MUI_FINISHPAGE_RUN $INSTDIR\Beancash-qt.exe
+#!define MUI_FINISHPAGE_RUN $INSTDIR\BeanCash-qt.exe
 !define MUI_UNICON "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
 !define MUI_UNWELCOMEFINISHPAGE_BITMAP "../share/pixmaps/nsis-wizard.bmp"
 !define MUI_UNFINISHPAGE_NOAUTOCLOSE
@@ -45,13 +45,13 @@ Var StartMenuGroup
 !insertmacro MUI_LANGUAGE English
 
 # Installer attributes
-OutFile beancash-1.1.2.2RC-win32-setup.exe
-InstallDir $PROGRAMFILES\Beancash
+OutFile beancash-1.3RC-win32-setup.exe
+InstallDir $PROGRAMFILES\BeanCash
 CRCCheck on
 XPStyle on
-BrandingText " "
+BrandingText "Bean Cash Core "
 ShowInstDetails show
-VIProductVersion 1.1.2.2RC
+VIProductVersion 1.3RC
 VIAddVersionKey ProductName Bean Cash Core
 VIAddVersionKey ProductVersion "${VERSION}"
 VIAddVersionKey CompanyName "${COMPANY}"
@@ -66,11 +66,11 @@ ShowUninstDetails show
 Section -Main SEC0000
     SetOutPath $INSTDIR
     SetOverwrite on
-    #File ../release/Beancash-qt.exe
+    #File ../release/BeanCash-qt.exe
     File /oname=license.txt ../COPYING
     File /oname=readme.txt ../doc/README_windows.txt
     SetOutPath $INSTDIR\daemon
-    File ../src/Beancashd.exe
+    File ../src/beancashd.exe
     SetOutPath $INSTDIR\src
     File /r /x *.exe /x *.o ../src\*.*
     SetOutPath $INSTDIR
@@ -97,9 +97,9 @@ Section -post SEC0001
 
     # beancash: URI handling disabled for 0.6.0
     #    WriteRegStr HKCR "beancash" "URL Protocol" ""
-    #    WriteRegStr HKCR "beancash" "" "URL:Beancash"
-    #    WriteRegStr HKCR "beancash\DefaultIcon" "" $INSTDIR\Beancash-qt.exe
-    #    WriteRegStr HKCR "beancash\shell\open\command" "" '"$INSTDIR\Beancash-qt.exe" "$$1"'
+    #    WriteRegStr HKCR "beancash" "" "URL:beancash"
+    #    WriteRegStr HKCR "beancash\DefaultIcon" "" $INSTDIR\BeanCash-qt.exe
+    #    WriteRegStr HKCR "beancash\shell\open\command" "" '"$INSTDIR\BeanCash-qt.exe" "$$1"'
 SectionEnd
 
 # Macro for selecting uninstaller sections
@@ -117,7 +117,7 @@ done${UNSECTION_ID}:
 
 # Uninstaller sections
 Section /o -un.Main UNSEC0000
-    #Delete /REBOOTOK $INSTDIR\Beancash-qt.exe
+    #Delete /REBOOTOK $INSTDIR\BeanCash-qt.exe
     Delete /REBOOTOK $INSTDIR\license.txt
     Delete /REBOOTOK $INSTDIR\readme.txt
     RMDir /r /REBOOTOK $INSTDIR\daemon

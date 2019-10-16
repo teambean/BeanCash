@@ -29,10 +29,10 @@
   <string>????</string>
 
   <key>CFBundleExecutable</key>
-  <string>Beancash-Qt</string>
+  <string>BeanCash-Qt</string>
 
   <key>CFBundleIdentifier</key>
-  <string>org.beancash.Beancash-Qt</string>
+  <string>org.beancash.BeanCash-Qt</string>
 
   <key>CFBundleURLTypes</key>
   <array>
@@ -40,7 +40,7 @@
       <key>CFBundleTypeRole</key>
       <string>Editor</string>
       <key>CFBundleURLName</key>
-      <string>org.beancash.BeancashPayment</string>
+      <string>org.beancash.beancashpayment</string>
       <key>CFBundleURLSchemes</key>
       <array>
         <string>beancash</string>
@@ -54,7 +54,7 @@
       <key>UTTypeIdentifier</key>
       <string>org.beancash.paymentrequest</string>
       <key>UTTypeDescription</key>
-      <string>Beancash payment request</string>
+      <string>BeanCash payment request</string>
       <key>UTTypeConformsTo</key>
       <array>
         <string>public.data</string>

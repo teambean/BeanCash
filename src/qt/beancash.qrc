@@ -47,9 +47,9 @@
         <file alias="exportkey">res/icons/exportkey.png</file>
     </qresource>
     <qresource prefix="/images">
-        <file alias="bkg">res/images/BeanSky.png</file>
         <file alias="about">res/images/about.png</file>
         <file alias="splash">res/images/Bean2Moon.png</file>
+        <file alias="bkg">res/images/BeanSky.png</file>
     </qresource>
     <qresource prefix="/movies">
         <file alias="update_spinner">res/movies/beancash_spinner.mng</file>

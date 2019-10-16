@@ -1,6 +1,7 @@
 #!/bin/bash
 # Copyright (c) 2013 The Bitcoin Core developers
 # Copyright (c) 2015 Bean Core www.bitbean.org
+# Copyright (c) 2017-2019 Bean Cash www.beancash.org
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #
@@ -59,13 +60,13 @@ make -j$JOBS
 if [ -d "$OUT_DIR" -a -w "$OUT_DIR" ]; then
   set +e
   # Windows:
-  cp @abs_top_srcdir@/win32-build/src/bitbeand.exe $OUT_DIR/bitbeand.exe
-  cp @abs_top_srcdir@/win32-build/src/test/test_bitbean.exe $OUT_DIR/test_bitbean.exe
-  cp @abs_top_srcdir@/win32-build/src/qt/bitbeand-qt.exe $OUT_DIR/bitbean-qt.exe
+  cp @abs_top_srcdir@/win32-build/src/beancashd.exe $OUT_DIR/beancashd.exe
+  cp @abs_top_srcdir@/win32-build/src/test/test_beancash.exe $OUT_DIR/test_beancash.exe
+  cp @abs_top_srcdir@/win32-build/src/qt/BeanCash-qt.exe $OUT_DIR/BeanCash-qt.exe
   # Linux:
-  cp @abs_top_srcdir@/linux-build/src/bitbeand $OUT_DIR/bitbeand
-  cp @abs_top_srcdir@/linux-build/src/test/test_bitbean $OUT_DIR/test_bitbean
-  cp @abs_top_srcdir@/linux-build/src/qt/bitbeand-qt $OUT_DIR/bitbean-qt
+  cp @abs_top_srcdir@/linux-build/src/beancashd $OUT_DIR/beancashd
+  cp @abs_top_srcdir@/linux-build/src/test/test_beancash $OUT_DIR/test_beancash
+  cp @abs_top_srcdir@/linux-build/src/qt/BeanCash-qt $OUT_DIR/BeanCash-qt
   set -e
 fi
 

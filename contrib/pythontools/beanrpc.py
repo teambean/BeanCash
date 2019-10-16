@@ -1,3 +1,6 @@
+# ===== BEAN RPC =====
+# Python utility that allows sending standard Bean Cash commands via RPC rather than command line arguments
+
 from jsonrpc import ServiceProxy
 import sys
 import string

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 # Copyright (c) 2013-2014 The Bitcoin Core developers
+# Copyright (c) 2019 Bean Core www.beancash.org
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,8 +14,8 @@ fi
 
 set -f
 
-BITCOIND=${1}/bitcoind
-CLI=${1}/bitcoin-cli
+BEANCASHD=${1}/beancashd
+CLI=${1}/beancash-cli
 
 DIR="${BASH_SOURCE%/*}"
 SENDANDWAIT="${DIR}/send.sh"
@@ -26,19 +27,19 @@ D=$(mktemp -d test.XXXXX)
 D1=${D}/node1
 CreateDataDir "$D1" port=11000 rpcport=11001
 B1ARGS="-datadir=$D1"
-$BITCOIND $B1ARGS &
+$BEANCASHD $B1ARGS &
 B1PID=$!
 
 D2=${D}/node2
 CreateDataDir "$D2" port=11010 rpcport=11011 connect=127.0.0.1:11000
 B2ARGS="-datadir=$D2"
-$BITCOIND $B2ARGS &
+$BEANCASHD $B2ARGS &
 B2PID=$!
 
 D3=${D}/node3
 CreateDataDir "$D3" port=11020 rpcport=11021 connect=127.0.0.1:11000
 B3ARGS="-datadir=$D3"
-$BITCOIND $BITCOINDARGS $B3ARGS &
+$BEANCASHD $BEANCASHDARGS $B3ARGS &
 B3PID=$!
 
 # Wait until all three nodes are at the same block number
@@ -58,17 +59,17 @@ function WaitBlocks {
 
 echo "Generating test blockchain..."
 
-# 1 block, 50 XBT each == 50 XBT
+# 1 block, 100000 BITB each == 100 SPROUT
 $CLI $B1ARGS setgenerate true 1
 WaitBlocks
-# 101 blocks, 1 mature == 50 XBT
+# 101 blocks, 1 mature == 100 SPROUT
 $CLI $B2ARGS setgenerate true 101
 WaitBlocks
 
-CheckBalance "$B1ARGS" 50
-CheckBalance "$B2ARGS" 50
+CheckBalance "$B1ARGS" 100000
+CheckBalance "$B2ARGS" 100000
 
-# Send 21 XBT from 1 to 3. Second
+# Send 21 BITB from 1 to 3. Second
 # transaction will be child of first, and
 # will require a fee
 Send $B1ARGS $B3ARGS 11
@@ -83,9 +84,9 @@ WaitBlocks
 $CLI $B2ARGS setgenerate true 100
 WaitBlocks
 
-# B1 should end up with 100 XBT in block rewards plus fees,
-# minus the 21 XBT sent to B3:
-CheckBalance "$B1ARGS" "100-21"
+# B1 should end up with 200000 BITB in block rewards plus fees,
+# minus the 21 BITB sent to B3:
+CheckBalance "$B1ARGS" "200000-21"
 CheckBalance "$B3ARGS" "21"
 
 # B1 should have two unspent outputs; create a couple
@@ -102,8 +103,8 @@ WaitBlocks
 
 # Check balances after confirmation
 CheckBalance "$B1ARGS" 0
-CheckBalance "$B3ARGS" 100
-CheckBalance "$B3ARGS" "100-21" "from1"
+CheckBalance "$B3ARGS" 200000
+CheckBalance "$B3ARGS" "200000-21" "from1"
 
 $CLI $B3ARGS stop > /dev/null 2>&1
 wait $B3PID

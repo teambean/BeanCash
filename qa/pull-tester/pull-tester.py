@@ -1,6 +1,7 @@
 #!/usr/bin/python
 # Copyright (c) 2013 The Bitcoin Core developers
 # Copyright (c) 2015 Bean Core www.bitbean.org
+# Copyright (c) 2017-2019 Bean Core www.beancash.org
 # Distributed under the MIT/X11 software license, see the accompanying
 # file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #
@@ -63,7 +64,7 @@ def commentOn(commentUrl, success, inMerge, needTests, linkUrl):
 This test script verifies pulls every time they are updated. It, however, dies sometimes and fails to test properly.  If you are waiting on a test, please check timestamps to verify that the test.log is moving at http://jenkins.bluematt.me/pull-tester/current/
 Contact BlueMatt on freenode if something looks broken."""
 
-    # Remove old BitBeanPullTester comments (No pagination here)
+    # Remove old Bean Cash PullTester comments (No pagination here)
     recentcomments = requests.get(commentUrl+"?sort=created&direction=desc",
                                   auth=(os.environ['GITHUB_USER'], os.environ["GITHUB_AUTH_TOKEN"])).json
     for comment in recentcomments:
@@ -90,9 +91,9 @@ This could happen for one of several reasons:
 2. It adds/modifies tests which test network rules (thanks for doing that), which conflicts with a patch applied at test time
 3. It does not build on either Linux i386 or Win32 (via MinGW cross compile)
 4. The test suite fails on either Linux i386 or Win32
-5. The block test-cases failed (lookup the first bNN identifier which failed in https://github.com/TeamBitBean/test-scripts/blob/master/FullBlockTestGenerator.java)
+5. The block test-cases failed (lookup the first bNN identifier which failed in https://github.com/teambean/test-scripts/blob/master/FullBlockTestGenerator.java)
 
-If you believe this to be in error, please ping Bitbeaner in #bitbean on freenode IRC network.
+If you believe this to be in error, please send an email to:  support@beancash.org
 """ + common_message}
 
     resp = requests.post(commentUrl, json.dumps(post_data), auth=(os.environ['GITHUB_USER'], os.environ["GITHUB_AUTH_TOKEN"]))
@@ -153,17 +154,17 @@ if "GITHUB_USER" not in os.environ or "GITHUB_AUTH_TOKEN" not in os.environ:
     print("GITHUB_USER and/or GITHUB_AUTH_TOKEN environment variables not set")
     sys.exit(1)
 
-environ_default("CLONE_URL", "https://github.com/TeamBitBean/bitbean-core.git")
+environ_default("CLONE_URL", "https://github.com/teambean/BeanCash.git")
 environ_default("MINGW_DEPS_DIR", "/mnt/w32deps")
 environ_default("SCRIPTS_DIR", "/mnt/test-scripts")
 environ_default("CHROOT_COPY", "/mnt/chroot-tmp")
 environ_default("CHROOT_MASTER", "/mnt/chroot")
 environ_default("OUT_DIR", "/mnt/out")
-environ_default("BUILD_PATH", "/mnt/bitbean")
+environ_default("BUILD_PATH", "/mnt/beancash")
 os.environ["BUILD_DIR"] = os.environ["CHROOT_COPY"] + os.environ["BUILD_PATH"]
 environ_default("RESULTS_DIR", "/mnt/www/pull-tester")
-environ_default("RESULTS_URL", "http://jenkins.bitbean.org/pull-tester/")
-environ_default("GITHUB_REPO", "https://github.com/TeamBitBean/bitbean-core")
+environ_default("RESULTS_URL", "http://jenkins.beancash.net/pull-tester/")
+environ_default("GITHUB_REPO", "https://github.com/teambean/BeanCash")
 environ_default("TESTED_DB", "/mnt/commits-tested.txt")
 environ_default("BUILD_USER", "bitbeaner")
 environ_default("BUILD_GROUP", "beancore")
