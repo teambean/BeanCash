@@ -2711,6 +2711,7 @@ string GetWarnings(string strFor)
     int nPriority = 0;
     string strStatusBar;
     string strRPC;
+    string strAlert;
 
     if (GetBoolArg("-testsafemode"))
         strRPC = "test";
@@ -2738,7 +2739,8 @@ string GetWarnings(string strFor)
             if (alert.AppliesToMe() && alert.nPriority > nPriority)
             {
                 nPriority = alert.nPriority;
-                strStatusBar = strprintf("%s: #%s\n",alert.strStatusBaralert.nID);
+                strAlert = alert.strStatusBar;
+                strStatusBar = strAlert = strprintf(": ID#%u\n",alert.nID);
                 if (nPriority > 1000)
                     strRPC = strStatusBar;
             }
