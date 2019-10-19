@@ -544,7 +544,6 @@ bool CWallet::AddToWalletIfInvolvingMe(const CTransaction& tx, const CBlock* pbl
 {
     uint256 hash = tx.GetHash();
     {
-        LOCK(cs_wallet);
         bool fExisted = mapWallet.count(hash);
         if (fExisted && !fUpdate) return false;
         if (fExisted || IsMine(tx) || IsFromMe(tx))
