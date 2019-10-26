@@ -95,43 +95,73 @@ class CReserveKey;
 class CTxDB;
 class CTxIndex;
 
+/** Register a wallet to receive updates from core */
 void RegisterWallet(CWallet* pwalletIn);
+
+/** Unregister a wallet from core */
 void UnregisterWallet(CWallet* pwalletIn);
+
+/** Push an updated transaction to all registered wallets */
 void SyncWithWallets(const CTransaction& tx, const CBlock* pblock = NULL, bool fUpdate = false, bool fConnect = true);
+
 void PushGetBlocks(CNode* pnode, CBlockIndex* pindexBegin, uint256 hashEnd);
+
+/** Process an incoming block */
 bool ProcessBlock(CNode* pfrom, CBlock* pblock);
+
+/** Check whether there is enough disk space for incoming blocks */
 bool CheckDiskSpace(uint64_t nAdditionalBytes=0);
+
+/** Open a block file (default: blk?????.dat) */
 FILE* OpenBlockFile(unsigned int nFile, unsigned int nBlockPos, const char* pszMode="rb");
+
+/** Append to a block file (default: blk?????.dat) */
 FILE* AppendBlockFile(unsigned int& nFileRet);
+
+/** Load Block Tree database of Beans from disk */
 bool LoadBlockIndex(bool fAllowNew=true);
+
 void PrintBlockTree();
 CBlockIndex* FindBlockByHeight(int nHeight);
+
+/** Process messages from a given node */
 bool ProcessMessages(CNode* pfrom);
+
+/** Send queued protocol messages to be sent to a given node */
 bool SendMessages(CNode* pto, bool fSendTrickle);
 
+/** Check whether a block hash satisfies the proof-of-work requirement specified by nBits */
 bool CheckProofOfWork(uint256 hash, unsigned int nBits);
+
 unsigned int GetNextTargetRequired(const CBlockIndex* pindexLast, bool fProofOfStake);
 int64_t GetProofOfWorkReward(int64_t nFees);
 int64_t GetProofOfStakeReward(int64_t nBeanAge, int64_t nFees);
+
+/** Compute minimum work needed for a received block, without knowing the parent */
 unsigned int ComputeMinWork(unsigned int nBase, int64_t nTime);
+
+/** Compute minimum Bean Weight needed for a received block */
 unsigned int ComputeMinStake(unsigned int nBase, int64_t nTime, unsigned int nBlockTime);
+
+/** Get the number of active peers */
 int GetNumBlocksOfPeers();
+
+/** Check if an IBD (Initial Block Download) is in progress */
 bool IsInitialBlockDownload();
+
+/** Format a string for reporting problems detected by core */
 std::string GetWarnings(std::string strFor);
+
+/** Get a tranasaction from memory pool or disk */
 bool GetTransaction(const uint256 &hash, CTransaction &tx, uint256 &hashBlock);
+
 uint256 WantedByOrphan(const CBlock* pblockOrphan);
+
 const CBlockIndex* GetLastBlockIndex(const CBlockIndex* pindex, bool fProofOfStake);
+
 void ThreadStakeMiner(CWallet *pwallet);
+
 void ResendWalletTransactions(bool fForce = false);
-
-
-
-
-
-
-
-
-
 
 bool GetWalletFile(CWallet* pwallet, std::string &strWalletFileOut);
 
