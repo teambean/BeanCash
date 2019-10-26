@@ -143,7 +143,7 @@ static void initTranslations(QTranslator &qtTranslatorBase, QTranslator &qtTrans
 }
 
 
-#ifndef BITBEAN_QT_TEST
+#ifndef BEANCASH_QT_TEST
 int main(int argc, char *argv[])
 {
 #if QT_VERSION < 0x050000
@@ -152,8 +152,9 @@ int main(int argc, char *argv[])
     QTextCodec::setCodecForCStrings(QTextCodec::codecForTr());
 #endif
 
-    Q_INIT_RESOURCE(beancash);
     QApplication app(argc, argv);
+    // Doesn't need to be defined
+    //    Q_INIT_RESOURCE(beancash);
     app.setWindowIcon(QIcon("./icons/icon.png"));
 
     // Application identification (must be set before OptionsModel is initialized,

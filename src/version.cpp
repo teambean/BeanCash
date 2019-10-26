@@ -7,7 +7,7 @@
 #include "version.h"
 
 // Name of client reported in the 'version' message. Report the same name
-// for both bitbeand and Beancash-qt, to make it harder for attackers to
+// for both beancashd and Beancash-qt, to make it harder for attackers to
 // target servers or GUI users specifically.
 const std::string CLIENT_NAME("Bean Core");
 
