@@ -404,7 +404,7 @@ class CBitbeanSecret : public CBase58Data
 public:
     void SetKey(const CKey& vchSecret)
     {
-        assert(vchSecretIsValid());
+        assert(vchSecret.IsValid());
         SetData(128 + (fTestNet ? CBitbeanAddress::PUBKEY_ADDRESS_TEST : CBitbeanAddress::PUBKEY_ADDRESS), vchSecret.begin(), vchSecret.size());
         if (vchSecret.IsCompressed())
             vchData.push_back(1);
