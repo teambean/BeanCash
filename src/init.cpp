@@ -319,6 +319,7 @@ std::string HelpMessage()
         "  -rpcport=<port>        " + _("Listen for JSON-RPC connections on <port> (default: 22461 or testnet: 22463)") + "\n" +
         "  -rpcallowip=<ip>       " + _("Allow JSON-RPC connections from specified IP address") + "\n" +
         "  -rpcconnect=<ip>       " + _("Send commands to node running on <ip> (default: 127.0.0.1)") + "\n" +
+        "  -rpcwait               " + _("Wait for RPC server to start") + "\n";
         "  -rpcthreads=<n>        " + _("Use this to set the number of threads to service RPC calls (defult: 4)") + "\n" +
         "  -blocknotify=<cmd>     " + _("Execute command when the best block changes (%s in cmd is replaced by block hash)") + "\n" +
         "  -walletnotify=<cmd>    " + _("Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)") + "\n" +
