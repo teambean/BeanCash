@@ -2901,6 +2901,18 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
                     pfrom->nVersion >= MEMPOOL_GD_VERSION)
                     pfrom->PushMessage("mempool");
 
+        // Ask the first connected node for block updates
+        static int nAskedForBlocks = 0;
+        if (!pfrom->fClient && !pfrom->fOneShot && !fImporting &&
+            (pfrom->nStartingHeight > (nBestHeight - 144)) &&
+            (pfrom->nVersion < NOBLKS_VERSION_START ||
+             pfrom->nVersion >= NOBLKS_VERSION_END) &&
+             (nAskedForBlocks < 1 || vNodes.size() <= 1))
+        {
+            nAskedForBlocks++;
+            pfrom->PushGetBlocks(pindexBest, uint256(0));
+        }
+
         // Relay alerts
         {
             LOCK(cs_mapAlerts);
@@ -3656,12 +3668,6 @@ bool SendMessages(CNode* pto, bool fSendTrickle)
                 pto->nPingNonceSent = 0;
                 pto->PushMessage("ping");
             }
-        }
-
-        // Start block sync
-        if (pto->fStartSync && !fImporting) {
-            pto->fStartSync = false;
-            pto->PushGetBlocks(pindexBest, uint256(0));
         }
 
         // Resend wallet transactions that haven't gotten in a block yet
