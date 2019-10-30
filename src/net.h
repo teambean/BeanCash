@@ -8,6 +8,7 @@
 
 #include <deque>
 #include <boost/array.hpp>
+#include <boost/signals2/signal.hpp>
 #include <openssl/rand.h>
 
 #ifndef WIN32
@@ -48,15 +49,16 @@ bool StopNode();
 int SocketSendData(CNode *pnode);
 
 //
-// Handlers that require registration
+// Signals for message handling
 //
-typedef bool (*ProcessMessagesHandler)(CNode* pfrom);
-typedef bool (*SendMessagesHandler)(CNode* pto, bool fSendTrickle);
-typedef void (*StartShutdownHandler)();
+struct CNodeSignals
+{
+    boost::signals2::signal<bool (CNode*)> ProcessMessages;
+    boost::signals2::signal<bool (CNode*, bool)> SendMessages;
+};
 
-void SetProcessMessagesHandler(ProcessMessagesHandler handler);
-void SetSendMessagesHandler(SendMessagesHandler handler);
-void SetStartShutdownHandler(StartShutdownHandler handler);
+CNodeSignals& GetNodeSignals();
+
 
 enum
 {

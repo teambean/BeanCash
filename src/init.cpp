@@ -694,10 +694,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     }
 
     // ********************************************************* Step 6: network initialization
-
-    SetProcessMessagesHandler(ProcessMessages);
-    SetSendMessagesHandler(SendMessages);
-    SetStartShutdownHandler(StartShutdown);
+    RegisterNodeSignals(GetNodeSignals());
 
     int nSocksVersion = GetArg("-socks", 5);
 
