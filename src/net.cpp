@@ -632,8 +632,9 @@ int CNetMessage::readData(const char *pch, unsigned int nBytes)
 
 
 // requires LOCK(cs_vSend)
-void SocketSendData(CNode *pnode)
+int SocketSendData(CNode *pnode)
 {
+    int progress = 0;
     std::deque<CSerializeData>::iterator it = pnode->vSendMsg.begin();
 
     while (it != pnode->vSendMsg.end()) {
@@ -641,6 +642,7 @@ void SocketSendData(CNode *pnode)
         assert(data.size() > pnode->nSendOffset);
         int nBytes = send(pnode->hSocket, &data[pnode->nSendOffset], data.size() - pnode->nSendOffset, MSG_NOSIGNAL | MSG_DONTWAIT);
         if (nBytes > 0) {
+            progress++;
             pnode->nLastSend = GetTime();
             pnode->nSendBytes += nBytes;
             pnode->nSendOffset += nBytes;
@@ -673,6 +675,7 @@ void SocketSendData(CNode *pnode)
         assert(pnode->nSendSize == 0);
     }
     pnode->vSendMsg.erase(pnode->vSendMsg.begin(), it);
+    return progress;
 }
 
 static list<CNode*> vNodesDisconnected;
@@ -680,9 +683,10 @@ static list<CNode*> vNodesDisconnected;
 void ThreadSocketHandler()
 {
     unsigned int nPrevNodeCount = 0;
-
+    int progress;
     while (true)
     {
+        progress =0;
         //
         // Disconnect nodes
         //
@@ -888,6 +892,7 @@ void ThreadSocketHandler()
                 TRY_LOCK(pnode->cs_vRecvMsg, lockRecv);
                 if (lockRecv)
                 {
+                    progress++;
                     if (pnode->GetTotalRecvSize() > ReceiveFloodSize()) {
                         if (!pnode->fDisconnect)
                             printf("socket recv flood control disconnect (%u bytes)\n", pnode->GetTotalRecvSize());
@@ -936,7 +941,7 @@ void ThreadSocketHandler()
             {
                 TRY_LOCK(pnode->cs_vSend, lockSend);
                 if (lockSend)
-                    SocketSendData(pnode);
+                    progress += SocketSendData(pnode);
             }
 
             //
@@ -971,6 +976,8 @@ void ThreadSocketHandler()
             LOCK(cs_vNodes);
             for (CNode* pnode : vNodesCopy)
                 pnode->Release();
+            if (progress == 0) // Slow down, nothing happened
+                MilliSleep(50);
         }
     }
 }
