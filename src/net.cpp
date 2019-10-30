@@ -715,7 +715,8 @@ void ThreadSocketHandler()
                     vNodesDisconnected.push_back(pnode);
                 }
             }
-
+        } // Process node deletions outside of cs_vNodes
+        { //
             // Delete disconnected nodes
             list<CNode*> vNodesDisconnectedCopy = vNodesDisconnected;
             for (CNode* pnode : vNodesDisconnectedCopy)
