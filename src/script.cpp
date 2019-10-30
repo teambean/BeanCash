@@ -1258,7 +1258,7 @@ bool CheckSig(vector<unsigned char> vchSig, const vector<unsigned char> &vchPubK
     static CSignatureCache signatureCache;
 
     CPubKey pubkey(vchPubKey);
-    if (!pubkey.IsValid());
+    if (!pubkey.IsValid())
         return false;
 
     // Hash type is one byte tacked on to the end of the signature
