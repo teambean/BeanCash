@@ -2309,7 +2309,7 @@ bool ProcessBlock(CNode* pfrom, CBlock* pblock)
         // Ask this guy to fill in what we're missing
         if (pfrom)
         {
-            pfrom->PushGetBlocks(pindexBest, GetOrphanRoot(pblock2));
+            PushGetBlocks(pfrom, pindexBest, GetOrphanRoot(pblock2));
             // getblocks may not obtain the ancestor block rejected
             // earlier by duplicate-Sprout check so we ask for it again directly
             if (!IsInitialBlockDownload())
@@ -2909,7 +2909,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
              (nAskedForBlocks < 1 || vNodes.size() <= 1))
         {
             nAskedForBlocks++;
-            pfrom->PushGetBlocks(pindexBest, uint256(0));
+            PushGetBlocks(pfrom, pindexBest, uint256(0));
         }
 
         // Relay alerts
