@@ -441,7 +441,7 @@
         </font>
        </property>
        <property name="toolTip">
-        <string>The address to send the payment to  (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</string>
+        <string>The address to send the payment to (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</string>
        </property>
        <property name="maxLength">
         <number>34</number>
