@@ -1600,17 +1600,23 @@ bool CWallet::SelectBeansSimple(int64_t nTargetValue, unsigned int nSpendTime, i
     return true;
 }
 
-bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, CWalletTx& wtxNew, CReserveKey& reservekey, int64_t& nFeeRet, const CBeanControl* beanControl)
+bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, CWalletTx& wtxNew, CReserveKey& reservekey, int64_t& nFeeRet, std::string& strFailReason, const CBeanControl* beanControl)
 {
     int64_t nValue = 0;
     for (const std::pair<CScript, int64_t>& s : vecSend)
     {
         if (nValue < 0)
+        {
+            strFailReason = _("Transaction amounts must be positive");
             return false;
+        }
         nValue += s.second;
     }
     if (vecSend.empty() || nValue < 0)
+    {
+        strFailReason = _("Transaction amounts must be positive");
         return false;
+    }
 
     wtxNew.BindWallet(this);
 
@@ -1636,7 +1642,10 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, 
                 set<pair<const CWalletTx*,unsigned int> > setBeans;
                 int64_t nValueIn = 0;
                 if (!SelectBeans(nTotalValue, wtxNew.nTime, setBeans, nValueIn, beanControl))
+					 {                    
+						  strFailReason = _("Insufficient funds");                 
                     return false;
+                }
                 for (std::pair<const CWalletTx*, unsigned int> pbean : setBeans)
                 {
                     int64_t nCredit = pbean.first->vout[pbean.second].nValue;
@@ -1697,12 +1706,18 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, 
                 int nIn = 0;
                 for (const std::pair<const CWalletTx*,unsigned int>& bean : setBeans)
                     if (!SignSignature(*this, *bean.first, wtxNew, nIn++))
+                    {
+                    		strFailReason = _("Signing transaction failed");
                         return false;
+                    }
 
                 // Limit size
                 unsigned int nBytes = ::GetSerializeSize(*(CTransaction*)&wtxNew, SER_NETWORK, PROTOCOL_VERSION);
                 if (nBytes >= MAX_BLOCK_SIZE_GEN/5)
+                {
+                	  strFailReason = _("Transaction too large");
                     return false;
+                }
                 dPriority /= nBytes;
 
                 // Check that enough fee is included
@@ -1726,11 +1741,11 @@ bool CWallet::CreateTransaction(const vector<pair<CScript, int64_t> >& vecSend, 
     return true;
 }
 
-bool CWallet::CreateTransaction(CScript scriptPubKey, int64_t nValue, CWalletTx& wtxNew, CReserveKey& reservekey, int64_t& nFeeRet, const CBeanControl* beanControl)
+bool CWallet::CreateTransaction(CScript scriptPubKey, int64_t nValue, CWalletTx& wtxNew, CReserveKey& reservekey, int64_t& nFeeRet, std::string& strFailReason, const CBeanControl* beanControl)
 {
     vector< pair<CScript, int64_t> > vecSend;
     vecSend.push_back(make_pair(scriptPubKey, nValue));
-    return CreateTransaction(vecSend, wtxNew, reservekey, nFeeRet, beanControl);
+    return CreateTransaction(vecSend, wtxNew, reservekey, nFeeRet, strFailReason, beanControl);
 }
 
 // Bitbean: get current stake weight
@@ -2071,14 +2086,13 @@ string CWallet::SendMoney(CScript scriptPubKey, int64_t nValue, CWalletTx& wtxNe
         printf("SendMoney() : %s", strError.c_str());
         return strError;
     }
-    if (!CreateTransaction(scriptPubKey, nValue, wtxNew, reservekey, nFeeRequired))
+	 string strError;    
+    if (!CreateTransaction(scriptPubKey, nValue, wtxNew, reservekey, nFeeRequired, strError))
     {
         string strError;
         if (nValue + nFeeRequired > GetBalance())
             strError = strprintf(_("Error: This transaction requires a transaction fee of at least %s because of its amount, complexity, or use of recently received funds!"), FormatMoney(nFeeRequired).c_str());
-        else
-            strError = _("Error: Transaction creation failed!");
-        printf("SendMoney() : %s", strError.c_str());
+        printf("SendMoney() : %s\n", strError.c_str());
         return strError;
     }
 
