@@ -144,7 +144,7 @@ Value getnewaddress(const Array& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "getnewaddress [account]\n"
-            "Returns a new Beancash address for receiving payments.  "
+            "Returns a new Bean Cash address for receiving payments.  "
             "If [account] is specified, it is added to the address book "
             "so payments received with the address will be credited to [account].");
 
@@ -211,7 +211,7 @@ Value getaccountaddress(const Array& params, bool fHelp)
     if (fHelp || params.size() != 1)
         throw runtime_error(
             "getaccountaddress <account>\n"
-            "Returns the current Beancash address for receiving payments to this account.");
+            "Returns the current Bean Cash address for receiving payments to this account.");
 
     // Parse the account first so we don't generate a key if there's an error
     string strAccount = AccountFromValue(params[0]);
@@ -229,12 +229,12 @@ Value setaccount(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "setaccount <Beancashaddress> <account>\n"
+            "setaccount <Bean Cash address> <account>\n"
             "Sets the account associated with the given address.");
 
     CBitbeanAddress address(params[0].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Beancash address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Bean Cash address");
 
 
     string strAccount;
@@ -259,12 +259,12 @@ Value getaccount(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "getaccount <Beancashaddress>\n"
+            "getaccount <Bean Cash address>\n"
             "Returns the account associated with the given address.");
 
     CBitbeanAddress address(params[0].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Beancash address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Bean Cash address");
 
     string strAccount;
     map<CTxDestination, string>::iterator mi = pwalletMain->mapAddressBook.find(address.Get());
@@ -299,13 +299,13 @@ Value sendtoaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 2 || params.size() > 4)
         throw runtime_error(
-            "sendtoaddress <Beancashaddress> <amount> [comment] [comment-to]\n"
+            "sendtoaddress <Bean Cash address> <amount> [comment] [comment-to]\n"
             "<amount> is a real and is rounded to the nearest 0.000001"
             + HelpRequiringPassphrase());
 
     CBitbeanAddress address(params[0].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Beancash address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Bean Cash address");
 
     // Amount
     int64_t nAmount = AmountFromValue(params[1]);
@@ -362,7 +362,7 @@ Value signmessage(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
         throw runtime_error(
-            "signmessage <Beancashaddress> <message>\n"
+            "signmessage <Bean Cash address> <message>\n"
             "Sign a message with the private key of an address");
 
     EnsureWalletIsUnlocked();
@@ -397,7 +397,7 @@ Value verifymessage(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 3)
         throw runtime_error(
-            "verifymessage <Beancashaddress> <signature> <message>\n"
+            "verifymessage <Bean Cash address> <signature> <message>\n"
             "Verify a signed message");
 
     string strAddress  = params[0].get_str();
@@ -434,14 +434,14 @@ Value getreceivedbyaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "getreceivedbyaddress <Beancashaddress> [minconf=1]\n"
-            "Returns the total amount received by <Beancashaddress> in transactions with at least [minconf] confirmations.");
+            "getreceivedbyaddress <Bean Cash address> [minconf=1]\n"
+            "Returns the total amount received by <Bean Cash address> in transactions with at least [minconf] confirmations.");
 
     // Bitbean address
     CBitbeanAddress address = CBitbeanAddress(params[0].get_str());
     CScript scriptPubKey;
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Beancash address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Bean Cash address");
     scriptPubKey.SetDestination(address.Get());
     if (!IsMine(*pwalletMain,scriptPubKey))
         return (double)0.0;
@@ -662,14 +662,14 @@ Value sendfrom(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 3 || params.size() > 6)
         throw runtime_error(
-            "sendfrom <fromaccount> <toBeancashaddress> <amount> [minconf=1] [comment] [comment-to]\n"
+            "sendfrom <fromaccount> <to Bean Cash address> <amount> [minconf=1] [comment] [comment-to]\n"
             "<amount> is a real and is rounded to the nearest 0.000001"
             + HelpRequiringPassphrase());
 
     string strAccount = AccountFromValue(params[0]);
     CBitbeanAddress address(params[1].get_str());
     if (!address.IsValid())
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Beancash address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Bean Cash address");
     int64_t nAmount = AmountFromValue(params[2]);
 
     int nMinDepth = 1;
@@ -726,7 +726,7 @@ Value sendmany(const Array& params, bool fHelp)
     {
         CBitbeanAddress address(s.name_);
         if (!address.IsValid())
-            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid Beancash address: ")+s.name_);
+            throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, string("Invalid Bean Cash address: ")+s.name_);
 
         if (setAddress.count(address))
             throw JSONRPCError(RPC_INVALID_PARAMETER, string("Invalid parameter, duplicated address: ")+s.name_);
@@ -764,22 +764,11 @@ Value sendmany(const Array& params, bool fHelp)
     return wtx.GetHash().GetHex();
 }
 
-Value addmultisigaddress(const Array& params, bool fHelp)
+// Used by both addmultisigaddress & createmultisig
+static CScript _createmultisig(const Array& params)
 {
-    if (fHelp || params.size() < 2 || params.size() > 3)
-    {
-        string msg = "addmultisigaddress <nrequired> <'[\"key\",\"key\"]'> [account]\n"
-            "Add a nrequired-to-sign multisignature address to the wallet\"\n"
-            "each key is a Beancash address or hex-encoded public key\n"
-            "If [account] is specified, assign address to [account].";
-        throw runtime_error(msg);
-    }
-
     int nRequired = params[0].get_int();
     const Array& keys = params[1].get_array();
-    string strAccount;
-    if (params.size() > 2)
-        strAccount = AccountFromValue(params[2]);
 
     // Gather public keys
     if (nRequired < 1)
@@ -824,16 +813,57 @@ Value addmultisigaddress(const Array& params, bool fHelp)
             throw runtime_error(" Invalid public key: "+ks);
         }
     }
+    CScript result;
+    result.SetMultisig(nRequired, pubkeys);
+    return result;
+}
+
+Value addmultisigaddress(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() < 2 || params.size() > 3)
+    {
+        string msg = "addmultisigaddress <nrequired> <'[\"key\",\"key\"]'> [account]\n"
+            "Add a nrequired-to-sign multisignature address to the wallet\"\n"
+            "each key is a Bean Cash address or hex-encoded public key\n"
+            "If [account] is specified, assign address to [account].";
+        throw runtime_error(msg);
+    }
+
+    string strAccount;
+    if (params.size() > 2)
+        strAccount = AccountFromValue(params[2]);
 
     // Construct using pay-to-script-hash:
-    CScript inner;
-    inner.SetMultisig(nRequired, pubkeys);
+    CScript inner = _createmultisig(params);
     CScriptID innerID = inner.GetID();
     if (!pwalletMain->AddCScript(inner))
         throw runtime_error("AddCScript() failed");
 
     pwalletMain->SetAddressBookName(innerID, strAccount);
     return CBitbeanAddress(innerID).ToString();
+}
+
+Value createmultisig(const Array& params, bool fHelp)
+{
+    if (fHelp || params.size() < 2 || params.size() > 2)
+    {
+        string msg = "createmultisig <nrequired> <'[\"key\",\"key\"]'>\n"
+            "Creates a multi-signature address and returns a json object\n"
+            "with keys:\n"
+            "address : Bean Cash address\n"
+            "redeemScript : hex-encoded redemption script";
+        throw runtime_error(msg);
+    }
+
+    // Construct using pay-to-script-hash:
+    CScript inner = _createmultisig(params);
+    CScriptID innerID = inner.GetID();
+    CBitbeanAddress address(innerID);
+
+    Object result;
+    result.push_back(Pair("address", address.ToString()));
+    result.push_back(Pair("redeemScript", HexStr(inner.begin(), inner.end())));
+    return result;
 }
 
 Value addredeemscript(const Array& params, bool fHelp)
@@ -1554,7 +1584,7 @@ Value encryptwallet(const Array& params, bool fHelp)
     // slack space in .dat files; that is bad if the old data is
     // unencrypted private keys. So:
     StartShutdown();
-    return "wallet encrypted; Beancash server stopping, restart to run with encrypted wallet. The keypool has been flushed, you need to make a new backup.";
+    return "wallet encrypted; Bean Cash server stopping, restart to run with encrypted wallet. The keypool has been flushed, you need to make a new backup.";
 }
 
 class DescribeAddressVisitor : public boost::static_visitor<Object>
@@ -1597,8 +1627,8 @@ Value validateaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "validateaddress <Beancashaddress>\n"
-            "Return information about <Beancashaddress>.");
+            "validateaddress <Bean Cash address>\n"
+            "Return information about <Bean Cash address>.");
 
     CBitbeanAddress address(params[0].get_str());
     bool isValid = address.IsValid();
@@ -1626,8 +1656,8 @@ Value validatepubkey(const Array& params, bool fHelp)
 {
     if (fHelp || !params.size() || params.size() > 2)
         throw runtime_error(
-            "validatepubkey <Beancashpubkey>\n"
-            "Return information about <Beancashpubkey>.");
+            "validatepubkey <Bean Cash pubkey>\n"
+            "Return information about <Bean Cash pubkey>.");
 
     std::vector<unsigned char> vchPubKey = ParseHex(params[0].get_str());
     CPubKey pubKey(vchPubKey);
