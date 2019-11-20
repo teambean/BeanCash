@@ -126,6 +126,7 @@ public:
 
     CPubKey vchDefaultKey;
     int64_t nTimeFirstKey;
+    std::set<COutPoint> setLockedBeans;
 
     // check whether we are allowed to upgrade (or already support) to the named feature
     bool CanSupportFeature(enum WalletFeature wf) { return nWalletMaxVersion >= wf; }
@@ -134,6 +135,12 @@ public:
     void AvailableBeans(std::vector<COutput>& vBeans, bool fOnlyConfirmed=true, const CBeanControl *beanControl=NULL) const;
     bool SelectBeansMinConf(int64_t nTargetValue, unsigned int nSpendTime, int nConfMine, int nConfTheirs, std::vector<COutput> vBeans, std::set<std::pair<const CWalletTx*,unsigned int> >& setBeansRet, int64_t& nValueRet) const;
     bool SelectBeansMinConfByBeanAge(int64_t nTargetValue, unsigned int nSpendTime, int nConfMine, int nConfTheirs, std::vector<COutput> vCoins, std::set<std::pair<const CWalletTx*,unsigned int> >& setBeansRet, int64_t& nValueRet) const;
+	 bool IsLockedBean(uint256 hash, unsigned int n) const;
+	 void LockBean(COutPoint& output);
+	 void UnlockBean(COutPoint& output);
+	 void UnlockAllBeans();
+	 void ListLockedBeans(std::vector<COutPoint>& vOutpts);    
+    
     // keystore implementation
     // Generate a new key
     CPubKey GenerateNewKey();

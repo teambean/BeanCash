@@ -1086,7 +1086,7 @@ void CWallet::AvailableBeans(vector<COutput>& vBeans, bool fOnlyConfirmed, const
                 continue;
 
             for (unsigned int i = 0; i < pbean->vout.size(); i++)
-                if (!(pbean->IsSpent(i)) && IsMine(pbean->vout[i]) && pbean->vout[i].nValue >= nMinimumInputValue &&
+                if (!(pbean->IsSpent(i)) && IsMine(pbean->vout[i]) && pbean->vout[i].nValue >= nMinimumInputValue && !IsLockedBean((*it).first, i) &&
                 (!beanControl || !beanControl->HasSelected() || beanControl->IsSelected((*it).first, i)))
                     vBeans.push_back(COutput(pbean, i, nDepth));
 
@@ -2628,6 +2628,37 @@ void CWallet::UpdatedTransaction(const uint256 &hashTx)
         if (mi != mapWallet.end())
             NotifyTransactionChanged(this, hashTx, CT_UPDATED);
     }
+}
+
+
+void CWallet::LockBean(COutPoint& output)
+{
+	setLockedBeans.insert(output);
+}
+
+void CWallet::UnlockBean(COutPoint& output)
+{
+	setLockedBeans.erase(output);
+}
+
+void CWallet::UnlockAllBeans()
+{
+	setLockedBeans.clear();
+}
+
+bool CWallet::IsLockedBean(uint256 hash, unsigned int n) const
+{
+    COutPoint outpt(hash, n);
+	return (setLockedBeans.count(outpt) > 0);
+}
+
+void CWallet::ListLockedBeans(std::vector<COutPoint>& vOutpts)
+{
+	for (std::set<COutPoint>::iterator it = setLockedBeans.begin();
+	 it != setLockedBeans.end(); it++) {
+	COutPoint outpt = (*it);
+	vOutpts.push_back(outpt);	
+	}
 }
 
 void CWallet::GetKeyBirthTimes(std::map<CKeyID, int64_t> &mapKeyBirth) const {
