@@ -1,5 +1,5 @@
 ---
-name: "bitcoin-deps"
+name: "beancash-deps"
 suites:
 - "lucid"
 architectures:
@@ -10,50 +10,50 @@ packages:
 - "zip"
 - "faketime"
 - "wine"
-reference_datetime: "2011-01-30 00:00:00"
+reference_datetime: "2015-02-13 00:00:00"
 remotes: []
 files:
-- "openssl-1.0.1j.tar.gz"
+- "openssl-1.0.2t.tar.gz"
 - "db-5.3.28.tar.gz"
-- "zlib-1.2.8.tar.gz"
+- "zlib-1.2.9.tar.gz"
 - "libpng-1.6.18.tar.gz"
-- "qrencode-3.4.4.tar.bz2"
+- "qrencode-4.0.2.tar.gz"
 script: |
   #
   export LD_PRELOAD=/usr/lib/faketime/libfaketime.so.1
   export FAKETIME=$REFERENCE_DATETIME
   export TZ=UTC
   #
-  tar xzf openssl-1.0.1j.tar.gz
-  cd openssl-1.0.1j
+  tar xzfm openssl-1.0.2t.tar.gz
+  cd openssl-1.0.2t
   ./Configure --cross-compile-prefix=i586-mingw32msvc- mingw
   make
   cd ..
   #
-  tar xzf db-5.3.28.tar.gz
+  tar xzfm db-5.3.28.tar.gz
   cd db-5.3.28/build_unix
   ../dist/configure --enable-mingw --enable-cxx --host=i586-mingw32msvc CFLAGS="-I/usr/i586-mingw32msvc/include"
   make $MAKEOPTS
   cd ../..
   #
-  tar xzf zlib-1.2.8.tar.gz
-  cd zlib-1.2.7
+  tar xzfm zlib-1.2.9.tar.gz
+  cd zlib-1.2.9
   make -f win32/Makefile.gcc PREFIX=i586-mingw32msvc- $MAKEOPTS
   cd ..
   #
-  tar xzf libpng-1.6.18.tar.gz
+  tar xzfm libpng-1.6.18.tar.gz
   cd libpng-1.6.18
   ./configure -disable-shared CC=i586-mingw32msvc-cc AR=i586-mingw32msvc-ar STRIP=i586-mingw32msvc-strip RANLIB=i586-mingw32msvc-ranlib OBJDUMP=i586-mingw32msvc-objdump LD=i586-mingw32msvc-ld LDFLAGS="-L../zlib-1.2.8/" CFLAGS="-I../zlib-1.2.8/"
   make $MAKEOPTS
   cd ..
   #
-  tar xjf qrencode-3.4.4.tar.bz2
-  cd qrencode-3.4.4
+  tar xzfm qrencode-4.0.2.tar.gz
+  cd qrencode-4.0.2
   ./configure CC=i586-mingw32msvc-cc AR=i586-mingw32msvc-ar STRIP=i586-mingw32msvc-strip RANLIB=i586-mingw32msvc-ranlib OBJDUMP=i586-mingw32msvc-objdump LD=i586-mingw32msvc-ld png_LIBS="../libpng-1.6.18/.libs/libpng16.a ../zlib-1.2.8/libz.a" png_CFLAGS="-I../libpng-1.6.18"
   make $MAKEOPTS
   cd ..
   #
-  zip -r $OUTDIR/bitbean-deps-1.1.0.0.zip \
+  zip -r $OUTDIR/beancash-deps-1.3.zip \
     $(ls qrencode-*/{qrencode.h,.libs/libqrencode.{,l}a} | sort) \
     $(ls db-*/build_unix/{libdb_cxx.a,db.h,db_cxx.h,libdb.a,.libs/libdb_cxx-?.?.a} | sort) \
     $(find openssl-* -name '*.a' -o -name '*.h' | sort) \

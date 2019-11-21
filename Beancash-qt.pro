@@ -64,6 +64,10 @@ BDB_LIB_SUFFIX=-5.3
 # QRENCODE_INCLUDE_PATH=
 # QRENCODE_LIB_PATH=
 
+# PROTOBUF_INCLUDE_PATH=
+# PROTOBUF_LIB_PATH=
+# PROTOC : protocol buffer compiler tool
+
 win32 {
     BOOST_LIB_SUFFIX=-mgw49-mt-s-1_59
     BOOST_INCLUDE_PATH=C:/deps/boost_1_59_0
@@ -74,6 +78,9 @@ win32 {
     OPENSSL_LIB_PATH=C:/deps/openssl-1.0.1j
     QRENCODE_INCLUDE_PATH=C:/deps/qrencode-3.4.4
     QRENCODE_LIB_PATH=C:/deps/qrencode-3.4.4/.libs
+    # These need to be changed prior to compile
+    PROTOBUF_INCLUDE_PATH=C:/deps/protobuf/include
+    PROTOBUF_LIB_PATH=C:/deps/protobuf
 }
 
 # ----------------- #
@@ -81,6 +88,8 @@ win32 {
 OBJECTS_DIR = build
 MOC_DIR = build
 UI_DIR = build
+PROTO_DIR = build
+PROTO_PATH = build
 
 # use: qmake "RELEASE=1"
 contains(RELEASE, 1) {
@@ -273,6 +282,7 @@ HEADERS += src/qt/bitbeangui.h \
     src/clientversion.h \
     src/qt/macnotificationhandler.h \
     src/qt/paymentserver.h \
+    src/qt/paymentrequestplus.h \
     src/qt/trafficgraphwidget.h \
     src/qt/intro.h \
     src/limitedmap.h
@@ -360,6 +370,9 @@ FORMS += \
     src/qt/forms/optionsdialog.ui \
     src/qt/forms/intro.ui
 
+PROTOS = src/qt/paymentrequest.proto
+include(share/qt/protobuf.pri)
+
 contains(USE_QRCODE, 1) {
     HEADERS += src/qt/qrcodedialog.h
     SOURCES += src/qt/qrcodedialog.cpp
@@ -367,9 +380,16 @@ contains(USE_QRCODE, 1) {
 }
 
 contains(BEANCASH_QT_TEST, 1) {
+    OBJECTS_DIR = build_test
+    MOC_DIR = build_test
+    UI_DIR = build_test
+    PROTO_DIR = build_test
+
     SOURCES += src/qt/test/test_main.cpp \
-        src/qt/test/uritests.cpp
-    HEADERS += src/qt/test/uritests.h
+        src/qt/test/uritests.cpp \
+        src/qt/test/paymentservertests.cpp
+    HEADERS += src/qt/test/uritests.h \
+        src/qt/test/paymentservertests.h
     DEPENDPATH += src/qt/test
     QT += testlib
     TARGET = Beancash-qt_test
@@ -539,9 +559,9 @@ windows:!contains(MINGW_THREAD_BUGFIX, 0) {
 }
 
 # Set libraries and includes at end, to use platform-defined defaults if not overridden
-INCLUDEPATH += $$BOOST_INCLUDE_PATH $$BDB_INCLUDE_PATH $$OPENSSL_INCLUDE_PATH $$QRENCODE_INCLUDE_PATH
-LIBS += $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(QRENCODE_LIB_PATH,,-L,)
-LIBS += -lssl -lcrypto -ldb_cxx$$BDB_LIB_SUFFIX
+INCLUDEPATH += $$BOOST_INCLUDE_PATH $$BDB_INCLUDE_PATH $$OPENSSL_INCLUDE_PATH $$PROTOBUF_INCLUDE_PATH $$QRENCODE_INCLUDE_PATH
+LIBS += $$join(BOOST_LIB_PATH,,-L,) $$join(BDB_LIB_PATH,,-L,) $$join(OPENSSL_LIB_PATH,,-L,) $$join(PROTOBUF_LIB_PATH,,-L) $$join(QRENCODE_LIB_PATH,,-L,)
+LIBS += -lssl -lcrypto -ldb_cxx$$BDB_LIB_SUFFIX -lprotobuf
 # -lgdi32 has to happen after -lcrypto (see  #681)
 windows:LIBS += -lws2_32 -lshlwapi -lmswsock -lole32 -loleaut32 -luuid -lgdi32
 LIBS += -lboost_system$$BOOST_LIB_SUFFIX -lboost_filesystem$$BOOST_LIB_SUFFIX -lboost_program_options$$BOOST_LIB_SUFFIX -lboost_thread$$BOOST_LIB_SUFFIX

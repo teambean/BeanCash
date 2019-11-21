@@ -1,5 +1,5 @@
 ---
-name: "bitbean"
+name: "beancash"
 suites:
 - "lucid"
 architectures:
@@ -12,24 +12,26 @@ packages:
 - "faketime"
 reference_datetime: "2015-02-13 00:00:00"
 remotes:
-- "url": "https://github.com/TeamBitBean/bitbean-core.git"
+- "url": "https://github.com/teambean/BeanCash.git"
   "dir": ""
 files:
-- "qt-win32-4.7.4-gitian.zip"
+- "qt-win32-4.8.3-gitian-r2.zip"
 - "boost-win32-1.59.0-gitian.zip"
-- "bitbean-deps-1.1.0.0.zip"
+- "beancash-deps-1.3.zip"
+- "protobuf-win32-2.5.0-gitian-r1.zip"
 script: |
   #
-  mkdir $HOME/qt
-  cd $HOME/qt
-  unzip ../build/qt-win32-4.7.4-gitian.zip
+  export QTDIR=$HOME/qt
+  mkdir $QTDIR
+  cd $QTDIR
+  unzip ../build/qt-win32-4.8.3-gitian-r2.zip
   cd $HOME/build/
-  export PATH=$PATH:$HOME/qt/bin/
+  export PATH=$QTDIR/bin/:$PATH
   #
   mkdir boost_1_59_0
   cd boost_1_59_0
   mkdir -p stage/lib
-  unzip ../boost-win32-1.47.0-gitian.zip
+  unzip ../boost-win32-1.59.0-gitian.zip
   cd bin/$GBUILD_BITS
   for lib in *; do
     i586-mingw32msvc-ar rc ../../stage/lib/libboost_${lib}-mt-s.a $lib/*.o
@@ -39,11 +41,13 @@ script: |
   mv include/boost .
   cd ..
   #
-  unzip bitbean-deps-1.1.0.0.zip
+  unzip beancash-deps-1.3.zip
+  #
+  unzip protobuf-win32-2.5.0-gitian-r1.zip
   #
   find -type f | xargs touch --date="$REFERENCE_DATETIME"
   #
-  cd ppcoin
+  cd BeanCash
   mkdir -p $OUTDIR/src
   git archive HEAD | tar -x -C $OUTDIR/src
   cp $OUTDIR/src/doc/README_windows.txt $OUTDIR/readme.txt
@@ -51,18 +55,18 @@ script: |
   export LD_PRELOAD=/usr/lib/faketime/libfaketime.so.1
   export FAKETIME=$REFERENCE_DATETIME
   export TZ=UTC
-  $HOME/qt/src/bin/qmake -spec unsupported/win32-g++-cross BDB_LIB_PATH=$HOME/build/db-5.3.28/build_unix BDB_INCLUDE_PATH=$HOME/build/db-5.3.28/build_unix BOOST_LIB_PATH=$HOME/build/boost_1_59_0/stage/lib BOOST_INCLUDE_PATH=$HOME/build/boost_1_59_0 BOOST_LIB_SUFFIX=-mt-s BOOST_THREAD_LIB_SUFFIX=_win32-mt-s OPENSSL_LIB_PATH=$HOME/build/openssl-1.0.1j OPENSSL_INCLUDE_PATH=$HOME/build/openssl-1.0.1j/include QRENCODE_LIB_PATH=$HOME/build/qrencode-3.4.4/.libs QRENCODE_INCLUDE_PATH=$HOME/build/qrencode-3.4.4 USE_QRCODE=1 INCLUDEPATH=$HOME/build DEFINES=BOOST_THREAD_USE_LIB BITCOIN_NEED_QT_PLUGINS=1 QMAKE_LRELEASE=lrelease QMAKE_CXXFLAGS=-frandom-seed=ppcoin QMAKE_LFLAGS=-frandom-seed=ppcoin USE_BUILD_INFO=1
+  $QTDIR/bin/make -spec unsupported/win32-g++-cross PROTOBUF_LIB_PATH=$HOME/build/protobuf-win32 PROTOBUF_INCLUDE_PATH=$HOME/build/protobuf-win32 PROTOC=$HOME/build/protobuf-win32/protoc BDB_LIB_PATH=$HOME/build/db-5.3.28/build_unix BDB_INCLUDE_PATH=$HOME/build/db-5.3.28/build_unix BOOST_LIB_PATH=$HOME/build/boost_1_59_0/stage/lib BOOST_INCLUDE_PATH=$HOME/build/boost_1_59_0 BOOST_LIB_SUFFIX=-mt-s BOOST_THREAD_LIB_SUFFIX=_win32-mt-s OPENSSL_LIB_PATH=$HOME/build/openssl-1.0.1j OPENSSL_INCLUDE_PATH=$HOME/build/openssl-1.0.1j/include QRENCODE_LIB_PATH=$HOME/build/qrencode-3.4.4/.libs QRENCODE_INCLUDE_PATH=$HOME/build/qrencode-3.4.4 USE_QRCODE=1 INCLUDEPATH=$HOME/build DEFINES=BOOST_THREAD_USE_LIB BITCOIN_NEED_QT_PLUGINS=1 QMAKE_LRELEASE=lrelease QMAKE_CXXFLAGS=-frandom-seed=ppcoin QMAKE_LFLAGS=-frandom-seed=ppcoin USE_BUILD_INFO=1
   make $MAKEOPTS
-  cp release/bitbean-qt.exe $OUTDIR/
+  cp release/Beancash-qt.exe $OUTDIR/
   #
   cd src
   export LD_PRELOAD=/usr/lib/faketime/libfaketime.so.1
   export FAKETIME=$REFERENCE_DATETIME
   export TZ=UTC
-  make -f makefile.linux-mingw $MAKEOPTS DEPSDIR=$HOME/build ppcoind.exe USE_UPNP=- DEBUGFLAGS="-frandom-seed=bitbean"
-  i586-mingw32msvc-strip bitbeand.exe
+  make -f makefile.linux-mingw $MAKEOPTS DEPSDIR=$HOME/build beancashd.exe DEBUGFLAGS="-frandom-seed=beancash13"
+  i586-mingw32msvc-strip beancashd.exe
   mkdir $OUTDIR/daemon
-  cp bitbeand.exe $OUTDIR/daemon
+  cp beancashd.exe $OUTDIR/daemon
   cd ..
   mkdir nsis
   git archive HEAD | tar -x -C nsis
@@ -71,4 +75,4 @@ script: |
   cp ../../release/* ../release/
   cp ../../src/*.exe .
   makensis ../share/setup.nsi
-  cp ../share/ppcoin-*-win32-setup.exe $OUTDIR/
+  cp ../share/beancash-*-win32-setup.exe $OUTDIR/
