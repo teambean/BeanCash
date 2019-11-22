@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="generator" content="ReText 5.3.1">
+</head>
+<body>
+<p><strong>Microsoft Windows (32-bit) Bean Cash Daemon Build Instructions</strong></p>
+<p>See readme-qt.rst for instructions on building Beancash-qt, the
+graphical user interface.</p>
+<div class="section" id="windows-build-notes">
+<h1>WINDOWS BUILD NOTES</h1>
+<div class="section" id="compilers-supported">
+<h2>Compilers Supported</h2>
+<p>TODO: What works?
+Note: releases are cross-compiled using mingw running on Windows and Linux.</p>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies</h2>
+<p>Libraries you need to download separately and build:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="11%" />
+<col width="20%" />
+<col width="69%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Dependency</th>
+<th class="head">Default path</th>
+<th class="head">Download link</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>OpenSSL</td>
+<td>openssl-1.0.2t-mgw</td>
+<td><a class="reference external" href="http://www.openssl.org/source/">http://www.openssl.org/source/</a></td>
+</tr>
+<tr><td>Berkeley DB</td>
+<td>db-5.3.28NC-mgw</td>
+<td><a class="reference external" href="http://www.oracle.com/technology/software/products/berkeley-db/index.html">http://www.oracle.com/technology/software/products/berkeley-db/index.html</a></td>
+</tr>
+<tr><td>Boost</td>
+<td>boost-1.59.0.1-mgw</td>
+<td><a class="reference external" href="http://www.boost.org/users/download/">http://www.boost.org/users/download/</a></td>
+</tr>
+<tr><td>Protobuf</td>
+<td>protobuf-2.5.0-mgw</td>
+<td><a class="reference external" href="https://github.com/protocolbuffers/protobuf/releases/tag/v2.5.0">https://github.com/protocolbuffers/protobuf/releases/tag/v2.5.0</a></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="their-licenses">
+<h3>Their licenses:</h3>
+<p>OpenSSL:</p>
+<blockquote>
+Old BSD license with the problematic advertising requirement.</blockquote>
+<dl class="docutils">
+<dt>Berkeley DB:</dt>
+<dd>New BSD license with additional requirement that linked software must be free open source.</dd>
+<dt>Boost:</dt>
+<dd>MIT-like license.</dd>
+<dt>Protobuf:</dt>
+<dd>BSD</dd>
+</dl>
+</div>
+<div class="section" id="versions-used-in-this-release">
+<h3>Versions used in this release:</h3>
+<blockquote>
+<p>OpenSSL      1.0.2t</p>
+<p>Berkeley DB  5.3.28NC</p>
+<p>Boost        1.59.0</p>
+<p>Protobuf     2.5.0</p>
+</blockquote>
+</div>
+</div>
+<div class="section" id="openssl">
+<h2>OpenSSL</h2>
+<p>MSYS shell:</p>
+<blockquote>
+<em>un-tar sources with MSYS 'tar xfz' to avoid issue with symlinks (OpenSSL ticket 2377)
+change 'MAKE' env. variable from 'C:MinGW32binmingw32-make.exe' to '/c/MinGW32/bin/mingw32-make.exe'</em></blockquote>
+<pre class="literal-block">
+cd /c/openssl-1.0.2t-mgw
+./config
+make
+</pre>
+</div>
+<div class="section" id="berkeley-db">
+<h2>Berkeley DB</h2>
+<p>MSYS shell:</p>
+<pre class="literal-block">
+cd /c/db-5.3.28NC-mgw/build_unix
+sh ../dist/configure --enable-mingw --enable-cxx
+make
+</pre>
+</div>
+<div class="section" id="boost">
+<h2>Boost</h2>
+<p>DOS prompt:</p>
+<pre class="literal-block">
+cd \boost-1.58.0.1-mgw
+toolset=gcc --build-type=complete stage
+</pre>
+</div>
+<div class="section" id="bean-cash">
+<h2>Bean Cash</h2>
+<p>DOS prompt:</p>
+<pre class="literal-block">
+cd \BeanCash\src
+mingw32-make -f makefile.mingw
+strip Beancashd.exe
+</pre>
+</div>
+</div>
+</body>
+</html>

@@ -1,5 +1,5 @@
 Beancash-qt: Qt5 GUI for Beancash
-===============================
+=================================
 
 Build instructions
 ===================
@@ -15,16 +15,18 @@ Debian (tested under Ubuntu 16.04 LTS - 25/03/2018)
         sudo apt-get upgrade
         sudo apt-get install qt5-default qt5-qmake qtbase5-dev-tools qttools5-dev-tools
         sudo apt-get install build-essential
+	sudo apt-get install libdb5.3++-dev libssl-dev libboost-dev libboost-all-dev
+	sudo apt-get install libprotobuf-dev protobuf-compiler
 
 - now download and compile the three libraries: (update this when libraries changes)
 
-.. _`OpenSSL 1.0.1.j`: https://ftp.openssl.org/source/old/1.0.1/openssl-1.0.1j.tar.gz
+.. _`OpenSSL 1.0.2t`: https://www.openssl.org/source/openssl-1.0.2t.tar.gz
 .. _`Berkley DB 5.3.28.NC` : http://download.oracle.com/otn/berkeley-db/db-5.3.28.NC.zip
 .. _`Boost 1.59.0` : http://sourceforge.net/projects/boost/files/boost/1.59.0/boost_1_59_0.tar.gz
 
     - boost : `Boost 1.59.0`_
     - db : `Berkley DB 5.3.28.NC`_
-    - openssl : `OpenSSL 1.0.1.j`_
+    - openssl : `OpenSSL 1.0.2t`_
 
 - Prepare a directory path/to/libs (we'll refer to it as /libs) where you would like to store those libraries.
 
@@ -34,7 +36,7 @@ Debian (tested under Ubuntu 16.04 LTS - 25/03/2018)
 
         libs/boost_1_59_0
         libs/db-5.3.28.NC
-        libs/openssl-1.0.1j
+        libs/openssl-1.0.2t
 
 - Now compile all the libraries.
 
@@ -54,10 +56,10 @@ Debian (tested under Ubuntu 16.04 LTS - 25/03/2018)
         ../dist/configure --enable-cxx
         make
 
-    openssl1.0.1j
+    openssl1.0.2t
     ::
 
-        cd /libs/openssl-1.0.1j
+        cd /libs/openssl-1.0.2t
         ./config
         make
 
@@ -68,8 +70,8 @@ Debian (tested under Ubuntu 16.04 LTS - 25/03/2018)
        BOOST_INCLUDE_PATH=/full/path/to/libs/boost_1_59_0
        BOOST_LIB_PATH=/full/path/to/libs/stage/lib
 
-       OPENSSL_INCLUDE_PATH=/full/path/to/libs/openssl-1.0.1j/include
-       OPENSSL_LIB_PATH=/full/path/to/libs/openssl-1.0.1j
+       OPENSSL_INCLUDE_PATH=/full/path/to/libs/openssl-1.0.2t/include
+       OPENSSL_LIB_PATH=/full/path/to/libs/openssl-1.0.2t
 
        BDB_INCLUDE_PATH=/full/path/to/libs/db-5.3.28.NC/build_unix
        BDB_LIB_PATH=/full/path/to/libs/db-5.3.28.NC/build_unix
@@ -79,7 +81,7 @@ Debian (tested under Ubuntu 16.04 LTS - 25/03/2018)
 ::
 
     cd /path/beancash/
-    qmake USE_UPNP=- RELEASE=1 (other flags: USE_O3=1 to use compilation optimization, USE_DBUS=1 which build with notification support (enabled by default))
+    qmake RELEASE=1 (other flags: USE_O3=1 to use compilation optimization, USE_DBUS=1 which build with notification support (enabled by default))
     make
 
 - After compilation An executable named `Beancash-qt` will be built.
@@ -153,7 +155,7 @@ Berkely DB version warning
 
 A warning for people using the *static binary* version of Beancash on a Linux/UNIX-ish system (tl;dr: **Berkely DB databases are not forward compatible**).
 
-The static binary version of Beancash is linked against libdb 5.0 (see also `this Debian issue`_).
+The static binary version of Beancash is linked against libdb 5.3.28.NC (see also `this Debian issue`_).
 
 Now the nasty thing is that databases from 5.X are not compatible with 4.X.
 
@@ -163,19 +165,3 @@ and 4.X cannot open the new format. This means that you cannot go back to the ol
 significant hassle!
 
 .. _`this Debian issue`: http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=621425
-
-Ubuntu 11.10 warning
-====================
-
-Ubuntu 11.10 has a package called 'qt-at-spi' installed by default.  At the time of writing, having that package
-installed causes Testbean-qt to crash intermittently.  The issue has been reported as `launchpad bug 857790`_, but
-isn't yet fixed.
-
-Until the bug is fixed, you can remove the qt-at-spi package to work around the problem, though this will presumably
-disable screen reader functionality for Qt apps:
-
-::
-
-    sudo apt-get remove qt-at-spi
-
-.. _`launchpad bug 857790`: https://bugs.launchpad.net/ubuntu/+source/qt-at-spi/+bug/857790

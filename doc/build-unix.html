@@ -1,0 +1,188 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="generator" content="ReText 5.3.1">
+</head>
+<body>
+<p><strong>Unix/Linux Bean Cash Daemon Build Instructions</strong></p>
+<p>See readme-qt.rst for instructions on building Beancash-qt, the
+graphical user interface.</p>
+<div class="section" id="unix-build-notes">
+<h1>UNIX BUILD NOTES</h1>
+<div class="section" id="to-build">
+<h2>To Build</h2>
+<pre class="literal-block">
+cd src/
+make -f makefile.unix            # Headless Beancash daemon
+</pre>
+<p>See readme-qt.rst for instructions on building Beancash QT,
+the graphical Vault.</p>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies</h2>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="30%" />
+<col width="51%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Library</th>
+<th class="head">Purpose</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>libssl</td>
+<td>SSL Support</td>
+<td>Secure communications</td>
+</tr>
+<tr><td>libdb</td>
+<td>Berkeley DB</td>
+<td>Blockchain &amp; wallet storage</td>
+</tr>
+<tr><td>libboost</td>
+<td>Boost</td>
+<td>C++ Library</td>
+</tr>
+<tr><td>libprotobuf</td>
+<td>Communication</td>
+<td>Serialized Communication</td>
+</tr>
+</tbody>
+</table>
+<p><em>Note that libexecinfo should be installed, if you building under *BSD systems.
+This library provides backtrace facility.</em></p>
+<p>libqrencode may be used for QRCode image generation. It can be downloaded
+from <a class="reference external" href="http://fukuchi.org/works/qrencode/index.html.en">http://fukuchi.org/works/qrencode/index.html.en</a>, or installed via
+your package manager. Set USE_QRCODE to control this:</p>
+<pre class="literal-block">
+USE_QRCODE=0   (the default) No QRCode support - libqrcode not required
+USE_QRCODE=1   QRCode support enabled
+</pre>
+<div class="section" id="licenses-of-statically-linked-libraries">
+<h3>Licenses of statically linked libraries:</h3>
+<blockquote>
+<dl class="docutils">
+<dt>Berkeley DB:</dt>
+<dd>New BSD license with additional requirement that linked software must be free open source</dd>
+<dt>Boost:</dt>
+<dd>MIT-like license</dd>
+<dt>Protobuf:</dt>
+<dd>BSD</dd>
+</dl>
+</blockquote>
+<dl class="docutils">
+<dt>Versions used in this release:</dt>
+<dd><ul class="first last simple">
+<li>GCC           4.9.0</li>
+<li>OpenSSL       1.0.2t</li>
+<li>Berkeley DB   5.3.28NC</li>
+<li>Boost         1.59.0</li>
+<li>Protobuf      2.5.0</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="dependency-build-instructions-ubuntu-debian">
+<h2>Dependency Build Instructions: Ubuntu &amp; Debian</h2>
+<pre class="literal-block">
+sudo apt-get install build-essential
+sudo apt-get install libssl-dev
+sudo apt-get install libdb++-dev
+sudo apt-get install libboost-all-dev
+sudo apt-get install libprotobuf-dev
+sudo apt-get install protobuf-compiler
+</pre>
+<p><em>If using Boost 1.37, append -mt to the boost libraries in the makefile.</em></p>
+</div>
+<div class="section" id="dependency-build-instructions-gentoo">
+<h2>Dependency Build Instructions: Gentoo</h2>
+<pre class="literal-block">
+emerge -av1 --noreplace boost openssl sys-libs/db
+</pre>
+<p>Take the following steps to build:</p>
+<pre class="literal-block">
+cd ${BeanCash_DIR}/src
+make -f makefile.unix
+strip beancashd
+</pre>
+<div class="section" id="notes">
+<h3>Notes</h3>
+<p><em>The release is built with GCC and then &quot;strip Beancashd&quot; to strip the debug
+symbols, which reduces the executable size by about 90%.</em></p>
+</div>
+<div class="section" id="berkeley-db">
+<h3>Berkeley DB</h3>
+<p>You need Berkeley DB. If you have to build Berkeley DB yourself:</p>
+<pre class="literal-block">
+../dist/configure --enable-cxx
+make
+</pre>
+</div>
+<div class="section" id="boost">
+<h3>Boost</h3>
+<p>If you need to build Boost yourself:</p>
+<pre class="literal-block">
+sudo su
+./bootstrap.sh
+./bjam install
+</pre>
+</div>
+</div>
+<div class="section" id="security">
+<h2>Security</h2>
+<p>To help make your Beancash installation more secure by making certain attacks impossible to exploit even if a vulnerability is found, you can take the following measures:</p>
+<div class="section" id="position-independent-executable">
+<h3>Position Independent Executable</h3>
+<blockquote>
+<p>Build position independent code to take advantage of Address Space Layout Randomization offered by some kernels. An attacker who is able to cause execution of code at an arbitrary memory location is thwarted if he doesn't know where anything useful is located.</p>
+<p>The stack and heap are randomly located by default but this allows the code section to be randomly located as well.</p>
+<p>On an Amd64 processor where a library was not compiled with -fPIC, this will cause an error such as:</p>
+<blockquote>
+<em>&quot;relocation R_X86_64_32 against `......' can not be used when making a shared object;&quot;</em></blockquote>
+<p>To build with PIE, use:</p>
+<pre class="literal-block">
+make -f makefile.unix ... -e PIE=1
+</pre>
+<p>To test that you have built PIE executable, install scanelf, part of paxutils, and use:</p>
+<pre class="literal-block">
+scanelf -e ./beancashd
+</pre>
+<p>The output should contain:</p>
+<blockquote>
+<p><em>TYPE</em></p>
+<p><em>ET_DYN</em></p>
+</blockquote>
+</blockquote>
+</div>
+<div class="section" id="non-executable-stack">
+<h3>Non-executable Stack</h3>
+<blockquote>
+<p>If the stack is executable then trivial stack based buffer overflow exploits are possible if vulnerable buffers are found. By default, Beancash should be built with a non-executable stack but if one of the libraries it uses asks for an executable stack or someone makes a mistake and uses a compiler extension which requires an executable stack, it will silently build an executable without the non-executable stack protection.</p>
+<p>To verify that the stack is non-executable after compiling use:</p>
+<pre class="literal-block">
+scanelf -e ./beancashd
+</pre>
+<p>The output should contain:</p>
+<blockquote>
+<p><em>STK/REL/PTL</em></p>
+<p><em>RW- R-- RW</em>-</p>
+</blockquote>
+<p><em>The STK RW- means that the stack is readable and writeable but not executable.</em></p>
+</blockquote>
+<hr class="docutils" />
+<p>Copyright (c) 2009-2011 Satoshi Nakomoto
+Copyright (c) 2011-2013 Bitcoin Developers
+Copyright (c) 2015 Nokat
+Copyright (c) 2015-2017 Bean Core www.bitbean.org
+Copyright (c) 2015-2019 Bean Core www.beancash.org</p>
+<p>Distributed under the MIT/X11 software license, see the accompanying file license.txt or <a class="reference external" href="http://www.opensource.org/licenses/mit-license.php">http://www.opensource.org/licenses/mit-license.php</a>.</p>
+<p>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (<a class="reference external" href="http://www.openssl.org/">http://www.openssl.org/</a>).  This product includes cryptographic software written by Eric Young (<a class="reference external" href="mailto:eay&#64;cryptsoft.com">eay&#64;cryptsoft.com</a>).</p>
+</div>
+</div>
+</div>
+</body>
+</html>

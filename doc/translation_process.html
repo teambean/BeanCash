@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="generator" content="ReText 5.3.1">
+</head>
+<body>
+<p>_</p>
+<div class="section" id="bean-cash-translation-notes">
+<h1>Bean Cash Translation Notes</h1>
+<p>The Qt GUI can be easily translated into other languages. Here's how we
+handle those translations.</p>
+<div class="section" id="files-and-folders">
+<h2>Files and Folders</h2>
+<div class="section" id="beancash-qt-pro">
+<h3>Beancash-qt.pro</h3>
+<p>This file takes care of generating <cite>.qm</cite> files from <cite>.ts</cite> files. It is mostly
+automated.</p>
+</div>
+<div class="section" id="src-qt-beancash-qrc">
+<h3>src/qt/beancash.qrc</h3>
+<p>This file must be updated whenever a new translation is added. Please note that
+files must end with <cite>.qm</cite>, not <cite>.ts</cite>.</p>
+<pre class="literal-block">
+&lt;qresource prefix=&quot;/translations&quot;&gt;
+    &lt;file alias=&quot;en&quot;&gt;locale/beancash_en.qm&lt;/file&gt;
+    ...
+&lt;/qresource&gt;
+</pre>
+</div>
+<div class="section" id="src-qt-locale">
+<h3>src/qt/locale/</h3>
+<p>This directory contains all translations. Filenames must adhere to this format:</p>
+<pre class="literal-block">
+beancash_xx_YY.ts or beancash_xx.ts
+</pre>
+</div>
+<div class="section" id="source-file">
+<h3>Source file</h3>
+<p><cite>src/qt/locale/beancash_en.ts</cite> is treated in a special way. It is used as the
+source for all other translations. Whenever a string in the code is changed
+this file must be updated to reflect those changes. Usually, this can be
+accomplished by running <cite>lupdate</cite> (included in the Qt SDK).</p>
+<p>Translations for Bean Cash will be handled by our own hosted translation service:</p>
+<p><a class="reference external" href="https://translate.beancash.net">https://translate.beancash.net</a></p>
+<p>(If services are not yet operational, check back latter.)</p>
+<p>Please email if you are interested to help with translation:  <a class="reference external" href="mailto:support&#64;beancash.org">support&#64;beancash.org</a></p>
+</div>
+</div>
+</div>
+</body>
+</html>

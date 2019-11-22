@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="generator" content="ReText 5.3.1">
+</head>
+<body>
+<p><strong>Mac OS X Bean Cash Daemon Build Instructions</strong></p>
+<p>See readme-qt.rst for instructions on building Beancash-qt, the
+graphical user interface.</p>
+<div class="section" id="mac-os-x-build-notes">
+<h1>Mac OS X Build Notes</h1>
+<p>Tested on 10.5 and 10.6 intel.  PPC is not supported because it's big-endian.</p>
+<p>All of the commands should be executed via the terminal application located in:</p>
+<pre class="literal-block">
+/Applications/Utilities
+</pre>
+<p>You need to install XCode with all the options checked so that the compiler and
+everything is available in <em>/usr</em> not just <em>/Developer</em>.</p>
+<p>XCode is available from <a class="reference external" href="https://developer.apple.com">https://developer.apple.com</a></p>
+<ol class="arabic simple">
+<li>Clone the github tree to get the source code:</li>
+</ol>
+<pre class="literal-block">
+git clone https://github.com/teambean/BeanCash
+</pre>
+<ol class="arabic simple" start="2">
+<li>Download and install MacPorts from <a class="reference external" href="https://www.macports.org">https://www.macports.org</a></li>
+</ol>
+<blockquote>
+<dl class="docutils">
+<dt>2a. (for 10.7 Lion)</dt>
+<dd><em>Edit /opt/local/etc/macports/macports.conf and uncomment &quot;build_arch i386&quot;</em></dd>
+</dl>
+</blockquote>
+<ol class="arabic simple" start="3">
+<li>Install dependencies from MacPorts</li>
+</ol>
+<pre class="literal-block">
+sudo port install boost db53 openssl
+
+  3a. Optionally install qrencode (and set USE_QRCODE=1):
+</pre>
+<pre class="literal-block">
+sudo port install qrencode
+</pre>
+<ol class="arabic simple" start="4">
+<li>Now you should be able to build Beancashd:</li>
+</ol>
+<pre class="literal-block">
+cd Beancash/src
+make -f makefile.osx
+</pre>
+<p>Run:</p>
+<pre class="literal-block">
+./beancashd -help  # for a list of command-line options.
+./beancashd -daemon # to start the Bean Cash daemon.
+./beancashd help # When the daemon is running, to get a list of RPC commands.
+</pre>
+<p>Copyright (c) 2009-2011 Satoshi Nakomoto
+Copyright (c) 2011-2013 Bitcoin Developers
+Copyright (c) 2015 Nokat
+Copyright (c) 2015-2017 Bean Core www.bitbean.org
+Copyright (c) 2015-2019 Bean Core www.beancash.org</p>
+<p>Distributed under the MIT/X11 software license, see the accompanying file license.txt or <a class="reference external" href="http://www.opensource.org/licenses/mit-license.php">http://www.opensource.org/licenses/mit-license.php</a>.</p>
+<p>This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (<a class="reference external" href="http://www.openssl.org/">http://www.openssl.org/</a>).  This product includes cryptographic software written by Eric Young (<a class="reference external" href="mailto:eay&#64;cryptsoft.com">eay&#64;cryptsoft.com</a>).</p>
+</div>
+</body>
+</html>

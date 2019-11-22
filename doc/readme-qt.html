@@ -1,0 +1,163 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<meta name="generator" content="ReText 5.3.1">
+</head>
+<body>
+<div class="section" id="beancash-qt-qt5-gui-for-beancash">
+<h1>Beancash-qt: Qt5 GUI for Beancash</h1>
+</div>
+<div class="section" id="build-instructions">
+<h1>Build instructions</h1>
+<div class="section" id="debian-tested-under-ubuntu-16-04-lts-25-03-2018">
+<h2>Debian (tested under Ubuntu 16.04 LTS - 25/03/2018)</h2>
+<ul class="simple">
+<li>make sure to have the required packages:</li>
+</ul>
+<pre class="literal-block">
+sudo apt-get update
+sudo apt-get upgrade
+sudo apt-get install qt5-default qt5-qmake qtbase5-dev-tools qttools5-dev-tools
+sudo apt-get install build-essential
+sudo apt-get install libdb5.3++-dev libssl-dev libboost-dev libboost-all-dev
+sudo apt-get install libprotobuf-dev protobuf-compiler
+</pre>
+<ul class="simple">
+<li>now download and compile the three libraries: (update this when libraries changes)</li>
+</ul>
+<blockquote>
+<ul class="simple">
+<li>boost : <a class="reference external" href="http://sourceforge.net/projects/boost/files/boost/1.59.0/boost_1_59_0.tar.gz">Boost 1.59.0</a></li>
+<li>db : <a class="reference external" href="http://download.oracle.com/otn/berkeley-db/db-5.3.28.NC.zip">Berkley DB 5.3.28.NC</a></li>
+<li>openssl : <a class="reference external" href="https://www.openssl.org/source/openssl-1.0.2t.tar.gz">OpenSSL 1.0.2t</a></li>
+</ul>
+</blockquote>
+<ul class="simple">
+<li>Prepare a directory path/to/libs (we'll refer to it as /libs) where you would like to store those libraries.</li>
+<li>Unzip all three archives inside /libs resulting in:</li>
+</ul>
+<pre class="literal-block">
+libs/boost_1_59_0
+libs/db-5.3.28.NC
+libs/openssl-1.0.2t
+</pre>
+<ul>
+<li><p class="first">Now compile all the libraries.</p>
+<blockquote>
+<p>boost 1.59.0</p>
+<pre class="literal-block">
+cd /libs/boost_1_59_0
+./bootstrap.sh
+mkdir build-boost
+./b2 --build-dir=/build-boost toolset=gcc stage
+</pre>
+<p>berkley db</p>
+<pre class="literal-block">
+cd /libs/db-5.3.28.NC
+cd build-unix
+../dist/configure --enable-cxx
+make
+</pre>
+<p>openssl1.0.2t</p>
+<pre class="literal-block">
+cd /libs/openssl-1.0.2t
+./config
+make
+</pre>
+</blockquote>
+</li>
+<li><p class="first">In order to instruct the compiler to find the libraries modify some global variables insides Beancash-qt.pro</p>
+</li>
+</ul>
+<pre class="literal-block">
+BOOST_INCLUDE_PATH=/full/path/to/libs/boost_1_59_0
+BOOST_LIB_PATH=/full/path/to/libs/stage/lib
+
+OPENSSL_INCLUDE_PATH=/full/path/to/libs/openssl-1.0.2t/include
+OPENSSL_LIB_PATH=/full/path/to/libs/openssl-1.0.2t
+
+BDB_INCLUDE_PATH=/full/path/to/libs/db-5.3.28.NC/build_unix
+BDB_LIB_PATH=/full/path/to/libs/db-5.3.28.NC/build_unix
+</pre>
+<ul class="simple">
+<li>Now we can compile the application.</li>
+</ul>
+<pre class="literal-block">
+cd /path/beancash/
+qmake RELEASE=1 (other flags: USE_O3=1 to use compilation optimization, USE_DBUS=1 which build with notification support (enabled by default))
+make
+</pre>
+<ul class="simple">
+<li>After compilation An executable named <cite>Beancash-qt</cite> will be built.</li>
+</ul>
+</div>
+<div class="section" id="windows">
+<h2>Windows</h2>
+<p>Windows build instructions:</p>
+<ul class="simple">
+<li>Download the <a class="reference external" href="http://qt.nokia.com/downloads/sdk-windows-cpp">QT Windows SDK</a> and install it. You don't need the Symbian stuff, just the desktop Qt.</li>
+<li>Compile openssl, boost and dbcxx.</li>
+<li>Copy the contents of the folder &quot;deps&quot; to &quot;X:\QtSDK\mingw&quot;, replace X:\ with the location where you installed the Qt SDK. Make sure that the contents of &quot;deps\include&quot; end up in the current &quot;include&quot; directory.</li>
+<li>Open the .pro file in QT creator and build as normal (ctrl-B)</li>
+</ul>
+</div>
+<div class="section" id="mac-os-x">
+<h2>Mac OS X</h2>
+<ul class="simple">
+<li>Download and install the <a class="reference external" href="http://qt.nokia.com/downloads/sdk-mac-os-cpp">Qt Mac OS X SDK</a>. It is recommended to also install Apple's Xcode with UNIX tools.</li>
+<li>Download and install <a class="reference external" href="http://www.macports.org/install.php">MacPorts</a>.</li>
+<li>Execute the following commands in a terminal to get the dependencies:</li>
+</ul>
+<pre class="literal-block">
+sudo port selfupdate
+sudo port install boost db53
+</pre>
+<ul class="simple">
+<li>Open the .pro file in Qt Creator and build as normal (cmd-B)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="build-configuration-options">
+<h1>Build configuration options</h1>
+<div class="section" id="notification-support-for-recent-k-ubuntu-versions">
+<h2>Notification support for recent (k)ubuntu versions</h2>
+<p>To see desktop notifications on (k)ubuntu versions starting from 10.04, enable usage of the
+FreeDesktop notification interface through DBUS using the following qmake option:</p>
+<pre class="literal-block">
+qmake &quot;USE_DBUS=1&quot;
+</pre>
+</div>
+<div class="section" id="generation-of-qr-codes">
+<h2>Generation of QR codes</h2>
+<p>libqrencode may be used to generate QRCode images for payment requests.
+It can be downloaded from <a class="reference external" href="http://fukuchi.org/works/qrencode/index.html.en">http://fukuchi.org/works/qrencode/index.html.en</a>, or installed via your package manager. Pass the USE_QRCODE
+flag to qmake to control this:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="84%" />
+</colgroup>
+<tbody valign="top">
+<tr><td>USE_QRCODE=0</td>
+<td>(the default) No QRCode support - libarcode not required</td>
+</tr>
+<tr><td>USE_QRCODE=1</td>
+<td>QRCode support enabled</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="berkely-db-version-warning">
+<h1>Berkely DB version warning</h1>
+<p>A warning for people using the <em>static binary</em> version of Beancash on a Linux/UNIX-ish system (tl;dr: <strong>Berkely DB databases are not forward compatible</strong>).</p>
+<p>The static binary version of Beancash is linked against libdb 5.3.28.NC (see also <a class="reference external" href="http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=621425">this Debian issue</a>).</p>
+<p>Now the nasty thing is that databases from 5.X are not compatible with 4.X.</p>
+<p>If the globally installed development package of Berkely DB installed on your system is 5.X, any source you
+build yourself will be linked against that. The first time you run with a 5.X version the database will be upgraded,
+and 4.X cannot open the new format. This means that you cannot go back to the old statically linked version without
+significant hassle!</p>
+</div>
+</body>
+</html>
