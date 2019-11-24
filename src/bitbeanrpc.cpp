@@ -730,7 +730,7 @@ static void RPCAcceptHandler(std::shared_ptr< basic_socket_acceptor<Protocol, So
     // TODO: Actually handle errors
     if (error)
     {
-        printf("%s: Error: %s\n", __func__, error.message());
+      printf("Function%s: has Error: %s\n", __func__, error.message().c_str());
     }
 
     // Restrict callers by IP.  It is important to

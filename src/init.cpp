@@ -323,6 +323,8 @@ std::string HelpMessage()
         "  -rpcthreads=<n>        " + _("Use this to set the number of threads to service RPC calls (defult: 4)") + "\n" +
         "  -blocknotify=<cmd>     " + _("Execute command when the best block changes (%s in cmd is replaced by block hash)") + "\n" +
         "  -walletnotify=<cmd>    " + _("Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)") + "\n" +
+		  "  -zapwallet=<mode>		 " + _("Delete all wallet transactions and rebuild transactions from blockchain data") + "\n" +
+		  "                         " + _("(1 = keep tx meta data (e.g. account owner & payment request info), 2 = drop tx meta data)") + "\n" +        
         "  -confchange            " + _("Require a confirmations for change (default: 0)") + "\n" +
         "  -enforcecanonical      " + _("Enforce transaction scripts to use canonical PUSH operators (default: 1)") + "\n" +
         "  -minimizebeanage       " + _("Minimize weight consumption (experimental) (default: 0)") + "\n" +
@@ -561,6 +563,11 @@ bool AppInit2(boost::thread_group& threadGroup)
         // Rewrite just private keys: rescan to find transactions
         SoftSetBoolArg("-rescan", true);
     }
+
+	 if (GetBoolArg("-zapwallet", false)) {
+		if (SoftSetBoolArg("-rescan", true))
+			printf("init: parameter interaction: -zapwallet=<mode> -> setting -rescan=1\n");	 
+	 }
 
     // Make sure there are enough file descriptors
     int nBind = std::max((int)mapArgs.count("-bind"), 1);
@@ -868,6 +875,21 @@ bool AppInit2(boost::thread_group& threadGroup)
 
     // ********************************************************* Step 8: load wallet
 
+	 // Needed to restore wallet transaction meta data after a -zapwallet 
+	 std::vector<CWalletTx> vWtx;
+	 
+	 if (GetBoolArg("-zapwallet", false)) {
+	 		uiInterface.InitMessage(_("Removing all transactions from wallet..."));
+	 		pwalletMain = new CWallet(strWalletFileName);
+	 		DBErrors nZapWalletRet = pwalletMain->ZapWalletTx(vWtx);
+	 		if (nZapWalletRet != DB_LOAD_OK) {
+	 			uiInterface.InitMessage(_("Error loading wallet.dat: Wallet corrupted"));
+	 			return false;
+	 		}
+	 		delete pwalletMain;
+	 		pwalletMain = NULL;	 
+	 }	 
+	 
     uiInterface.InitMessage(_("Loading wallet..."));
     printf("Loading wallet...\n");
     nStart = GetTimeMillis();
@@ -962,6 +984,30 @@ bool AppInit2(boost::thread_group& threadGroup)
         nStart = GetTimeMillis();
         pwalletMain->ScanForWalletTransactions(pindexRescan, true);
         printf(" rescan      %15" PRId64 "ms\n", GetTimeMillis() - nStart);
+    
+	 	// Restore wallet transaction metadata after -zapwallet=1
+	 	if (GetBoolArg("-zapwallet", false) && GetArg("-zapwallet", "1") != "2")
+	 	{
+				CWalletDB walletdb(strWalletFileName);
+				for (const CWalletTx& wtxOld : vWtx)
+				{
+					uint256 hash = wtxOld.GetHash();
+					std::map<uint256, CWalletTx>::iterator mi = pwalletMain->mapWallet.find(hash);
+					if (mi != pwalletMain->mapWallet.end())
+					{
+						const CWalletTx* copyFrom = &wtxOld;
+						CWalletTx* copyTo = &mi->second;
+						copyTo->mapValue = copyFrom->mapValue;
+						copyTo->vOrderForm = copyFrom->vOrderForm;
+						copyTo->nTimeReceived = copyFrom->nTimeReceived;
+						copyTo->nTimeSmart = copyFrom->nTimeSmart;
+						copyTo->fFromMe = copyFrom->fFromMe;
+                        copyTo->strFromAccount = copyFrom->strFromAccount;
+						copyTo->nOrderPos = copyFrom->nOrderPos;
+						copyTo->WriteToDisk(&walletdb);				
+					}			
+				}	 
+	 	}    
     }
 
     // ********************************************************* Step 9: import blocks
