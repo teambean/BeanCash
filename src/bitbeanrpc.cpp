@@ -462,8 +462,7 @@ int ReadHTTP(std::basic_istream<char>& stream, map<string, string>& mapHeadersRe
 
     // Read status
     int nProto = 0;
-    int nStatus = ReadHTTPStatus(stream, nProto);
-
+    
     // Read header
     int nLen = ReadHTTPHeader(stream, mapHeadersRet);
     if (nLen < 0 || nLen > (int)MAX_SIZE)
@@ -472,8 +471,17 @@ int ReadHTTP(std::basic_istream<char>& stream, map<string, string>& mapHeadersRe
     // Read message
     if (nLen > 0)
     {
-        vector<char> vch(nLen);
-        stream.read(&vch[0], nLen);
+        vector<char> vch;
+        size_t ptr = 0;
+        while (ptr < (size_t)nLen)
+		  {
+				size_t bytes_to_read = std::min((size_t)nLen - ptr, POST_READ_SIZE);
+				vch.resize(ptr + bytes_to_read);
+				stream.read(&vch[ptr], bytes_to_read);
+				if (!stream) // Connection lost
+					return HTTP_INTERNAL_SERVER_ERROR;
+				ptr += bytes_to_read;		  
+		  }        
         strMessageRet = string(vch.begin(), vch.end());
     }
 
@@ -487,7 +495,7 @@ int ReadHTTP(std::basic_istream<char>& stream, map<string, string>& mapHeadersRe
             mapHeadersRet["connection"] = "close";
     }
 
-    return nStatus;
+    return HTTP_OK;
 }
 
 bool HTTPAuthorized(map<string, string>& mapHeaders)
@@ -700,7 +708,7 @@ static void RPCListen(std::shared_ptr< basic_socket_acceptor<Protocol, SocketAcc
                 boost::ref(context),
                 fUseSSL,
                 conn,
-                boost::asio::placeholders::error));
+                _1));
 }
 
 /**
@@ -722,7 +730,7 @@ static void RPCAcceptHandler(std::shared_ptr< basic_socket_acceptor<Protocol, So
     // TODO: Actually handle errors
     if (error)
     {
-        delete conn;
+        printf("%s: Error: %s\n", __func__, error.message());
     }
 
     // Restrict callers by IP.  It is important to
