@@ -226,9 +226,16 @@ void CDBEnv::CheckpointLSN(std::string strFile)
     dbenv.txn_checkpoint(0, 0, 0);
     if (fMockDb)
         return;
-    dbenv.lsn_reset(strFile.c_str(), 0);
+    // LSN reset is removed as it is unecessary. Txn_checkpoint will flush the emory log to the database.
+    // This unecessary flush was causing latency issues for large wallets.
+    // A flush is done when the wallet is closed down.
+    // dbenv.lsn_reset(strFile.c_str(), 0);
 }
 
+void CDBEnv::lsn_reset(const std::string& strFile)
+{
+    dbenv.lsn_reset(strFile.c_str(),0);
+}
 
 CDB::CDB(const char *pszFile, const char* pszMode) :
     pdb(NULL), activeTxn(NULL)
