@@ -25,13 +25,14 @@ greaterThan(QT_MAJOR_VERSION, 4) {
 }
 
 contains(RELEASE, 1) {
-    message(building in RELEASE mode)
+    Release:message("Building in RELEASE mode")
 }
 
 freebsd-g++: QMAKE_TARGET.arch = $$QMAKE_HOST.arch
 linux-g++: QMAKE_TARGET.arch = $$QMAKE_HOST.arch
 *-g++-32: QMAKE_TARGET.arch = i686
 *-g++-64: QMAKE_TARGET.arch = x86_64
+win32-g++-cross: QMAKE_TARGET.arch = $$TARGET_PLATFORM
 
 #USE RELEASE=1
 #USE_O3=1  # default 0
@@ -107,7 +108,7 @@ contains(RELEASE, 1) {
 
 !win32 {
     # for extra security against potential buffer overflows: enable GCCs Stack Smashing Protection
-    message(GCCs Stack Smashing protection enabled)
+    Release:message("GCCs Stack Smashing protection enabled")
     QMAKE_CXXFLAGS *= -fstack-protector-all --param ssp-buffer-size=1
     QMAKE_LFLAGS *= -fstack-protector-all --param ssp-buffer-size=1
     # We need to exclude this for Windows cross compile with MinGW 4.2.x, as it will result in a non-working executable!
@@ -118,10 +119,10 @@ win32:QMAKE_LFLAGS *= -Wl,--dynamicbase -Wl,--nxcompat -static
 
 win32:contains(QMAKE_HOST.arch, x86):{QMAKE_LFLAGS *= -Wl,--large-address-aware }
 
-# use: qmake "USE_QRCODE=1", default is 0
+# use: qmake "=1", default is 0
 # libqrencode (http://fukuchi.org/works/qrencode/index.en.html) must be installed for support
 contains(USE_QRCODE, 1) {
-    message(Building with QRCode support)
+    Release:message("Building with QRCode support")
     DEFINES += USE_QRCODE
     LIBS += -lqrencode
 }
@@ -129,14 +130,14 @@ contains(USE_QRCODE, 1) {
 # use: qmake "USE_DBUS=1" or qmake "USE_DBUS=0"
 #unix | linux {
 #    isEmpty(USE_DBUS) | contains(USE_DBUS, 1) {
-#        message(Building with Freedesktop support(Using DBUS))
+#        message("Building with Freedesktop support using DBUS")
 #        USE_DBUS=1
 #        DEFINES += USE_DBUS
 #        QT += dbus
 #    }
 #}
 contains(USE_DBUS, 1) {
-    message(Building with DBUS (Freedesktop notification) support)
+    Release:message("Building with Freedesktop support using DBUS")
     DEFINES += USE_DBUS
     QT += dbus
 }
@@ -181,24 +182,44 @@ QMAKE_CLEAN += $$PWD/src/leveldb/libleveldb.a; cd $$PWD/src/leveldb ; $(MAKE) cl
     DEFINES += HAVE_BUILD_INFO
 }
 
+# use: qmake "USE_O3=1"
 contains(USE_O3, 1) {
-    message(Building with O3 optimization flag)
+    Release:message("Building with O3 optimization flag")
     QMAKE_CXXFLAGS_RELEASE -= -O2
     QMAKE_CFLAGS_RELEASE -= -O2
     QMAKE_CXXFLAGS += -O3
     QMAKE_CFLAGS += -O3
 }
 
-contains(QMAKE_TARGET.arch, i386) | contains(QMAKE_TARGET.arch, i686) {
-    message("x86 platform, adding -msse2 & -mssse3 flags")
-    QMAKE_CXXFLAGS += -msse2 -mssse3
-    QMAKE_CFLAGS += -msse2 -mssse3
+Release:message("Target system to buid on reported as:")
+
+greaterThan(QT_MAJOR_VERSION, 4) {
+Release:message($$QT_ARCH)} else {Release:message($$QMAKE_HOST.arch)}
+
+contains(QMAKE_TARGET.arch, i386) | contains(QMAKE_TARGET.arch, i586) | contains(QMAKE_TARGET.arch, i686) {
+    Release:message("Targeting x86 platform, adding -msse2 flag")
+    QMAKE_CXXFLAGS += -msse2
+    QMAKE_CFLAGS += -msse2
+} else {
+# use: qmake "USE_SSE2=1"
+contains(USE_SSE2, 1) {
+    Release:message("Using SSE2 & generic sha256 implementation")
+    QMAKE_CXXFLAGS += -msse2
+    QMAKE_CFLAGS += -msse2
+    }
 }
 
 contains(QMAKE_TARGET.arch, x86_64) | contains(QMAKE_TARGET.arch, amd64) {
-    message("x86_64 platform, setting -mssse3 flag")
-    QMAKE_CXXFLAGS += -mssse3
-    QMAKE_CFLAGS += -mssse3
+    Release:message("Targeting x86_64 platform, adding -msse2 and -msse3 flags")
+    QMAKE_CXXFLAGS += -msse2 -msse3
+    QMAKE_CFLAGS += -msse2 -msse3
+} else {
+# use: qmake "USE_SSE3=1"
+contains(USE_SSE3, 1) {
+    Release:message("Using SSE3 optimizations")
+    QMAKE_CXXFLAGS += -msse3
+    QMAKE_CFLAGS += -msse3
+    }
 }
 
 QMAKE_CXXFLAGS_WARN_ON = -fdiagnostics-show-option -Wno-unused-function -Wextra -Wno-ignored-qualifiers -Wformat -Wformat-security -Wno-unused-parameter -Wstack-protector
@@ -422,11 +443,11 @@ OTHER_FILES += \
 # platform specific defaults, if not overridden on command line
 !exists(BOOST_LIB_SUFFIX) {
     macx{
-        message(since BOOST_LIB_SUFFIX is empty we add to BOOST_LIB_SUFFIX -mt)
+        Release:message("MAC OS detected:  BOOST_LIB_SUFFIX is empty, so -mt is added to BOOST_LIB_SUFFIX")
         BOOST_LIB_SUFFIX = -mt
     }
     windows{
-#        message(since BOOST_LIB_SUFFIX is empty we add to BOOST_LIB_SUFFIX -mgw49-mt-s-1_59)
+#        Release:message("Windows OS detected: BOOST_LIB_SUFFIX is empty, so -mgw49-mt-s-1_59 added to BOOST_LIB_SUFFIX")
         BOOST_LIB_SUFFIX = -mgw49-mt-s-1_59
     }
 }
@@ -437,59 +458,59 @@ macx{
         # Uses Homebrew if installed, otherwise defaults to MacPorts
         check_dir = /usr/local/Cellar
         exists($$check_dir) {
-            message(DEPSIDR its empty, falling back to /usr/local)
+            Release:message("DEPSDIR its empty, so falling back to /usr/local")
             DEPSDIR = /usr/local
         }
         !exists($$check_dir) {
-            message(DEPSIDR its empty (ando neither $$check_dir its), falling back to /upt/local)
+            Release:message("DEPSDIR its empty and $$check_dir dosn't exist, so falling back to /upt/local")
             DEPSDIR = /opt/local
         }
     }
 
 !exists(BOOST_LIB_PATH) {
-    message(BOOST_LIB_PATH point to an empty folder)
+    Release:message("BOOST_LIB_PATH points to an empty folder!")
     macx: {
-        message(falling back to: $DEPSDIR/lib)
+        Release:message("MAC OS detected: falling back to: $DEPSDIR/lib")
         BOOST_LIB_PATH = $$DEPSDIR/lib
     }
 }
 
 !exists(BOOST_INCLUDE_PATH) {
-    message(BOOST_INCLUDE_PATH point to an empty folder)
+    Release:message("BOOST_INCLUDE_PATH points to an empty folder!")
     macx: {
-        message(falling back to: $DEPSDIR/include)
+        Release:message("MAC OS detected: falling back to: $DEPSDIR/include")
         BOOST_INCLUDE_PATH = $$DEPSDIR/include
     }
 }
 
 !exists(BDB_LIB_PATH) {
-    message(BDB_LIB_PATH point to an empty folder)
+    Release:message("BDB_LIB_PATH points to an empty folder!")
     macx: {
-        message(falling back to: $DEPSDIR/lib)
+        Release:message("MAC OS detected: falling back to: $DEPSDIR/lib")
         BDB_LIB_PATH = $$DEPSDIR/lib
     }
 }
 
 !exists(BDB_INCLUDE_PATH) {
-    message(BDB_INCLUDE_PATH point to an empty folder)
+    Release:message("BDB_INCLUDE_PATH points to an empty folder!")
     macx: {
-        message(falling back to: $DEPSDIR/include)
+        Release:message("MAC OS detected: falling back to: $DEPSDIR/include")
         BDB_INCLUDE_PATH = $$DEPSDIR/include
     }
 }
 
 !exists(OPENSSL_LIB_PATH) {
-    message(OPENSSL_LIB_PATH point to an empty folder)
+    Release:message("OPENSSL_LIB_PATH points to an empty folder!")
     macx: {
-        message(falling back to: $DEPSDIR/lib)
+        Release:message("MAC OS detected:  falling back to: $DEPSDIR/lib")
         OPENSSL_LIB_PATH = $$DEPSDIR/lib
     }
 }
 
 !exists(OPENSSL_INCLUDE_PATH) {
-    message(OPENSSL_INCLUDE_PATH point to an empty folder)
+    Release:message("OPENSSL_INCLUDE_PATH points to an empty folder!")
     macx: {
-        message(falling back to: $DEPSDIR/include)
+        Release:message("MAC OS detected: falling back to: $DEPSDIR/include")
         OPENSSL_INCLUDE_PATH = $$DEPSDIR/include
     }
 }
@@ -500,11 +521,11 @@ macx: {
 
     contains(USE_QRCODE, 1){
         !exists(QRCODE_LIB_PATH) {
-            message(QRCODE_LIB_PATH point to an empty folder, falling back to: $DEPSDIR/lib)
+            Release:message("QRCODE_LIB_PATH points to an empty folder, falling back to: $DEPSDIR/lib")
             QRCODE_LIB_PATH = $$DEPSDIR/lib
         }
         !exists(QRCODE_INCLUDE_PATH) {
-            message(QRCODE_INCLUDE_PATH point to an empty folder, falling back to: $DEPSDIR/include)
+            Release:message("QRCODE_INCLUDE_PATH points to an empty folder, falling back to: $DEPSDIR/include")
             QRCODE_INCLUDE_PATH = $$DEPSDIR/include
         }
     }
