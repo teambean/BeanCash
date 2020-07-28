@@ -142,6 +142,18 @@ static void initTranslations(QTranslator &qtTranslatorBase, QTranslator &qtTrans
         QApplication::installTranslator(&translator);
 }
 
+/* qDebug() message handler --> debug.log */
+#if QT_VERSION < 0x050000
+void DebugMessageHandler(QtMsgType type, const char * msg)
+{
+    LogPrint("Beancash-qt: %s\n", msg);
+}
+#else
+void DebugMessageHandler(QtMsgType type, const QMessageLogContext& context, const QString &msg)
+{
+    LogPrint("Beancash-qt: %s\n", qPrintable(msg));
+}
+#endif
 
 #ifndef BEANCASH_QT_TEST
 int main(int argc, char *argv[])
@@ -252,6 +264,14 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    // Install qDebug() message handler to route to debug.log:
+    #if QT_VERSION < 0x050000
+        qInstallMsgHandler(DebugMessageHandler);
+    #else
+        qInstallMessageHandler(DebugMessageHandler);
+    #endif
+
+    // Show BeanGuy Splash Screen
     QSplashScreen splash(QPixmap(":/images/splash"), 0);
     if (GetBoolArg("-splash", true) && !GetBoolArg("-min"))
     {

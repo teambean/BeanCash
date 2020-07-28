@@ -187,6 +187,14 @@ std::string vstrprintf(const char *format, va_list ap);
 
 bool ATTR_WARN_PRINTF(1,2) error(const char *format, ...);
 
+/* Redefine printf so that it directs output to debug.log
+ *
+ * Do this *after* defining the other printf-like functions, because otherwise the
+ * __attribute__((format(printf,X,Y))) gets expanded to __attribute__((format(OutputDebugStringF,X,Y)))
+ * which confuses gcc.
+ */
+#define printf(...) LogPrint(NULL, __VA_ARGS__)
+
 void PrintException(std::exception* pex, const char* pszThread);
 void PrintExceptionContinue(std::exception* pex, const char* pszThread);
 void ParseString(const std::string& str, char c, std::vector<std::string>& v);

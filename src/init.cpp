@@ -580,7 +580,7 @@ bool AppInit2(boost::thread_group& threadGroup)
 
     // ********************************************************* Step 3: parameter-to-internal-flags
 
-    fDebug = GetBoolArg("-debug");
+    if (mapMultiArgs.count("-debug")) fDebug = true;
 
     // -debug implies fDebug*
     if (fDebug)
