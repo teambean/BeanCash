@@ -1,4 +1,4 @@
-// Copyright (c) 2018 Bean Core www.beancash.org
+// Copyright (c) 2018-2020 Bean Core www.beancash.org
 
 #include "addresstablemodel.h"
 #include "guiutil.h"
@@ -8,7 +8,7 @@
 #include "base58.h"
 
 #include <QFont>
-#include <QColor>
+#include <QDebug>
 
 const QString AddressTableModel::Send = "S";
 const QString AddressTableModel::Receive = "R";
@@ -92,7 +92,7 @@ public:
         case CT_NEW:
             if(inModel)
             {
-                OutputDebugStringF("Warning: AddressTablePriv::updateEntry: Got CT_NEW, but entry is already in model\n");
+                qDebug() << "AddressTablePriv::updateEntry : Warning: Got CT_NEW, but entry is already in model";
                 break;
             }
             parent->beginInsertRows(QModelIndex(), lowerIndex, lowerIndex);
@@ -102,7 +102,7 @@ public:
         case CT_UPDATED:
             if(!inModel)
             {
-                OutputDebugStringF("Warning: AddressTablePriv::updateEntry: Got CT_UPDATED, but entry is not in model\n");
+                qDebug() << "AddressTablePriv::updateEntry : Warning: Got CT_UPDATED, but entry is not in model";
                 break;
             }
             lower->type = newEntryType;
