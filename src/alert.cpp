@@ -211,7 +211,7 @@ bool CAlert::ProcessAlert(bool fThread)
             }
             else if (!alert.IsInEffect())
             {
-                LogPring("alert", "expiring alert %d\n", alert.nID);
+                LogPrint("alert", "expiring alert %d\n", alert.nID);
                 uiInterface.NotifyAlertChanged((*mi).first, CT_DELETED);
                 mapAlerts.erase(mi++);
             }

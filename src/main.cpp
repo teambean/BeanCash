@@ -472,7 +472,7 @@ int CMerkleTx::SetMerkleBranch(const CBlock* pblock)
         {
             vMerkleBranch.clear();
             nIndex = -1;
-            LogPrint("ERROR: SetMerkleBranch() : couldn't find tx in block\n");
+            LogPrintf("ERROR: SetMerkleBranch() : couldn't find tx in block\n");
             return 0;
         }
 
@@ -724,7 +724,7 @@ bool CTxMemPool::accept(CTxDB& txdb, CTransaction &tx, bool fCheckInputs,
     if (ptxOld)
         EraseFromWallets(ptxOld->GetHash());
 
-    LogPrintf("mempool", "CTxMemPool::accept() : accepted %s (poolsz %" PRIszu ")\n",
+    LogPrint("mempool", "CTxMemPool::accept() : accepted %s (poolsz %" PRIszu ")\n",
            hash.ToString().substr(0,10).c_str(),
            mapTx.size());
     return true;
@@ -1023,7 +1023,7 @@ int64_t GetProofOfWorkReward(int64_t nFees)
     int64_t nSubsidy = 100000 * bean;
 
     if (fDebug && GetBoolArg("-printcreation"))
-        LogPrintf("creation", "GetProofOfWorkReward() : create=%s nSubsidy=%" PRId64 "\n", FormatMoney(nSubsidy).c_str(), nSubsidy);
+        LogPrint("creation", "GetProofOfWorkReward() : create=%s nSubsidy=%" PRId64 "\n", FormatMoney(nSubsidy).c_str(), nSubsidy);
 
     return nSubsidy + nFees;
 }
@@ -1035,7 +1035,7 @@ int64_t GetProofOfStakeReward(int64_t nBeanAge, int64_t nFees)
     int64_t nSubsidy = 1000 * bean;
 
     if (fDebug && GetBoolArg("-printcreation"))
-        LogPrintf("creation", "GetProofOfStakeReward(): create=%s nBeanAge=%" PRId64 "\n", FormatMoney(nSubsidy).c_str(), nBeanAge);
+        LogPrint("creation", "GetProofOfStakeReward(): create=%s nBeanAge=%" PRId64 "\n", FormatMoney(nSubsidy).c_str(), nBeanAge);
 
     return nSubsidy + nFees;
 }
@@ -1062,7 +1062,7 @@ unsigned int ComputeMaxBits(CBigNum bnTargetLimit, unsigned int nBase, int64_t n
 }
 //
 // minimum amount of stake that could possibly be required nTime after
-// minimum proof-of-stake required was nBase
+// minimum proof-of-bean required was nBase
 //
 unsigned int ComputeMinStake(unsigned int nBase, int64_t nTime, unsigned int nBlockTime)
 {
@@ -2071,9 +2071,9 @@ bool CBlock::CheckBlock(bool fCheckPOW, bool fCheckMerkleRoot, bool fCheckSig) c
 
     if (IsProofOfStake())
     {
-        // Beanbase output should be empty if proof-of-stake block
+        // Beanbase output should be empty if proof-of-bean block
         if (vtx[0].vout.size() != 1 || !vtx[0].vout[0].IsEmpty())
-            return DoS(100, error("CheckBlock() : beanbase output not empty for proof-of-stake block"));
+            return DoS(100, error("CheckBlock() : beanbase output not empty for proof-of-bean block"));
 
         // Second transaction must be beansprout, the rest must not be
         if (vtx.empty() || !vtx[1].IsBeanStake())
@@ -2086,9 +2086,9 @@ bool CBlock::CheckBlock(bool fCheckPOW, bool fCheckMerkleRoot, bool fCheckSig) c
         if (!CheckBeanStakeTimestamp(GetBlockTime(), (int64_t)vtx[1].nTime))
             return DoS(50, error("CheckBlock() : beansprout timestamp violation nTimeBlock=%" PRId64 " nTimeTx=%u", GetBlockTime(), vtx[1].nTime));
 
-        // Bitbean: check proof-of-stake block signature
+        // Bitbean: check proof-of-bean block signature
         if (fCheckSig && !CheckBlockSignature())
-            return DoS(100, error("CheckBlock() : bad proof-of-stake block signature"));
+            return DoS(100, error("CheckBlock() : bad proof-of-bean block signature"));
     }
 
     // Check transactions
@@ -2148,9 +2148,9 @@ bool CBlock::AcceptBlock()
     if (IsProofOfWork() && nHeight > LAST_POW_BLOCK)
         return DoS(100, error("AcceptBlock() : reject proof-of-work at height %d", nHeight));
 
-    // Check proof-of-work or proof-of-stake
+    // Check proof-of-work or proof-of-bean
     if (nBits != GetNextTargetRequired(pindexPrev, IsProofOfStake()))
-        return DoS(100, error("AcceptBlock() : incorrect %s", IsProofOfWork() ? "proof-of-work" : "proof-of-stake"));
+        return DoS(100, error("AcceptBlock() : incorrect %s", IsProofOfWork() ? "proof-of-work" : "proof-of-bean"));
 
     // Check timestamp against prev
     if (GetBlockTime() <= pindexPrev->GetPastTimeLimit() || FutureDrift(GetBlockTime()) < pindexPrev->GetBlockTime())
@@ -2172,7 +2172,7 @@ bool CBlock::AcceptBlock()
         uint256 targetProofOfStake;
         if (!CheckProofOfStake(vtx[1], nBits, hashProof, targetProofOfStake))
         {
-            LogPrintf("WARNING: AcceptBlock(): check proof-of-stake failed for block %s\n", hash.ToString().c_str());
+            LogPrintf("WARNING: AcceptBlock(): check proof-of-bean failed for block %s\n", hash.ToString().c_str());
             return false; // do not error here as we expect this during initial block download
         }
     }
@@ -2294,7 +2294,7 @@ bool ProcessBlock(CNode* pfrom, CBlock* pblock)
         {
             if (pfrom)
                 pfrom->Misbehaving(100);
-            return error("ProcessBlock() : block with too little %s", pblock->IsProofOfStake()? "proof-of-stake" : "proof-of-work");
+            return error("ProcessBlock() : block with too little %s", pblock->IsProofOfStake()? "proof-of-bean" : "proof-of-work");
         }
     }
 
@@ -3059,7 +3059,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
 
             bool fAlreadyHave = AlreadyHave(txdb, inv);
             if (fDebug)
-                LogPrintf("net", "  got inventory: %s  %s\n", inv.ToString().c_str(), fAlreadyHave ? "have" : "new");
+                LogPrint("net", "  got inventory: %s  %s\n", inv.ToString().c_str(), fAlreadyHave ? "have" : "new");
 
             if (!fAlreadyHave) {
                 if (!fImporting)
@@ -3114,7 +3114,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
                     if (inv.hash == pfrom->hashContinue)
                     {
                         // Send latest proof-of-work block to allow the
-                        // download node to accept as orphan (proof-of-stake
+                        // download node to accept as orphan (proof-of-bean
                         // block might be rejected by stake connection check)
                         vector<CInv> vInv;
                         vInv.push_back(CInv(MSG_BLOCK, GetLastBlockIndex(pindexBest, false)->GetBlockHash()));
@@ -3801,7 +3801,7 @@ bool SendMessages(CNode* pto, bool fSendTrickle)
             if (!AlreadyHave(txdb, inv))
             {
                 if (fDebugNet)
-                    LogPrintf("net", "sending getdata: %s\n", inv.ToString().c_str());
+                    LogPrint("net", "sending getdata: %s\n", inv.ToString().c_str());
                 vGetData.push_back(inv);
                 if (vGetData.size() >= 1000)
                 {
