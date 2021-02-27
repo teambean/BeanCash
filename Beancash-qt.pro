@@ -69,6 +69,7 @@ BDB_LIB_SUFFIX=-5.3
 # PROTOC : protocol buffer compiler tool
 
 win32 {
+    # These need to be changed prior to compile
     BOOST_LIB_SUFFIX=-mgw49-mt-s-1_59
     BOOST_INCLUDE_PATH=C:/deps/boost_1_59_0
     BOOST_LIB_PATH=C:/deps/boost_1_59_0/stage/lib
@@ -78,9 +79,8 @@ win32 {
     OPENSSL_LIB_PATH=C:/deps/openssl-1.0.1j
     QRENCODE_INCLUDE_PATH=C:/deps/qrencode-3.4.4
     QRENCODE_LIB_PATH=C:/deps/qrencode-3.4.4/.libs
-    # These need to be changed prior to compile
-    PROTOBUF_INCLUDE_PATH=C:/deps/protobuf/include
-    PROTOBUF_LIB_PATH=C:/deps/protobuf
+    PROTOBUF_INCLUDE_PATH=C:/deps/protobuf-2.6.1/include
+    PROTOBUF_LIB_PATH=C:/deps/protobuf-2.6.1
 }
 
 # ----------------- #
@@ -282,7 +282,6 @@ HEADERS += src/qt/bitbeangui.h \
     src/clientversion.h \
     src/qt/macnotificationhandler.h \
     src/qt/paymentserver.h \
-    src/qt/paymentrequestplus.h \
     src/qt/trafficgraphwidget.h \
     src/qt/intro.h \
     src/limitedmap.h
