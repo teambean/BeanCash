@@ -2,7 +2,7 @@
 
 Bean Cash is a digital currency re-branded from BitBean.
 
-  *"Bean Cash is Bitcoin's Big Little Brother - Fast..Simple..Secure..More Than a         Digital Currency!"*
+  *"Bean Cash is Bitcoin's Big Little Brother - Fast..Simple..Secure..More Than Digital Currency!"*
 
 <a href="http://www.beancash.org">www.beancash.org</a>
 
@@ -12,9 +12,9 @@ Bean Cash is a digital currency re-branded from BitBean.
 What Is Bean Cash?
 ------------------
 
-Bean Cash (Ticker: BITB) is a re-brand of BitBean. Bean Cash brings forward BitBean's legacy of lightening-fast transactions and a rock-solid network, with a mature blockchain--that is nearly 5 years old! 5 years is a long time in the "crypto-currency" space! In this time, Beancash has not hardforked or had a transaction roll-back. Bean Cash is developed by Bean Core, a virtual company comprised of individuals and entities around the world, with the purpose of moving development forward and helping to bring about consensus among the community. Bean Cash's mission: "To be an enduring digital currency, with high integrity, a store of value and a means of exchange of value in every day transactions -- that stands the test of time!"
+Bean Cash (Ticker: BITB) is a re-brand of BitBean. Bean Cash brings forward BitBean's legacy of lightening-fast transactions and a rock-solid network, with a mature blockchain--that is over 6 years old! 6 years is a long time in the "crypto-currency" space! In this time, Beancash has not hardforked or had a transaction roll-back. Bean Cash is developed by Bean Core, a virtual company comprised of individuals and entities around the world, with the purpose of moving development forward and helping to bring about consensus among the community. Bean Cash's mission: "To be an enduring digital currency, with high integrity, a store of value and a means of exchange of value in every day transactions -- that stands the test of time!"
 
-Bean Cash is a digital currency and network, designed for scalability, speed, and lightening fast transactions! It features an innovative Proof of Bean (PoB) algorithm that more closely resembles traditional Proof of Work (PoW) crypto currencies. Bean Cash is the first digital currency to implement a maximum of 20MB blocks, based off Gavin Andersen's proposals to fix Bitcoin's scalability limitations. Bean Cash is designed from the ground-up to be a transaction-centric and superior form of currency, for exchange of value in on-line purchases (idealy suited for micro-transactions) and purchases with traditional brick-and-mortar merchants. 
+Bean Cash is a digital currency and network based of of the original Bitcoin reference, with improvements that are ecological friendly (Proof of Bean Consensus), larger block sizes -- improving scalability, faster block targets --increasing speed, with overall lightening fast transactions! It features an innovative Proof of Bean (PoB) algorithm that more closely resembles traditional Proof of Work (PoW) crypto currencies, but without all the electricity demands and custom hardware as required to mine in traditional POW. Bean Cash is the first digital currency to implement a maximum of 20MB blocks, based off Gavin Andersen's proposals to fix Bitcoin's scalability limitations. Bean Cash is designed from the ground-up to be a transaction-centric and superior form of currency, for exchange of value in on-line purchases (idealy suited for micro-transactions) and purchases with traditional brick-and-mortar merchants. 
 
 In it's mission to be a transaction-centric digital currency with real world use, one of the goals for Bean Cash, is solving the "last mile issue" in the digital currency space. Specifically, the "last mile issue" deals with implimentation of infrastructure at the point of use. Instramental in this objective will be working with companies that are willing to implement Bean Cash at the Point of Sale/Service. Bean Cash is designed to support a network with over 1,300 TPS (Transactions Per Second), effecively being able to compete with companies such as PayPal. 
 
@@ -26,7 +26,7 @@ To learn more about Bean Cash, visit our website:  <a href="http://www.beancash.
 our community members at:  <a href="https://live.beancash.org">https://live.beancash.org</a>.
 
 Alternatively, if you are a merchant with questions or interested in adopting Bean Cash in your
-business, you may contact Bean Core via telephone:  1 (406) 213-4656 or <a href="mailto:support@beancash.org">via email</a>.
+business, you may contact Bean Core <a href="mailto:support@beancash.org">via email</a>.
 
 
 
@@ -41,7 +41,7 @@ Bean Cash Specifications
 
 **PoW Blocks**: 10,000
 
-**PoB Block Reward**: 1000 BITB (1 SPROUT)
+**PoB Block Reward**: 1000 BITB (1 BEAN)
                           
 **Target Blocktime**: 1 minute
 
@@ -53,19 +53,26 @@ Bean Cash Specifications
 
 **Minimum Time for Beans To Be Elgible to Sprout**: 6 hours
 
-**Maximum Supply (over 95+ years)**: 50 Billion BITB
+**Maximum Supply (reached in or around 2023)**: 5 Billion BITB
 
 
 Bean Cash Monetary Units
 ------------------------
+BEAN* = Whole Bean
+BITB = Bit of a Bean
+mBITB = milli-BITB
+uBITB = micro-BITB
+ADZUKI = Smallest Bean unit
 
- + **SPROUT** = ß1,000 (BITB)
- + **BITB** = ß1
- + **mBITB** = ß.001 (BITB)
- + **uBITB** = ß.000001 (BITB)
- + **ADZUKI** = ß.00000001 (BITB)
- + **BEAN** (Reserved for new class of Bean, Project Aurora)
+*BEAN is reserved for Bean Cash v2.X(Project Aurora)
+BITB is the base unit of Bean Cash v1.X
 
+ + **BEAN** = ß1 = 1,000(BITB)
+ + **BITB** = 1(BITB)
+ + **mBITB** = .001(BITB)
+ + **uBITB** = .000001(BITB)
+ + **ADZUKI** = .00000001(BITB)
+ 
 Support
 -------
 <li><a href="http://www.beancash.org">www.beancash.org</a></li>
@@ -75,4 +82,4 @@ Support
 
 
 Copyright (c) 2015-2017 Bean Core, Team Bean, bitbean.org<br>
-Copyright (c) 2017-2019 Bean Core, Team Bean, beancash.org
+Copyright (c) 2017-2021 Bean Core, Team Bean, beancash.org
