@@ -204,7 +204,7 @@ bool AppInit(int argc, char* argv[])
     }
     if (!fRet) {
         if (detectShutdownThread)
-            detectShutdownThread->interrupted();
+            detectShutdownThread->interrupt();
         threadGroup.interrupt_all();
     }
 
@@ -289,7 +289,7 @@ std::string HelpMessage()
         "  -bind=<addr>           " + _("Bind to given address. Use [host]:port notation for IPv6") + "\n" +
         "  -dnsseed               " + _("Query for peer addresses via DNS lookup, if low on addresses (default: 1 unless -connect)") + "\n" +
         "  -forcednsseed          " + _("Always query for peer addresses via DNS lookup (default: 0)") + "\n" +
-        "  -sprouting                " + _("Sprout your beans to support the network and grow new beans! (default: 1)") + "\n" +
+        "  -sprout                " + _("Sprout your beans to support the network and grow new beans! (default: 1)") + "\n" +
         "  -synctime              " + _("Sync time with other nodes. Disable if time on your system is precise e.g. syncing with NTP (default: 1)") + "\n" +
         "  -cppolicy              " + _("Sync checkpoints policy (default: strict)") + "\n" +
         "  -banscore=<n>          " + _("Threshold for disconnecting misbehaving peers (default: 100)") + "\n" +
@@ -323,8 +323,8 @@ std::string HelpMessage()
         "  -rpcthreads=<n>        " + _("Use this to set the number of threads to service RPC calls (defult: 4)") + "\n" +
         "  -blocknotify=<cmd>     " + _("Execute command when the best block changes (%s in cmd is replaced by block hash)") + "\n" +
         "  -walletnotify=<cmd>    " + _("Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)") + "\n" +
-		  "  -zapwallet=<mode>		 " + _("Delete all wallet transactions and rebuild transactions from blockchain data") + "\n" +
-		  "                         " + _("(1 = keep tx meta data (e.g. account owner & payment request info), 2 = drop tx meta data)") + "\n" +        
+		"  -zapwallet=<mode>	  " + _("Delete all wallet transactions and rebuild transactions from blockchain data") + "\n" +
+        "                         " + _("(1 = keep tx meta data (e.g. account owner & payment request info), 2 = drop tx meta data)") + "\n" +
         "  -confchange            " + _("Require a confirmations for change (default: 0)") + "\n" +
         "  -enforcecanonical      " + _("Enforce transaction scripts to use canonical PUSH operators (default: 1)") + "\n" +
         "  -minimizebeanage       " + _("Minimize weight consumption (experimental) (default: 0)") + "\n" +
@@ -1056,7 +1056,7 @@ bool AppInit2(boost::thread_group& threadGroup)
         StartRPCThreads();
 
     // Mine Proof-of-Bean blocks in the background
-    if (!GetBoolArg("-sprouting", true))
+    if (!GetBoolArg("-sprout", true))
         printf("Sprouting disabled\n");
     else
         threadGroup.create_thread(boost::bind(&ThreadStakeMiner, pwalletMain));

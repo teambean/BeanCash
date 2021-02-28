@@ -76,7 +76,7 @@ Value getsproutinginfo(const Array& params, bool fHelp)
 
     Object obj;
 
-    obj.push_back(Pair("Enabled", GetBoolArg("-sprouting", true)));
+    obj.push_back(Pair("Enabled", GetBoolArg("-sprout", true)));
     obj.push_back(Pair("Sprouting", staking));
     obj.push_back(Pair("Errors", GetWarnings("statusbar")));
 
