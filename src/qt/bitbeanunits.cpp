@@ -40,12 +40,11 @@ QString BitbeanUnits::name(int unit)
 {
     switch(unit)
     {
-    case Sprout: return QString("SPROUT");
+    case Sprout: return QString("BEAN");
     case BitB: return QString("BITB");
     case mBitB: return QString("mBITB");
     case uBitB: return QString::fromUtf8("μBITB");
     case nokat: return QString("ADZUKI");
-    case Bean: return QString("BEAN");
     default: return QString("???");
     }
 }
@@ -54,12 +53,11 @@ QString BitbeanUnits::description(int unit)
 {
     switch(unit)
     {
-    case Sprout: return QString("SPROUT (1,000 BITB)");
+    case Sprout: return QString("BEAN (1,000 BITB)");
     case BitB: return QString("BITB");
     case mBitB: return QString("Milli-BITB (1 / 1,000)");
     case uBitB: return QString("Micro-BITB (1 / 1,000,000)");
     case nokat: return QString("Adzuki (1 / 100,000,000)");
-    case Bean: return QString("New Bean Class (Reserved Project Aurora)");
     default: return QString("???");
     }
 }
