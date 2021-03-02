@@ -34,9 +34,9 @@
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>255</red>
-        <green>154</green>
-        <blue>154</blue>
+        <red>211</red>
+        <green>238</green>
+        <blue>175</blue>
        </color>
       </brush>
      </colorrole>
@@ -64,6 +64,15 @@
         <red>211</red>
         <green>238</green>
         <blue>175</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="ToolTipText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
        </color>
       </brush>
      </colorrole>
@@ -90,9 +99,9 @@
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>255</red>
-        <green>154</green>
-        <blue>154</blue>
+        <red>211</red>
+        <green>238</green>
+        <blue>175</blue>
        </color>
       </brush>
      </colorrole>
@@ -123,6 +132,15 @@
        </color>
       </brush>
      </colorrole>
+     <colorrole role="ToolTipText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
     </inactive>
     <disabled>
      <colorrole role="Button">
@@ -137,18 +155,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>255</red>
-        <green>154</green>
-        <blue>154</blue>
+        <red>211</red>
+        <green>238</green>
+        <blue>175</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>255</red>
-        <green>154</green>
-        <blue>154</blue>
+        <red>211</red>
+        <green>238</green>
+        <blue>175</blue>
        </color>
       </brush>
      </colorrole>
@@ -179,6 +197,15 @@
        </color>
       </brush>
      </colorrole>
+     <colorrole role="ToolTipText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>0</red>
+        <green>0</green>
+        <blue>0</blue>
+       </color>
+      </brush>
+     </colorrole>
     </disabled>
    </palette>
   </property>
@@ -192,7 +219,7 @@
    <string>Edit Address</string>
   </property>
   <property name="windowIcon">
-   <iconset resource="../beancash.qrc">
+   <iconset>
     <normaloff>:/icons/beancash</normaloff>:/icons/beancash</iconset>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
@@ -255,9 +282,7 @@
    </item>
   </layout>
  </widget>
- <resources>
-  <include location="../beancash.qrc"/>
- </resources>
+ <resources/>
  <connections>
   <connection>
    <sender>buttonBox</sender>

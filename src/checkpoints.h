@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2015 Bean Core www.beancash.org
+// Copyright (c) 2015-2021 Bean Core www.beancash.org
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef BITBEAN_CHECKPOINT_H
@@ -26,15 +26,15 @@ namespace Checkpoints
 {
     /** Checkpointing mode */
     enum CPMode
+            ADVISORY = 1,
+            // Permissive checkpoints policy, don't perform any checking
+            PERMISSIVE = 2
+        };
+
     {
         // Scrict checkpoints policy, perform conflicts verification and resolve conflicts
         STRICT = 0,
         // Advisory checkpoints policy, perform conflicts verification but don't try to resolve them
-        ADVISORY = 1,
-        // Permissive checkpoints policy, don't perform any checking
-        PERMISSIVE = 2
-    };
-
     // Returns true if block passes checkpoint checks
     bool CheckHardened(int nHeight, const uint256& hash);
 

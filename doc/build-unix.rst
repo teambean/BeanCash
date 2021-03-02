@@ -176,7 +176,7 @@ Non-executable Stack
  
 Copyright (c) 2009-2011 Satoshi Nakomoto
 Copyright (c) 2011-2013 Bitcoin Developers
-Copyright (c) 2015 Nokat
+Copyright (c) 2015-2021 Nokat
 Copyright (c) 2015-2017 Bean Core www.bitbean.org
 Copyright (c) 2015-2019 Bean Core www.beancash.org
 

@@ -88,9 +88,9 @@
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>255</red>
-        <green>154</green>
-        <blue>154</blue>
+        <red>211</red>
+        <green>238</green>
+        <blue>175</blue>
        </color>
       </brush>
      </colorrole>
@@ -198,9 +198,9 @@
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>255</red>
-        <green>154</green>
-        <blue>154</blue>
+        <red>211</red>
+        <green>238</green>
+        <blue>175</blue>
        </color>
       </brush>
      </colorrole>
@@ -299,18 +299,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>255</red>
-        <green>154</green>
-        <blue>154</blue>
+        <red>211</red>
+        <green>238</green>
+        <blue>175</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>255</red>
-        <green>154</green>
-        <blue>154</blue>
+        <red>211</red>
+        <green>238</green>
+        <blue>175</blue>
        </color>
       </brush>
      </colorrole>
@@ -420,7 +420,7 @@
       </font>
      </property>
      <property name="text">
-      <string>Bean Cash Core will download and store a copy of the Bean Cash block chain. At least %2GB of data will be stored in this directory, and it will grow over time. The wallet (Your keypairs and associated data)  will also be stored in this directory.</string>
+      <string>Bean Cash Core will download and store a copy of the Bean Cash block chain. At least %5GB of data will be stored in this directory, and it will grow over time. The wallet (Your keypairs and associated data)  will also be stored in this directory.</string>
      </property>
      <property name="wordWrap">
       <bool>true</bool>
