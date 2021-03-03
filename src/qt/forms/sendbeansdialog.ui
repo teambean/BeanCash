@@ -262,7 +262,7 @@
             <property name="font">
              <font>
               <family>Liberation Sans</family>
-              <pointsize>10</pointsize>
+              <pointsize>14</pointsize>
               <weight>75</weight>
               <bold>true</bold>
              </font>
@@ -940,7 +940,7 @@
         <x>0</x>
         <y>0</y>
         <width>830</width>
-        <height>160</height>
+        <height>154</height>
        </rect>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">

@@ -34,9 +34,9 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>255</red>
-        <green>255</green>
-        <blue>255</blue>
+        <red>211</red>
+        <green>238</green>
+        <blue>175</blue>
        </color>
       </brush>
      </colorrole>
@@ -49,12 +49,21 @@
        </color>
       </brush>
      </colorrole>
-     <colorrole role="Highlight">
+     <colorrole role="Shadow">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
         <red>159</red>
         <green>213</green>
         <blue>85</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Highlight">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>211</red>
+        <green>238</green>
+        <blue>175</blue>
        </color>
       </brush>
      </colorrole>
@@ -90,9 +99,9 @@
      <colorrole role="Button">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>211</red>
-        <green>238</green>
-        <blue>175</blue>
+        <red>159</red>
+        <green>213</green>
+        <blue>85</blue>
        </color>
       </brush>
      </colorrole>
@@ -108,9 +117,9 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>255</red>
-        <green>255</green>
-        <blue>255</blue>
+        <red>211</red>
+        <green>238</green>
+        <blue>175</blue>
        </color>
       </brush>
      </colorrole>
@@ -123,12 +132,21 @@
        </color>
       </brush>
      </colorrole>
-     <colorrole role="Highlight">
+     <colorrole role="Shadow">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
         <red>159</red>
         <green>213</green>
         <blue>85</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Highlight">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>211</red>
+        <green>238</green>
+        <blue>175</blue>
        </color>
       </brush>
      </colorrole>
@@ -194,6 +212,15 @@
         <red>211</red>
         <green>238</green>
         <blue>175</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Shadow">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>159</red>
+        <green>213</green>
+        <blue>85</blue>
        </color>
       </brush>
      </colorrole>
@@ -277,7 +304,7 @@
        <item>
         <widget class="QLabel" name="transactionFeeInfoLabel">
          <property name="text">
-          <string>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are less than 1 kB. A fee of 5 BEAN is recommended. Fees help support the Bean Cash network.</string>
+          <string>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are less than 1 kB. A fee of 1 BITB is recommended. Fees help support the Bean Cash network.</string>
          </property>
          <property name="textFormat">
           <enum>Qt::PlainText</enum>

@@ -229,7 +229,7 @@
    <item>
     <widget class="QTabWidget" name="tabWidget">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="tabSignMessage">
       <attribute name="title">
@@ -244,7 +244,7 @@
           </font>
          </property>
          <property name="text">
-          <string>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</string>
+          <string>You can sign messages with your keys to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</string>
          </property>
          <property name="textFormat">
           <enum>Qt::PlainText</enum>
@@ -357,6 +357,19 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_3_SM">
          <item>
+          <spacer name="horizontalSpacer_3">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item alignment="Qt::AlignHCenter">
           <widget class="QPushButton" name="signMessageButton_SM">
            <property name="font">
             <font>
@@ -379,7 +392,7 @@
            </property>
           </widget>
          </item>
-         <item>
+         <item alignment="Qt::AlignHCenter">
           <widget class="QPushButton" name="clearButton_SM">
            <property name="font">
             <font>
@@ -402,7 +415,7 @@
            </property>
           </widget>
          </item>
-         <item>
+         <item alignment="Qt::AlignHCenter">
           <widget class="QPushButton" name="closeButton_SM">
            <property name="font">
             <font>
@@ -423,14 +436,14 @@
           </widget>
          </item>
          <item>
-          <spacer name="horizontalSpacer_1_SM">
+          <spacer name="horizontalSpacer_4">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>
              <width>40</width>
-             <height>48</height>
+             <height>20</height>
             </size>
            </property>
           </spacer>
@@ -450,19 +463,6 @@
             <bool>true</bool>
            </property>
           </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_2_SM">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>48</height>
-            </size>
-           </property>
-          </spacer>
          </item>
         </layout>
        </item>
@@ -543,6 +543,19 @@
        <item>
         <layout class="QHBoxLayout" name="horizontalLayout_2_VM">
          <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+         <item alignment="Qt::AlignHCenter">
           <widget class="QPushButton" name="verifyMessageButton_VM">
            <property name="font">
             <font>
@@ -565,7 +578,7 @@
            </property>
           </widget>
          </item>
-         <item>
+         <item alignment="Qt::AlignHCenter">
           <widget class="QPushButton" name="clearButton_VM">
            <property name="font">
             <font>
@@ -588,7 +601,7 @@
            </property>
           </widget>
          </item>
-         <item>
+         <item alignment="Qt::AlignHCenter">
           <widget class="QPushButton" name="closeButton_VM">
            <property name="font">
             <font>
@@ -609,14 +622,14 @@
           </widget>
          </item>
          <item>
-          <spacer name="horizontalSpacer_1_VM">
+          <spacer name="horizontalSpacer_2">
            <property name="orientation">
             <enum>Qt::Horizontal</enum>
            </property>
            <property name="sizeHint" stdset="0">
             <size>
              <width>40</width>
-             <height>48</height>
+             <height>20</height>
             </size>
            </property>
           </spacer>
@@ -636,19 +649,6 @@
             <bool>true</bool>
            </property>
           </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer_2_VM">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>40</width>
-             <height>48</height>
-            </size>
-           </property>
-          </spacer>
          </item>
         </layout>
        </item>

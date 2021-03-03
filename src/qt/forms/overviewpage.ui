@@ -635,7 +635,7 @@
            </font>
           </property>
           <property name="text">
-           <string>Bean Weight:</string>
+           <string>BitB Network Weight:</string>
           </property>
          </widget>
         </item>
@@ -693,7 +693,7 @@
            </font>
           </property>
           <property name="text">
-           <string>Total Beans:</string>
+           <string>Current BitB Supply:</string>
           </property>
          </widget>
         </item>
