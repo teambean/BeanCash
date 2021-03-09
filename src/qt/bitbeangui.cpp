@@ -750,9 +750,12 @@ void BitbeanGUI::closeEvent(QCloseEvent *event)
 
 void BitbeanGUI::askFee(qint64 nFeeRequired, bool *payFee)
 {
+    if (!clientModel || !clientModel->getOptionsModel())
+        return;
+
     QString strMessage = tr("In order to process your transaction(s) on the Bean Cash Network, a fee of %1 is required. "
            "This fee is paid to the node that processes your transaction. Select <YES> to continue and send your transaction(s).").arg(
-                BitbeanUnits::formatWithUnit(BitbeanUnits::BitB, nFeeRequired));
+                BitbeanUnits::formatWithUnit(clientModel->getOptionsModel()->getDisplayUnit(), nFeeRequired));
     QMessageBox::StandardButton retval = QMessageBox::question(
           this, tr("Confirm transaction fee"), strMessage,
           QMessageBox::Yes|QMessageBox::Cancel, QMessageBox::Yes);

@@ -282,6 +282,8 @@ int main(int argc, char *argv[])
                 // Put this in a block, so that the Model objects are cleaned up before
                 // calling Shutdown().
 
+                paymentServer->setOptionsModel(&optionsModel);
+
                 if (splashref)
                     splash.finish(&window);
 

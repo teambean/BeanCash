@@ -114,11 +114,11 @@ SendBeansDialog::~SendBeansDialog()
 
 void SendBeansDialog::on_sendButton_clicked()
 {
+    if(!model || !model->getOptionsModel())
+        return;
+
     QList<SendBeansRecipient> recipients;
     bool valid = true;
-
-    if(!model)
-        return;
 
     for(int i = 0; i < ui->entries->count(); ++i)
     {
@@ -145,7 +145,7 @@ void SendBeansDialog::on_sendButton_clicked()
     QStringList formatted;
     foreach(const SendBeansRecipient &rcp, recipients)
     {
-        formatted.append(tr("<b>%1</b> to %2 (%3)").arg(BitbeanUnits::formatWithUnit(BitbeanUnits::BitB, rcp.amount), Qt::escape(rcp.label), rcp.address));
+        formatted.append(tr("<b>%1</b> to %2 (%3)").arg(BitbeanUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), rcp.amount), Qt::escape(rcp.label), rcp.address));
     }
 
     fNewRecipientAllowed = false;
@@ -196,7 +196,7 @@ void SendBeansDialog::on_sendButton_clicked()
     case WalletModel::AmountWithFeeExceedsBalance:
         QMessageBox::warning(this, tr("Send Beans"),
             tr("The total exceeds your balance when the %1 transaction fee is included.").
-            arg(BitbeanUnits::formatWithUnit(BitbeanUnits::BitB, sendstatus.fee)),
+            arg(BitbeanUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), sendstatus.fee)),
             QMessageBox::Ok, QMessageBox::Ok);
         break;
     case WalletModel::DuplicateAddress:
@@ -351,20 +351,16 @@ void SendBeansDialog::setBalance(qint64 balance, qint64 stake, qint64 unconfirme
     Q_UNUSED(stake);
     Q_UNUSED(unconfirmedBalance);
     Q_UNUSED(immatureBalance);
-    if(!model || !model->getOptionsModel())
-        return;
 
-    int unit = model->getOptionsModel()->getDisplayUnit();
-    ui->labelBalance->setText(BitbeanUnits::formatWithUnit(unit, balance));
+    if(!model && model->getOptionsModel())
+    {
+     ui->labelBalance->setText(BitbeanUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), balance));
+    }
 }
 
 void SendBeansDialog::updateDisplayUnit()
 {
-    if(model && model->getOptionsModel())
-    {
-        // Update labelBalance with the current balance and the current unit
-        ui->labelBalance->setText(BitbeanUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), model->getBalance()));
-    }
+    setBalance(model->getBalance(), 0, 0, 0);
 }
 
 // Bean Control: copy label "Quantity" to clipboard
