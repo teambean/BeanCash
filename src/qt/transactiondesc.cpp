@@ -34,7 +34,7 @@ QString TransactionDesc::FormatTxStatus(const CWalletTx& wtx)
     }
 }
 
-QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, int unit)
+QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, int vout, int unit)
 {
     QString strHTML;
 
@@ -217,7 +217,7 @@ QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, int unit)
         if (wtx.mapValue.count("comment") && !wtx.mapValue["comment"].empty())
             strHTML += "<br><b>" + tr("Comment") + ":</b><br>" + GUIUtil::HtmlEscape(wtx.mapValue["comment"], true) + "<br>";
 
-        strHTML += "<b>" + tr("Transaction ID") + ":</b> " + wtx.GetHash().ToString().c_str() + "<br>";
+        strHTML += "<b>" + tr("Transaction ID") + ":</b> " + TransactionRecord::formatSubTxId(wtx.GetHash(), vout) + "<br>";
 
         if (wtx.IsBeanBase() || wtx.IsBeanStake())
             strHTML += "<br>" + tr("Generated beans must mature 110 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to \"not accepted\" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.") + "<br>";
