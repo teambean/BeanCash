@@ -34,7 +34,7 @@ QString TransactionDesc::FormatTxStatus(const CWalletTx& wtx)
     }
 }
 
-QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, int vout, int unit)
+QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, TransactionRecord *rec, int unit)
 {
     QString strHTML;
 
@@ -79,26 +79,19 @@ QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, int vout, int u
             if (nNet > 0)
             {
                 // Credit
-                for (const CTxOut& txout : wtx.vout)
+                if (CBitbeanAddress(rec->address).IsValid())
                 {
-                    if (wallet->IsMine(txout))
+                    CTxDestination address = CBitbeanAddress(rec->address).Get();
+                    if (wallet->mapAddressBook.count(address))
                     {
-                        CTxDestination address;
-                        if (ExtractDestination(txout.scriptPubKey, address) && IsMine(*wallet, address))
-                        {
-                            if (wallet->mapAddressBook.count(address))
-                            {
-                                strHTML += "<b>" + tr("From") + ":</b> " + tr("unknown") + "<br>";
-                                strHTML += "<b>" + tr("To") + ":</b> ";
-                                strHTML += GUIUtil::HtmlEscape(CBitbeanAddress(address).ToString());
-                                if (!wallet->mapAddressBook[address].empty())
-                                    strHTML += " (" + tr("own address") + ", " + tr("label") + ": " + GUIUtil::HtmlEscape(wallet->mapAddressBook[address]) + ")";
-                                else
-                                    strHTML += " (" + tr("own address") + ")";
-                                strHTML += "<br>";
-                            }
-                        }
-                        break;
+                        strHTML += "<b>" + tr("From") + ":</b> " + tr("unknown") + "<br>";
+                        strHTML += "<b>" + tr("To") + ":</b> ";
+                        strHTML += GUIUtil::HtmlEscape(rec->address);
+                        if (!wallet->mapAddressBook[address].name.empty())
+                            strHTML += " (" + tr("own address") + ", " + tr("label") + ": " + GUIUtil::HtmlEscape(wallet->mapAddressBook[address].name) + ")";
+                        else
+                            strHTML += " (" + tr("own address") + ")";
+                            strHTML += "<br>";
                     }
                 }
             }
@@ -217,7 +210,8 @@ QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, int vout, int u
         if (wtx.mapValue.count("comment") && !wtx.mapValue["comment"].empty())
             strHTML += "<br><b>" + tr("Comment") + ":</b><br>" + GUIUtil::HtmlEscape(wtx.mapValue["comment"], true) + "<br>";
 
-        strHTML += "<b>" + tr("Transaction ID") + ":</b> " + TransactionRecord::formatSubTxId(wtx.GetHash(), vout) + "<br>";
+        strHTML += "<b>" + tr("Transaction ID") + ":</b> " + rec->getTxID() + "<br>";
+        strHTML += "<b>" + tr("Output index") + ":</b> " + QString::number(rec->getOutputIndex()) + "<br>";
 
         if (wtx.IsBeanBase() || wtx.IsBeanStake())
             strHTML += "<br>" + tr("Generated beans must mature 110 blocks before they can be spent. When you generated this block, it was broadcast to the network to be added to the block chain. If it fails to get into the chain, its state will change to \"not accepted\" and it won't be spendable. This may occasionally happen if another node generates a block within a few seconds of yours.") + "<br>";

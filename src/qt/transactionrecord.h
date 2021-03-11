@@ -118,8 +118,8 @@ public:
     /** Return the unique identifier for this transaction (part) */
     QString getTxID() const;
 
-    /** Format subtransaction id */
-    static QString formatSubTxId(const uint256 &hash, int vout);
+    /** Return the output index of the sub-transaction */
+    int getOutputIndex() const;
 
     /** Update status from core wallet tx.
      */
