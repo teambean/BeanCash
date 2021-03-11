@@ -65,6 +65,22 @@ public:
     )
 };
 
+/** Address book data */
+class CAddressBookData
+{
+public:
+    std::string name;
+
+    CAddressBookData()
+    {
+    }
+
+    IMPLEMENT_SERIALIZE
+    (
+        READWRITE(name);
+    )
+};
+
 /** A CWallet is an extension of a keystore, which also maintains a set of transactions and balances,
  * and provides the ability to create new transactions.
  */
@@ -122,7 +138,7 @@ public:
     int64_t nOrderPosNext;
     std::map<uint256, int> mapRequestCount;
 
-    std::map<CTxDestination, std::string> mapAddressBook;
+    std::map<CTxDestination, CAddressBookData> mapAddressBook;
 
     CPubKey vchDefaultKey;
     int64_t nTimeFirstKey;

@@ -4,6 +4,7 @@
 
 #include "guiutil.h"
 #include "bitbeanunits.h"
+#include "transactionrecord.h"
 
 #include "main.h"
 #include "wallet.h"
@@ -106,8 +107,8 @@ QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, TransactionReco
             std::string strAddress = wtx.mapValue["to"];
             strHTML += "<b>" + tr("To") + ":</b> ";
             CTxDestination dest = CBitbeanAddress(strAddress).Get();
-            if (wallet->mapAddressBook.count(dest) && !wallet->mapAddressBook[dest].empty())
-                strHTML += GUIUtil::HtmlEscape(wallet->mapAddressBook[dest]) + " ";
+            if (wallet->mapAddressBook.count(dest) && !wallet->mapAddressBook[dest].name.empty())
+                strHTML += GUIUtil::HtmlEscape(wallet->mapAddressBook[dest].name) + " ";
             strHTML += GUIUtil::HtmlEscape(strAddress) + "<br>";
         }
 
@@ -163,8 +164,8 @@ QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, TransactionReco
                         if (ExtractDestination(txout.scriptPubKey, address))
                         {
                             strHTML += "<b>" + tr("To") + ":</b> ";
-                            if (wallet->mapAddressBook.count(address) && !wallet->mapAddressBook[address].empty())
-                                strHTML += GUIUtil::HtmlEscape(wallet->mapAddressBook[address]) + " ";
+                            if (wallet->mapAddressBook.count(address) && !wallet->mapAddressBook[address].name.empty())
+                                strHTML += GUIUtil::HtmlEscape(wallet->mapAddressBook[address].name) + " ";
                             strHTML += GUIUtil::HtmlEscape(CBitbeanAddress(address).ToString());
                             strHTML += "<br>";
                         }
@@ -253,8 +254,8 @@ QString TransactionDesc::toHTML(CWallet *wallet, CWalletTx &wtx, TransactionReco
                             CTxDestination address;
                             if (ExtractDestination(vout.scriptPubKey, address))
                             {
-                                if (wallet->mapAddressBook.count(address) && !wallet->mapAddressBook[address].empty())
-                                    strHTML += GUIUtil::HtmlEscape(wallet->mapAddressBook[address]) + " ";
+                                if (wallet->mapAddressBook.count(address) && !wallet->mapAddressBook[address].name.empty())
+                                    strHTML += GUIUtil::HtmlEscape(wallet->mapAddressBook[address].name) + " ";
                                 strHTML += QString::fromStdString(CBitbeanAddress(address).ToString());
                             }
                             strHTML = strHTML + " " + tr("Amount") + "=" + BitbeanUnits::formatWithUnit(unit, vout.nValue);

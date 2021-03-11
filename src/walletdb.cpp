@@ -221,7 +221,7 @@ ReadKeyValue(CWallet* pwallet, CDataStream& ssKey, CDataStream& ssValue,
         {
             string strAddress;
             ssKey >> strAddress;
-            ssValue >> pwallet->mapAddressBook[CBitbeanAddress(strAddress).Get()];
+            ssValue >> pwallet->mapAddressBook[CBitbeanAddress(strAddress).Get()].name;
         }
         else if (strType == "tx")
         {
@@ -753,7 +753,7 @@ bool DumpWallet(CWallet* pwallet, const string& strDest)
                   file << strprintf("%s %s label=%s # addr=%s\n",
                                     CBitbeanSecret(key).ToString().c_str(),
                                     strTime.c_str(),
-                                    EncodeDumpString(pwallet->mapAddressBook[keyid]).c_str(),
+                                    EncodeDumpString(pwallet->mapAddressBook[keyid].name).c_str(),
                                     strAddr.c_str());
               } else if (setKeyPool.count(keyid)) {
                   file << strprintf("%s %s reserve=1 # addr=%s\n",

@@ -11,7 +11,7 @@ bool TransactionRecord::showTransaction(const CWalletTx &wtx)
 {
     if (wtx.IsBeanBase())
     {
-        // Ensures we show generated beans / mined transactions at depth 1
+        // Ensures we show generated beans / sprouted transactions at depth 1
         if (!wtx.IsInMainChain())
         {
             return false;
