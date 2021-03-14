@@ -352,7 +352,7 @@ void SendBeansDialog::setBalance(qint64 balance, qint64 stake, qint64 unconfirme
     Q_UNUSED(unconfirmedBalance);
     Q_UNUSED(immatureBalance);
 
-    if(!model && model->getOptionsModel())
+    if(model && model->getOptionsModel())
     {
      ui->labelBalance->setText(BitbeanUnits::formatWithUnit(model->getOptionsModel()->getDisplayUnit(), balance));
     }
