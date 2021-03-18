@@ -17,5 +17,11 @@ Beancash (1.1.2.2RC) stable; urgency=high
    [Bean Core]
    *Rebrand release.
 
--- Bean Core <support@beancash.org>  Tuesday, 28 Nov 2017 00:00:00 +0000
+Bean Cash (1.3.0.0RC) stable; urgency=high
+
+   [Bean Core]
+   *Major update
+   *Extensive fixes & updates (When GA, extensive list will be updated here.)
+
+-- Bean Core <support@beancash.org>  Thursday, 18 March 2021 00:00:00 +0000
 
