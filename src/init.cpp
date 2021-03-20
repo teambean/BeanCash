@@ -56,7 +56,7 @@ enum Checkpoints::CPMode CheckpointsMode;
 // Shutdown
 //
 
-volatile bool fRequestShutdown = false;
+std::atomic<bool> fRequestShutdown(false);
 
 void StartShutdown()
 {

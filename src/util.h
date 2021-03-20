@@ -19,6 +19,7 @@
 #include "serialize.h"
 #include "tinyformat.h"
 
+#include <atomic>
 #include <map>
 #include <list>
 #include <utility>
@@ -147,7 +148,7 @@ extern std::string strMiscWarning;
 extern bool fTestNet;
 extern bool fNoListen;
 extern bool fLogTimestamps;
-extern bool fReopenDebugLog;
+extern std::atomic<bool> fReopenDebugLog;
 
 void RandAddSeed();
 void RandAddSeedPerfmon();
