@@ -1393,7 +1393,7 @@ int RaiseFileDescriptorLimit(int nMinFD) {
             if (limitFD.rlim_cur > limitFD.rlim_max)
                 limitFD.rlim_cur = limitFD.rlim_max;
             setrlimit(RLIMIT_NOFILE, &limitFD);
-            setrlimit(RLIMIT_NOFILE, &limitFD);
+            getrlimit(RLIMIT_NOFILE, &limitFD);
         }
         return limitFD.rlim_cur;
     }
