@@ -196,8 +196,7 @@ WalletModel::SendBeansReturn WalletModel::sendBeans(const QList<SendBeansRecipie
         CWalletTx wtx;
         CReserveKey keyChange(wallet);
         int64_t nFeeRequired = 0;
-        std::string strFailReason;
-        bool fCreated = wallet->CreateTransaction(vecSend, wtx, keyChange, nFeeRequired, strFailReason, beanControl);
+        bool fCreated = wallet->CreateTransaction(vecSend, wtx, keyChange, nFeeRequired, beanControl);
 
         if(!fCreated)
         {
@@ -205,7 +204,6 @@ WalletModel::SendBeansReturn WalletModel::sendBeans(const QList<SendBeansRecipie
             {
                 return SendBeansReturn(AmountWithFeeExceedsBalance, nFeeRequired);
             }
-            emit message(tr("Send Beans"), QString::fromStdString(strFailReason), CClientUIInterface::MSG_ERROR);
             return TransactionCreationFailed;
         }
         if(!uiInterface.ThreadSafeAskFee(nFeeRequired))
