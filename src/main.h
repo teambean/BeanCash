@@ -1051,7 +1051,7 @@ public:
         }
         LogPrintf("  vMerkleTree: ");
         for (unsigned int i = 0; i < vMerkleTree.size(); i++)
-            LogPrintf("%s ", vMerkleTree[i].ToString().substr(0,10));
+            LogPrintf("%s ", vMerkleTree[i].ToString());
         LogPrintf("\n");
     }
 

@@ -73,9 +73,9 @@ public:
     void print() const
     {
         LogPrintf("COrphan(hash=%s, dPriority=%.1f, dFeePerKb=%.1f)\n",
-               ptx->GetHash().ToString().substr(0,10), dPriority, dFeePerKb);
+               ptx->GetHash().ToString(), dPriority, dFeePerKb);
         for (uint256 hash : setDependsOn)
-            LogPrintf("   setDependsOn %s\n", hash.ToString().substr(0,10));
+            LogPrintf("   setDependsOn %s\n", hash.ToString());
     }
 };
 

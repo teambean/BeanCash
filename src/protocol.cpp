@@ -141,7 +141,7 @@ const char* CInv::GetCommand() const
 
 std::string CInv::ToString() const
 {
-    return strprintf("%s %s", GetCommand(), hash.ToString().substr(0,20));
+    return strprintf("%s %s", GetCommand(), hash.ToString());
 }
 
 void CInv::print() const
