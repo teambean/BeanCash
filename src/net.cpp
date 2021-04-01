@@ -964,6 +964,9 @@ static const char *strDNSSeed[][2] = {
     {"beancash.org", "stalk1.beancash.org"},
     {"beancash.org", "stalk2.beancash.org"},
     {"beancash.org", "stalk3.beancash.org"},
+    {"beancash.is", "stalk1.beancash.is"},
+    {"beancash.is", "stalk2.beancash.is"},
+    {"beancash.is", "stalk3.beancash.is"}
 };
 
 void ThreadDNSAddressSeed()

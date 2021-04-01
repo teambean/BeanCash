@@ -668,7 +668,7 @@ void BitbeanGUI::setNumBlocks(int count, int nTotalBlocks)
 
 void BitbeanGUI::message(const QString &title, const QString &message, unsigned int style)
 {
-    QString strTitle = tr("Bitbean") + " - ";
+    QString strTitle = tr("Bean Cash") + " - ";
     // Default to information icon
     int nMBoxIcon = QMessageBox::Information;
     int nNotifyIcon = Notificator::Information;
