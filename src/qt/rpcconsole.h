@@ -2,13 +2,14 @@
 #define RPCCONSOLE_H
 
 #include <QDialog>
+#include <QCompleter>
 
 namespace Ui {
     class RPCConsole;
 }
 class ClientModel;
 
-/** Local Bitbean RPC console. */
+/** Local Bean Cash RPC console. */
 class RPCConsole: public QDialog
 {
     Q_OBJECT
@@ -71,6 +72,7 @@ private:
     ClientModel *clientModel;
     QStringList history;
     int historyPtr;
+    QCompleter *autoCompleter;
 
     void startExecutor();
 };
