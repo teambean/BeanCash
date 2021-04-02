@@ -811,7 +811,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     {
         string msg = strprintf(_("Error initializing database environment %s!"
                                  " To recover, BACKUP THAT DIRECTORY, then remove"
-                                 " everything from it except for %s."), strDataDir.c_str(), strWalletFileName.c_str());
+                                 " everything from it except for %s."), strDataDir, strWalletFileName);
         return InitError(msg);
     }
 

@@ -397,8 +397,6 @@ enum GetMinFee_mode
 
 typedef std::map<uint256, std::pair<CTxIndex, CTransaction> > MapPrevTx;
 
-int64_t GetMinFee(const CTransaction& tx, unsigned int nBlockSize = 1, bool fAllowFree = true, enum GetMinFee_mode mode = GMF_BLOCK);
-
 /** The basic transaction that is broadcasted on the network and contained in
  * blocks.  A transaction can contain multiple inputs and outputs.
  */
@@ -559,6 +557,8 @@ public:
         @see CTransaction::FetchInputs
      */
     int64_t GetValueIn(const MapPrevTx& mapInputs) const;
+
+    int64_t GetMinFee(unsigned int nBlockSize=1, enum GetMinFee_mode mode=GMF_BLOCK, unsigned int nBytes = 0) const;
 
     bool ReadFromDisk(CDiskTxPos pos, FILE** pfileRet=NULL)
     {

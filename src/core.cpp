@@ -9,7 +9,7 @@
 
 std::string COutPoint::ToString() const
 {
-    return strprintf("COutPoint(%s, %u)", hash.ToString(), n);
+    return strprintf("COutPoint(%s, %u)", hash.ToString().substr(0,10), n);
 }
 
 void COutPoint::print() const
@@ -64,7 +64,7 @@ uint256 CTxOut::GetHash() const
 
 std::string CTxOut::ToString() const
 {
-    return strprintf("CTxOut(nValue=%"PRId64".%08"PRId64", scriptPubKey=%s)", nValue / COIN, nValue % COIN, scriptPubKey.ToString());
+    return strprintf("CTxOut(nValue=%"PRId64".%08"PRId64", scriptPubKey=%s)", nValue / COIN, nValue % COIN, scriptPubKey.ToString().substr(0,30));
 }
 
 void CTxOut::print() const
@@ -141,7 +141,7 @@ std::string CTransaction::ToString() const
 {
     std::string str;
     str += strprintf("CTransaction(hash=%s, ver=%d, vin.size=%u, vout.size=%u, nLockTime=%u)\n",
-        GetHash().ToString(),
+        GetHash().ToString().substr(0,10),
         nVersion,
         vin.size(),
         vout.size(),
