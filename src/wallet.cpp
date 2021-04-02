@@ -894,7 +894,7 @@ void CWallet::ReacceptWalletTransactions()
                 // Update fSpent if a tx got spent somewhere else by a copy of wallet.dat
                 if (txindex.vSpent.size() != wtx.vout.size())
                 {
-                    LogPrintf("ERROR: ReacceptWalletTransactions() : txindex.vSpent.size() %" PRIszu " != wtx.vout.size() %" PRIszu "\n", txindex.vSpent.size(), wtx.vout.size());
+                    LogPrintf("ERROR: ReacceptWalletTransactions() : txindex.vSpent.size() %u != wtx.vout.size() %u\n", txindex.vSpent.size(), wtx.vout.size());
                     continue;
                 }
                 for (unsigned int i = 0; i < txindex.vSpent.size(); i++)
@@ -2274,7 +2274,7 @@ bool CWallet::TopUpKeyPool(unsigned int nSize)
             if (!walletdb.WritePool(nEnd, CKeyPool(GenerateNewKey())))
                 throw runtime_error("TopUpKeyPool() : writing generated key failed");
             setKeyPool.insert(nEnd);
-            LogPrintf("keypool added key %" PRId64 ", size=%" PRIszu "\n", nEnd, setKeyPool.size());
+            LogPrintf("keypool added key %" PRId64 ", size=%u\n", nEnd, setKeyPool.size());
         }
     }
     return true;
