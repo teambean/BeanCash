@@ -308,7 +308,7 @@ void RPCConsole::setClientModel(ClientModel *model)
     	  autoCompleter->setModelSorting(QCompleter::CaseSensitivelySortedModel);
 		  // ui->lineEdit is initially disabled because running commands is only possible from now on.
 		  ui->lineEdit->setEnabled(true);    	  
-    	  ui->lineEdit->setComplete(autoCompleter);
+          ui->lineEdit->setCompleter(autoCompleter);
     	  autoCompleter->popup()->installEventFilter(this);
     }
 }
