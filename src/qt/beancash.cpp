@@ -146,12 +146,12 @@ static void initTranslations(QTranslator &qtTranslatorBase, QTranslator &qtTrans
 #if QT_VERSION < 0x050000
 void DebugMessageHandler(QtMsgType type, const char * msg)
 {
-    LogPrint("Beancash-qt: %s\n", msg);
+    LogPrintf("Beancash-qt: %s\n", msg);
 }
 #else
 void DebugMessageHandler(QtMsgType type, const QMessageLogContext& context, const QString &msg)
 {
-    LogPrint("Beancash-qt: %s\n", qPrintable(msg));
+    LogPrintf("Beancash-qt: %s\n", qPrintable(msg));
 }
 #endif
 
