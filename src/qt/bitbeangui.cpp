@@ -1,8 +1,10 @@
 /*
- * Qt4 beancash GUI.
+ * Qt4 Bean Cash GUI.
  *
  * W.J. van der Laan 2011-2012
  * The Bitcoin Developers 2011-2012
+ * Bean Core www.beancash.org 2021
+ *
  */
 #include "bitbeangui.h"
 #include "transactiontablemodel.h"
@@ -56,6 +58,7 @@
 #include <QSettings>
 #include <QListWidget>
 #include <iostream>
+#include <QDesktopWidget>
 
 extern CWallet* pwalletMain;
 extern int64_t nLastBeanStakeSearchInterval;
@@ -473,6 +476,13 @@ void BitbeanGUI::restoreWindowGeometry()
     QSettings settings;
     QPoint pos = settings.value("nWindowPos").toPoint();
     QSize size = settings.value("nWindowSize", QSize(850, 550)).toSize();
+    // If no previous position saved, place window in the center of the screen
+    if (!pos.x() && !pos.y())
+    {
+        QRect screen = qApp->desktop()->screenGeometry();
+        pos.setX((screen.width()-size.width())/2);
+        pos.setY((screen.height()-size.height())/2);
+    }
     resize(size);
     move(pos);
 }
