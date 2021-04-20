@@ -360,8 +360,7 @@ void BitbeanGUI::setClientModel(ClientModel *clientModel)
         }
         // Create system tray menu (or setup the dock menu) later to prevent users from calling actions,
         // while the client has not yet fully loaded
-        if(trayIcon)
-            createTrayIconMenu();
+        createTrayIconMenu();
 
 
         // Keep up to date with client
@@ -413,6 +412,10 @@ void BitbeanGUI::createTrayIconMenu()
 {
     QMenu *trayIconMenu;
 #ifndef Q_OS_MAC
+    // Only for non-Macs, return if trayIcon is unset
+    if (!trayIcon)
+        return;
+
     trayIconMenu = new QMenu(this);
     trayIcon->setContextMenu(trayIconMenu);
 
