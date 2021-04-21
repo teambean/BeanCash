@@ -99,7 +99,7 @@ License: GNU/GPL
 
 
 Icon:  
-       + src/qt/res/movies/bitbean_spinner.mng
+       + src/qt/res/movies/spinnerbean*.png
        
        + src/qt/res/icons/remove.png
        
