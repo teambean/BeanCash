@@ -558,6 +558,9 @@ void BitbeanGUI::setNumConnections(int count)
 
 void BitbeanGUI::setNumBlocks(int count, int nTotalBlocks)
 {
+    QString tooltip;
+    QString strStatusBarWarnings = clientModel->getStatusBarWarnings();
+
     // Prevent orphan statusbar messages (e.g. hover Quit in main menu, wait until chain-sync starts -> garbelled text)
     statusBar()->clearMessage();
 
@@ -569,21 +572,29 @@ void BitbeanGUI::setNumBlocks(int count, int nTotalBlocks)
 
         return;
     }
-
-    QString tooltip;
+    
+    // Override progressBarLabel text and hide progress bar if we have warnings to display
+    if (!strStatusBarWarnings.isEmpty())
+    {
+			progressBarLabel->setText(strStatusBarWarnings);
+			progressBarLabel->setVisible(true);
+			progressBar->setVisible(false);    
+    }
 
     if(count < nTotalBlocks)
     {
         int nRemainingBlocks = nTotalBlocks - count;
         float nPercentageDone = count / (nTotalBlocks * 0.01f);
 
-        progressBarLabel->setText(tr(clientModel->isImporting() ? "Importing blocks..." : "Synchronizing with network..."));
-        progressBarLabel->setVisible(true);
-        progressBar->setFormat(tr("~%n block(s) remaining", "", nRemainingBlocks));
-        progressBar->setMaximum(nTotalBlocks);
-        progressBar->setValue(count);
-        progressBar->setVisible(true);
-
+        if (strStatusBarWarnings.isEmpty())
+        {
+        		progressBarLabel->setText(tr(clientModel->isImporting() ? "Importing blocks..." : "Synchronizing with network..."));
+        		progressBarLabel->setVisible(true);
+        		progressBar->setFormat(tr("~%n block(s) remaining", "", nRemainingBlocks));
+        		progressBar->setMaximum(nTotalBlocks);
+        		progressBar->setValue(count);
+        		progressBar->setVisible(true);
+		  }
         tooltip = tr("Downloaded %1 of %2 blocks of transaction history (%3% done).").arg(count).arg(nTotalBlocks).arg(nPercentageDone, 0, 'f', 2);
     }
     else
