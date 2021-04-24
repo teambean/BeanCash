@@ -37,7 +37,7 @@ SendBeansDialog::SendBeansDialog(QWidget *parent) :
 
 #if QT_VERSION >= 0x040700
     /* Do not move this to the XML file, Qt before 4.7 will choke on it */
-    ui->lineEditBeanControlChange->setPlaceholderText(tr("Enter a Beancash address (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)"));
+    ui->lineEditBeanControlChange->setPlaceholderText(tr("Enter a Bean Cash address (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)"));
 #endif
 
     addEntry();
@@ -477,7 +477,7 @@ void SendBeansDialog::beanControlChangeEdited(const QString & text)
         else if (!CBitbeanAddress(text.toStdString()).IsValid())
         {
             ui->labelBeanControlChangeLabel->setStyleSheet("QLabel{color:red;}");
-            ui->labelBeanControlChangeLabel->setText(tr("WARNING: Invalid Beancash address"));
+            ui->labelBeanControlChangeLabel->setText(tr("WARNING: Invalid Bean Cash address"));
         }
         else
         {

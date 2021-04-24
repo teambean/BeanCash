@@ -54,9 +54,9 @@ void OptionsModel::Init()
         SoftSetArg("-proxy", settings.value("addrProxy").toString().toStdString());
     if (settings.contains("nSocksVersion") && settings.value("fUseProxy").toBool())
         SoftSetArg("-socks", settings.value("nSocksVersion").toString().toStdString());
-    if (settings.contains("fMinimizeCoinAge"))
+    if (settings.contains("fMinimizeBeanAge"))
         SoftSetBoolArg("-minimizebeanage",
-                       settings.value("fMinimizeCoinAge").toBool());
+                       settings.value("fMinimizeBeanAge").toBool());
     if (!language.isEmpty())
         SoftSetArg("-lang", language.toStdString());
 }
@@ -117,8 +117,8 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
             return settings.value("language", "");
         case BeanControlFeatures:
             return QVariant(fBeanControlFeatures);
-        case MinimizeCoinAge:
-            return settings.value("fMinimizeCoinAge", GetBoolArg("-minimizebeanage", false));
+        case MinimizeBeanAge:
+            return settings.value("fMinimizeBeanAge", GetBoolArg("-minimizebeanage", false));
         default:
             return QVariant();
         }
@@ -208,9 +208,9 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
             emit beanControlFeaturesChanged(fBeanControlFeatures);
             }
             break;
-        case MinimizeCoinAge:
-            fMinimizeCoinAge = value.toBool();
-            settings.setValue("fMinimizeCoinAge", fMinimizeCoinAge);
+        case MinimizeBeanAge:
+            fMinimizeBeanAge = value.toBool();
+            settings.setValue("fMinimizeBeanAge", fMinimizeBeanAge);
             break;
         default:
             break;

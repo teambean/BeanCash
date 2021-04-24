@@ -30,7 +30,7 @@ public:
         DisplayAddresses,  // bool
         Language,          // QString
         BeanControlFeatures, // bool
-        MinimizeCoinAge,     // bool
+        MinimizeBeanAge,     // bool
         OptionIDRowCount,
     };
 

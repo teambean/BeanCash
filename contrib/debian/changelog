@@ -22,6 +22,7 @@ Bean Cash (1.3.0.0RC) stable; urgency=high
    [Bean Core]
    *Major update
    *Extensive fixes & updates (When GA, extensive list will be updated here.)
+   *Add GNOME/KDE support for beancash-qt's beancash: URI support.
 
 -- Bean Core <support@beancash.org>  Thursday, 18 March 2021 00:00:00 +0000
 

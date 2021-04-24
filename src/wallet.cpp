@@ -1550,7 +1550,7 @@ bool CWallet::SelectBeans(int64_t nTargetValue, unsigned int nSpendTime, set<pai
         return (nValueRet >= nTargetValue);
     }
 
-    boost::function<bool (const CWallet*, int64_t, unsigned int, int, int, std::vector<COutput>, std::set<std::pair<const CWalletTx*,unsigned int> >&, int64_t&)> f = fMinimizeCoinAge ? &CWallet::SelectBeansMinConfByBeanAge : &CWallet::SelectBeansMinConf;
+    boost::function<bool (const CWallet*, int64_t, unsigned int, int, int, std::vector<COutput>, std::set<std::pair<const CWalletTx*,unsigned int> >&, int64_t&)> f = fMinimizeBeanAge ? &CWallet::SelectBeansMinConfByBeanAge : &CWallet::SelectBeansMinConf;
 
     return (f(this, nTargetValue, nSpendTime, 1, 10, vBeans, setBeansRet, nValueRet) ||
                 f(this, nTargetValue, nSpendTime, 1, 1, vBeans, setBeansRet, nValueRet) ||

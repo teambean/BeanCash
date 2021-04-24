@@ -144,7 +144,7 @@ void OptionsDialog::setMapper()
     mapper->addMapping(ui->unit, OptionsModel::DisplayUnit);
     mapper->addMapping(ui->displayAddresses, OptionsModel::DisplayAddresses);
     mapper->addMapping(ui->beanControlFeatures, OptionsModel::BeanControlFeatures);
-    mapper->addMapping(ui->minimizeCoinAge, OptionsModel::MinimizeCoinAge);
+    mapper->addMapping(ui->minimizeBeanAge, OptionsModel::MinimizeBeanAge);
 }
 
 void OptionsDialog::enableApplyButton()

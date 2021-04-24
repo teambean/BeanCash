@@ -44,7 +44,7 @@ CClientUIInterface uiInterface;
 int64_t nTimeNodeStart;
 bool fConfChange;
 bool fEnforceCanonical;
-bool fMinimizeCoinAge;
+bool fMinimizeBeanAge;
 unsigned int nNodeLifespan;
 unsigned int nDerivationMethodIndex;
 unsigned int nMinerSleep;
@@ -161,7 +161,7 @@ bool AppInit(int argc, char* argv[])
 
         // Command-line RPC
         for (int i = 1; i < argc; i++)
-            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "Beancash:"))
+            if (!IsSwitchChar(argv[i][0]) && !boost::algorithm::istarts_with(argv[i], "beancash:"))
                 fCommandLine = true;
 
         if (fCommandLine)
@@ -618,7 +618,7 @@ bool AppInit2(boost::thread_group& threadGroup)
 
     fConfChange = GetBoolArg("-confchange", false);
     fEnforceCanonical = GetBoolArg("-enforcecanonical", true);
-    fMinimizeCoinAge = GetBoolArg("-minimizebeanage", false);
+    fMinimizeBeanAge = GetBoolArg("-minimizebeanage", false);
 
     if (mapArgs.count("-mininput"))
     {

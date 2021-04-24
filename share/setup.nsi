@@ -95,11 +95,10 @@ Section -post SEC0001
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoModify 1
     WriteRegDWORD HKCU "SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\$(^Name)" NoRepair 1
 
-    # beancash: URI handling disabled for 0.6.0
-    #    WriteRegStr HKCR "beancash" "URL Protocol" ""
-    #    WriteRegStr HKCR "beancash" "" "URL:beancash"
-    #    WriteRegStr HKCR "beancash\DefaultIcon" "" $INSTDIR\BeanCash-qt.exe
-    #    WriteRegStr HKCR "beancash\shell\open\command" "" '"$INSTDIR\BeanCash-qt.exe" "$$1"'
+    WriteRegStr HKCR "beancash" "URL Protocol" ""
+    WriteRegStr HKCR "beancash" "" "URL:beancash"
+    WriteRegStr HKCR "beancash\DefaultIcon" "" $INSTDIR\Beancash-qt.exe
+    WriteRegStr HKCR "beancash\shell\open\command" "" '"$INSTDIR\Beancash-qt.exe" "$$1"'
 SectionEnd
 
 # Macro for selecting uninstaller sections

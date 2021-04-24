@@ -651,7 +651,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QCheckBox" name="minimizeCoinAge">
+        <widget class="QCheckBox" name="minimizeBeanAge">
          <property name="toolTip">
           <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When spending Beans, the default is to pick random inputs. This option uses inputs with minimal Bean age when spending, to maximize Bean weight for Sprouting. Use this option to minimize Bean weight consumption.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
          </property>

@@ -87,7 +87,7 @@ extern bool fUseFastIndex;
 extern unsigned int nDerivationMethodIndex;
 
 extern bool fEnforceCanonical;
-extern bool fMinimizeCoinAge;
+extern bool fMinimizeBeanAge;
 
 // Minimum disk space required - used in CheckDiskSpace()
 static const uint64_t nMinDiskSpace = 52428800;

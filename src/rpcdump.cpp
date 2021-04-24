@@ -104,7 +104,7 @@ Value dumpprivkey(const Array& params, bool fHelp)
     string strAddress = params[0].get_str();
     CBitbeanAddress address;
     if (!address.SetString(strAddress))
-        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Beancash address");
+        throw JSONRPCError(RPC_INVALID_ADDRESS_OR_KEY, "Invalid Bean Cash address");
     if (fWalletUnlockStakingOnly)
         throw JSONRPCError(RPC_WALLET_UNLOCK_NEEDED, "Wallet is unlocked for Sprouting only.");
     CKeyID keyID;
