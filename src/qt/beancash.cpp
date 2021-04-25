@@ -95,7 +95,7 @@ static std::string Translate(const char* psz)
 
 /* Handle runaway exceptions. Shows a message box with the problem and quits the program.
  */
-static void handleRunawayException(std::exception *e)
+static void handleRunawayException(const std::exception *e)
 {
     PrintExceptionContinue(e, "Runaway exception");
     QMessageBox::critical(0, "Runaway exception", BitbeanGUI::tr("A fatal error occurred. Bean Cash Core can no longer continue safely and will quit.") + QString("\n\n") + QString::fromStdString(strMiscWarning));
@@ -345,7 +345,7 @@ int main(int argc, char *argv[])
         {
             return 1;
         }
-    } catch (std::exception& e) {
+    } catch (const std::exception& e) {
         handleRunawayException(&e);
     } catch (...) {
         handleRunawayException(NULL);

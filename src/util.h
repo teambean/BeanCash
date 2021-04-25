@@ -143,7 +143,7 @@ template<typename... Args> std::string FormatStringFromLogArgs(const char *fmt, 
     std::string _log_msg_; /* Unlikely name to avoid shadowing variables */ \
     try { \
         _log_msg_ = tfm::format(__VA_ARGS__); \
-    } catch (std::runtime_error &e) { \
+    } catch (const std::runtime_error& e) { \
         /* Original format string will have newline so don't add one here */ \
         _log_msg_ = "Error \"" + std::string(e.what()) + "\" while formatting log message: " + FormatStringFromLogArgs(__VA_ARGS__); \
     } \
@@ -172,8 +172,8 @@ bool error(const char* fmt, const Args&... args)
  */
 #define printf(...) LogPrint(NULL, __VA_ARGS__)
 
-void PrintException(std::exception* pex, const char* pszThread);
-void PrintExceptionContinue(std::exception* pex, const char* pszThread);
+void PrintException(const std::exception* pex, const char* pszThread);
+void PrintExceptionContinue(const std::exception *pex, const char* pszThread);
 void ParseString(const std::string& str, char c, std::vector<std::string>& v);
 std::string FormatMoney(int64_t n, bool fPlus=false);
 bool ParseMoney(const std::string& str, int64_t& nRet);
@@ -667,12 +667,12 @@ template <typename Callable> void LoopForever(const char* name,  Callable func, 
             MilliSleep(msecs);
         }
     }
-    catch (boost::thread_interrupted)
+    catch (const boost::thread_interrupted&)
     {
         LogPrintf("%s thread stop\n", name);
         throw;
     }
-    catch (std::exception& e) {
+    catch (const std::exception& e) {
         PrintException(&e, name);
     }
     catch (...) {
@@ -690,12 +690,12 @@ template <typename Callable> void TraceThread(const char* name,  Callable func)
         func();
         LogPrintf("%s thread exit\n", name);
     }
-    catch (boost::thread_interrupted)
+    catch (const boost::thread_interrupted&)
     {
         LogPrintf("%s thread interrupt\n", name);
         throw;
     }
-    catch (std::exception& e) {
+    catch (const std::exception& e) {
         PrintException(&e, name);
     }
     catch (...) {

@@ -197,7 +197,7 @@ bool AppInit(int argc, char* argv[])
         detectShutdownThread = new boost::thread(boost::bind(&DetectShutdownThread, &threadGroup));
         fRet = AppInit2(threadGroup);
     }
-    catch (std::exception& e) {
+    catch (const std::exception& e) {
         PrintException(&e, "AppInit()");
     } catch (...) {
         PrintException(NULL, "AppInit()");
@@ -401,7 +401,7 @@ bool LoadExternalBlockFile(FILE* fileIn)
                     }
                 }
         }
-                    catch (std::exception &e) {
+                    catch (const std::exception& e) {
                         LogPrintf("%s() : Deserialize or I/O error caught during load\n",
                                __PRETTY_FUNCTION__);
                     }

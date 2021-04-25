@@ -573,7 +573,7 @@ public:
         try {
             filein >> *this;
         }
-        catch (std::exception &e) {
+        catch (const std::exception& e) {
             return error("%s() : deserialize or I/O error", __PRETTY_FUNCTION__);
         }
 
@@ -1021,7 +1021,7 @@ public:
         try {
             filein >> *this;
         }
-        catch (std::exception &e) {
+        catch (const std::exception& e) {
             return error("%s() : deserialize or I/O error", __PRETTY_FUNCTION__);
         }
 
