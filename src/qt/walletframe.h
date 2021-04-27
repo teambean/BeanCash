@@ -19,7 +19,7 @@ class WalletFrame : public QFrame
 {
     Q_OBJECT
 public:
-    explicit WalletFrame(BitbeanGUI *_gui);
+    explicit WalletFrame(BitbeanGUI *_gui = 0);
     ~WalletFrame();
 
     void setClientModel(ClientModel *clientModel);

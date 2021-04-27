@@ -5,14 +5,13 @@
  * The Bitcoin Developers 2011-2013
  * Bean Core www.beancash.org 2021
  */
+
 #include "walletframe.h"
 #include "bitbeangui.h"
 #include "walletstack.h"
 
-#include <QVBoxLayout>
+#include <QHBoxLayout>
 #include <QMessageBox>
-
-#include <stdio.h>
 
 WalletFrame::WalletFrame(BitbeanGUI *_gui) :
     QFrame(_gui),

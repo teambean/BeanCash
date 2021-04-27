@@ -9,8 +9,12 @@
 #include <Cocoa/Cocoa.h>
 
 #if QT_VERSION < 0x050000
-extern void qt_mac_set_dock_menu(QMenu *);
+extern void qt_mac_set_doc_menu(QMenu*);
+#else
+#include <QTemporaryFile>
+#include <QImageWriter>
 #endif
+
 
 @interface DockIconClickEventHandler : NSObject
 {

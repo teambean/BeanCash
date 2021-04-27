@@ -13,7 +13,7 @@ Debian (tested under Ubuntu 16.04 LTS - 25/03/2018)
 
         sudo apt-get update
         sudo apt-get upgrade
-        sudo apt-get install qt5-default qt5-qmake qtbase5-dev-tools qttools5-dev-tools
+        sudo apt-get install qt5-default qt5-qmake libqt5gui5 libqt5dbus5 qttools5-dev-tools
         sudo apt-get install build-essential
 	sudo apt-get install libdb5.3++-dev libssl-dev libboost-dev libboost-all-dev
 	sudo apt-get install libprotobuf-dev protobuf-compiler
