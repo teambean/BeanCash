@@ -75,9 +75,11 @@ WalletView::WalletView(QWidget *parent, BitbeanGUI *_gui):
     // Double-clicking on a transaction on the transaction history page shows details
     connect(transactionView, SIGNAL(doubleClicked(QModelIndex)), transactionView, SLOT(showDetails()));
 
-    // Clicking on "Verify Message" in the address book sends you to the verify message tab
+    // Clicking on "Send Beans" in the address book sends you to the send beans tab
+    connect(addressBookPage, SIGNAL(sendBeans(QString)), this, SLOT(gotoSendBeansPage(QString)));
+    // Clicking on "Verify Message" in the address book opens the verify message tab in the Sign/Verify Message dialog
     connect(addressBookPage, SIGNAL(verifyMessage(QString)), this, SLOT(gotoVerifyMessageTab(QString)));
-    // Clicking on "Sign Message" in the receive beans page sends you to the sign message tab
+    // Clicking on "Sign Message" in the receive beans page opens the sign message tab in the Sign/Verify Message dialog
     connect(receiveBeansPage, SIGNAL(signMessage(QString)), this, SLOT(gotoSignMessageTab(QString)));
 
     gotoOverviewPage();
@@ -257,13 +259,16 @@ void WalletView::gotoReceiveBeansPage()
     connect(exportAction, SIGNAL(triggered()), receiveBeansPage, SLOT(exportClicked()));
 }
 
-void WalletView::gotoSendBeansPage()
+void WalletView::gotoSendBeansPage(QString addr)
 {
     sendBeansAction->setChecked(true);
     setCurrentWidget(sendBeansPage);
 
     exportAction->setEnabled(false);
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);
+    
+    if(!addr.isEmpty())
+    	sendBeansPage->setAddress(addr);
 }
 
 void WalletView::gotoSignMessageTab(QString addr)

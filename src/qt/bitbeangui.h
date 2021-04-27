@@ -170,7 +170,7 @@ private slots:
     /** Switch to receive beans page */
     void gotoReceiveBeansPage();
     /** Switch to send beans page */
-    void gotoSendBeansPage();
+    void gotoSendBeansPage(QString addr = "");
     /** Show Sign/Verify Message dialog and switch to sign message tab */
     void gotoSignMessageTab(QString addr = "");
     /** Show Sign/Verify Message dialog and switch to verify message tab */

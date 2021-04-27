@@ -63,6 +63,8 @@ int WalletModel::getNumTransactions() const
 {
     int numTransactions = 0;
     {
+        // the size of mapWallet contains the number of unique transaction IDs
+        // (payments to yourself generate 2 transactions, but both share the same transaction ID)
         LOCK(wallet->cs_wallet);
         numTransactions = wallet->mapWallet.size();
     }

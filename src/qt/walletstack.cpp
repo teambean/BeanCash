@@ -98,11 +98,11 @@ void WalletStack::gotoReceiveBeansPage()
         i.value()->gotoReceiveBeansPage();
 }
 
-void WalletStack::gotoSendBeansPage()
+void WalletStack::gotoSendBeansPage(QString addr)
 {
     QMap<QString, WalletView*>::const_iterator i;
     for (i = mapWalletViews.constBegin(); i != mapWalletViews.constEnd(); ++i)
-        i.value()->gotoSendBeansPage();
+        i.value()->gotoSendBeansPage(addr);
 }
 
 void WalletStack::gotoSignMessageTab(QString addr)

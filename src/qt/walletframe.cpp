@@ -89,9 +89,9 @@ void WalletFrame::gotoReceiveBeansPage()
     walletStack->gotoReceiveBeansPage();
 }
 
-void WalletFrame::gotoSendBeansPage()
+void WalletFrame::gotoSendBeansPage(QString addr)
 {
-    walletStack->gotoSendBeansPage();
+    walletStack->gotoSendBeansPage(addr);
 }
 
 void WalletFrame::gotoSignMessageTab(QString addr)

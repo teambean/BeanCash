@@ -500,9 +500,9 @@ void BitbeanGUI::gotoReceiveBeansPage()
 	if (walletFrame) walletFrame->gotoReceiveBeansPage();
 } 
 
-void BitbeanGUI::gotoSendBeansPage()
+void BitbeanGUI::gotoSendBeansPage(QString addr)
 {
-	if (walletFrame) walletFrame->gotoSendBeansPage();
+    if (walletFrame) walletFrame->gotoSendBeansPage(addr);
 }
 
 void BitbeanGUI::gotoSignMessageTab(QString addr)
