@@ -21,8 +21,10 @@ WalletFrame::WalletFrame(BitbeanGUI *_gui) :
 {
     // Leave HBox hook for adding a list view later
     QHBoxLayout *walletFrameLayout = new QHBoxLayout(this);
+    setContentsMargins(0,0,0,0);
     walletStack = new WalletStack(this);
     walletStack->setBitbeanGUI(gui);
+    walletFrameLayout->setContentsMargins(0,0,0,0);
     walletFrameLayout->addWidget(walletStack);
 }
 
