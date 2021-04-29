@@ -537,6 +537,7 @@ inline uint160 Hash160(const std::vector<unsigned char>& vch)
     return Hash160(vch.begin(), vch.end());
 }
 
+
 /**
  * Timing-attack-resistant comparison.
  * Takes time proportional to length
