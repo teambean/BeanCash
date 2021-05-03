@@ -172,3 +172,8 @@ void QRCodeDialog::updateDisplayUnit()
         ui->lnReqAmount->setDisplayUnit(model->getDisplayUnit());
     }
 }
+
+void QRCodeDialog::on_cancelButton_clicked()
+{
+    close();
+}

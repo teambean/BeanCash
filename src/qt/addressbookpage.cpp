@@ -85,8 +85,9 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
         contextMenu->addAction(sendBeansAction);
     }
     contextMenu->addSeparator();
+#ifdef USE_QRCODE
     contextMenu->addAction(showQRCodeAction);
-
+#endif
     if(tab == ReceivingTab)
         contextMenu->addAction(signMessageAction);
     else if(tab == SendingTab)

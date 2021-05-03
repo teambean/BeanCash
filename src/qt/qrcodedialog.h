@@ -25,8 +25,10 @@ private slots:
     void on_lnMessage_textChanged();
     void on_btnSaveAs_clicked();
     void on_chkReqPayment_toggled(bool fChecked);
+    void on_cancelButton_clicked();
 
     void updateDisplayUnit();
+
 
 private:
     Ui::QRCodeDialog *ui;
