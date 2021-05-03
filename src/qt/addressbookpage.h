@@ -63,7 +63,7 @@ private slots:
     /** Create a new address for receiving beans and / or add a new address book entry */
     void on_newAddress_clicked();
     /** Copy address of currently selected address entry to clipboard */
-    void on_copyAddress_clicked();
+    void on_copyToClipboard_clicked();
     /** Open the sign message tab in the Sign/Verify Message dialog with currently selected address */
     void on_signMessage_clicked();
     /** Open the verify message tab in the Sign/Verify Message dialog with the currently selected address */

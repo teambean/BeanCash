@@ -29,7 +29,7 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
 
 #ifdef Q_OS_MAC // Icons on push buttons are very uncommon on Mac
     ui->newAddress->setIcon(QIcon());
-    ui->copyAddress->setIcon(QIcon());
+    ui->copyToClipboard->setIcon(QIcon());
     ui->deleteAddress->setIcon(QIcon());
     ui->verifyMessage->setIcon(QIcon());
     ui->signMessage->setIcon(QIcon());
@@ -65,7 +65,7 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
     }
 
     // Context menu actions
-    QAction *copyAddressAction = new QAction(ui->copyAddress->text(), this);
+    QAction *copyAddressAction = new QAction(ui->copyToClipboard->text(), this);
     QAction *copyLabelAction = new QAction(tr("Copy &Label"), this);
     QAction *editAction = new QAction(tr("&Edit Label"), this);
     QAction *sendBeansAction = new QAction(tr("Send &Beans"), this);
@@ -93,7 +93,7 @@ AddressBookPage::AddressBookPage(Mode mode, Tabs tab, QWidget *parent) :
         contextMenu->addAction(verifyMessageAction);
 
     // Connect signals for context menu actions
-    connect(copyAddressAction, SIGNAL(triggered()), this, SLOT(on_copyAddress_clicked()));
+    connect(copyAddressAction, SIGNAL(triggered()), this, SLOT(on_copyToClipboard_clicked()));
     connect(copyLabelAction, SIGNAL(triggered()), this, SLOT(onCopyLabelAction()));
     connect(editAction, SIGNAL(triggered()), this, SLOT(onEditAction()));
     connect(deleteAction, SIGNAL(triggered()), this, SLOT(on_deleteAddress_clicked()));
@@ -163,7 +163,7 @@ void AddressBookPage::setOptionsModel(OptionsModel *optionsModel)
     this->optionsModel = optionsModel;
 }
 
-void AddressBookPage::on_copyAddress_clicked()
+void AddressBookPage::on_copyToClipboard_clicked()
 {
     GUIUtil::copyEntryData(ui->tableView, AddressTableModel::Address);
 }
@@ -289,14 +289,14 @@ void AddressBookPage::selectionChanged()
             ui->verifyMessage->setVisible(false);
             break;
         }
-        ui->copyAddress->setEnabled(true);
+        ui->copyToClipboard->setEnabled(true);
         ui->showQRCode->setEnabled(true);
     }
     else
     {
         ui->deleteAddress->setEnabled(false);
         ui->showQRCode->setEnabled(false);
-        ui->copyAddress->setEnabled(false);
+        ui->copyToClipboard->setEnabled(false);
         ui->signMessage->setEnabled(false);
         ui->verifyMessage->setEnabled(false);
     }

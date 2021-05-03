@@ -298,7 +298,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="copyAddress">
+      <widget class="QPushButton" name="copyToClipboard">
        <property name="font">
         <font>
          <family>Sans Serif</family>

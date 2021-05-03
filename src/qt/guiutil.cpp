@@ -182,8 +182,7 @@ void copyEntryData(QAbstractItemView *view, int column, int role)
     if(!selection.isEmpty())
     {
         // Copy first item
-        QClipboard::Mode mode = QApplication::clipboard()->supportsSelection() ? QClipboard::Selection : QClipboard::Clipboard;
-        QApplication::clipboard()->setText(selection.at(0).data(role).toString(), mode);
+        QApplication::clipboard()->setText(selection.at(0).data(role).toString());
     }
 }
 
