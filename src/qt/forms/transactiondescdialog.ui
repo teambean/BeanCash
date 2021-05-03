@@ -248,7 +248,7 @@
       <enum>Qt::TabFocus</enum>
      </property>
      <property name="text">
-      <string>&amp;Close</string>
+      <string>E&amp;xit</string>
      </property>
      <property name="icon">
       <iconset resource="../beancash.qrc">

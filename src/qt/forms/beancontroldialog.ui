@@ -773,7 +773,7 @@
      </column>
     </widget>
    </item>
-   <item alignment="Qt::AlignHCenter">
+   <item alignment="Qt::AlignLeft">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Maximum" vsizetype="Fixed">

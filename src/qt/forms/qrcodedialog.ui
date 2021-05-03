@@ -380,7 +380,7 @@
       </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout">
-        <item alignment="Qt::AlignHCenter">
+        <item alignment="Qt::AlignLeft">
          <widget class="QPushButton" name="btnSaveAs">
           <property name="font">
            <font>
@@ -394,6 +394,23 @@
           <property name="icon">
            <iconset resource="../beancash.qrc">
             <normaloff>:/icons/filesave</normaloff>:/icons/filesave</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="cancelButton">
+          <property name="maximumSize">
+           <size>
+            <width>100</width>
+            <height>16777215</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>E&amp;xit</string>
+          </property>
+          <property name="icon">
+           <iconset resource="../beancash.qrc">
+            <normaloff>:/icons/quit</normaloff>:/icons/quit</iconset>
           </property>
          </widget>
         </item>
