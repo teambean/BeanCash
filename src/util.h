@@ -131,6 +131,8 @@ extern std::atomic<bool> fReopenDebugLog;
 void RandAddSeed();
 void RandAddSeedPerfmon();
 
+unsigned int MurmurHash3(unsigned int nHashSeed, const std::vector<unsigned char>& vDataToHash);
+
 /* Return true if log accepts specified category */
 bool LogAcceptCategory(const char* category);
 /* Send a string to the log output */
