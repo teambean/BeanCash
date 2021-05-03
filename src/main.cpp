@@ -107,6 +107,12 @@ void UnregisterWallet(CWallet* pwalletIn)
     }
 }
 
+void UnregisterAllWallets()
+{
+    LOCK(cs_setpwalletRegistered);
+    setpwalletRegistered.clear();
+}
+
 // check whether the passed transaction is from us
 bool static IsFromMe(CTransaction& tx)
 {
@@ -119,6 +125,7 @@ bool static IsFromMe(CTransaction& tx)
 // get the wallet transaction with the given hash (if it exists)
 bool static GetTransaction(const uint256& hashTx, CWalletTx& wtx)
 {
+    LOCK(cs_setpwalletRegistered);
     for (CWallet* pwallet : setpwalletRegistered)
         if (pwallet->GetTransaction(hashTx,wtx))
             return true;
@@ -128,6 +135,7 @@ bool static GetTransaction(const uint256& hashTx, CWalletTx& wtx)
 // erases transaction with the given hash from all wallets
 void static EraseFromWallets(uint256 hash)
 {
+    LOCK(cs_setpwalletRegistered);
     for (CWallet* pwallet : setpwalletRegistered)
         pwallet->EraseFromWallet(hash);
 }
@@ -135,6 +143,7 @@ void static EraseFromWallets(uint256 hash)
 // make sure all wallets know about the given transaction, in the given block
 void SyncWithWallets(const CTransaction& tx, const CBlock* pblock, bool fUpdate, bool fConnect)
 {
+    LOCK(cs_setpwalletRegistered);
     if (!fConnect)
     {
         // ppbean: wallets need to refund inputs when disconnecting beansprout
@@ -154,6 +163,7 @@ void SyncWithWallets(const CTransaction& tx, const CBlock* pblock, bool fUpdate,
 // notify wallets about a new best chain
 void static SetBestChain(const CBlockLocator& loc)
 {
+    LOCK(cs_setpwalletRegistered);
     for (CWallet* pwallet : setpwalletRegistered)
         pwallet->SetBestChain(loc);
 }
@@ -161,6 +171,7 @@ void static SetBestChain(const CBlockLocator& loc)
 // notify wallets about an updated transaction
 void static UpdatedTransaction(const uint256& hashTx)
 {
+    LOCK(cs_setpwalletRegistered);
     for (CWallet* pwallet : setpwalletRegistered)
         pwallet->UpdatedTransaction(hashTx);
 }
@@ -168,6 +179,7 @@ void static UpdatedTransaction(const uint256& hashTx)
 // dump all wallets
 void static PrintWallets(const CBlock& block)
 {
+    LOCK(cs_setpwalletRegistered);
     for (CWallet* pwallet : setpwalletRegistered)
         pwallet->PrintWallet(block);
 }
@@ -175,6 +187,7 @@ void static PrintWallets(const CBlock& block)
 // notify wallets about an incoming inventory (for request counts)
 void static Inventory(const uint256& hash)
 {
+    LOCK(cs_setpwalletRegistered);
     for (CWallet* pwallet : setpwalletRegistered)
         pwallet->Inventory(hash);
 }
@@ -182,6 +195,7 @@ void static Inventory(const uint256& hash)
 // ask wallets to resend their transactions
 void ResendWalletTransactions(bool fForce)
 {
+    LOCK(cs_setpwalletRegistered);
     for (CWallet* pwallet : setpwalletRegistered)
         pwallet->ResendWalletTransactions(fForce);
 }
