@@ -681,10 +681,14 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CTransaction &tx, bool fCheckInputs, b
             return error("AcceptToMemoryPool : not enough fees %s, %" PRId64 " < %" PRId64,
                          hash.ToString(), nFees, txMinFee);
 
+
+		  // Bean Cash does not have free transactions, but will retain this for the future if we change that
+		  // Minimum Transaction & Relay fee is .01 BITB
+		  
         // Continuously rate-limit free transactions
         // This mitigates 'penny-flooding' -- sending thousands of free transactions just to
         // be annoying or make others' transactions take longer to confirm.
-        if (nFees < MIN_RELAY_TX_FEE)
+	     /* if (nFees < MIN_RELAY_TX_FEE)
         {
             static CCriticalSection cs;
             static double dFreeCount;
@@ -705,6 +709,7 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CTransaction &tx, bool fCheckInputs, b
                 dFreeCount += nSize;
             }
         }
+        */
 
         // Check against previous transactions
         // This is done last to help prevent CPU exhaustion denial-of-service attacks.
