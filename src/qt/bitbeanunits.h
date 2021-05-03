@@ -17,12 +17,11 @@ public:
      */
     enum Unit
     {
-        Sprout,
+        Bean,
         BitB,
         mBitB,
         uBitB,
-        nokat,
-        Bean
+        adzuki,
     };
 
     //! @name Static API

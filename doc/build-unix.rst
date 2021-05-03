@@ -176,9 +176,9 @@ Non-executable Stack
  
 Copyright (c) 2009-2011 Satoshi Nakomoto
 Copyright (c) 2011-2013 Bitcoin Developers
-Copyright (c) 2015-2021 Nokat
+Copyright (c) 2015-2015 Nokat balthazar@yandex.ru
 Copyright (c) 2015-2017 Bean Core www.bitbean.org
-Copyright (c) 2015-2019 Bean Core www.beancash.org
+Copyright (c) 2015-2021 Bean Core www.beancash.org
 
 Distributed under the MIT/X11 software license, see the accompanying file license.txt or http://www.opensource.org/licenses/mit-license.php. 
 

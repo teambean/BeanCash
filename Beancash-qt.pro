@@ -53,6 +53,7 @@ BDB_LIB_SUFFIX=-5.3
 
 # ------- modify those to point to the correct folders ----- #
 
+# BOOST_LIB_SUFFIX=--mgw49-mt-s-1_59
 # BOOST_INCLUDE_PATH=/path/to/lib/boost_1_59_0
 # BOOST_LIB_PATH=/path/to/lib/boost_1_59_0/stage/lib
 
@@ -65,6 +66,9 @@ BDB_LIB_SUFFIX=-5.3
 # QRENCODE_INCLUDE_PATH=
 # QRENCODE_LIB_PATH=
 
+# LIBPNG_INCLUDE_PATH=/deps/libpng-1.6.37
+# LIBPNG_LIB_PATH=/deps/libpng-1.6.37/.libs
+
 # PROTOBUF_INCLUDE_PATH=
 # PROTOBUF_LIB_PATH=
 # PROTOC : protocol buffer compiler tool
@@ -76,12 +80,14 @@ win32 {
     BOOST_LIB_PATH=C:/deps/boost_1_59_0/stage/lib
     BDB_INCLUDE_PATH=C:/deps/db-5.3.28/build_unix
     BDB_LIB_PATH=C:/deps/db-5.3.28/build_unix
-    OPENSSL_INCLUDE_PATH=C:/deps/openssl-1.0.1j/include
-    OPENSSL_LIB_PATH=C:/deps/openssl-1.0.1j
+    OPENSSL_INCLUDE_PATH=C:/deps/openssl-1.0.2g/include
+    OPENSSL_LIB_PATH=C:/deps/openssl-1.0.2g
     QRENCODE_INCLUDE_PATH=C:/deps/qrencode-3.4.4
     QRENCODE_LIB_PATH=C:/deps/qrencode-3.4.4/.libs
     PROTOBUF_INCLUDE_PATH=C:/deps/protobuf-2.6.1/include
     PROTOBUF_LIB_PATH=C:/deps/protobuf-2.6.1
+    LIBPNG_INCLUDE_PATH=C:/deps/libpng-1.6.37
+    LIBPNG_LIB_PATH=C:/deps/libpng-1.6.37/.libs
 }
 
 # ----------------- #

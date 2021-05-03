@@ -11,12 +11,12 @@ BitbeanUnits::BitbeanUnits(QObject *parent):
 QList<BitbeanUnits::Unit> BitbeanUnits::availableUnits()
 {
     QList<BitbeanUnits::Unit> unitlist;
-    unitlist.append(Sprout);
+    unitlist.append(Bean);
     unitlist.append(BitB);
     unitlist.append(mBitB);
     unitlist.append(uBitB);
-    unitlist.append(nokat);
-    unitlist.append(Bean);
+    unitlist.append(adzuki);
+
     return unitlist;
 }
 
@@ -24,12 +24,11 @@ bool BitbeanUnits::valid(int unit)
 {
     switch(unit)
     {
-    case Sprout:
+    case Bean:
     case BitB:
     case mBitB:
     case uBitB:
-    case nokat:
-    case Bean:
+    case adzuki:
         return true;
     default:
         return false;
@@ -40,11 +39,11 @@ QString BitbeanUnits::name(int unit)
 {
     switch(unit)
     {
-    case Sprout: return QString("BEAN");
+    case Bean: return QString("BEAN");
     case BitB: return QString("BITB");
     case mBitB: return QString("mBITB");
     case uBitB: return QString::fromUtf8("μBITB");
-    case nokat: return QString("ADZUKI");
+    case adzuki: return QString("ADZUKI");
     default: return QString("???");
     }
 }
@@ -53,11 +52,11 @@ QString BitbeanUnits::description(int unit)
 {
     switch(unit)
     {
-    case Sprout: return QString("BEAN (1,000 BITB)");
-    case BitB: return QString("BITB");
-    case mBitB: return QString("Milli-BITB (1 / 1,000)");
-    case uBitB: return QString("Micro-BITB (1 / 1,000,000)");
-    case nokat: return QString("Adzuki (1 / 100,000,000)");
+    case Bean: return QString("Whole Bean (1,000 BITB)");
+    case BitB: return QString("Bit of a Bean (Base Unit)");
+    case mBitB: return QString("Milli-Bean (1 / 1,000)");
+    case uBitB: return QString("Micro-Bean (1 / 1,000,000)");
+    case adzuki: return QString("Adzuki Bean (1 / 100,000,000)");
     default: return QString("???");
     }
 }
@@ -66,12 +65,11 @@ qint64 BitbeanUnits::factor(int unit)
 {
     switch(unit)
     {
-    case Sprout: return 100000000000;
+    case Bean: return 100000000000;
     case BitB:  return 100000000;
     case mBitB: return 100000;
     case uBitB: return 100;
-    case nokat: return 1;
-    case Bean: return 100000000;  // New Class of Bean, Value Not Defined Yet
+    case adzuki: return 1;
     default:   return 100000000;
     }
 }
@@ -80,12 +78,11 @@ int BitbeanUnits::amountDigits(int unit)
 {
     switch(unit)
     {
-    case Sprout: return 5;
+    case Bean: return 5;
     case BitB: return 8; // 21,000,000 (# digits, without commas)
     case mBitB: return 11; // 21,000,000,000
     case uBitB: return 14; // 21,000,000,000,000
-    case nokat: return 16;
-    case Bean: return 8;
+    case adzuki: return 16;
     default: return 0;
     }
 }
@@ -94,12 +91,11 @@ int BitbeanUnits::decimals(int unit)
 {
     switch(unit)
     {
-    case Sprout: return 11;
+    case Bean: return 11;
     case BitB: return 8;
     case mBitB: return 5;
     case uBitB: return 2;
-    case nokat: return 0;
-    case Bean: return 8;
+    case adzuki: return 0;
     default: return 0;
     }
 }
