@@ -43,7 +43,6 @@ public:
 
 public slots:
     void done(int retval);
-    void exportClicked();
 
 private:
     Ui::AddressBookPage *ui;
@@ -78,6 +77,9 @@ private slots:
     void onCopyLabelAction();
     /** Edit currently selected address entry */
     void onEditAction();
+    
+    /** Export button clicked */
+    void on_exportButton_clicked();
 
     /** Set button states based on selected tab and selection */
     void selectionChanged();
