@@ -3036,6 +3036,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
         if (fDebugNet || (vInv.size() != 1))
             LogPrint("net", "received getdata (%u invsz)\n", vInv.size());
 
+        vector<CInv> vNotFound;
         for (const CInv& inv : vInv)
         {
             boost::this_thread::interruption_point();
@@ -3084,12 +3085,25 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
                         ss.reserve(1000);
                         ss << tx;
                         pfrom->PushMessage("tx", ss);
+                        pushed = true;
                     }
+                }
+                if (!pushed) {
+                    vNotFound.push_back(inv);
                 }
             }
 
             // Track requests for our stuff
             g_signals.Inventory(inv.hash);
+
+            if(!vNotFound.empty())
+            {
+                // Let the peer know that we didn't find what was asked for, so it doesn't wait around forever.
+                // Currently only SPV clients would benefit from this message.
+                // SPV clients recursively are looking for unconfirmed transactions that are relevant to them, so
+                //  they can store, rebroadcast them without downloading the entire memory pool.
+                pfrom->PushMessage("notfound", vNotFound);
+            }
         }
     }
 
