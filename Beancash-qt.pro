@@ -1,6 +1,7 @@
 TEMPLATE = app
 TARGET = Beancash-qt
 VERSION = 1.3
+RC_ICONS = /src/qt/res/icons/beancash.ico
 QT += core gui network
 INCLUDEPATH += src src/json src/qt
 DEFINES += QT_GUI BOOST_THREAD_USE_LIB BOOST_SPIRIT_THREADSAFE __NO_SYSTEM_INCLUDES
@@ -54,8 +55,9 @@ BDB_LIB_SUFFIX=-5.3
 # ------- modify those to point to the correct folders ----- #
 
 # BOOST_LIB_SUFFIX=--mgw49-mt-s-1_59
-# BOOST_INCLUDE_PATH=/path/to/lib/boost_1_59_0
-# BOOST_LIB_PATH=/path/to/lib/boost_1_59_0/stage/lib
+
+# BOOST_INCLUDE_PATH=/path/to/deps/boost/include/boost
+# BOOST_LIB_PATH=/path/to/deps/boost/lib
 
 # OPENSSL_INCLUDE_PATH=/path/to/libs/openssl-1.0.1j/include
 # OPENSSL_LIB_PATH=/path/to/lib/openssl-1.0.1j
@@ -63,15 +65,8 @@ BDB_LIB_SUFFIX=-5.3
 # BDB_INCLUDE_PATH=/path/to/lib/db-5.3.28.NC/build_unix
 # BDB_LIB_PATH=/path/to/lib/db-5.3.28.NC/build_unix
 
-# QRENCODE_INCLUDE_PATH=
-# QRENCODE_LIB_PATH=
-
-# LIBPNG_INCLUDE_PATH=/deps/libpng-1.6.37
-# LIBPNG_LIB_PATH=/deps/libpng-1.6.37/.libs
-
-# PROTOBUF_INCLUDE_PATH=
-# PROTOBUF_LIB_PATH=
-# PROTOC : protocol buffer compiler tool
+# QRENCODE_INCLUDE_PATH=/path/to/deps/include
+# QRENCODE_LIB_PATH=/path/to/deps/shawn/deps/lib
 
 win32 {
     # These need to be changed prior to compile

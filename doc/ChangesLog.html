@@ -1,0 +1,281 @@
+<h1>Changes Log for BitBean & Bean Cash</h1>
+
+<p><img src="BitBeanLogo.png" alt="BitBean Logo"></img></p>
+<h2>Original Ver. 1.0.0.0 : Bitbean Born (13 Feb 2015)</h2>
+<h2>First Update : Changes in Ver. 1.1.0.0 (17 Oct 2015)</h2>
+<p>
+<li>removal of zerocoin from code base</li>
+<li>removal of IRC from code base (removing security vulnerability)</li>
+<li>DNS seeds added and DNS seeding enabled by default (no more bitbean.conf or addnodes needed to sync)</li>
+<li> New BitBean DNS server node: stalk1.bitbean.org*</li>
+<li> New BitBean DNS server node: stalk2.bitbean.org*</li>
+<li> New BitBean DNS server node: stalk3.bitbean.org*</li>
+<li>updated hard nodes (backup to DNS seeding)--previous wallet had no hardnodes--at least not BitBean ones {sigh}</li>
+<li>New GUI Theme (no more ugly boring basic grey)</li>
+<li>Completely new images and icons</li>
+<li>Newly developed animated syncing icon</li>
+<li>fixes to dialog windows and missing icons</li>
+<li>New Gradient Tabs</li>
+<li>New Context Menu</li>
+<li>Support for Unity Global Menu</li>
+<li>compile time errors and warning fixes</li>
+<li>customization of source and preparation for inclusion of Bitcoin as a side chain</li>
+<li>New network statistics overview</li>
+<li>Updated checkpoint</li>
+<li>New 5 BitB 'recommended' transaction fee</li>
+<li>New monetary unit: SPROUT = 1,000 BitB</li>
+<li>New monetary unit: NOKAT = .00000001 BitB</li>
+<li>New contact & support info added</li>
+<li>Improved network connectivity</li>
+<li>Updated fonts</li>
+<li>QR Code Support added with fixes</li>
+<li>Updated checkpoints</li>
+</p>
+<p>*Servers are operated and maintained by Bean Core (<a href="https://www.beancash.org" target="newwindow">www.beancash.org.org</a>)</p>
+
+<h1>Dependancies required:</h1>
+<li>Qt 4.8.6</li>
+<li>OpenSSL 1.0.1j</li>
+<li>Boost 1.58.0</li>
+<li>BDB 5.3.28 (with encryption)</li>
+<li>Zlib 1.2.8</li>
+<li>libpng 1.6.16</li>
+<li>Qrencode 3.4.4</li>
+</p>
+<br><br>
+
+<p><img src="MacWallet.png" alt="BitBean Logo"></img></p>
+<h2>Changes in Ver. 1.1.2.0 (15 December 2015)</h2>
+<p>
+<li>First Mac OS build</li>
+
+<li>BitBean-qt.pro dependency paths and variables updated </li>
+<li> Updated Defines to use libstdc++ for osx 10.9</li>
+<li> New images for Mac build</li>
+<li> Added a new Mac specific notification handler</li>
+<li> Updated tests to support Bitbean URI</li>
+<li> New Args:  -sprout & -getsproutinginfo</li>
+<li> xcrun used to determine Xcode.app path instead of hard-coded</li>
+
+</p>
+
+<h1>Dependancies required:</h1>
+<li>Qt 4.8.6</li>
+<li>OpenSSL 1.0.1j</li>
+<li>Boost 1.59.0</li>
+<li>BDB 5.3.28 (with encryption)</li>
+<li>Zlib 1.2.8</li>
+<li>libpng 1.6.16</li>
+<li>Qrencode 3.4.4</li>
+
+
+
+<p><img src="BeanCashLogo.png" alt="New Bean Cash Logo"></img></p>
+
+<h2>Changes in Ver. 1.1.2.2RC (25 December 2017)</h2>
+
+<p>Rebrand from BitBean to Bean Cash. In September 2017 the name Bitbean was officially published as a service trademark of a United States Corporation known as 1on1 Development LLC. Bean Core was not involved in the original naming of BitBean, the digital currency and network, and as such, was unaware that another entity was using the name. In August 2017, Bean Core's executive board reached a consensus and published a RFC to the community regarding a proposal to re-brand. The community agreed and the name was changed from BitBean to Bean Cash.</p> </p>
+
+<li> Ticker BITB is changed to BEAN</li>
+<p> Increased capability for DNS seeders from 3 to 6 servers, improving reliability and distribution</p>
+<li> New DNS server node: stalk1.beancash.org*</li>
+<li> New DNS server node: stalk2.beancash.org*</li>
+<li> New DNS server node: stalk3.beancash.org*</li>
+<li>Currency Code (for ISO 4217 adopted): XBN</li>
+<li>Cash Symbol Code-page 437:00DF/225 for Point of Sale/Service Adopted</li>
+<li>Updated logo and Branding</li>
+<li>Security Hardening for Linux build</li>
+<li>Updated checkpoints</li>
+<li>Updated Seed nodes</li>
+<li>Fix for OpenSSL Strict DER encoding validation, supports newer versions</li>
+<li>Updated resource files</li>
+<li>Testnet updates</li>
+<li>Addnode RPC added, allows adding new nodes in real-time via console</li>
+<li>Improved network connections</li>
+
+
+<h1>Dependancies required:</h1>
+<li>Qt 4.8.6</li>
+<li>OpenSSL 1.0.1j</li>
+<li>Boost 1.59.0</li>
+<li>BDB 5.3.28 (with encryption)</li>
+<li>Zlib 1.2.8</li>
+<li>libpng 1.6.16</li>
+<li>Qrencode 3.4.4</li>
+
+
+
+<p><img src="BeanCashLogo.png" alt="New Bean Cash Logo"></img></p>
+
+<h2>Changes in Ver. 1.3.0.0RC (7 May 2021)</h2>
+<li>C++11 support, now minimum requirement</li>
+<li>Base Monetary unit reverted to BITB from BEAN</li>
+<li>BEAN reserved as new Monetary unit (v2)</li>
+<li>Updated contacts</li>
+<li>BITB max supply reduced from 50 Billion to 5 Billion</li>
+<li>Translation files updated</li>
+<li>Updated building instructions for Debian</li>
+<li>Documentation updated, providing rst, md and html formats</li>
+<li>UPNP Removed, security risks</li>
+<li>Fixed deprecation of auto_ptr</li>
+<li>Additional fixes for compiling with C++11</li>
+<li>New compatibility for DB v6</li>
+<li>BOOST_FOREACH dependency eliminated</li>
+<li>New helvetica font support</li>
+<li>Improved Type Safety</li>
+<li>Improved performance by using CBLockIndex instead of CMerkleTx to compute block confirmations</li>
+<li>Fixed issues in getrawtransactions</li>
+<li>Improved threading support, performance improvements</li>
+<li>Refactored and improved Check Block Signatures</li>
+<li>Enhanced FreeBSD support</li>
+<li>Daemon script added for systemd</li>
+<li>Improved architecture detection for linux/unix</li>
+<li>Improved Shutdown, with proper polling for Qt signals</li> 
+<li>Support for alternate wallet file names</li>
+<li>Removed hardcoded wallet.dat</li>
+<li>New thread safe message box for error reporting</li>
+<li>Switch from boost to using QT for pay links, adding OSX support</li>
+<li>Updated About Dialog, introduced copyright year handling for easy updates</li>
+<li>URI validation</li>
+<li>tx nLock Display corrected</li>
+<li>New message function added for errors and information displays</li>
+<li>CClientUIInterface updated to include display error icon</li>
+<li>Updated AskFee Dialog</li>
+<li>Transaction Fee buttons fixed</li>
+<li>Fixed memory leak</li>
+<li>Mempool locks refactored</li>
+<li>Memory exhaustion fix</li>
+<li>Fixed up/down buttons for choosing uBitB amounts</li>
+<li>Window size and Position now saved from last session</li>
+<li>X11 Clipboard support added</li>
+<li>Removed buffer limiting strlcpy and implemented using C++ strings and boost, improving performance</li>
+<li>Removed broken I2P support, will re-implement in v1.5 correctly</li> 
+<li>Reduced unnecessary disk activity for Linux & BSD</li>
+<li>Fixed types</li>
+<li>Improved P2P session communication</li>
+<li>Show Connection Details (In/Out) in RPC Console</li>
+<li>Increased default outgoing connections from 16 to 32</li>
+<li>Updates to text and tooltips</li>
+<li>Split off external block imports to own thread, improving multi-threading</li>
+<li>New ping and getaddednodeinfo RPC commands</li>
+<li>New Bean Network Traffic Graph</li>
+<li>New getnettotals RPC command</li>
+<li>New option to automatically select Bean inputs using age, rather than randomly</li>
+<li>Allow user to choose data directory on startup</li>
+<li>Enable cross-compile on Windows</li>
+<li>New dumpwallet & importwallet functions in GUI, allows easy import and export of key pairs</li>
+<li>New limitedmap class</li>
+<li>daemon threading cleanup</li>
+<li>Allocate Network receive message buffers on-the-fly, improving network performance</li>
+<li>Fix Windows free space check routine</li>
+<li>Fix copy/paste on non-X11 window systems</li>
+<li>Fix for Retina displays</li>
+<li>Increase Signature Cache size, performance improvement</li>
+<li>Removed Scrypt sources, Bean Cash is not a joke coin - Dogecoin, it's "Bitcoin's Big Little Brother" and uses double round of Sha256!</li>
+<li>Skip orphan blocks when in loadblock mode, improved performance</li>
+<li>Added additional metrics to getpeerinfo:  bytesent, bytesrecv & syncnode</li>
+<li>Increased default Max Connections to 200 and File Descriptors to 1200, increased network throughput</li>
+<li>Improved build metrics and environment</li>
+<li>Reduced header dependencies</li>
+<li>Fixed Send Alert, Network Emergency Broadcast System</li>
+<li>Windows build fixes</li>
+<li>Exclude POSIX functions on Windows</li>
+<li>Version and protocol updates for v1.3</li>
+<li>Refactored CSecret/CKey to CKey/CpubKey</li>
+<li>Signature cache now stores CPubKeys</li>
+<li>new rpcwait RPC command, provides a delay for starting daemon</li>
+<li>Fixed a spin lock in Net</li>
+<li>Fixed receive buffer so it doesn't kill connections when overflowed</li>
+<li>refactor using boost signals for messaging, performance improvement</li>
+<li>Increased message inventory size, improve network bandwidth</li>
+<li>Reduce I/O activity by saving addresses every 6 minutes instead of 10 seconds</li>
+<li>Reduce default blocks to check at startup from 2500 to 600</li>
+<li>New createmultisig RPC command, improve Multi Signature support</li>
+<li>New lockunspent & listlockunspent RPC commands</li>
+<li>Removed unnecessary lsn_reset, improves wallet performance</li>
+<li>Fix RPC hangs when client aborts</li>
+<li>New zapwallet RPC function</li>
+<li>RPC "sprouting" changed to "sprout", easier to type. "getsproutinginfo" remains as its easy to recall</li>
+<li>New Images for v1.3</li>
+<li>GUI text, positioning and alignment fixes</li>
+<li>Fix TxID trailing 0s in Details Dialog</li>
+<li>New class CAddressBookData, prep for payment protocal updates, which will add a refund address to the AddressBook</li>
+<li>Balance display logic correction</li>
+<li>Replaced printf with LogPrint, providing better logging with categories</li>
+<li>Numerous refactors and code movement</li>
+<li>Removed redundant c_str()s</li>
+<li>implimented tinyformat and removed PRI macros for formating</li>
+<li>Added Auto Complete to RPC Console for help commands</li>
+<li>Removed -detachdb and stop detach argument, as these are no longer needed</li>
+<li>Added 3 new fields for DNS Seeders, providing for future expansion of and improved decentralization of network and capacity, to blow BTC out of the water in the future!</li>
+<p>
+<li>New DNS Seeder entry:  stake1.beancash.is</li>
+<li>New DNS Seeder entry:  stake2.beancash.is</li>
+<li>New DNS seeder entry:  stake3.beancash.is</li>
+</p>
+<li>Corrected URL for future Bean Cash Wiki (https://wiki.beancash.org)</li>
+<li>Improved error handling</li>
+<li>Refactored signing function</li>
+<li>New function to allow sending Beans directly while in AddressBook, eliminates need to copy/paste</li>
+<li>Mac Button fix</li>
+<li>Implement multi wallet framework, to support multiple wallets in the future</li>
+<li>Refactor bitbeangui.cpp and convert mng spinner to png, provides crisper detail and reduces Qt dependency</li>
+<li>Operating Specific URI configuration updates</li>
+<li>Utilize OpenSSL function to improve privacy/security</li>
+<li>Improved block estimator</li>
+<li>Improved peer locking mechanism</li>
+<li>Increased File Descriptors to maximum of 4096 on Windows</li>
+<li>Improved QT 5 compatibility</li>
+<li>Fix compiler warnings</li>
+<li>Refactor acceptation to mempool</li>
+<li>Fix signrawtransaction input, so P2SH can be used to sign inputs</li>
+<li>Fix signrawtransaction to allow off-line signing</li>
+<li>Exit button added to QRCODE Dialog</li>
+<li>Monetary units updated</li>
+<li>MurmurHash3 added to implement bloom filters for future SPV thin-wallets</li>
+<li>Remove checks for Free Transactions, Bean Cash has no Free Transactions, but will remain super-inexpensive even for micro-transactions, blowing Bitcoin out of the water in the future!</li>
+<li>Use boost signals for communication between main and wallet, improving performance</li>
+<li>Add a notfound message for SPV thin-wallets, so they don't have to wait forever for a response</li>
+<li>Use real-time pong time rather than arbitrary clock value in ProcessMessage, improving Network performance</li>
+<li>process getdata invs separately until send buffer overflows, finer grain message handling</li>
+<li>Move Export button to AddressBook & Transaction View where it belongs</li>
+
+
+<h1>Dependancies required:</h1>
+<li>Qt 4.8.7</li>
+<li>OpenSSL 1.0.2g</li>
+<li>Boost 1.59.0</li>
+<li>BDB 5.3.28 (with encryption)</li>
+<li>Zlib 1.2.8</li>
+<li>libpng 1.6.37</li>
+<li>Qrencode 4.1.1</li>
+
+<br><br>
+<p>Copyright 2015-2017 Bean Core, Team Bean, http://www.bitbean.org<br>
+Copyright 2017-2021 Bean Core, Team Bean, https://www.beancash.org</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
