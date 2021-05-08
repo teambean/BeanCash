@@ -170,6 +170,8 @@ BitbeanGUI::BitbeanGUI(QWidget *parent):
 
     rpcConsole = new RPCConsole(this);
     connect(openRPCConsoleAction, SIGNAL(triggered()), rpcConsole, SLOT(show()));
+    // prevent an open debug window from getting stuck during shutdown
+    connect(quitAction, SIGNAL(triggered()), rpcConsole, SLOT(hide()));
 }
 
 BitbeanGUI::~BitbeanGUI()
