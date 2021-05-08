@@ -33,23 +33,6 @@
 #include <unistd.h> // for sysconf
 #endif
 
-/** Determine system page size in bytes */
-static inline size_t GetSystemPageSize()
-{
-    size_t page_size;
-#if defined(WIN32)
-    SYSTEM_INFO sSysInfo;
-    GetSystemInfo(&sSysInfo);
-    page_size = sSysInfo.dwPageSize;
-#elif defined(PAGESIZE) // defined in limits.h
-    page_size = PAGESIZE;
-#else // assume some POSIX OS
-    page_size = sysconf(_SC_PAGESIZE);
-#endif
-    return page_size;
-}
-
-
 
 /**
  * Thread-safe class to keep track of locked (ie, non-swappable) memory pages.
@@ -135,6 +118,21 @@ private:
     Histogram histogram;
 };
 
+/** Determine system page size in bytes */
+static inline size_t GetSystemPageSize()
+{
+    size_t page_size;
+#if defined(WIN32)
+    SYSTEM_INFO sSysInfo;
+    GetSystemInfo(&sSysInfo);
+    page_size = sSysInfo.dwPageSize;
+#elif defined(PAGESIZE) // defined in limits.h
+    page_size = PAGESIZE;
+#else // assume some POSIX OS
+    page_size = sysconf(_SC_PAGESIZE);
+#endif
+    return page_size;
+}
 
 /**
  * OS-dependent memory page locking/unlocking.
@@ -146,11 +144,25 @@ public:
     /** Lock memory pages.
      * addr and len must be a multiple of the system page size
      */
-    bool Lock(const void *addr, size_t len);
+    bool Lock(const void *addr, size_t len)
+    {
+#ifdef WIN32
+        return VirtualLock(const_cast<void*>(addr), len);
+#else
+        return mlock(addr, len) == 0;
+#endif
+    }
     /** Unlock memory pages.
      * addr and len must be a multiple of the system page size
      */
-    bool Unlock(const void *addr, size_t len);
+    bool Unlock(const void *addr, size_t len)
+    {
+#ifdef WIN32
+        return VirtualUnlock(const_cast<void*>(addr), len);
+#else
+        return munlock(addr, len) == 0;
+#endif
+    }
 };
 
 /**
