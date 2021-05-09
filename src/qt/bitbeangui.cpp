@@ -647,46 +647,49 @@ void BitbeanGUI::message(const QString &title, const QString &message, unsigned 
     int nMBoxIcon = QMessageBox::Information;
     int nNotifyIcon = Notificator::Information;
 
-    // Check for usage of predefined title
+    // Prefer supplied title over style based one
+    if (!title.isEmpty()) {
+        strTitle = title;
+    }
     switch (style) {
-        case CClientUIInterface::MSG_ERROR:
-            strTitle += tr("Error");
-            break;
-        case CClientUIInterface::MSG_WARNING:
-            strTitle += tr("Warning");
-            break;
-        case CClientUIInterface::MSG_INFORMATION:
-            strTitle += tr("Information");
-            break;
-        default:
-            strTitle += title; // Use supplied title
-        }
+    case CClientUIInterface::MSG_ERROR:
+        strTitle += tr("Error");
+        break;
+    case CClientUIInterface::MSG_WARNING:
+        strTitle += tr("Warning");
+        break;
+    case CClientUIInterface::MSG_INFORMATION:
+        strTitle += tr("Information");
+        break;
+    default:
+        break;
+    }
 
-        // Check for error/warning icon
-        if (style & CClientUIInterface::ICON_ERROR) {
-            nMBoxIcon = QMessageBox::Critical;
-            nNotifyIcon = Notificator::Critical;
-        }
-        else if (style & CClientUIInterface::ICON_WARNING) {
-            nMBoxIcon = QMessageBox::Warning;
-            nNotifyIcon = Notificator::Warning;
-        }
+    // Check for error/warning icon
+    if (style & CClientUIInterface::ICON_ERROR) {
+        nMBoxIcon = QMessageBox::Critical;
+        nNotifyIcon = Notificator::Critical;
+    }
+    else if (style & CClientUIInterface::ICON_WARNING) {
+        nMBoxIcon = QMessageBox::Warning;
+        nNotifyIcon = Notificator::Warning;
+    }
 
-        // Display message
-               if (style & CClientUIInterface::MODAL) {
-                   // Check for buttons, use OK as default, if none was supplied
-                   QMessageBox::StandardButton buttons;
-                   if (!(buttons = (QMessageBox::StandardButton)(style & CClientUIInterface::BTN_MASK)))
-                       buttons = QMessageBox::Ok;
-                   // Only show messages after initilization is complete
-                   if(!(style & CClientUIInterface::NOSHOWGUI))
-                       showNormalIfMinimized();
-                   QMessageBox mBox((QMessageBox::Icon)nMBoxIcon, strTitle, message, buttons);
-                   mBox.exec();
-               }
-               else
-                       notificator->notify((Notificator::Class)nNotifyIcon, strTitle, message);
-           }
+    // Display message
+    if (style & CClientUIInterface::MODAL) {
+        // Check for buttons, use OK as default, if none was supplied
+        QMessageBox::StandardButton buttons;
+        if (!(buttons = (QMessageBox::StandardButton)(style & CClientUIInterface::BTN_MASK)))
+            buttons = QMessageBox::Ok;
+            // Only show messages after initilization is complete
+            if(!(style & CClientUIInterface::NOSHOWGUI))
+                showNormalIfMinimized();
+                QMessageBox mBox((QMessageBox::Icon)nMBoxIcon, strTitle, message, buttons, this);
+                mBox.exec();
+            }
+            else
+                notificator->notify((Notificator::Class)nNotifyIcon, strTitle, message);
+    }
 
 void BitbeanGUI::changeEvent(QEvent *e)
 {
