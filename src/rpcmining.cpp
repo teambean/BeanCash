@@ -238,10 +238,10 @@ Value getwork(const Array& params, bool fHelp)
             "If [data] is specified, tries to solve the block and returns true if it was successful.");
 
     if (vNodes.empty())
-        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "Beancash is not connected!");
+        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "Bean Cash is not connected!");
 
     if (IsInitialBlockDownload())
-        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Beancash is downloading blocks...");
+        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Bean Cash is downloading blocks...");
 
     if (pindexBest->nHeight >= LAST_POW_BLOCK)
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
@@ -383,10 +383,10 @@ Value getblocktemplate(const Array& params, bool fHelp)
         throw JSONRPCError(RPC_INVALID_PARAMETER, "Invalid mode");
 
     if (vNodes.empty())
-        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "Beancash is not connected!");
+        throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "Bean Cash is not connected!");
 
     if (IsInitialBlockDownload())
-        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Beancash is downloading blocks...");
+        throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Bean Cash is downloading blocks...");
 
     if (pindexBest->nHeight >= LAST_POW_BLOCK)
         throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");

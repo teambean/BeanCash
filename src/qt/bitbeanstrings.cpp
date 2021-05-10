@@ -17,7 +17,7 @@ QT_TRANSLATE_NOOP("beancash-core", ""
 "If the file does not exist, create it with owner-readable-only file "
 "permissions.\n"
 "It is also recommended to set alertnotify so you are notified of problems;\n"
-"for example: alertnotify=echo %%s | mail -s \"Beancash Alert\" admin@foo."
+"for example: alertnotify=echo %%s | mail -s \"Bean Cash Alert\" admin@foo."
 "com\n"),
 QT_TRANSLATE_NOOP("beancash-core", "Error"),
 QT_TRANSLATE_NOOP("beancash-core", ""
@@ -30,12 +30,12 @@ QT_TRANSLATE_NOOP("beancash-core", ""
 "%s\n"
 "If the file does not exist, create it with owner-readable-only file "
 "permissions."),
-QT_TRANSLATE_NOOP("beancash-core", "Beancash version"),
+QT_TRANSLATE_NOOP("beancash-core", "Bean Cash version"),
 QT_TRANSLATE_NOOP("beancash-core", "Usage:"),
 QT_TRANSLATE_NOOP("beancash-core", "Send command to -server or Beancashd"),
 QT_TRANSLATE_NOOP("beancash-core", "List commands"),
 QT_TRANSLATE_NOOP("beancash-core", "Get help for a command"),
-QT_TRANSLATE_NOOP("beancash-core", "Beancash"),
+QT_TRANSLATE_NOOP("beancash-core", "Bean Cash"),
 QT_TRANSLATE_NOOP("beancash-core", "Options:"),
 QT_TRANSLATE_NOOP("beancash-core", "This help message"),
 QT_TRANSLATE_NOOP("beancash-core", "Specify configuration file (default: Beancash.conf)"),
@@ -130,7 +130,7 @@ QT_TRANSLATE_NOOP("beancash-core", ""
 QT_TRANSLATE_NOOP("beancash-core", "Invalid amount for -mininput=<amount>: '%s'"),
 QT_TRANSLATE_NOOP("beancash-core", "Wallet %s resides outside data directory %s."),
 QT_TRANSLATE_NOOP("beancash-core", ""
-"Cannot obtain a lock on data directory %s.  Beancash is probably already "
+"Cannot obtain a lock on data directory %s.  Bean Cash is probably already "
 "running."),
 QT_TRANSLATE_NOOP("beancash-core", "Verifying database integrity..."),
 QT_TRANSLATE_NOOP("beancash-core", ""
@@ -157,8 +157,8 @@ QT_TRANSLATE_NOOP("beancash-core", "Error loading wallet.dat: Wallet corrupted")
 QT_TRANSLATE_NOOP("beancash-core", ""
 "Warning: error reading wallet.dat! All keys read correctly, but transaction "
 "data or address book entries might be missing or incorrect."),
-QT_TRANSLATE_NOOP("beancash-core", "Error loading wallet.dat: Wallet requires newer version of Beancash"),
-QT_TRANSLATE_NOOP("beancash-core", "Wallet needed to be rewritten: restart Beancash to complete"),
+QT_TRANSLATE_NOOP("beancash-core", "Error loading wallet.dat: Wallet requires newer version of Bean Cash"),
+QT_TRANSLATE_NOOP("beancash-core", "Wallet needed to be rewritten: restart Bean Cash to complete"),
 QT_TRANSLATE_NOOP("beancash-core", "Error loading wallet.dat"),
 QT_TRANSLATE_NOOP("beancash-core", "Cannot downgrade wallet"),
 QT_TRANSLATE_NOOP("beancash-core", "Cannot initialize keypool"),
@@ -170,7 +170,7 @@ QT_TRANSLATE_NOOP("beancash-core", "Loading addresses..."),
 QT_TRANSLATE_NOOP("beancash-core", "Error: could not start node"),
 QT_TRANSLATE_NOOP("beancash-core", "Done loading"),
 QT_TRANSLATE_NOOP("beancash-core", ""
-"Unable to bind to %s on this computer. Beancash is probably already running."),
+"Unable to bind to %s on this computer. Bean Cash is probably already running."),
 QT_TRANSLATE_NOOP("beancash-core", "Unable to bind to %s on this computer (bind returned error %d, %s)"),
 QT_TRANSLATE_NOOP("beancash-core", "Error: Wallet locked, unable to create transaction  "),
 QT_TRANSLATE_NOOP("beancash-core", "Error: Wallet unlocked for sprouting only, unable to create transaction."),
@@ -187,7 +187,7 @@ QT_TRANSLATE_NOOP("beancash-core", "Invalid amount"),
 QT_TRANSLATE_NOOP("beancash-core", "Insufficient funds"),
 QT_TRANSLATE_NOOP("beancash-core", ""
 "Warning: Please check that your computer's date and time are correct! If "
-"your clock is wrong Beancash will not work properly."),
+"your clock is wrong Bean Cash will not work properly."),
 QT_TRANSLATE_NOOP("beancash-core", "Warning: This version is obsolete, upgrade required!"),
 QT_TRANSLATE_NOOP("beancash-core", "WARNING: syncronized checkpoint violation detected, but skipped!"),
 QT_TRANSLATE_NOOP("beancash-core", "Warning: Disk space is low!"),

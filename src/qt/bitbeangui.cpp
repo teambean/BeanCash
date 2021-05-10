@@ -352,7 +352,7 @@ void BitbeanGUI::setClientModel(ClientModel *clientModel)
 #endif
             if(trayIcon)
             {
-                trayIcon->setToolTip(tr("Beancash client") + QString(" ") + tr("[testnet]"));
+                trayIcon->setToolTip(tr("Bean Cash client") + QString(" ") + tr("[testnet]"));
                 trayIcon->setIcon(QIcon(":/icons/toolbar_testnet"));
             }
             toggleHideAction->setIcon(QIcon(":/icons/toolbar_testnet"));

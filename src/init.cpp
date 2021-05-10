@@ -154,7 +154,7 @@ bool AppInit(int argc, char* argv[])
         if (mapArgs.count("-?") || mapArgs.count("--help"))
         {
             // First part of help message is specific to bitbeand / RPC client
-            std::string strUsage = _("Beancash version") + " " + FormatFullVersion() + "\n\n" +
+            std::string strUsage = _("Bean Cash version") + " " + FormatFullVersion() + "\n\n" +
                 _("Usage:") + "\n" +
                   "  Beancashd [options]                     " + "\n" +
                   "  Beancashd [options] <command> [params]  " + _("Send command to -server or Beancashd") + "\n" +
@@ -654,7 +654,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     if (GetBoolArg("-shrinkdebugfile", !fDebug))
         ShrinkDebugFile();
     LogPrintf("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-    LogPrintf("Beancash version %s (%s)\n", FormatFullVersion(), CLIENT_DATE);
+    LogPrintf("Bean Cash version %s (%s)\n", FormatFullVersion(), CLIENT_DATE);
     LogPrintf("Using OpenSSL version %s\n", SSLeay_version(SSLEAY_VERSION));
 
     nTimeNodeStart = GetTime();
@@ -666,7 +666,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     std::ostringstream strErrors;
 
     if (fDaemon)
-        fprintf(stdout, "Beancash server starting\n");
+        fprintf(stdout, "Bean Cash server starting\n");
 
     int64_t nStart;
 

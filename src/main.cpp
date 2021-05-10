@@ -74,7 +74,7 @@ map<uint256, set<uint256> > mapOrphanTransactionsByPrev;
 // Constant stuff for beanbase transactions we create:
 CScript beanBASE_FLAGS;
 
-const string strMessageMagic = "Beancash Signed Message:\n";
+const string strMessageMagic = "Bean Cash Signed Message:\n";
 
 // Settings
 int64_t nTransactionFee = MIN_TX_FEE;

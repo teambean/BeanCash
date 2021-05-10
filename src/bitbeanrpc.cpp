@@ -221,11 +221,11 @@ Value stop(const Array& params, bool fHelp)
         throw runtime_error(
             "stop <detach>\n"
             "<detach> is true or false to detach the database or not for this stop only\n"
-            "Stop Beancash server (and possibly override the detachdb config value).");
+            "Stop Bean Cash server (and possibly override the detachdb config value).");
 
     // Shutdown will take long enough that the response should get back
     StartShutdown();
-    return "Beancash server stopping";
+    return "Bean Cash server stopping";
 }
 
 
@@ -512,7 +512,7 @@ bool HTTPAuthorized(map<string, string>& mapHeaders)
 }
 
 //
-// JSON-RPC protocol.  Beancash uses version 1.0 for maximum compatibility,
+// JSON-RPC protocol.  Bean Cash uses version 1.0 for maximum compatibility,
 // but uses JSON-RPC 1.1/2.0 standards for parts of the 1.0 standard that were
 // unspecified (HTTP errors and contents of 'error').
 //
