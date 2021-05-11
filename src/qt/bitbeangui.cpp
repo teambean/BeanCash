@@ -97,10 +97,16 @@ BitbeanGUI::BitbeanGUI(QWidget *parent):
     setUnifiedTitleAndToolBarOnMac(true);
     QApplication::setAttribute(Qt::AA_DontShowIconsInMenus);
 #endif
+
+    // Create wallet frame and make it the central widget
+    walletFrame = new WalletFrame(this);
+    setCentralWidget(walletFrame);
+
     // Accept D&D of URIs
     setAcceptDrops(true);
 
     // Create actions for the toolbar, menu bar and tray/dock icon
+    // Needs walletFrame to be initialized
     createActions();
 
     // Create application menu bar
@@ -111,10 +117,6 @@ BitbeanGUI::BitbeanGUI(QWidget *parent):
 
     // Create system tray icon and notification
     createTrayIcon();
-
-	 // Create wallet frame and make it the central widget
-	 walletFrame = new WalletFrame(this);
-	 setCentralWidget(walletFrame);
 
     // Create status bar
     statusBar();
@@ -273,13 +275,13 @@ void BitbeanGUI::createActions()
     connect(aboutQtAction, SIGNAL(triggered()), qApp, SLOT(aboutQt()));
     connect(optionsAction, SIGNAL(triggered()), this, SLOT(optionsClicked()));
     connect(toggleHideAction, SIGNAL(triggered()), this, SLOT(toggleHidden()));
-    connect(encryptWalletAction, SIGNAL(triggered(bool)), this, SLOT(encryptWallet(bool)));
-    connect(backupWalletAction, SIGNAL(triggered()), this, SLOT(backupWallet()));
-    connect(dumpWalletAction, SIGNAL(triggered()), this, SLOT(dumpWallet()));
-    connect(importWalletAction, SIGNAL(triggered()), this, SLOT(importWallet()));
-    connect(changePassphraseAction, SIGNAL(triggered()), this, SLOT(changePassphrase()));
-    connect(unlockWalletAction, SIGNAL(triggered()), this, SLOT(unlockWallet()));
-    connect(lockWalletAction, SIGNAL(triggered()), this, SLOT(lockWallet()));
+    connect(encryptWalletAction, SIGNAL(triggered(bool)), walletFrame, SLOT(encryptWallet(bool)));
+    connect(backupWalletAction, SIGNAL(triggered()), walletFrame, SLOT(backupWallet()));
+    connect(dumpWalletAction, SIGNAL(triggered()), walletFrame, SLOT(dumpWallet()));
+    connect(importWalletAction, SIGNAL(triggered()), walletFrame, SLOT(importWallet()));
+    connect(changePassphraseAction, SIGNAL(triggered()), walletFrame, SLOT(changePassphrase()));
+    connect(unlockWalletAction, SIGNAL(triggered()), walletFrame, SLOT(unlockWallet()));
+    connect(lockWalletAction, SIGNAL(triggered()), walletFrame, SLOT(lockWallet()));
     connect(signMessageAction, SIGNAL(triggered()), this, SLOT(gotoSignMessageTab()));
     connect(verifyMessageAction, SIGNAL(triggered()), this, SLOT(gotoVerifyMessageTab()));
 }
@@ -847,41 +849,6 @@ void BitbeanGUI::setEncryptionStatus(int status)
         encryptWalletAction->setEnabled(false); // TODO: decrypt currently not supported
         break;
     }
-}
-
-void BitbeanGUI::encryptWallet(bool status)
-{
-    walletFrame->encryptWallet(status);
-}
-
-void BitbeanGUI::backupWallet()
-{
-    walletFrame->backupWallet();
-}
-
-void BitbeanGUI::dumpWallet()
-{
-    walletFrame->dumpWallet();
-}
-
-void BitbeanGUI::importWallet()
-{
-    walletFrame->importWallet();
-}
-
-void BitbeanGUI::changePassphrase()
-{
-    walletFrame->changePassphrase();
-}
-
-void BitbeanGUI::unlockWallet()
-{
-    walletFrame->unlockWallet();
-}
-
-void BitbeanGUI::lockWallet()
-{
-    walletFrame->lockWallet();
 }
 
 void BitbeanGUI::showNormalIfMinimized(bool fToggleHidden)
