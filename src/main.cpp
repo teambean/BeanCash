@@ -266,13 +266,13 @@ bool CTransaction::ReadFromDisk(CTxDB& txdb, const uint256& hash, CTxIndex& txin
         return false;
     return true;
 }
-        bool CTransaction::ReadFromDisk(CTxDB& txdb, COutPoint prevout, CTxIndex& txindexRet)
-        {
-            if (!ReadFromDisk(txdb, prevout.hash, txindexRet))
-            return false;
-            if (prevout.n >= vout.size())
-        {
 
+bool CTransaction::ReadFromDisk(CTxDB& txdb, COutPoint prevout, CTxIndex& txindexRet)
+{
+    if (!ReadFromDisk(txdb, prevout.hash, txindexRet))
+        return false;
+    if (prevout.n >= vout.size())
+    {
         SetNull();
         return false;
     }
@@ -306,27 +306,31 @@ bool CTransaction::IsStandard() const
             return false;
         if (!txin.scriptSig.IsPushOnly())
             return false;
-        if (fEnforceCanonical && !txin.scriptSig.HasCanonicalPushes()) {
+        if (fEnforceCanonical && !txin.scriptSig.HasCanonicalPushes())
+        {
             return false;
         }
     }
 
     unsigned int nDataOut = 0;
     txnouttype whichType;
-    for (const CTxOut& txout : vout) {
+    for (const CTxOut& txout : vout)
+    {
         if (!::IsStandard(txout.scriptPubKey, whichType))
             return false;
         if (whichType == TX_NULL_DATA)
             nDataOut++;
         if (txout.nValue == 0)
             return false;
-        if (fEnforceCanonical && !txout.scriptPubKey.HasCanonicalPushes()) {
+        if (fEnforceCanonical && !txout.scriptPubKey.HasCanonicalPushes())
+        {
             return false;
         }
     }
 
     // only one OP_RETURN txout is permitted
-    if (nDataOut > 1) {
+    if (nDataOut > 1)
+    {
         return false;
     }
 
