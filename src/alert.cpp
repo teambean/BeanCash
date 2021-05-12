@@ -1,18 +1,22 @@
-// Copyright (c) 2018 Bean Core www.beancash.org
+// Copyright (c) 2018-2021 Bean Core www.beancash.org
 //
 // Alert system
 //
 
-#include <algorithm>
-#include <boost/algorithm/string/classification.hpp>
-#include <boost/algorithm/string/replace.hpp>
-#include <map>
-
 #include "alert.h"
 #include "key.h"
 #include "net.h"
-#include "sync.h"
+// #include "sync.h"
 #include "ui_interface.h"
+#include "util.h"
+
+#include <algorithm>
+#include <inttypes.h>
+#include <map>
+
+#include <boost/algorithm/string/classification.hpp>
+#include <boost/algorithm/string/replace.hpp>
+
 
 using namespace std;
 

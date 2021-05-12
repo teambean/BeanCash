@@ -16,13 +16,19 @@
 #ifndef BITBEAN_BASE58_H
 #define BITBEAN_BASE58_H
 
-#include <string>
-#include <vector>
-#include <openssl/crypto.h> // for OPENSSL_cleanse()
-
 #include "bignum.h"
 #include "key.h"
 #include "script.h"
+#include "uint256.h"
+
+#include <string>
+#include <vector>
+
+#include <boost/variant/apply_visitor.hpp>
+#include <boost/variant/static_visitor.hpp>
+
+#include <openssl/crypto.h> // for OPENSSL_cleanse()
+
 
 static const char* pszBase58 = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
 // Encode a byte sequence as a base58-encoded string

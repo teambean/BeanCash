@@ -6,18 +6,22 @@
 #ifndef _BITBEANRPC_H_
 #define _BITBEANRPC_H_ 1
 
-#include <string>
 #include <list>
 #include <map>
+
+#include <stdint.h>
+#include <string>
 
 class CBlockIndex;
 
 #include "json/json_spirit_reader_template.h"
-#include "json/json_spirit_writer_template.h"
 #include "json/json_spirit_utils.h"
+#include "json/json_spirit_writer_template.h"
 
-#include "util.h"
+// #include "util.h"
 #include "checkpoints.h"
+class CBlockIndex;
+class CReserveKey;
 
 const size_t POST_READ_SIZE = 256 * 1024;
 

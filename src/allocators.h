@@ -6,10 +6,12 @@
 #ifndef BITBEAN_ALLOCATORS_H
 #define BITBEAN_ALLOCATORS_H
 
-#include <string.h>
-#include <string>
-#include <boost/thread/mutex.hpp>
 #include <map>
+#include <string>
+#include <string.h>
+
+#include <boost/thread/mutex.hpp>
+
 #include <openssl/crypto.h>  // for OPENSSL_cleanse()
 
 

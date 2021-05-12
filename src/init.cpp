@@ -13,6 +13,8 @@
 #include "util.h"
 #include "ui_interface.h"
 #include "checkpoints.h"
+#include <inttypes.h>
+#include <stdint.h>
 
 #include <boost/filesystem.hpp>
 #include <boost/filesystem/fstream.hpp>

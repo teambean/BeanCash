@@ -1,4 +1,5 @@
 // Copyright (c) 2012 Pieter Wuille
+// Copyright (c) 2021 Bean Core www.beancash.org
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef _BITBEAN_ADDRMAN
@@ -6,11 +7,13 @@
 
 #include "netbase.h"
 #include "protocol.h"
-#include "util.h"
 #include "sync.h"
+#include "util.h"
 
 
 #include <map>
+#include <set>
+#include <stdint.h>
 #include <vector>
 
 #include <openssl/rand.h>

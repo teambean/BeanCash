@@ -3,13 +3,15 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
-#include <boost/assign/list_of.hpp> // for 'map_list_of()'
 #include <boost/range/adaptor/reversed.hpp>
 #include "checkpoints.h"
 #include "txdb.h"
 #include "main.h"
 #include "uint256.h"
 
+#include <stdint.h>
+
+#include <boost/assign/list_of.hpp> // for 'map_list_of()'
 
 static const int nCheckpointSpan = 10;
 

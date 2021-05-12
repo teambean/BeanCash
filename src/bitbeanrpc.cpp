@@ -11,6 +11,7 @@
 #include "base58.h"
 #include "bitbeanrpc.h"
 #include "db.h"
+#include <stdint.h>
 
 #undef printf
 #include <boost/algorithm/string.hpp>
@@ -25,7 +26,8 @@
 #include <boost/asio/ssl.hpp>
 #include <boost/filesystem/fstream.hpp>
 #include <boost/shared_ptr.hpp>
-#include <list>
+// #include <list>
+#include "json/json_spirit_writer_template.h"
 
 using namespace std;
 using namespace boost;

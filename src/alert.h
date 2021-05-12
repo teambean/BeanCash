@@ -7,13 +7,23 @@
 #ifndef _BITBEANALERT_H_
 #define _BITBEANALERT_H_ 1
 
+#include "serialize.h"
+#include "sync.h"
+
+#include <map>
 #include <set>
+#include <stdint.h>
 #include <string>
 
-#include "uint256.h"
-#include "util.h"
+// #include "uint256.h"
+// #include "util.h"
 
+class CAlert;
 class CNode;
+class uint256;
+
+extern std::map<uint256, CAlert> mapAlerts;
+extern CCriticalSection cs_mapAlerts;
 
 /** Alerts are for notifying old versions if they become too obsolete and
  * need to upgrade.  The message is displayed in the status bar.

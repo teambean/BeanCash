@@ -7,6 +7,8 @@
 #include "db.h"
 #include "net.h"
 #include "util.h"
+#include <inttypes.h>
+#include <stdint.h>
 #include "main.h"
 #include "ui_interface.h"
 #include <boost/filesystem.hpp>

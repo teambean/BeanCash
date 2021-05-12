@@ -15,9 +15,9 @@
 #undef ADVISORY
 #endif
 
-class uint256;
 class CBlockIndex;
 class CSyncCheckpoint;
+class uint256;
 
 /** Block-chain checkpoints are compiled-in sanity checks.
  * They are updated every release or three.

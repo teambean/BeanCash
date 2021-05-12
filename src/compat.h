@@ -22,18 +22,26 @@
 #undef FD_SETSIZE // prevent redefinition compiler warning
 #endif
 #define FD_SETSIZE 4096 // Max number of File Descriptors for Windows
-#include <winsock2.h>
+
+#include <winsock2.h>  // Must be included before mswsock.h and windows.h
+
+#include <mswsock.h>
+#include <windows.h>
 #include <ws2tcpip.h>
 #else
-#include <sys/types.h>
-#include <sys/socket.h>
-#include <sys/fcntl.h>
 #include <arpa/inet.h>
-#include <netdb.h>
-#include <net/if.h>
-#include <netinet/in.h>  // Use sockaddr_in (POSIX.1-2001)
-#include <unistd.h>
+
 #include <ifaddrs.h>
+#include <limits.h>
+#include <net/if.h>
+#include <netdb.h>
+#include <netinet/in.h>  // Use sockaddr_in (POSIX.1-2001)
+
+#include <sys/fcntl.h>
+#include <sys/mman.h>
+#include <sys/socket.h>
+#include <sys/types.h>
+#include <unistd.h>
 #endif
 
 #ifdef WIN32
