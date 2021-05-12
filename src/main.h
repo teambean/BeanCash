@@ -44,6 +44,9 @@ static const int64_t MIN_RELAY_TX_FEE = MIN_TX_FEE;
 static const int64_t MAX_MONEY = 5000000000 * bean;
 static const int64_t bean_YEAR_REWARD = 5 * CENT; // 5% per year
 
+/** Hard Fork Times */
+static const unsigned int VERSION_1310_FORKTIME = 1623519662; // Sunday, June 13th., 2021 @ 9:27:42PM GMT
+
 inline bool MoneyRange(int64_t nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 // Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp.
 static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20 1985 UTC
@@ -51,8 +54,21 @@ static const unsigned int LOCKTIME_THRESHOLD = 500000000; // Tue Nov  5 00:53:20
 static const uint256 hashGenesisBlock("0x000009d2f828234d65299216e258242a4ea75d1b8d8a71d076377145068f08de");
 static const uint256 hashGenesisBlockTestNet("0x0000021cddf3e66033819044559ebf09acdb95dd79b1743d367d03224e10674b");
 
-inline int64_t PastDrift(int64_t nTime)   { return nTime - 10 * 60; } // up to 10 minutes from the past
-inline int64_t FutureDrift(int64_t nTime) { return nTime + 10 * 60; } // up to 10 minutes from the future
+inline int64_t PastDrift(int64_t nTime)
+{
+    if (nTime > VERSION_1310_FORKTIME)
+        return nTime - 5 * 60; // up to 5 minutes from the past
+    else
+        return nTime - 10 * 60; // up to 10 minutes from the past
+}
+
+inline int64_t FutureDrift(int64_t nTime)
+{
+    if (nTime > VERSION_1310_FORKTIME)
+        return nTime + 5 * 60; // up to 5 minutes into the future
+    else
+        return nTime + 10 * 60; // up to 10 minutes into the future
+}
 
 extern CScript beanBASE_FLAGS;
 extern CCriticalSection cs_main;
