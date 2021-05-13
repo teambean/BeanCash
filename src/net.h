@@ -21,8 +21,9 @@
 #include "protocol.h"
 #include "addrman.h"
 
-
+// Required for Satoshi's "checkorder" P2P command - Peer-to-Peer Electronic Cash!
 class CRequestTracker;
+
 class CNode;
 class CBlockIndex;
 extern int nBestHeight;
@@ -92,6 +93,7 @@ enum
     MSG_BLOCK,
 };
 
+// Required for Satoshi's "checkorder" P2P command - Peer-to-Peer Electronic Cash!
 class CRequestTracker
 {
 public:
@@ -238,8 +240,10 @@ protected:
     int nMisbehavior;
 
 public:
+	 // Required for Satoshi's "checkorder" P2P command - Peer-to-Peer Electronic Cash!
     std::map<uint256, CRequestTracker> mapRequests;
     CCriticalSection cs_mapRequests;
+    
     uint256 hashContinue;
     CBlockIndex* pindexLastGetBlocksBegin;
     uint256 hashLastGetBlocksEnd;
@@ -649,7 +653,7 @@ public:
         }
     }
 
-
+	 // Required for Satoshi's "checkorder" P2P command - Peer-to-Peer Electronic Cash
     void PushRequest(const char* pszCommand,
                      void (*fn)(void*, CDataStream&), void* param1)
     {
@@ -693,6 +697,7 @@ public:
 
         PushMessage(pszCommand, hashReply, a1, a2);
     }
+    // End Satoshi's "checkorder" P2P command
 
     bool IsSubscribed(unsigned int nChannel);
     void Subscribe(unsigned int nChannel, unsigned int nHops=0);

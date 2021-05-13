@@ -27,7 +27,7 @@ class COutPoint;
 
 class CAddress;
 class CInv;
-class CRequestTracker;
+class CRequestTracker; // Retain, Required for Satoshi's "checkorder" P2P command - Peer-to-Peer Electronic Cash!
 class CNode;
 
 class CTxMemPool;

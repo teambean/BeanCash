@@ -3332,7 +3332,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
             pfrom->PushMessage("inv", vInv);
     }
 
-
+	 // Start of Satoshi's "checkorder" P2P command - Peer-to-Peer Electronic Cash!
     else if (strCommand == "checkorder")
     {
         uint256 hashReply;
@@ -3378,7 +3378,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         if (!tracker.IsNull())
             tracker.fn(tracker.param1, vRecv);
     }
-
+	 // End of Satoshi's "checkorder" P2P command - Peer-to-Peer Electronic Cash!
 
     else if (strCommand == "ping")
     {

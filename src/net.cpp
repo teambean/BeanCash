@@ -710,6 +710,7 @@ void ThreadSocketHandler()
                             TRY_LOCK(pnode->cs_vRecvMsg, lockRecv);
                             if (lockRecv)
                             {
+                            	  // Part of Satoshi's "checkorder" P2P command - Peer-to-Peer Electronic Cash!
                                 TRY_LOCK(pnode->cs_mapRequests, lockReq);
                                 if (lockReq)
                                 {
@@ -717,6 +718,7 @@ void ThreadSocketHandler()
                                     if (lockInv)
                                         fDelete = true;
                                 }
+                                // End part of Satoshi's "checkorder" P2P command - Peer-to-Peer Electronic Cash!
                             }
                         }
                     }
