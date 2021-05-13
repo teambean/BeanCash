@@ -12,6 +12,8 @@
 #include "ui_interface.h"
 #include "base58.h"
 
+#include <string>
+
 QString TransactionDesc::FormatTxStatus(const CWalletTx& wtx)
 {
     if (!wtx.IsFinal())

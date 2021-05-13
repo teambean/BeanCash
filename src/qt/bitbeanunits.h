@@ -9,6 +9,7 @@
 */
 class BitbeanUnits: public QAbstractListModel
 {
+
 public:
     explicit BitbeanUnits(QObject *parent);
 
@@ -60,6 +61,7 @@ public:
     int rowCount(const QModelIndex &parent) const;
     QVariant data(const QModelIndex &index, int role) const;
     ///@}
+
 private:
     QList<BitbeanUnits::Unit> unitlist;
 };

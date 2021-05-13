@@ -10,7 +10,7 @@
 
 #include <QApplication>
 #include <QByteArray>
-#include <QCoreApplication>
+// #include <QCoreApplication>
 #include <QDataStream>
 #include <QDebug>
 #include <QFileOpenEvent>
@@ -63,7 +63,7 @@ bool PaymentServer::ipcSendCommandLine()
 {
     bool fResult = false;
 
-    const QStringList& args = QCoreApplication::arguments();
+    const QStringList& args = qApp->arguments();
     for (int i = 1; i < args.size(); i++)
     {
         if (!args[i].startsWith(BITBEAN_IPC_PREFIX, Qt::CaseInsensitive))

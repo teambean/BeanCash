@@ -1,10 +1,11 @@
 #include "optionsmodel.h"
 #include "bitbeanunits.h"
-#include <QSettings>
 
 #include "init.h"
 #include "walletdb.h"
 #include "guiutil.h"
+
+#include <QSettings>
 
 OptionsModel::OptionsModel(QObject *parent) :
     QAbstractListModel(parent)

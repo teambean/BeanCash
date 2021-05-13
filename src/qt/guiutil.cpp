@@ -1,3 +1,5 @@
+#include <QApplication>
+
 #include "guiutil.h"
 #include "bitbeanaddressvalidator.h"
 #include "walletmodel.h"
@@ -5,7 +7,7 @@
 #include "util.h"
 #include "init.h"
 
-#include <QString>
+// #include <QString>
 #include <QDateTime>
 #include <QDoubleValidator>
 #include <QFont>
@@ -19,7 +21,6 @@
 
 #include <QTextDocument> // For Qt::mightBeRichText
 #include <QAbstractItemView>
-#include <QApplication>
 #include <QClipboard>
 #include <QFileDialog>
 #include <QDesktopServices>

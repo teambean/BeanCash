@@ -6,7 +6,11 @@
  * Bean Core www.beancash.org 2021
  *
  */
+
+#include <QApplication>
+
 #include "bitbeangui.h"
+
 #include "transactiontablemodel.h"
 #include "optionsdialog.h"
 #include "aboutdialog.h"
@@ -29,19 +33,18 @@
 #include "macdockiconhandler.h"
 #endif
 
-#include <QApplication>
-#include <QMainWindow>
+// #include <QMainWindow>
 #include <QMenuBar>
 #include <QMenu>
 #include <QIcon>
-#include <QTabWidget>
+// #include <QTabWidget>
 #include <QVBoxLayout>
 #include <QToolBar>
 #include <QStatusBar>
 #include <QLabel>
-#include <QLineEdit>
-#include <QPushButton>
-#include <QLocale>
+// #include <QLineEdit>
+// #include <QPushButton>
+// #include <QLocale>
 #include <QMessageBox>
 #include <QMimeData>
 #include <QProgressBar>
@@ -56,6 +59,7 @@
 #include <QUrl>
 #endif
 
+#include <QMimeData>
 #include <QStyle>
 #include <QFontDatabase>
 #include <QListWidget>

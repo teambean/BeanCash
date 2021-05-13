@@ -11,7 +11,7 @@
 #include "wallet.h"
 #include "ui_interface.h"
 
-#include <QLocale>
+// #include <QLocale>
 #include <QList>
 #include <QColor>
 #include <QTimer>

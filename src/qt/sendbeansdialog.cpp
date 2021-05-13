@@ -17,7 +17,7 @@
 #include "beancontroldialog.h"
 
 #include <QMessageBox>
-#include <QLocale>
+// #include <QLocale>
 #include <QTextDocument>
 #include <QScrollBar>
 #include <QClipboard>

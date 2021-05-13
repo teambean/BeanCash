@@ -4,15 +4,15 @@
 
 #include "guiconstants.h"
 
-#include <QLabel>
-#include <QLineEdit>
-#include <QRegExpValidator>
+// #include <QLabel>
+// #include <QLineEdit>
+// #include <QRegExpValidator>
 #include <QHBoxLayout>
 #include <QKeyEvent>
 #include <QDoubleSpinBox>
-#include <QComboBox>
+// #include <QComboBox>
 #include <QApplication>
-#include <qmath.h>
+#include <qmath.h> // for qPow()
 
 BitbeanAmountField::BitbeanAmountField(QWidget *parent):
         QWidget(parent), amount(0), currentUnit(-1)

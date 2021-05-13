@@ -5,6 +5,8 @@
 #include <QObject>
 #include <QMessageBox>
 
+class SendBeansRecipient;
+
 QT_BEGIN_NAMESPACE
 class QFont;
 class QLineEdit;
@@ -13,7 +15,6 @@ class QDateTime;
 class QUrl;
 class QAbstractItemView;
 QT_END_NAMESPACE
-class SendBeansRecipient;
 
 /** Utility functions used by the Bitbean Qt UI.
  */

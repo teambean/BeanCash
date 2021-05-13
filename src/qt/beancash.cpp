@@ -3,6 +3,7 @@
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or https://www.opensource.org/licenses/mit-license.php
 
+#include <QApplication>
 
 #include "bitbeangui.h"
 #include "clientmodel.h"
@@ -18,7 +19,6 @@
 #include "intro.h"
 
 #include <boost/filesystem/operations.hpp>
-#include <QApplication>
 #include <QLibraryInfo>
 #include <QMessageBox>
 #include <QLocale>

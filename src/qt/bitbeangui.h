@@ -43,6 +43,7 @@ QT_END_NAMESPACE
 class BitbeanGUI : public QMainWindow
 {
     Q_OBJECT
+
 public:
     static const QString DEFAULT_WALLET;
     

@@ -37,9 +37,6 @@ private:
     };
     QList<Column> columns;
 
-signals:
-
-public slots:
 
 };
 

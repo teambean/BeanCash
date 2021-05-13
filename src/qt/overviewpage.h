@@ -17,19 +17,16 @@
 #include <QSettings>
 #include <QSlider>
 
-QT_BEGIN_NAMESPACE
-class QModelIndex;
-
-QT_BEGIN_NAMESPACE
-class QModelIndex;
-QT_END_NAMESPACE
-
 namespace Ui {
     class OverviewPage;
 }
 class WalletModel;
 class TxViewDelegate;
 class TransactionFilterProxy;
+
+QT_BEGIN_NAMESPACE
+class QModelIndex;
+QT_END_NAMESPACE
 
 /** Overview ("home") page widget */
 class OverviewPage : public QWidget

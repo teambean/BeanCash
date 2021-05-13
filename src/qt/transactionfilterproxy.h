@@ -46,11 +46,6 @@ private:
     qint64 minAmount;
     int limitRows;
     bool showInactive;
-
-signals:
-
-public slots:
-
 };
 
 #endif // TRANSACTIONFILTERPROXY_H

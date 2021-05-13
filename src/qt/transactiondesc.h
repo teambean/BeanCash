@@ -3,7 +3,7 @@
 
 #include <QString>
 #include <QObject>
-#include <string>
+// #include <string>
 
 class TransactionRecord;
 class CWallet;
