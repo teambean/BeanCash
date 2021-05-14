@@ -34,8 +34,6 @@ public:
     void showOutOfSyncWarning(bool fShow);
 
 private:
-    BitbeanGUI *gui;
-    ClientModel *clientModel;
     WalletStack *walletStack;
 
 public slots:
