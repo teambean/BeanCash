@@ -5,6 +5,8 @@
 #include <QSystemTrayIcon>
 #include <QMap>
 
+#include "blockbrowser.h"
+
 #include <stdint.h>
 
 class TransactionTableModel;
@@ -20,6 +22,7 @@ class SendBeansDialog;
 class SignVerifyMessageDialog;
 class Notificator;
 class RPCConsole;
+class BlockBrowser;
 
 class CWallet;
 
@@ -84,6 +87,7 @@ private:
 
     QMenuBar *appMenuBar;
     QAction *overviewAction;
+    QAction *blockAction;
     QAction *historyAction;
     QAction *quitAction;
     QAction *sendBeansAction;
@@ -163,23 +167,34 @@ public slots:
 private slots:
     /** Switch to overview (home) page */
     void gotoOverviewPage();
+
     /** Switch to history (transactions) page */
     void gotoHistoryPage();
+
     /** Switch to address book page */
     void gotoAddressBookPage();
+
     /** Switch to receive beans page */
     void gotoReceiveBeansPage();
+
     /** Switch to send beans page */
     void gotoSendBeansPage(QString addr = "");
+
+    /** Switch to block explorer */
+    void gotoBlockBrowser();
+
     /** Show Sign/Verify Message dialog and switch to sign message tab */
     void gotoSignMessageTab(QString addr = "");
+
     /** Show Sign/Verify Message dialog and switch to verify message tab */
     void gotoVerifyMessageTab(QString addr = "");
 
     /** Show configuration dialog */
     void optionsClicked();
+
     /** Show about dialog */
     void aboutClicked();
+
 #ifndef Q_OS_MAC
     /** Handle tray icon clicked */
     void trayIconActivated(QSystemTrayIcon::ActivationReason reason);

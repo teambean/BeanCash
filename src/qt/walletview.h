@@ -21,6 +21,7 @@ class SendBeansDialog;
 class SignVerifyMessageDialog;
 class Notificator;
 class RPCConsole;
+class BlockBrowser;
 
 QT_BEGIN_NAMESPACE
 class QLabel;
@@ -66,6 +67,8 @@ private:
     AddressBookPage *receiveBeansPage;
     SendBeansDialog *sendBeansPage;
     SignVerifyMessageDialog *signVerifyMessageDialog;
+    BlockBrowser *blockBrowser;
+
 
     QLabel *labelEncryptionIcon;
     QLabel *labelConnectionsIcon;
@@ -89,6 +92,7 @@ private:
     QAction *changePassphraseAction;
     QAction *aboutQtAction;
     QAction *openRPCConsoleAction;
+    QAction *blockAction;
 
     TransactionView *transactionView;
 
@@ -99,17 +103,25 @@ private:
 public slots:
     /** Switch to overview (home) page */
     void gotoOverviewPage();
+
     /** Switch to history (transactions) page */
     void gotoHistoryPage();
+
     /** Switch to address book page */
     void gotoAddressBookPage();
+
     /** Switch to receive beans page */
     void gotoReceiveBeansPage();
+
     /** Switch to send beans page */
     void gotoSendBeansPage(QString addr = "");
 
+    /** Switch to block explorer page */
+    void gotoBlockBrowser();
+
     /** Show Sign/Verify Message dialog and switch to sign message tab */
     void gotoSignMessageTab(QString addr = "");
+
     /** Show Sign/Verify Message dialog and switch to verify message tab */
     void gotoVerifyMessageTab(QString addr = "");
 
@@ -118,18 +130,25 @@ public slots:
         The new items are those between start and end inclusive, under the given parent item.
     */
     void incomingTransaction(const QModelIndex& parent, int start, int /*end*/);
+
     /** Encrypt the wallet */
     void encryptWallet(bool status);
+
     /** Backup the wallet */
     void backupWallet();
+
     /** Dump key pairs */
     void dumpWallet();
+
     /** Import key pairs */
     void importWallet();
+
     /** Change encrypted wallet passphrase */
     void changePassphrase();
+
     /** Ask for passphrase to unlock wallet temporarily */
     void unlockWallet();
+
     /** Lock wallet */
     void lockWallet();
     

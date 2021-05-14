@@ -311,7 +311,8 @@ HEADERS += src/qt/bitbeangui.h \
     src/core.h \
     src/qt/walletview.h \
     src/qt/walletstack.h \
-    src/qt/walletframe.h
+    src/qt/walletframe.h \
+    src/qt/blockbrowser.h
 
 SOURCES += src/qt/beancash.cpp \
     src/qt/bitbeangui.cpp \
@@ -381,7 +382,8 @@ SOURCES += src/qt/beancash.cpp \
     src/qt/walletview.cpp \
     src/qt/walletstack.cpp \
     src/qt/walletframe.cpp \
-    src/allocators.cpp
+    src/allocators.cpp \
+    src/qt/blockbrowser.cpp
 
 RESOURCES += \
     src/qt/beancash.qrc
@@ -399,7 +401,8 @@ FORMS += \
     src/qt/forms/askpassphrasedialog.ui \
     src/qt/forms/rpcconsole.ui \
     src/qt/forms/optionsdialog.ui \
-    src/qt/forms/intro.ui
+    src/qt/forms/intro.ui \
+    src/qt/forms/blockbrowser.ui
 
 PROTOS = src/qt/paymentrequest.proto
 # (remove) include(share/qt/protobuf.pri)

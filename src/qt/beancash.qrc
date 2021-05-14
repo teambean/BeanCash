@@ -1,4 +1,4 @@
-<!DOCTYPE RCC><RCC version="1.0">
+<RCC>
     <qresource prefix="/icons">
         <file alias="address-book">res/icons/address-book.png</file>
         <file alias="quit">res/icons/quit.png</file>
@@ -45,6 +45,7 @@
         <file alias="about">res/icons/beancash-32.png</file>
         <file alias="importkey">res/icons/importkey.png</file>
         <file alias="exportkey">res/icons/exportkey.png</file>
+        <file alias="blockexplorer">res/icons/blockexplorer.png</file>
     </qresource>
     <qresource prefix="/images">
         <file alias="about">res/images/about.png</file>

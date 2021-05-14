@@ -28,6 +28,7 @@
 #include "ui_interface.h"
 #include "wallet.h"
 #include "init.h"
+#include "blockbrowser.h"
 
 #ifdef Q_OS_MAC
 #include "macdockiconhandler.h"
@@ -224,8 +225,16 @@ void BitbeanGUI::createActions()
     addressBookAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
     tabGroup->addAction(addressBookAction);
 
+    blockAction = new QAction(QIcon(":/icons/blockexplorer"), tr("&Block Explorer"), this);
+    blockAction->setToolTip(tr("Goto Block Explorer"));
+    blockAction->setCheckable(true);
+    blockAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
+    tabGroup->addAction(blockAction);
+
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(gotoOverviewPage()));
+    connect(blockAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
+    connect(blockAction, SIGNAL(triggered()), this, SLOT(gotoBlockBrowser()));
     connect(sendBeansAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(sendBeansAction, SIGNAL(triggered()), this, SLOT(gotoSendBeansPage()));
     connect(receiveBeansAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
@@ -273,6 +282,9 @@ void BitbeanGUI::createActions()
 
     openRPCConsoleAction = new QAction(QIcon(":/icons/debugwindow"), tr("&Debug Window"), this);
     openRPCConsoleAction->setToolTip(tr("Open debugging and diagnostic console"));
+
+    blockAction = new QAction(QIcon(":/icons/blockexplorer"), tr("&Block Explorer"), this);
+    blockAction->setToolTip(tr("Explore the Bean Cash BlockChain"));
 
     connect(quitAction, SIGNAL(triggered()), qApp, SLOT(quit()));
     connect(aboutAction, SIGNAL(triggered()), this, SLOT(aboutClicked()));
@@ -339,6 +351,7 @@ void BitbeanGUI::createToolBars()
     toolbar->addAction(receiveBeansAction);
     toolbar->addAction(historyAction);
     toolbar->addAction(addressBookAction);
+    toolbar->addAction(blockAction);
 }
 
 void BitbeanGUI::setClientModel(ClientModel *clientModel)
@@ -455,6 +468,8 @@ void BitbeanGUI::createTrayIconMenu()
     trayIconMenu->addAction(optionsAction);
     trayIconMenu->addAction(openRPCConsoleAction);
     trayIconMenu->addAction(aboutAction);
+    trayIconMenu->addSeparator();
+    trayIconMenu->addAction(blockAction);
 #ifndef Q_OS_MAC // This is built-in on Mac
     trayIconMenu->addSeparator();
     trayIconMenu->addAction(quitAction);
@@ -524,6 +539,10 @@ void BitbeanGUI::gotoVerifyMessageTab(QString addr)
 	if (walletFrame) walletFrame->gotoSignMessageTab(addr);
 }
 
+void BitbeanGUI::gotoBlockBrowser()
+{
+    if (walletFrame) walletFrame->gotoBlockBrowser();
+}
 
 void BitbeanGUI::setNumConnections(int count)
 {
@@ -775,6 +794,7 @@ void BitbeanGUI::contextMenuEvent(QContextMenuEvent *event)
     menu.addSeparator();
     menu.addAction(optionsAction);
     menu.addAction(openRPCConsoleAction);
+    menu.addAction(blockAction);
     menu.addAction(aboutAction);
     menu.addSeparator();
     menu.addAction(quitAction);

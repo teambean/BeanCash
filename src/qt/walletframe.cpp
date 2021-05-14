@@ -92,6 +92,11 @@ void WalletFrame::gotoSendBeansPage(QString addr)
     walletStack->gotoSendBeansPage(addr);
 }
 
+void WalletFrame::gotoBlockBrowser()
+{
+    walletStack->gotoBlockBrowser();
+}
+
 void WalletFrame::gotoSignMessageTab(QString addr)
 {
     walletStack->gotoSignMessageTab(addr);

@@ -26,6 +26,7 @@
 #include "askpassphrasedialog.h"
 #include "guiutil.h"
 #include "ui_interface.h"
+#include "blockbrowser.h"
 
 #include <QVBoxLayout>
 #include <QActionGroup>
@@ -54,7 +55,7 @@ WalletView::WalletView(QWidget *parent, BitbeanGUI *_gui):
 
     // Create tabs
     overviewPage = new OverviewPage();
-
+    blockBrowser = new BlockBrowser(gui);
     transactionsPage = new QWidget(this);
     QVBoxLayout *vbox = new QVBoxLayout();
     QHBoxLayout *hbox_buttons = new QHBoxLayout();
@@ -78,7 +79,9 @@ WalletView::WalletView(QWidget *parent, BitbeanGUI *_gui):
 
     signVerifyMessageDialog = new SignVerifyMessageDialog(gui);
 
+
     addWidget(overviewPage);
+    addWidget(blockBrowser);
     addWidget(transactionsPage);
     addWidget(addressBookPage);
     addWidget(receiveBeansPage);
@@ -93,11 +96,13 @@ WalletView::WalletView(QWidget *parent, BitbeanGUI *_gui):
 
     // Clicking on "Send Beans" in the address book sends you to the send beans tab
     connect(addressBookPage, SIGNAL(sendBeans(QString)), this, SLOT(gotoSendBeansPage(QString)));
+
     // Clicking on "Verify Message" in the address book opens the verify message tab in the Sign/Verify Message dialog
     connect(addressBookPage, SIGNAL(verifyMessage(QString)), this, SLOT(gotoVerifyMessageTab(QString)));
+
     // Clicking on "Sign Message" in the receive beans page opens the sign message tab in the Sign/Verify Message dialog
     connect(receiveBeansPage, SIGNAL(signMessage(QString)), this, SLOT(gotoSignMessageTab(QString)));
-    
+
     // Clicking on "Export" allows exporting of the transaction list
     connect(exportButton, SIGNAL(clicked()), transactionView, SLOT(exportClicked()));
 
@@ -147,7 +152,15 @@ void WalletView::createActions()
     addressBookAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
     tabGroup->addAction(addressBookAction);
 
+    blockAction = new QAction(QIcon("/icons/blockexplorer"), tr("&Block Explorer"), this);
+    blockAction->setStatusTip(tr("Open Block Explorer"));
+    blockAction->setToolTip(blockAction->statusTip());
+    blockAction->setCheckable(true);
+    blockAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
+    tabGroup->addAction(blockAction);
+
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(gotoOverviewPage()));
+    connect(blockAction, SIGNAL(triggered()), this, SLOT(gotoBlockBrowser()));
     connect(sendBeansAction, SIGNAL(triggered()), this, SLOT(gotoSendBeansPage()));
     connect(receiveBeansAction, SIGNAL(triggered()), this, SLOT(gotoReceiveBeansPage()));
     connect(historyAction, SIGNAL(triggered()), this, SLOT(gotoHistoryPage()));
@@ -206,6 +219,7 @@ void WalletView::setWalletModel(WalletModel *walletModel)
         receiveBeansPage->setModel(walletModel->getAddressTableModel());
         sendBeansPage->setModel(walletModel);
         signVerifyMessageDialog->setModel(walletModel);
+        blockBrowser->setModel(clientModel);
 
         setEncryptionStatus();
         connect(walletModel, SIGNAL(encryptionStatusChanged(int)), gui, SLOT(setEncryptionStatus(int)));
@@ -276,6 +290,15 @@ void WalletView::gotoReceiveBeansPage()
     exportAction->setEnabled(true);
     disconnect(exportAction, SIGNAL(triggered()), 0, 0);
     connect(exportAction, SIGNAL(triggered()), receiveBeansPage, SLOT(exportClicked()));
+}
+
+void WalletView::gotoBlockBrowser()
+{
+    blockAction->setChecked(true);
+    setCurrentWidget(blockBrowser);
+
+    exportAction->setEnabled(false);
+    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
 }
 
 void WalletView::gotoSendBeansPage(QString addr)
