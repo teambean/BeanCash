@@ -42,9 +42,9 @@
 
 #include <QFileDialog>
 
-WalletView::WalletView(QWidget *parent, BitbeanGUI *_gui):
+WalletView::WalletView(QWidget *parent):
     QStackedWidget(parent),
-    gui(_gui),
+    gui(0),
     clientModel(0),
     walletModel(0),
     encryptWalletAction(0),
@@ -75,9 +75,9 @@ WalletView::WalletView(QWidget *parent, BitbeanGUI *_gui):
 
     receiveBeansPage = new AddressBookPage(AddressBookPage::ForEditing, AddressBookPage::ReceivingTab);
 
-    sendBeansPage = new SendBeansDialog(gui);
+    sendBeansPage = new SendBeansDialog();
 
-    signVerifyMessageDialog = new SignVerifyMessageDialog(gui);
+    // signVerifyMessageDialog = new SignVerifyMessageDialog(gui);
 
 
     addWidget(overviewPage);
@@ -105,8 +105,6 @@ WalletView::WalletView(QWidget *parent, BitbeanGUI *_gui):
 
     // Clicking on "Export" allows exporting of the transaction list
     connect(exportButton, SIGNAL(clicked()), transactionView, SLOT(exportClicked()));
-
-    gotoOverviewPage();
 }
 
 WalletView::~WalletView()
@@ -218,7 +216,7 @@ void WalletView::setWalletModel(WalletModel *walletModel)
         addressBookPage->setModel(walletModel->getAddressTableModel());
         receiveBeansPage->setModel(walletModel->getAddressTableModel());
         sendBeansPage->setModel(walletModel);
-        signVerifyMessageDialog->setModel(walletModel);
+        // signVerifyMessageDialog->setModel(walletModel);
         blockBrowser->setModel(clientModel);
 
         setEncryptionStatus();
@@ -315,7 +313,10 @@ void WalletView::gotoSendBeansPage(QString addr)
 
 void WalletView::gotoSignMessageTab(QString addr)
 {
-    // call show() in showTab_SM()
+    // calls show() in showTab_SM()
+	 SignVerifyMessageDialog *signVerifyMessageDialog = new SignVerifyMessageDialog(this);
+	 signVerifyMessageDialog->setAttribute(Qt::WA_DeleteOnClose);
+	 signVerifyMessageDialog->setModel(walletModel);    
     signVerifyMessageDialog->showTab_SM(true);
 
     if(!addr.isEmpty())
@@ -324,7 +325,10 @@ void WalletView::gotoSignMessageTab(QString addr)
 
 void WalletView::gotoVerifyMessageTab(QString addr)
 {
-    // call show() in showTab_VM()
+    // calls show() in showTab_VM()
+    SignVerifyMessageDialog *signVerifyMessageDialog = new SignVerifyMessageDialog(this);
+    signVerifyMessageDialog->setAttribute(Qt::WA_DeleteOnClose);
+    signVerifyMessageDialog->setModel(walletModel);
     signVerifyMessageDialog->showTab_VM(true);
 
     if(!addr.isEmpty())

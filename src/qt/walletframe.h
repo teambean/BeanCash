@@ -9,11 +9,16 @@
 #define WALLETFRAME_H
 
 #include <QFrame>
+#include <QMap>
 
 class BitbeanGUI;
 class ClientModel;
 class WalletModel;
-class WalletStack;
+class WalletView;
+
+QT_BEGIN_NAMESPACE
+class QStackedWidget;
+QT_END_NAMESPACE
 
 class WalletFrame : public QFrame
 {
@@ -34,7 +39,12 @@ public:
     void showOutOfSyncWarning(bool fShow);
 
 private:
-    WalletStack *walletStack;
+    QStackedWidget *walletStack;
+    BitbeanGUI *gui;
+    ClientModel *clientModel;
+    QMap<QString, WalletView*> mapWalletViews;
+    
+    bool bOutOfSync;
 
 public slots:
     /** Switch to overview (home) page */
