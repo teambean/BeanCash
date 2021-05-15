@@ -88,7 +88,6 @@ WalletView::WalletView(QWidget *parent):
     addWidget(sendBeansPage);
 
     // Clicking on a transaction on the overview page simply sends you to transaction history page
-    connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), this, SLOT(gotoHistoryPage()));
     connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), transactionView, SLOT(focusTransaction(QModelIndex)));
 
     // Double-clicking on a transaction on the transaction history page shows details
@@ -190,6 +189,10 @@ void WalletView::createActions()
 void WalletView::setBitbeanGUI(BitbeanGUI *gui)
 {
     this->gui = gui;
+    if(gui)
+    {
+        connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), gui, SLOT(gotoHistoryPage()));
+    }
 }
 
 void WalletView::setClientModel(ClientModel *clientModel)
@@ -205,7 +208,7 @@ void WalletView::setClientModel(ClientModel *clientModel)
 void WalletView::setWalletModel(WalletModel *walletModel)
 {
     this->walletModel = walletModel;
-    if(walletModel)
+    if(walletModel && gui)
     {
         // Receive and report messages from wallet thread
         connect(walletModel, SIGNAL(message(QString,QString,unsigned int)), gui, SLOT(message(QString,QString,unsigned int)));
@@ -253,7 +256,6 @@ void WalletView::incomingTransaction(const QModelIndex& parent, int start, int /
 
 void WalletView::gotoOverviewPage()
 {
-    overviewAction->setChecked(true);
     setCurrentWidget(overviewPage);
 
     exportAction->setEnabled(false);
@@ -262,7 +264,6 @@ void WalletView::gotoOverviewPage()
 
 void WalletView::gotoHistoryPage()
 {
-    historyAction->setChecked(true);
     setCurrentWidget(transactionsPage);
 
     exportAction->setEnabled(true);
@@ -272,7 +273,6 @@ void WalletView::gotoHistoryPage()
 
 void WalletView::gotoAddressBookPage()
 {
-    addressBookAction->setChecked(true);
     setCurrentWidget(addressBookPage);
 
     exportAction->setEnabled(true);
@@ -282,7 +282,6 @@ void WalletView::gotoAddressBookPage()
 
 void WalletView::gotoReceiveBeansPage()
 {
-    receiveBeansAction->setChecked(true);
     setCurrentWidget(receiveBeansPage);
 
     exportAction->setEnabled(true);
@@ -292,7 +291,6 @@ void WalletView::gotoReceiveBeansPage()
 
 void WalletView::gotoBlockBrowser()
 {
-    blockAction->setChecked(true);
     setCurrentWidget(blockBrowser);
 
     exportAction->setEnabled(false);
@@ -301,7 +299,6 @@ void WalletView::gotoBlockBrowser()
 
 void WalletView::gotoSendBeansPage(QString addr)
 {
-    sendBeansAction->setChecked(true);
     setCurrentWidget(sendBeansPage);
 
     exportAction->setEnabled(false);
@@ -314,9 +311,9 @@ void WalletView::gotoSendBeansPage(QString addr)
 void WalletView::gotoSignMessageTab(QString addr)
 {
     // calls show() in showTab_SM()
-	 SignVerifyMessageDialog *signVerifyMessageDialog = new SignVerifyMessageDialog(this);
-	 signVerifyMessageDialog->setAttribute(Qt::WA_DeleteOnClose);
-	 signVerifyMessageDialog->setModel(walletModel);    
+    SignVerifyMessageDialog *signVerifyMessageDialog = new SignVerifyMessageDialog(this);
+    signVerifyMessageDialog->setAttribute(Qt::WA_DeleteOnClose);
+    signVerifyMessageDialog->setModel(walletModel);
     signVerifyMessageDialog->showTab_SM(true);
 
     if(!addr.isEmpty())

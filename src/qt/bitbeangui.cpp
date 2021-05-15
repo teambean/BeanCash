@@ -506,26 +506,31 @@ void BitbeanGUI::aboutClicked()
 
 void BitbeanGUI::gotoOverviewPage()
 {
+    overviewAction->setChecked(true);
 	if (walletFrame) walletFrame->gotoOverviewPage();
 }
 
 void BitbeanGUI::gotoHistoryPage()
 {
+    historyAction->setChecked(true);
 	if (walletFrame) walletFrame->gotoHistoryPage();
 }
 
 void BitbeanGUI::gotoAddressBookPage()
 {
+    addressBookAction->setChecked(true);
 	if (walletFrame) walletFrame->gotoAddressBookPage();
 }
 
 void BitbeanGUI::gotoReceiveBeansPage()
 {
+    receiveBeansAction->setChecked(true);
 	if (walletFrame) walletFrame->gotoReceiveBeansPage();
 } 
 
 void BitbeanGUI::gotoSendBeansPage(QString addr)
 {
+    sendBeansAction->setChecked(true);
     if (walletFrame) walletFrame->gotoSendBeansPage(addr);
 }
 
@@ -541,6 +546,7 @@ void BitbeanGUI::gotoVerifyMessageTab(QString addr)
 
 void BitbeanGUI::gotoBlockBrowser()
 {
+    blockAction->setChecked(true);
     if (walletFrame) walletFrame->gotoBlockBrowser();
 }
 
