@@ -155,9 +155,10 @@ void SendBeansDialog::on_sendButton_clicked()
     fNewRecipientAllowed = false;
 
     QMessageBox::StandardButton retval = QMessageBox::question(this, tr("Confirm send beans"),
-                          tr("Are you sure you want to send %1?").arg(formatted.join(tr(" and "))),
-          QMessageBox::Yes|QMessageBox::Cancel,
-          QMessageBox::Cancel);
+                          tr("Are you sure you want to send %1?").arg(formatted.join(tr(" and "))),  
+        QMessageBox::Yes|QMessageBox::Cancel,
+        QMessageBox::Cancel);
+
 
     if(retval != QMessageBox::Yes)
     {

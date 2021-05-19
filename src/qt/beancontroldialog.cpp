@@ -33,14 +33,14 @@ BeanControlDialog::BeanControlDialog(QWidget *parent) :
     model(0)
 {
     ui->setupUi(this);
-
+    this->setWindowState(Qt::WindowMaximized);
     // context menu actions
     QAction *copyAddressAction = new QAction(tr("Copy address"), this);
     QAction *copyLabelAction = new QAction(tr("Copy label"), this);
     QAction *copyAmountAction = new QAction(tr("Copy amount"), this);
              copyTransactionHashAction = new QAction(tr("Copy transaction ID"), this);  // we need to enable/disable this
-             //lockAction = new QAction(tr("Lock unspent"), this);                        // we need to enable/disable this
-             //unlockAction = new QAction(tr("Unlock unspent"), this);                    // we need to enable/disable this
+             lockAction = new QAction(tr("Lock unspent"), this);                        // we need to enable/disable this
+             unlockAction = new QAction(tr("Unlock unspent"), this);                    // we need to enable/disable this
 
     // context menu
     contextMenu = new QMenu();
@@ -48,9 +48,9 @@ BeanControlDialog::BeanControlDialog(QWidget *parent) :
     contextMenu->addAction(copyLabelAction);
     contextMenu->addAction(copyAmountAction);
     contextMenu->addAction(copyTransactionHashAction);
-    //contextMenu->addSeparator();
-    //contextMenu->addAction(lockAction);
-    //contextMenu->addAction(unlockAction);
+    contextMenu->addSeparator();
+    contextMenu->addAction(lockAction);
+    contextMenu->addAction(unlockAction);
 
     // context menu signals
     connect(ui->treeWidget, SIGNAL(customContextMenuRequested(QPoint)), this, SLOT(showMenu(QPoint)));
@@ -58,8 +58,8 @@ BeanControlDialog::BeanControlDialog(QWidget *parent) :
     connect(copyLabelAction, SIGNAL(triggered()), this, SLOT(copyLabel()));
     connect(copyAmountAction, SIGNAL(triggered()), this, SLOT(copyAmount()));
     connect(copyTransactionHashAction, SIGNAL(triggered()), this, SLOT(copyTransactionHash()));
-    //connect(lockAction, SIGNAL(triggered()), this, SLOT(lockBean()));
-    //connect(unlockAction, SIGNAL(triggered()), this, SLOT(unlockBean()));
+    connect(lockAction, SIGNAL(triggered()), this, SLOT(lockBean()));
+    connect(unlockAction, SIGNAL(triggered()), this, SLOT(unlockBean()));
 
     // clipboard actions
     QAction *clipboardQuantityAction = new QAction(tr("Copy quantity"), this);
@@ -134,7 +134,7 @@ void BeanControlDialog::setModel(WalletModel *model)
     if(model && model->getOptionsModel() && model->getAddressTableModel())
     {
         updateView();
-        //updateLabelLocked();
+        updateLabelLocked();
         BeanControlDialog::updateLabels(model, this);
     }
 }
@@ -183,26 +183,26 @@ void BeanControlDialog::showMenu(const QPoint &point)
     {
         contextMenuItem = item;
 
-        // disable some items (like Copy Transaction ID, lock, unlock) for tree roots in context menu
+        // enable some items (like Copy Transaction ID, lock, unlock) for tree roots in context menu
         if (item->text(COLUMN_TXHASH).length() == 64) // transaction hash is 64 characters (this means its a child node, so its not a parent node in tree mode)
         {
             copyTransactionHashAction->setEnabled(true);
-            //if (model->isLockedBean(uint256(item->text(COLUMN_TXHASH).toStdString()), item->text(COLUMN_VOUT_INDEX).toUInt()))
-            //{
-            //    lockAction->setEnabled(false);
-            //    unlockAction->setEnabled(true);
-            //}
-            //else
-            //{
-            //    lockAction->setEnabled(true);
-            //    unlockAction->setEnabled(false);
-            //}
+            if (model->isLockedBean(uint256(item->text(COLUMN_TXHASH).toStdString()), item->text(COLUMN_VOUT_INDEX).toUInt()))
+            {
+                lockAction->setEnabled(false);
+                unlockAction->setEnabled(true);
+            }
+            else
+            {
+                lockAction->setEnabled(true);
+                unlockAction->setEnabled(false);
+            }
         }
         else // this means click on parent node in tree mode -> disable all
         {
             copyTransactionHashAction->setEnabled(false);
-            //lockAction->setEnabled(false);
-            //unlockAction->setEnabled(false);
+            lockAction->setEnabled(false);
+            unlockAction->setEnabled(false);
         }
 
         // show context menu
@@ -241,7 +241,7 @@ void BeanControlDialog::copyTransactionHash()
 }
 
 // context menu action: lock bean
-/*void BeanControlDialog::lockBean()
+void BeanControlDialog::lockBean()
 {
     if (contextMenuItem->checkState(COLUMN_CHECKBOX) == Qt::Checked)
         contextMenuItem->setCheckState(COLUMN_CHECKBOX, Qt::Unchecked);
@@ -251,17 +251,17 @@ void BeanControlDialog::copyTransactionHash()
     contextMenuItem->setDisabled(true);
     contextMenuItem->setIcon(COLUMN_CHECKBOX, QIcon(":/icons/lock_closed"));
     updateLabelLocked();
-}*/
+}
 
 // context menu action: unlock bean
-/*void BeanControlDialog::unlockBean()
+void BeanControlDialog::unlockBean()
 {
     COutPoint outpt(uint256(contextMenuItem->text(COLUMN_TXHASH).toStdString()), contextMenuItem->text(COLUMN_VOUT_INDEX).toUInt());
     model->unlockBean(outpt);
     contextMenuItem->setDisabled(false);
     contextMenuItem->setIcon(COLUMN_CHECKBOX, QIcon());
     updateLabelLocked();
-}*/
+}
 
 // copy label "Quantity" to clipboard
 void BeanControlDialog::clipboardQuantity()
@@ -400,7 +400,7 @@ QString BeanControlDialog::getPriorityLabel(double dPriority)
 }
 
 // shows count of locked unspent outputs
-/*void BeanControlDialog::updateLabelLocked()
+void BeanControlDialog::updateLabelLocked()
 {
     vector<COutPoint> vOutpts;
     model->listLockedBeans(vOutpts);
@@ -410,7 +410,7 @@ QString BeanControlDialog::getPriorityLabel(double dPriority)
        ui->labelLocked->setVisible(true); 
     }
     else ui->labelLocked->setVisible(false);
-}*/
+}
 
 void BeanControlDialog::updateLabels(WalletModel *model, QDialog* dialog)
 {
@@ -700,14 +700,14 @@ void BeanControlDialog::updateView()
             // vout index
             itemOutput->setText(COLUMN_VOUT_INDEX, QString::number(out.i));
             
-            // disable locked beans     
-            /*if (model->isLockedBean(txhash, out.i))
+            // enable locked beans
+            if (model->isLockedBean(txhash, out.i))
             {
                 COutPoint outpt(txhash, out.i);
                 beanControl->UnSelect(outpt); // just to be sure
                 itemOutput->setDisabled(true);
                 itemOutput->setIcon(COLUMN_CHECKBOX, QIcon(":/icons/lock_closed"));
-            }*/
+            }
               
             // set checkbox
             if (beanControl->IsSelected(txhash, out.i))
