@@ -71,9 +71,12 @@ bool WalletFrame::handleURI(const QString &uri)
 
 void WalletFrame::showOutOfSyncWarning(bool fShow)
 {
-    if (!walletStack)
+    if (!walletStack) {
+        QMessageBox box;
+        box.setText("walletStack is null");
+        box.exec();
         return;
-
+    }
     walletStack->showOutOfSyncWarning(fShow);
 }
 
