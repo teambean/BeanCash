@@ -199,6 +199,20 @@ private slots:
     /** Handle tray icon clicked */
     void trayIconActivated(QSystemTrayIcon::ActivationReason reason);
 #endif
+    /** Encrypt the wallet */
+    void encryptWallet(bool status);
+    /** Backup the wallet */
+    void backupWallet();
+    /** Export Key Pair */
+    void dumpWallet();
+    /** Import Key Pair */
+    void importWallet();
+    /** Change encrypted wallet passphrase */
+    void changePassphrase();
+    /** Ask for passphrase to unlock wallet temporarily */
+    void unlockWallet();
+    /** Lock Wallet */
+    void lockWallet();
 
     /** Show window if hidden, unminimize when minimized, rise when obscured or show if hidden and fToggleHidden is true */
     void showNormalIfMinimized(bool fToggleHidden = false);
