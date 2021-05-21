@@ -14,13 +14,15 @@
 #include <QMessageBox>
 
 WalletFrame::WalletFrame(BitbeanGUI *_gui) :
-    QFrame(_gui)
+    QFrame(_gui),
+    gui(_gui),
+    clientModel(0)
 {
     // Leave HBox hook for adding a list view later
     QHBoxLayout *walletFrameLayout = new QHBoxLayout(this);
     setContentsMargins(0,0,0,0);
     walletStack = new WalletStack(this);
-    walletStack->setBitbeanGUI(_gui);
+    walletStack->setBitbeanGUI(gui);
     walletFrameLayout->setContentsMargins(0,0,0,0);
     walletFrameLayout->addWidget(walletStack);
 }
@@ -31,8 +33,8 @@ WalletFrame::~WalletFrame()
 
 void WalletFrame::setClientModel(ClientModel *clientModel)
 {
-    if (clientModel)
-        walletStack->setClientModel(clientModel);
+    this->clientModel = clientModel;
+    walletStack->setClientModel(clientModel);
 }
 
 bool WalletFrame::addWallet(const QString& name, WalletModel *walletModel)
@@ -43,7 +45,8 @@ bool WalletFrame::addWallet(const QString& name, WalletModel *walletModel)
 bool WalletFrame::setCurrentWallet(const QString& name)
 {
     // TODO: Check if valid name
-    return walletStack->setCurrentWallet(name);
+    walletStack->setCurrentWallet(name);
+    return true;
 }
 
 bool WalletFrame::removeWallet(const QString &name)

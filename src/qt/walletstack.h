@@ -67,7 +67,7 @@ private:
     bool bOutOfSync;
 
 public slots:
-    bool setCurrentWallet(const QString& name);
+    void setCurrentWallet(const QString& name);
 
     /** Switch to overview (home) page */
     void gotoOverviewPage();

@@ -153,11 +153,6 @@ public slots:
     void lockWallet();
     
     void setEncryptionStatus();
-
-signals:
-    /** Signal that we want to show the main window */
-    void showNormalIfMinimized();
-
 };
 
 #endif // WALLETVIEW_H
