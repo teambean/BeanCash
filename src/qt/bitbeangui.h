@@ -98,6 +98,7 @@ private:
     QAction *receiveBeansAction;
     QAction *optionsAction;
     QAction *toggleHideAction;
+    QAction *exportAction;
     QAction *encryptWalletAction;
     QAction *backupWalletAction;
     QAction *dumpWalletAction;

@@ -278,6 +278,8 @@ void BitbeanGUI::createActions()
     signMessageAction = new QAction(QIcon(":/icons/signmessage"), tr("Sign &message..."), this);
     verifyMessageAction = new QAction(QIcon(":/icons/verifymessage"), tr("&Verify message..."), this);
 
+    exportAction = new QAction(QIcon(":/icons/export"), tr("&Export..."), this);
+    exportAction->setToolTip(tr("Export the data in the current tab to a file"));
     openRPCConsoleAction = new QAction(QIcon(":/icons/debugwindow"), tr("&Debug Window"), this);
     openRPCConsoleAction->setToolTip(tr("Open debugging and diagnostic console"));
 
@@ -319,6 +321,7 @@ void BitbeanGUI::createMenuBar()
     file->addSeparator();
     file->addAction(dumpWalletAction);
     file->addAction(importWalletAction);
+    file->addAction(exportAction);
     file->addAction(signMessageAction);
     file->addAction(verifyMessageAction);
     file->addSeparator();
@@ -340,7 +343,7 @@ void BitbeanGUI::createMenuBar()
 }
 
 void BitbeanGUI::createToolBars()
-{ 
+{
     QToolBar *toolbar = addToolBar(tr("Tabs toolbar"));
     toolbar->setMovable(false);
     toolbar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
@@ -350,6 +353,10 @@ void BitbeanGUI::createToolBars()
     toolbar->addAction(historyAction);
     toolbar->addAction(addressBookAction);
     toolbar->addAction(blockAction);
+
+    QToolBar *toolbar2 = addToolBar(tr("Actions toolbar"));
+    toolbar2->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    toolbar2->addAction(exportAction);
 }
 
 void BitbeanGUI::setClientModel(ClientModel *clientModel)
