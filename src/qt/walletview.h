@@ -37,9 +37,8 @@ QT_END_NAMESPACE
 class WalletView : public QStackedWidget
 {
     Q_OBJECT
-
 public:
-    explicit WalletView(QWidget *parent);
+    explicit WalletView(QWidget *parent, BitbeanGUI *_gui);
     ~WalletView();
 
     void setBitbeanGUI(BitbeanGUI *gui);
@@ -67,6 +66,7 @@ private:
     AddressBookPage *addressBookPage;
     AddressBookPage *receiveBeansPage;
     SendBeansDialog *sendBeansPage;
+    SignVerifyMessageDialog *signVerifyMessageDialog;
     BlockBrowser *blockBrowser;
 
 

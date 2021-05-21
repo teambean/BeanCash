@@ -310,6 +310,7 @@ HEADERS += src/qt/bitbeangui.h \
     src/tinyformat.h \
     src/core.h \
     src/qt/walletview.h \
+    src/qt/walletstack.h \
     src/qt/walletframe.h \
     src/qt/blockbrowser.h
 
@@ -379,6 +380,7 @@ SOURCES += src/qt/beancash.cpp \
     src/qt/intro.cpp \
     src/core.cpp \
     src/qt/walletview.cpp \
+    src/qt/walletstack.cpp \
     src/qt/walletframe.cpp \
     src/allocators.cpp \
     src/qt/blockbrowser.cpp

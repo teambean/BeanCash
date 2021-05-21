@@ -5,39 +5,70 @@
  * The Bitcoin Developers 2011-2013
  * Bean Core www.beancash.org 2021
  */
-#ifndef WALLETFRAME_H
-#define WALLETFRAME_H
+#ifndef WALLETSTACK_H
+#define WALLETSTACK_H
 
-#include <QFrame>
+#include <QStackedWidget>
+#include <QMap>
+#include <boost/shared_ptr.hpp>
 
 class BitbeanGUI;
+class TransactionTableModel;
 class ClientModel;
 class WalletModel;
-class WalletStack;
+class WalletView;
+class TransactionView;
+class OverviewPage;
+class AddressBookPage;
+class SendBeansDialog;
+class SignVerifyMessageDialog;
+class Notificator;
+class RPCConsole;
+class BlockBrowser;
 
-class WalletFrame : public QFrame
+class CWalletManager;
+
+QT_BEGIN_NAMESPACE
+class QLabel;
+class QModelIndex;
+QT_END_NAMESPACE
+
+/*
+  WalletStack class. This class is a container for WalletView instances. It takes the place of centralWidget.
+  It was added to support multiple wallet functionality. It communicates with both the client and the
+  wallet models to give the user an up-to-date view of the current core state. It manages all the wallet views
+  it contains and updates them accordingly.
+ */
+class WalletStack : public QStackedWidget
 {
     Q_OBJECT
 public:
-    explicit WalletFrame(BitbeanGUI *_gui = 0);
-    ~WalletFrame();
+    explicit WalletStack(QWidget *parent = 0);
+    ~WalletStack();
 
-    void setClientModel(ClientModel *clientModel);
-
-    bool addWallet(const QString& name, WalletModel *walletModel);
-    bool setCurrentWallet(const QString& name);
+    void setBitbeanGUI(BitbeanGUI *gui) { this->gui = gui; }
     
-    bool removeWallet(const QString &name);
+    void setClientModel(ClientModel *clientModel) { this->clientModel = clientModel; }
+    
+    bool addWallet(const QString& name, WalletModel *walletModel);
+    bool removeWallet(const QString& name);
+    
     void removeAllWallets();
 
     bool handleURI(const QString &uri);
-
+    
     void showOutOfSyncWarning(bool fShow);
 
 private:
-    WalletStack *walletStack;
+    BitbeanGUI *gui;
+    ClientModel *clientModel;
+    QMap<QString, WalletView*> mapWalletViews;
+
+    bool bOutOfSync;
 
 public slots:
+    bool setCurrentWallet(const QString& name);
+
     /** Switch to overview (home) page */
     void gotoOverviewPage();
 
@@ -68,11 +99,11 @@ public slots:
     /** Backup the wallet */
     void backupWallet();
 
+    /** Export key pairs */
+    void dumpWallet();
+
     /** Import key pairs */
     void importWallet();
-
-    /** Dump key pairs */
-    void dumpWallet();
 
     /** Change encrypted wallet passphrase */
     void changePassphrase();
@@ -80,7 +111,7 @@ public slots:
     /** Ask for passphrase to unlock wallet temporarily */
     void unlockWallet();
 
-    /** Lock wallet */
+    /** Lock Wallet */
     void lockWallet();
 
     /** Set the encryption status as shown in the UI.
@@ -90,4 +121,4 @@ public slots:
     void setEncryptionStatus();
 };
 
-#endif // WALLETFRAME_H
+#endif // WALLETSTACK_H
