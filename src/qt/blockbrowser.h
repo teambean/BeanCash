@@ -35,13 +35,13 @@ bool addnode(std::string);
 const CBlockIndex* getBlockIndex(int);
 int64_t getInputValue(CTransaction, CScript);
 
-
 namespace Ui {
 class BlockBrowser;
 }
+
 class ClientModel;
 
-class BlockBrowser : public QWidget
+class BlockBrowser : public QDialog
 {
     Q_OBJECT
 
@@ -49,7 +49,7 @@ public:
     explicit BlockBrowser(QWidget *parent = 0);
     ~BlockBrowser();
 
-    void setModel(ClientModel *model);
+    void setClientModel(ClientModel *model);
 
 public slots:
 
@@ -61,7 +61,7 @@ private slots:
 
 private:
     Ui::BlockBrowser *ui;
-    ClientModel *model;
+    ClientModel *clientModel;
 
 };
 

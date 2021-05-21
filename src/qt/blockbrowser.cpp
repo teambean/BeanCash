@@ -8,13 +8,15 @@
 #include "transactionrecord.h"
 #include "guiutil.h"
 #include "guiconstants.h"
+#include "optionsmodel.h"
 
 #include <QMenu>
 #include <sstream>
 #include <string>
+#include <QLabel>
 
 BlockBrowser::BlockBrowser(QWidget *parent) :
-    QWidget(parent),
+    QDialog(parent),
     ui(new Ui::BlockBrowser)
 {
     ui->setupUi(this);
@@ -429,9 +431,10 @@ void BlockBrowser::blockClicked()
     updateExplorer(true);
 }
 
-void BlockBrowser::setModel(ClientModel *model)
+void BlockBrowser::setClientModel(ClientModel *model)
 {
-    this->model = model;
+    // this->model = model;
+    clientModel = model;
 }
 
 BlockBrowser::~BlockBrowser()

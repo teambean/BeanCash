@@ -12,15 +12,22 @@
 #include "bitbeangui.h"
 
 #include "transactiontablemodel.h"
+#include "addressbookpage.h"
+#include "sendbeansdialog.h"
+#include "signverifymessagedialog.h"
 #include "optionsdialog.h"
 #include "aboutdialog.h"
 #include "clientmodel.h"
 #include "walletmodel.h"
-#include "walletframe.h"
+#include "editaddressdialog.h"
 #include "optionsmodel.h"
 #include "transactiondescdialog.h"
+#include "addresstablemodel.h"
+#include "transactionview.h"
+#include "overviewpage.h"
 #include "bitbeanunits.h"
 #include "guiconstants.h"
+#include "askpassphrasedialog.h"
 #include "notificator.h"
 #include "guiutil.h"
 #include "ui_interface.h"
@@ -34,15 +41,20 @@
 #include "macdockiconhandler.h"
 #endif
 
-// #include <QMainWindow>
+#include <QApplication>
+#include <QMainWindow>
 #include <QMenuBar>
 #include <QMenu>
 #include <QIcon>
-// #include <QTabWidget>
+#include <QTabWidget>
 #include <QVBoxLayout>
 #include <QToolBar>
 #include <QStatusBar>
 #include <QLabel>
+
+#include <QPushButton>
+#include <QStyle>
+
 // #include <QLineEdit>
 // #include <QPushButton>
 // #include <QLocale>
@@ -63,18 +75,18 @@
 #include <QMimeData>
 #include <QStyle>
 #include <QFontDatabase>
-#include <QListWidget>
+
+#include <QSettings>
 #include <iostream>
 
 extern CWallet* pwalletMain;
 extern int64_t nLastBeanStakeSearchInterval;
 double GetPoSKernelPS();
 
-const QString BitbeanGUI::DEFAULT_WALLET = "~Default";
-
 BitbeanGUI::BitbeanGUI(QWidget *parent):
     QMainWindow(parent),
     clientModel(0),
+    walletModel(0),
     encryptWalletAction(0),
     changePassphraseAction(0),
     unlockWalletAction(0),
@@ -117,9 +129,32 @@ BitbeanGUI::BitbeanGUI(QWidget *parent):
     // Create system tray icon and notification
     createTrayIcon();
 
-	 // Create wallet frame and make it the central widget
-	 walletFrame = new WalletFrame(this);
-	 setCentralWidget(walletFrame);
+    // Create tabs
+    overviewPage = new OverviewPage();
+    transactionsPage = new QWidget(this);
+    QVBoxLayout *vbox = new QVBoxLayout();
+    transactionView = new TransactionView(this);
+    vbox->addWidget(transactionView);
+    transactionsPage->setLayout(vbox);
+
+    addressBookPage = new AddressBookPage(AddressBookPage::ForEditing, AddressBookPage::SendingTab);
+
+    receiveBeansPage = new AddressBookPage(AddressBookPage::ForEditing, AddressBookPage::ReceivingTab);
+
+    sendBeansPage = new SendBeansDialog(this);
+
+    blockBrowser = new BlockBrowser(this);
+
+    signVerifyMessageDialog = new SignVerifyMessageDialog(this);
+
+    centralWidget = new QStackedWidget(this);
+    centralWidget->addWidget(overviewPage);
+    // centralWidget->addWidget(blockBrowser);
+    centralWidget->addWidget(transactionsPage);
+    centralWidget->addWidget(addressBookPage);
+    centralWidget->addWidget(receiveBeansPage);
+    centralWidget->addWidget(sendBeansPage);
+    setCentralWidget(centralWidget);
 
     // Create status bar
     statusBar();
@@ -173,10 +208,27 @@ BitbeanGUI::BitbeanGUI(QWidget *parent):
     statusBar()->addWidget(progressBar);
     statusBar()->addPermanentWidget(frameBlocks);
 
+    // prevent an open debug window from getting stuck during shutdown
+    // connect(quitAction, SIGNAL(triggered()), rpcConsole, SLOT(hide()));
+
+    // Clicking on a transaction on the overview page simply sends you to transaction history page
+    connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), this, SLOT(gotoHistoryPage()));
+    connect(overviewPage, SIGNAL(transactionClicked(QModelIndex)), transactionView, SLOT(focusTransaction(QModelIndex)));
+
+    // Double-clicking on a transaction on the transaction history page shows details
+    connect(transactionView, SIGNAL(doubleClicked(QModelIndex)), transactionView, SLOT(showDetails()));
+
     rpcConsole = new RPCConsole(this);
     connect(openRPCConsoleAction, SIGNAL(triggered()), rpcConsole, SLOT(show()));
-    // prevent an open debug window from getting stuck during shutdown
-    connect(quitAction, SIGNAL(triggered()), rpcConsole, SLOT(hide()));
+
+    // Clicking on the "Send Beans" in the address book sends you to the Send Beans tab
+    connect(addressBookPage, SIGNAL(sendBeans(QString)), this, SLOT(gotoSendBeansPage(QString)));
+    // Clicking on "Verify Message" in the address book opens the verify message tab in the Sign/Verigy Message dialog
+    connect(addressBookPage, SIGNAL(verifyMessage(QString)), this, SLOT(gotoVerifyMessageTab(QString)));
+    // Clicking on "Sign Message" in the receive beans page opens the sign message tab in the Sign/Verify Message dialog
+    connect(receiveBeansPage, SIGNAL(signMessage(QString)), this, SLOT(gotoSignMessageTab(QString)));
+
+    gotoOverviewPage();
 }
 
 BitbeanGUI::~BitbeanGUI()
@@ -223,16 +275,14 @@ void BitbeanGUI::createActions()
     addressBookAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_5));
     tabGroup->addAction(addressBookAction);
 
-    blockAction = new QAction(QIcon(":/icons/blockexplorer"), tr("&Block Explorer"), this);
-    blockAction->setToolTip(tr("Goto Block Explorer"));
-    blockAction->setCheckable(true);
-    blockAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
-    tabGroup->addAction(blockAction);
+    // blockAction = new QAction(QIcon(":/icons/blockexplorer"), tr("&Block Explorer"), this);
+    // blockAction->setToolTip(tr("Goto Block Explorer"));
+    // blockAction->setShortcut(QKeySequence(Qt::ALT + Qt::Key_6));
+    // blockAction->setCheckable(true);
+    // tabGroup->addAction(blockAction);
 
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(overviewAction, SIGNAL(triggered()), this, SLOT(gotoOverviewPage()));
-    connect(blockAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
-    connect(blockAction, SIGNAL(triggered()), this, SLOT(gotoBlockBrowser()));
     connect(sendBeansAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(sendBeansAction, SIGNAL(triggered()), this, SLOT(gotoSendBeansPage()));
     connect(receiveBeansAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
@@ -241,6 +291,15 @@ void BitbeanGUI::createActions()
     connect(historyAction, SIGNAL(triggered()), this, SLOT(gotoHistoryPage()));
     connect(addressBookAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
     connect(addressBookAction, SIGNAL(triggered()), this, SLOT(gotoAddressBookPage()));
+
+    // Dialog items
+    blockAction = new QAction(QIcon(":/icons/blockexplorer"), tr("&Block Explorer"), this);
+    blockAction->setStatusTip(tr("Explore the Bean Cash Blockchain and Transactions"));
+    blockAction->setToolTip(blockAction->statusTip());
+
+    connect(blockAction, SIGNAL(triggered()), this, SLOT(showNormalIfMinimized()));
+    connect(blockAction, SIGNAL(triggered()), this, SLOT(gotoBlockBrowser()));
+
 
     quitAction = new QAction(QIcon(":/icons/quit"), tr("E&xit"), this);
     quitAction->setToolTip(tr("Quit application"));
@@ -335,6 +394,10 @@ void BitbeanGUI::createMenuBar()
     settings->addSeparator();
     settings->addAction(optionsAction);
 
+    // QMenu *tools = appMenuBar->addMenu(tr("&Tools"));
+    // tools->addAction(blockAction);
+
+
     QMenu *help = appMenuBar->addMenu(tr("&Help"));
     help->addAction(openRPCConsoleAction);
     help->addSeparator();
@@ -352,7 +415,8 @@ void BitbeanGUI::createToolBars()
     toolbar->addAction(receiveBeansAction);
     toolbar->addAction(historyAction);
     toolbar->addAction(addressBookAction);
-    toolbar->addAction(blockAction);
+    // toolbar->addAction(blockAction);
+    toolbar->setStyleSheet("#toolbar {background: transparent}");
 
     QToolBar *toolbar2 = addToolBar(tr("Actions toolbar"));
     toolbar2->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
@@ -398,25 +462,40 @@ void BitbeanGUI::setClientModel(ClientModel *clientModel)
         connect(clientModel, SIGNAL(message(QString,QString,unsigned int)), this, SLOT(message(QString,QString,unsigned int)));
 
         rpcConsole->setClientModel(clientModel);
-
-        walletFrame->setClientModel(clientModel);
-
+        addressBookPage->setOptionsModel(clientModel->getOptionsModel());
+        receiveBeansPage->setOptionsModel(clientModel->getOptionsModel());
+        blockBrowser->setClientModel(clientModel);
     }
 }
 
-bool BitbeanGUI::addWallet(const QString& name, WalletModel *walletModel)
+void BitbeanGUI::setWalletModel(WalletModel *walletModel)
 {
-    return walletFrame->addWallet(name, walletModel);
-}
+    this->walletModel = walletModel;
+    if(walletModel)
+    {
+        // Receive and report messages from wallet thread
+        connect(walletModel, SIGNAL(message(QString,QString,unsigned int)), this, SLOT(message(QString,QString,unsigned int)));
 
-bool BitbeanGUI::setCurrentWallet(const QString& name)
-{
-	return walletFrame->setCurrentWallet(name);
-}
+        // Put transaction list in tabs
+        transactionView->setModel(walletModel);
 
-void BitbeanGUI::removeAllWallets()
-{
-	walletFrame->removeAllWallets();
+        overviewPage->setModel(walletModel);
+        addressBookPage->setModel(walletModel->getAddressTableModel());
+        receiveBeansPage->setModel(walletModel->getAddressTableModel());
+        sendBeansPage->setModel(walletModel);
+        signVerifyMessageDialog->setModel(walletModel);
+
+
+        setEncryptionStatus(walletModel->getEncryptionStatus());
+        connect(walletModel, SIGNAL(encryptionStatusChanged(int)), this, SLOT(setEncryptionStatus(int)));
+
+        // Balloon pop-up for new transaction
+        connect(walletModel->getTransactionTableModel(), SIGNAL(rowsInserted(QModelIndex,int,int)),
+                this, SLOT(incomingTransaction(QModelIndex,int,int)));
+
+        // Ask for passphrase if needed
+        connect(walletModel, SIGNAL(requireUnlock()), this, SLOT(unlockWallet()));
+    }
 }
 
 void BitbeanGUI::createTrayIcon()
@@ -474,7 +553,7 @@ void BitbeanGUI::createTrayIconMenu()
     trayIconMenu->addAction(openRPCConsoleAction);
     trayIconMenu->addAction(aboutAction);
     trayIconMenu->addSeparator();
-    trayIconMenu->addAction(blockAction);
+    // trayIconMenu->addAction(blockAction);
 #ifndef Q_OS_MAC // This is built-in on Mac
     trayIconMenu->addSeparator();
     trayIconMenu->addAction(quitAction);
@@ -507,52 +586,6 @@ void BitbeanGUI::aboutClicked()
     AboutDialog dlg;
     dlg.setModel(clientModel);
     dlg.exec();
-}
-
-void BitbeanGUI::gotoOverviewPage()
-{
-    overviewAction->setChecked(true);
-	if (walletFrame) walletFrame->gotoOverviewPage();
-}
-
-void BitbeanGUI::gotoHistoryPage()
-{
-    historyAction->setChecked(true);
-	if (walletFrame) walletFrame->gotoHistoryPage();
-}
-
-void BitbeanGUI::gotoAddressBookPage()
-{
-    addressBookAction->setChecked(true);
-	if (walletFrame) walletFrame->gotoAddressBookPage();
-}
-
-void BitbeanGUI::gotoReceiveBeansPage()
-{
-    receiveBeansAction->setChecked(true);
-	if (walletFrame) walletFrame->gotoReceiveBeansPage();
-} 
-
-void BitbeanGUI::gotoSendBeansPage(QString addr)
-{
-    sendBeansAction->setChecked(true);
-    if (walletFrame) walletFrame->gotoSendBeansPage(addr);
-}
-
-void BitbeanGUI::gotoSignMessageTab(QString addr)
-{
-	if (walletFrame) walletFrame->gotoSignMessageTab(addr);
-}
-
-void BitbeanGUI::gotoVerifyMessageTab(QString addr)
-{
-	if (walletFrame) walletFrame->gotoSignMessageTab(addr);
-}
-
-void BitbeanGUI::gotoBlockBrowser()
-{
-    blockAction->setChecked(true);
-    if (walletFrame) walletFrame->gotoBlockBrowser();
 }
 
 void BitbeanGUI::setNumConnections(int count)
@@ -608,15 +641,24 @@ void BitbeanGUI::setNumBlocks(int count, int nTotalBlocks)
         		progressBar->setMaximum(nTotalBlocks);
         		progressBar->setValue(count);
         		progressBar->setVisible(true);
-		  }
+        }
         tooltip = tr("Downloaded %1 of %2 blocks of transaction history (%3% done).").arg(count).arg(nTotalBlocks).arg(nPercentageDone, 0, 'f', 2);
     }
     else
     {
-        progressBarLabel->setVisible(false);
+        if (strStatusBarWarnings.isEmpty())
+            progressBarLabel->setVisible(false);
 
         progressBar->setVisible(false);
         tooltip = tr("Downloaded %1 blocks of transaction history.").arg(count);
+    }
+
+    // Override progressBarLabel text and hide progress bar, when we have warnings to display
+    if (!strStatusBarWarnings.isEmpty())
+    {
+        progressBarLabel->setText(strStatusBarWarnings);
+        progressBarLabel->setVisible(true);
+        progressBar->setVisible(false);
     }
 
     QDateTime lastBlockDate = clientModel->getLastBlockDate();
@@ -646,12 +688,12 @@ void BitbeanGUI::setNumBlocks(int count, int nTotalBlocks)
     }
 
     // Set icon state: spinning if catching up, tick otherwise
-    if(secs < 10*60 && count >= nTotalBlocks)
+    if(secs < 5*60 && count >= nTotalBlocks)
     {
         tooltip = tr("Up to date") + QString(".<br>") + tooltip;
         labelBlocksIcon->setPixmap(QIcon(":/icons/synced").pixmap(STATUSBAR_ICONSIZE, STATUSBAR_ICONSIZE));
 
-        walletFrame->showOutOfSyncWarning(false);
+        overviewPage->showOutOfSyncWarning(false);
     }
     else
     {
@@ -663,7 +705,7 @@ void BitbeanGUI::setNumBlocks(int count, int nTotalBlocks)
         }
         prevBlocks = count;
 
-        walletFrame->showOutOfSyncWarning(true);
+        overviewPage->showOutOfSyncWarning(true);
     }
 
     if(!text.isEmpty())
@@ -776,8 +818,23 @@ void BitbeanGUI::askFee(qint64 nFeeRequired, bool *payFee)
     *payFee = (retval == QMessageBox::Yes);
 }
 
-void BitbeanGUI::incomingTransaction(const QString& date, int unit, qint64 amount, const QString& type, const QString& address)
+void BitbeanGUI::incomingTransaction(const QModelIndex& parent, int start, int /*end*/)
 {
+    // Prevent balloon-spam when initial block download is in progress
+       if(!walletModel || !clientModel || clientModel->inInitialBlockDownload())
+           return;
+
+       TransactionTableModel *ttm = walletModel->getTransactionTableModel();
+
+       QString date = ttm->index(start, TransactionTableModel::Date, parent)
+                        .data().toString();
+       qint64 amount = ttm->index(start, TransactionTableModel::Amount, parent)
+                         .data(Qt::EditRole).toULongLong();
+       QString type = ttm->index(start, TransactionTableModel::Type, parent)
+                        .data().toString();
+       QString address = ttm->index(start, TransactionTableModel::ToAddress, parent)
+                           .data().toString();
+
        // On new transaction, make an info balloon
        message((amount)<0 ? tr("Sent transaction") : tr("Incoming transaction"),
                 tr("Date: %1\n"
@@ -785,9 +842,91 @@ void BitbeanGUI::incomingTransaction(const QString& date, int unit, qint64 amoun
                    "Type: %3\n"
                    "Address: %4\n")
                      .arg(date)
-                     .arg(BitbeanUnits::formatWithUnit(unit, amount, true))
+                     .arg(BitbeanUnits::formatWithUnit(walletModel->getOptionsModel()->getDisplayUnit(), amount, true))
                      .arg(type)
                      .arg(address), CClientUIInterface::MSG_INFORMATION);
+}
+
+void BitbeanGUI::gotoOverviewPage()
+{
+    overviewAction->setChecked(true);
+    centralWidget->setCurrentWidget(overviewPage);
+
+    exportAction->setEnabled(false);
+    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
+}
+
+void BitbeanGUI::gotoBlockBrowser()
+{
+    /*
+    blockAction->setChecked(true);
+    centralWidget->setCurrentWidget(blockBrowser);
+
+    exportAction->setEnabled(false);
+    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
+    */
+    blockBrowser->show();
+    blockBrowser->setFocus();
+}
+
+void BitbeanGUI::gotoHistoryPage()
+{
+    historyAction->setChecked(true);
+    centralWidget->setCurrentWidget(transactionsPage);
+
+    exportAction->setEnabled(true);
+    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
+    connect(exportAction, SIGNAL(triggered()), transactionView, SLOT(exportClicked()));
+}
+
+void BitbeanGUI::gotoAddressBookPage()
+{
+    addressBookAction->setChecked(true);
+    centralWidget->setCurrentWidget(addressBookPage);
+
+    exportAction->setEnabled(true);
+    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
+    connect(exportAction, SIGNAL(triggered()), addressBookPage, SLOT(exportClicked()));
+}
+
+void BitbeanGUI::gotoReceiveBeansPage()
+{
+    receiveBeansAction->setChecked(true);
+    centralWidget->setCurrentWidget(receiveBeansPage);
+
+    exportAction->setEnabled(true);
+    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
+    connect(exportAction, SIGNAL(triggered()), receiveBeansPage, SLOT(exportClicked()));
+}
+
+void BitbeanGUI::gotoSendBeansPage(QString addr)
+{
+    sendBeansAction->setChecked(true);
+    centralWidget->setCurrentWidget(sendBeansPage);
+
+    exportAction->setEnabled(false);
+    disconnect(exportAction, SIGNAL(triggered()), 0, 0);
+
+    if(!addr.isEmpty())
+        sendBeansPage->setAddress(addr);
+}
+
+void BitbeanGUI::gotoSignMessageTab(QString addr)
+{
+    // call show() in showTab_SM()
+    signVerifyMessageDialog->showTab_SM(true);
+
+    if(!addr.isEmpty())
+        signVerifyMessageDialog->setAddress_SM(addr);
+}
+
+void BitbeanGUI::gotoVerifyMessageTab(QString addr)
+{
+    // call show() in showTab_VM()
+    signVerifyMessageDialog->showTab_VM(true);
+
+    if(!addr.isEmpty())
+        signVerifyMessageDialog->setAddress_VM(addr);
 }
 
 void BitbeanGUI::contextMenuEvent(QContextMenuEvent *event)
@@ -827,13 +966,13 @@ void BitbeanGUI::dropEvent(QDropEvent *event)
         QList<QUrl> uris = event->mimeData()->urls();
         foreach(const QUrl &uri, uris)
         {
-            if (walletFrame->handleURI(uri.toString()))
+            if (sendBeansPage->handleURI(uri.toString()))
                 nValidUrisFound++;
         }
 
         // if valid URIs were found
         if (nValidUrisFound)
-            walletFrame->gotoSendBeansPage();
+            gotoSendBeansPage();
         else
             message(tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid Bean Cash address or malformed URI parameters."),
 
@@ -846,7 +985,12 @@ void BitbeanGUI::dropEvent(QDropEvent *event)
 void BitbeanGUI::handleURI(QString strURI)
 {
     // URI has to be valid
-    if (!walletFrame->handleURI(strURI))
+    if (sendBeansPage->handleURI(strURI))
+    {
+        showNormalIfMinimized();
+        gotoSendBeansPage();
+    }
+    else
         message(tr("URI handling"), tr("URI can not be parsed! This can be caused by an invalid Bean Cash address or malformed URI parameters."),
                 CClientUIInterface::ICON_WARNING);
 }
@@ -888,37 +1032,126 @@ void BitbeanGUI::setEncryptionStatus(int status)
 
 void BitbeanGUI::encryptWallet(bool status)
 {
-    walletFrame->encryptWallet(status);
+    if(!walletModel)
+        return;
+    AskPassphraseDialog dlg(status ? AskPassphraseDialog::Encrypt:
+                                     AskPassphraseDialog::Decrypt, this);
+    dlg.setModel(walletModel);
+    dlg.exec();
+
+    setEncryptionStatus(walletModel->getEncryptionStatus());
 }
 
 void BitbeanGUI::backupWallet()
 {
-    walletFrame->backupWallet();
+    QString saveDir = QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation);
+    QString filename = QFileDialog::getSaveFileName(this, tr("Backup Wallet"), saveDir, tr("Wallet Data (*.dat)"));
+    if(!filename.isEmpty()) {
+        if(!walletModel->backupWallet(filename)) {
+            message(tr("Backup Failed"), tr("There was an error trying to save the keypair data to the new location."),
+                    CClientUIInterface::MSG_ERROR);
+        }
+        else
+            message(tr("Backup Successful"), tr("Keypair data was successfully saved to the new location."),
+                    CClientUIInterface::MSG_INFORMATION);
+    }
 }
 
 void BitbeanGUI::dumpWallet()
 {
-    walletFrame->dumpWallet();
+   if(!walletModel)
+      return;
+
+   WalletModel::UnlockContext ctx(walletModel->requestUnlock());
+   if(!ctx.isValid())
+   {
+       // Unlock vault failed or was cancelled
+       return;
+   }
+
+#if QT_VERSION < 0x050000
+    QString saveDir = QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation);
+#else
+    QString saveDir = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+#endif
+    QString filename = QFileDialog::getSaveFileName(this, tr("Export Key Pair"), saveDir, tr("KeyPair(*.txt)"));
+    if(!filename.isEmpty()) {
+        if(!walletModel->dumpWallet(filename)) {
+            message(tr("Export Key Pair Failed"),
+                         tr("An error happened while trying to save the keys to your location.\n"
+                            "Keys were not saved")
+                      ,CClientUIInterface::MSG_ERROR);
+        }
+        else
+          message(tr("Export of Key Pair was Successful"),
+                       tr("Keys were saved to this file:\n%2")
+                       .arg(filename)
+                      ,CClientUIInterface::MSG_INFORMATION);
+    }
 }
 
 void BitbeanGUI::importWallet()
 {
-    walletFrame->importWallet();
+   if(!walletModel)
+      return;
+
+   WalletModel::UnlockContext ctx(walletModel->requestUnlock());
+   if(!ctx.isValid())
+   {
+       // Unlock vault failed or was cancelled
+       return;
+   }
+
+#if QT_VERSION < 0x050000
+    QString openDir = QDesktopServices::storageLocation(QDesktopServices::DocumentsLocation);
+#else
+    QString openDir = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation);
+#endif
+    QString filename = QFileDialog::getOpenFileName(this, tr("Import Key Pair"), openDir, tr("KeyPair(*.txt)"));
+    if(!filename.isEmpty()) {
+        if(!walletModel->importWallet(filename)) {
+            message(tr("Import of Key Pair Failed"),
+                         tr("An error happened while trying to import the keys.\n"
+                            "Some or all keys from:\n %1,\n were not imported into your vault.")
+                         .arg(filename)
+                      ,CClientUIInterface::MSG_ERROR);
+        }
+        else
+          message(tr("Import of Key Pair was Successful"),
+                       tr("All keys from:\n %1,\n were imported into your vault.")
+                       .arg(filename)
+                      ,CClientUIInterface::MSG_INFORMATION);
+    }
 }
 
 void BitbeanGUI::changePassphrase()
 {
-    walletFrame->changePassphrase();
+    AskPassphraseDialog dlg(AskPassphraseDialog::ChangePass, this);
+    dlg.setModel(walletModel);
+    dlg.exec();
 }
 
 void BitbeanGUI::unlockWallet()
 {
-    walletFrame->unlockWallet();
+    if(!walletModel)
+        return;
+    // Unlock wallet when requested by wallet model
+    if(walletModel->getEncryptionStatus() == WalletModel::Locked)
+    {
+        AskPassphraseDialog::Mode mode = sender() == unlockWalletAction ?
+              AskPassphraseDialog::UnlockStaking : AskPassphraseDialog::Unlock;
+        AskPassphraseDialog dlg(mode, this);
+        dlg.setModel(walletModel);
+        dlg.exec();
+    }
 }
 
 void BitbeanGUI::lockWallet()
 {
-    walletFrame->lockWallet();
+    if(!walletModel)
+        return;
+
+    walletModel->setWalletLocked(true);
 }
 
 void BitbeanGUI::showNormalIfMinimized(bool fToggleHidden)
