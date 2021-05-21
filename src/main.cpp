@@ -2215,8 +2215,12 @@ bool ProcessBlock(CNode* pfrom, CBlock* pblock)
     // Limited duplicity: prevents block flood attack
     // Duplicate Sprouts allowed only when there is orphan child block
     if (pblock->IsProofOfStake() && setStakeSeen.count(pblock->GetProofOfStake()) && !mapOrphanBlocksByPrev.count(hash) && !Checkpoints::WantedByPendingSyncCheckpoint(hash))
-        return error("ProcessBlock() : duplicate proof-of-bean (%s, %d) for block %s", pblock->GetProofOfStake().first.ToString(), pblock->GetProofOfStake().second, hash.ToString());
-
+    {
+        error("ProcessBlock() : duplicate proof-of-bean (%s, %d) for block %s", pblock->GetProofOfStake().first.ToString(), pblock->GetProofOfStake().second, hash.ToString());
+        // pblock will not be needed, so it can be deleted
+        delete pblock;
+        return false;
+    }
     // Preliminary checks
     if (!pblock->CheckBlock())
         return error("ProcessBlock() : CheckBlock FAILED");
