@@ -338,7 +338,7 @@
         <string>Serves to disable the trivial sendmoney when OS account compromised. Provides no real security.</string>
        </property>
        <property name="text">
-        <string>For Sprouting Only</string>
+        <string>For Sprouting only</string>
        </property>
       </widget>
      </item>
@@ -352,7 +352,9 @@
        <pointsize>9</pointsize>
       </font>
      </property>
-
+     <property name="layoutDirection">
+      <enum>Qt::RightToLeft</enum>
+     </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
