@@ -375,7 +375,6 @@ SOURCES += src/qt/beancash.cpp \
     src/kernel.cpp \
     src/pbkdf2.cpp \
     src/qt/intro.cpp \
-    src/allocators.cpp \
     src/qt/blockbrowser.cpp \
     src/core.cpp
 
