@@ -90,14 +90,6 @@ extern enum Checkpoints::CPMode CheckpointsMode;
 
 // These functions dispatch to one or all registered wallets
 
-// check whether the passed transaction is from us
-bool static IsFromMe(CTransaction& tx)
-{
-    for (CWallet* pwallet : setpwalletRegistered)
-        if (pwallet->IsFromMe(tx))
-            return true;
-    return false;
-}
 
 // dump all wallets
 void static PrintWallets(const CBlock& block)

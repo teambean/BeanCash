@@ -1692,7 +1692,7 @@ Value lockunspent(const Array& params, bool fHelp)
         RPCTypeCheck(o, map_list_of("txid", str_type)("vout", int_type));
         
         string txid = find_value(o, "txid").get_str();
-        if (!IsHex)
+        if (!IsHex(txid))
             throw JSONRPCError(-8, "Invalid parameter, expected hex txid");
 
         int nOutput = find_value(o, "vout").get_int();
