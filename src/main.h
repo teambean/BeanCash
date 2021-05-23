@@ -45,7 +45,7 @@ static const int64_t MAX_MONEY = 5000000000 * bean;
 static const int64_t bean_YEAR_REWARD = 5 * CENT; // 5% per year
 
 /** Hard Fork Times */
-static const unsigned int VERSION_1310_FORKTIME = 1623519662; // Sunday, June 13th., 2021 @ 9:27:42PM GMT
+static const unsigned int VERSION_1310_FORKTIME = 1626211662; // Tuesday, July 13th., 2021 @ 9:27:42PM GMT
 
 inline bool MoneyRange(int64_t nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 // Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp.
