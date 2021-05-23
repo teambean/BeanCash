@@ -53,7 +53,13 @@ Bean Cash Specifications
 
 **Minimum Time for Beans To Be Elgible to Sprout**: 6 hours
 
-**Maximum Supply (reached in or around 2023)**: 5 Billion BITB
+**Maximum Supply for BITB (reached in or around 2023)**: 5 Billion BITB
+
+**Maximum Supply for BEAN**: 21 Million BEAN
+
+In 2023 Sprouting for BITB will be merged into BEAN, with a new Consensus Algorithm (Announced via Project Aurora Whitepaper).
+
+**On July 13th., 2021 Bean Cash will have its first planned hardfork. Nodes will need to upgrade to v1.3.1 before this date!**
 
 
 Bean Cash Monetary Units

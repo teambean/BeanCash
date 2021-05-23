@@ -1,6 +1,6 @@
 TEMPLATE = app
 TARGET = Beancash-qt
-VERSION = 1.3
+VERSION = 1.3.1
 RC_ICONS = /src/qt/res/icons/beancash.ico
 QT += core gui network
 INCLUDEPATH += src src/json src/qt
