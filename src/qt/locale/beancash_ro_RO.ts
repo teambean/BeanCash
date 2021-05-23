@@ -18,28 +18,28 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+13"/>
+        <source>Copyright Auto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Bean Cash Core&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+93"/>
         <source>Close Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+6"/>
-        <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <source>E&amp;xit</source>
+        <translation type="unfinished">&amp;Ieșire</translation>
     </message>
     <message>
-        <location line="+62"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;This is experimental software. Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://www.opensource.org/licenses/mit-license.php&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.opensource.org/licenses/mit-license.php&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;/span&gt;&lt;a href=&quot;https://www.openssl.org/&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.openssl.org/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;) and cryptographic software written by Eric Young (&lt;/span&gt;&lt;a href=&quot;mailto:eay@cryptsoft.com&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;eay@cryptsoft.com&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+29"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Bean Cash&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+45"/>
-        <source>Copyright 2019 Bean Core</source>
+        <location line="+36"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://www.beancash.org &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.beancash.org (Official Site) &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://www.beancash.org &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.beancash.is (future alternate)&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://www.beancash.org &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://live.beancash.org (Community Communication) &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://www.beancash.org &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;#beancash on Freenode IRC (alt backup communications in emergencies)&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://www.opensource.org/licenses/mit-license.php&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.opensource.org/licenses/mit-license.php&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;/span&gt;&lt;a href=&quot;https://www.openssl.org/&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.openssl.org/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;) and cryptographic software written by Eric Young (&lt;/span&gt;&lt;a href=&quot;mailto:eay@cryptsoft.com&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;eay@cryptsoft.com&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Developed by Shawn Kent, Lead Developer &amp;amp; Project Manager - Bean Core &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -71,34 +71,39 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
     </message>
     <message>
         <location line="+0"/>
-        <source>2015-%1 Bean Core www.beancash.org</source>
+        <source>2015-%1 www.beancash.org</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AddressBookPage</name>
     <message>
-        <location filename="../forms/addressbookpage.ui" line="+186"/>
+        <location filename="../forms/addressbookpage.ui" line="+213"/>
         <source>Address Book</source>
         <translation>Agendă</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location filename="../addressbookpage.cpp" line="+61"/>
         <source>These are your Bean Cash addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location filename="../forms/addressbookpage.ui" line="+23"/>
         <source>Double-click to edit address or label</source>
         <translation>Dublu-click pentru a edita adresa sau eticheta</translation>
     </message>
     <message>
-        <location line="+33"/>
+        <location line="+40"/>
         <source>Create a new address</source>
         <translation>Creează o adresă nouă</translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+23"/>
+        <source>&amp;Delete Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
         <source>Copy the currently selected address to the system clipboard</source>
         <translation>Copiază adresa selectată în clipboard</translation>
     </message>
@@ -108,7 +113,22 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-54"/>
+        <location line="+3"/>
+        <source>&amp;Sign Message</source>
+        <translation type="unfinished">Semneaza Mesajul</translation>
+    </message>
+    <message>
+        <location line="+33"/>
+        <source>Export the data in the current tab to a file</source>
+        <translation type="unfinished">Exportă datele din tab-ul curent într-un fișier</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>&amp;Export</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-113"/>
         <source>&amp;New Address</source>
         <translation>Adresă nouă</translation>
     </message>
@@ -117,7 +137,7 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
         <translation type="obsolete">Acestea sunt adresele Beancash pentru a primi plăți. Poate doriți sa dați o adresa noua fiecarui expeditor pentru a putea ține evidența la cine efectuează plăti.</translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+40"/>
         <source>&amp;Copy Address</source>
         <translation>&amp;Copiază adresa</translation>
     </message>
@@ -131,17 +151,16 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
         <translation type="obsolete">Semnează un mesaj pentru a dovedi că dețineti o adresă Beancash</translation>
     </message>
     <message>
-        <location line="+20"/>
         <source>Sign &amp;Message</source>
-        <translation>Semnează &amp;Mesajul</translation>
+        <translation type="obsolete">Semnează &amp;Mesajul</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+39"/>
         <source>Verify a message to ensure it was signed with a specified Bean Cash address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="-79"/>
         <source>Delete the currently selected address from the list</source>
         <translation>Sterge adresele curent selectate din lista</translation>
     </message>
@@ -150,27 +169,40 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
         <translation type="obsolete">Verifică un mesaj pentru a vă asigura că a fost semnat cu o anumită adresă Beancash</translation>
     </message>
     <message>
-        <location line="-17"/>
+        <location line="+82"/>
         <source>&amp;Verify Message</source>
         <translation>&amp;Verifică mesajul</translation>
     </message>
     <message>
-        <location line="+20"/>
         <source>&amp;Delete</source>
-        <translation>Ște&amp;rge</translation>
+        <translation type="obsolete">Ște&amp;rge</translation>
     </message>
     <message>
-        <location filename="../addressbookpage.cpp" line="+67"/>
+        <location filename="../addressbookpage.cpp" line="+8"/>
         <source>Copy &amp;Label</source>
         <translation>Copiază &amp;eticheta</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>&amp;Edit</source>
-        <translation>&amp;Editează</translation>
+        <translation type="obsolete">&amp;Editează</translation>
     </message>
     <message>
-        <location line="+248"/>
+        <location line="-13"/>
+        <source>These are your Bean Cash addresses for sending payments. Always check the amount and the receiving address before sending beans.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>&amp;Edit Label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Send &amp;Beans</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+267"/>
         <source>Export Address Book Data</source>
         <translation>Exportă datele din Agendă</translation>
     </message>
@@ -211,7 +243,7 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
 <context>
     <name>AskPassphraseDialog</name>
     <message>
-        <location filename="../forms/askpassphrasedialog.ui" line="+204"/>
+        <location filename="../forms/askpassphrasedialog.ui" line="+231"/>
         <source>Passphrase Dialog</source>
         <translation>Dialogul pentru fraza de acces</translation>
     </message>
@@ -298,11 +330,16 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
         <translation>Confirmă criptarea portofelului</translation>
     </message>
     <message>
+        <location line="+12"/>
+        <source>Bean Cash will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your beans from being stolen by malware infecting your computer.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR COINS&lt;/b&gt;!</source>
         <translation type="obsolete">Atentie: Daca encriptezi portofelul si iti uiti parola, &lt;b&gt;VEI PIERDE TOATA MONEDELE&lt;/b&gt;!</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-11"/>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Sunteţi sigur că doriţi să criptaţi portofelul electronic?</translation>
     </message>
@@ -312,12 +349,7 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+11"/>
-        <source>Beancash will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your beans from being stolen by malware infecting your computer.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
+        <location line="+15"/>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
         <translation>IMPORTANT: Orice copie de siguranta facuta in prealabil portofelului dumneavoastra ar trebui inlocuita cu cea generata cel mai recent fisier criptat al portofelului. Pentru siguranta, copiile de siguranta vechi ale portofelului ne-criptat vor deveni inutile de indata ce veti incepe folosirea noului fisier criptat al portofelului.</translation>
     </message>
@@ -382,7 +414,7 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
 <context>
     <name>BeanControlDialog</name>
     <message>
-        <location filename="../forms/beancontroldialog.ui" line="+159"/>
+        <location filename="../forms/beancontroldialog.ui" line="+186"/>
         <source>Bean Control</source>
         <translation type="unfinished"></translation>
     </message>
@@ -442,6 +474,11 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
         <translation type="unfinished">Modul lista</translation>
     </message>
     <message>
+        <location line="+7"/>
+        <source>(1 locked)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location line="+51"/>
         <source>Amount</source>
         <translation type="unfinished"></translation>
@@ -498,7 +535,17 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
         <translation type="unfinished">Copiază ID tranzacție</translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+1"/>
+        <source>Lock unspent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Unlock unspent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+22"/>
         <source>Copy quantity</source>
         <translation type="unfinished">Copiaţi quantitea</translation>
     </message>
@@ -568,7 +615,12 @@ Acest produs include programe dezvoltate de către OpenSSL Project pentru a fi f
         <translation type="unfinished">cel mai scazut</translation>
     </message>
     <message>
-        <location line="+155"/>
+        <location line="+11"/>
+        <source>(%1 locked)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+144"/>
         <source>DUST</source>
         <translation type="unfinished">DUST</translation>
     </message>
@@ -650,16 +702,15 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
 <context>
     <name>BitbeanGUI</name>
     <message>
-        <location filename="../beancash.cpp" line="+102"/>
         <source>A fatal error occurred. Beancash can no longer continue safely and will quit.</source>
-        <translation type="unfinished">A apărut o eroare fatală. Beancash nu mai poate continua în condiții de siguranță și va iesi.</translation>
+        <translation type="obsolete">A apărut o eroare fatală. Beancash nu mai poate continua în condiții de siguranță și va iesi.</translation>
     </message>
     <message>
         <source>Beancash</source>
         <translation type="obsolete">Beancash</translation>
     </message>
     <message>
-        <location filename="../bitbeangui.cpp" line="+221"/>
+        <location filename="../bitbeangui.cpp" line="+248"/>
         <source>&amp;Overview</source>
         <translation type="unfinished">&amp;Imagine de ansamblu</translation>
     </message>
@@ -703,7 +754,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished">Editează lista de adrese si etichete stocate</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+31"/>
         <source>E&amp;xit</source>
         <translation type="unfinished">&amp;Ieșire</translation>
     </message>
@@ -721,12 +772,13 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="obsolete">Arată informații despre Beancash</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+7"/>
+        <location line="+2"/>
         <source>About &amp;Qt</source>
         <translation type="unfinished">Despre &amp;Qt</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Show information about Qt</source>
         <translation type="unfinished">Arată informații despre Qt</translation>
     </message>
@@ -761,7 +813,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="obsolete">Creează o copie de rezervă a portofelului într-o locație diferită</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+10"/>
         <source>&amp;Change Passphrase...</source>
         <translation type="unfinished">S&amp;chimbă parola...</translation>
     </message>
@@ -817,17 +869,17 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished">Deschide consola de debug și diagnosticare</translation>
     </message>
     <message>
-        <location line="+30"/>
+        <location line="+35"/>
         <source>&amp;File</source>
         <translation type="unfinished">&amp;Fișier</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+11"/>
         <source>&amp;Settings</source>
         <translation type="unfinished">&amp;Setări</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+12"/>
         <source>&amp;Help</source>
         <translation type="unfinished">A&amp;jutor</translation>
     </message>
@@ -837,7 +889,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished">Bara de file</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+11"/>
         <source>Actions toolbar</source>
         <translation type="unfinished">Bara de instrumente Actiuni</translation>
     </message>
@@ -848,10 +900,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished">[testnet]</translation>
     </message>
     <message>
-        <location line="+0"/>
-        <location line="+60"/>
         <source>Beancash client</source>
-        <translation type="unfinished">Clientul Beancash</translation>
+        <translation type="obsolete">Clientul Beancash</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to Beancash network</source>
@@ -862,17 +912,13 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         </translation>
     </message>
     <message>
-        <location line="-357"/>
+        <location line="-340"/>
+        <location line="+624"/>
         <source>Bean Cash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+0"/>
-        <source>Core v1.1.2.2RC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+140"/>
+        <location line="-478"/>
         <source>Overview of general information</source>
         <translation type="unfinished"></translation>
     </message>
@@ -882,7 +928,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+38"/>
+        <location line="+53"/>
         <source>&amp;About Bean Cash</source>
         <translation type="unfinished"></translation>
     </message>
@@ -892,7 +938,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+10"/>
         <source>Modify configuration options for Bean Cash</source>
         <translation type="unfinished"></translation>
     </message>
@@ -907,17 +953,12 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+2"/>
-        <source>&amp;Backup Keys...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="+3"/>
         <source>Backup keys to another location</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+6"/>
         <source>Change the passphrase used for encrypting keys</source>
         <translation type="unfinished"></translation>
     </message>
@@ -937,7 +978,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location line="+225"/>
+        <location line="+261"/>
         <source>%n active connection(s) to the Bean Cash network</source>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -946,12 +987,67 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         </translation>
     </message>
     <message>
-        <location line="+24"/>
         <source>Synchronizing with network...</source>
-        <translation type="unfinished">Se sincronizează cu rețeaua...</translation>
+        <translation type="obsolete">Se sincronizează cu rețeaua...</translation>
+    </message>
+    <message>
+        <location line="-500"/>
+        <source>Core v1.3.1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+193"/>
+        <location line="+49"/>
+        <source>&amp;Block Explorer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-48"/>
+        <source>Explore the Bean Cash Blockchain and Transactions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+28"/>
+        <source>&amp;Backup Keys ...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>&amp;Export Keys...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Export Key Pairs to a text file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>&amp;Import Keys...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Import a text file containing a Key Pair</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Explore the Bean Cash BlockChain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+97"/>
+        <source>Bean Cash client</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+62"/>
+        <source>Bean Cash Core</source>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location line="+2"/>
+        <location line="+135"/>
         <source>~%n block(s) remaining</source>
         <translation type="unfinished">
             <numerusform>~%n bloc rămas</numerusform>
@@ -960,7 +1056,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         </translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+5"/>
         <source>Downloaded %1 of %2 blocks of transaction history (%3% done).</source>
         <translation type="unfinished">Descărcat %1 din %2  blocuri din istoricul tranzacțiilor(%3% terminat).</translation>
     </message>
@@ -1016,13 +1112,112 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished">Se actualizează...</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+14"/>
         <source>Last received block was generated %1.</source>
         <translation type="unfinished">Ultimul bloc primit a fost generat %1.</translation>
     </message>
     <message>
-        <location line="+59"/>
-        <source>In order to process your transaction(s) on the Bean Cash Network, a fee of %1 is required. This fee is paid to the node that processes your transaction. Select &lt;OK&gt; to continue and send your transaction(s). </source>
+        <location line="+21"/>
+        <source>Error</source>
+        <translation type="unfinished">Eroare</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Warning</source>
+        <translation type="unfinished">Avertizare</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+71"/>
+        <source>In order to process your transaction(s) on the Bean Cash Network, a fee of %1 is required. This fee is paid to the node that processes your transaction. Select &lt;YES&gt; to continue and send your transaction(s).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+165"/>
+        <location line="+17"/>
+        <source>URI can not be parsed! This can be caused by an invalid Bean Cash address or malformed URI parameters.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+57"/>
+        <source>There was an error trying to save the keypair data to the new location.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Backup Successful</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Keypair data was successfully saved to the new location.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+22"/>
+        <source>Export Key Pair</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <location line="+33"/>
+        <source>KeyPair(*.txt)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-30"/>
+        <source>Export Key Pair Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>An error happened while trying to save the keys to your location.
+Keys were not saved</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Export of Key Pair was Successful</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Keys were saved to this file:
+%2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Import Key Pair</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Import of Key Pair Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>An error happened while trying to import the keys.
+Some or all keys from:
+ %1,
+ were not imported into your vault.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Import of Key Pair was Successful</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>All keys from:
+ %1,
+ were imported into your vault.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1030,17 +1225,17 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="obsolete">Această tranzactie este peste limita admisa. Puteți sa trimiteți pentru o taxa de 1%, care este pentru nodurile care proceseaza tranzactia si ajuta la sprijinirea retelei. Vrei să plătești taxa?</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="-305"/>
         <source>Confirm transaction fee</source>
         <translation type="unfinished">Confirmă comisinoul tranzacției</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+23"/>
         <source>Sent transaction</source>
         <translation type="unfinished">Tranzacție expediată</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+0"/>
         <source>Incoming transaction</source>
         <translation type="unfinished">Tranzacție recepționată</translation>
     </message>
@@ -1058,19 +1253,17 @@ Adresa: %4
 </translation>
     </message>
     <message>
-        <location line="+121"/>
-        <location line="+15"/>
+        <location line="+137"/>
+        <location line="+17"/>
         <source>URI handling</source>
         <translation type="unfinished">Manipulare URI</translation>
     </message>
     <message>
-        <location line="-15"/>
-        <location line="+15"/>
         <source>URI can not be parsed! This can be caused by an invalid Beancash address or malformed URI parameters.</source>
-        <translation type="unfinished">URI nu poate fi parsatt! Cauza poate fi o adresa Beancash invalidă sau parametrii URI malformați.</translation>
+        <translation type="obsolete">URI nu poate fi parsatt! Cauza poate fi o adresa Beancash invalidă sau parametrii URI malformați.</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+19"/>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
         <translation type="unfinished">Portofelul este &lt;b&gt;criptat&lt;/b&gt; iar în momentul de față este &lt;b&gt;deblocat&lt;/b&gt;</translation>
     </message>
@@ -1095,12 +1288,11 @@ Adresa: %4
         <translation type="unfinished">Copia de rezerva a esuat</translation>
     </message>
     <message>
-        <location line="+0"/>
         <source>There was an error trying to save the wallet data to the new location.</source>
-        <translation type="unfinished">Eroare la încercarea de a salva datele portofelului în noua locaţie.</translation>
+        <translation type="obsolete">Eroare la încercarea de a salva datele portofelului în noua locaţie.</translation>
     </message>
     <message numerus="yes">
-        <location line="+94"/>
+        <location line="+171"/>
         <source>%n second(s)</source>
         <translation type="unfinished">
             <numerusform>%n secundă</numerusform>
@@ -1184,6 +1376,11 @@ Adresa: %4
     <message>
         <source>Not staking</source>
         <translation type="obsolete">Not staking</translation>
+    </message>
+    <message>
+        <location filename="../beancash.cpp" line="+110"/>
+        <source>A fatal error occurred. Bean Cash Core can no longer continue safely and will quit.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1558,9 +1755,126 @@ Adresa: %4
     </message>
 </context>
 <context>
+    <name>BlockBrowser</name>
+    <message>
+        <location filename="../forms/blockbrowser.ui" line="+99"/>
+        <source>Bean Cash Block Explorer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+44"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20px; font-weight:600; color:#121117;&quot;&gt;Bean Cash Block Explorer&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>Decode Transaction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Inputs:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>0000 KH/s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Value out:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Transaction ID:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>0.00</source>
+        <translation type="unfinished">0.00</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>000</source>
+        <translation type="unfinished">000</translation>
+    </message>
+    <message>
+        <location line="+27"/>
+        <source>Block Difficulty:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Block Height:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <location line="+51"/>
+        <location line="+27"/>
+        <location line="+53"/>
+        <source>0</source>
+        <translation type="unfinished">0</translation>
+    </message>
+    <message>
+        <location line="-124"/>
+        <source>Jump to Block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Block Merkle:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Block Hash:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Block Hashrate:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Fees:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Block nBits:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <location line="+72"/>
+        <source>0x0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-62"/>
+        <source>Outputs:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Block nNonce:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Block Timestamp:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ClientModel</name>
     <message>
-        <location filename="../clientmodel.cpp" line="+90"/>
+        <location filename="../clientmodel.cpp" line="+109"/>
         <source>Network Alert</source>
         <translation>Alertă rețea</translation>
     </message>
@@ -1787,7 +2101,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
 <context>
     <name>EditAddressDialog</name>
     <message>
-        <location filename="../forms/editaddressdialog.ui" line="+192"/>
+        <location filename="../forms/editaddressdialog.ui" line="+219"/>
         <source>Edit Address</source>
         <translation>Editează adresa</translation>
     </message>
@@ -1832,17 +2146,21 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Editează adresa de trimitere</translation>
     </message>
     <message>
-        <location line="+76"/>
+        <location line="+71"/>
+        <source>The entered address &quot;%1&quot; is not a valid Bean Cash address.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
         <source>The entered address &quot;%1&quot; is already in the address book.</source>
         <translation>Adresa introdusă &quot;%1&quot; se află deja în lista de adrese.</translation>
     </message>
     <message>
-        <location line="-5"/>
         <source>The entered address &quot;%1&quot; is not a valid Beancash address.</source>
-        <translation>Adresa introdusă &quot;%1&quot; nu este o adresă Beancash validă</translation>
+        <translation type="obsolete">Adresa introdusă &quot;%1&quot; nu este o adresă Beancash validă</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+5"/>
         <source>Could not unlock wallet.</source>
         <translation>Portofelul nu a putut fi deblocat.</translation>
     </message>
@@ -1853,15 +2171,43 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
 </context>
 <context>
+    <name>FreespaceChecker</name>
+    <message>
+        <location filename="../intro.cpp" line="+60"/>
+        <source>A new data directory will be created.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Directory already exists. Add %1 if you intend to create a new directory here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Path already exists, and is not a directory.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Cannot create data directory here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>GUIUtil::HelpMessageBox</name>
     <message>
-        <location filename="../guiutil.cpp" line="+433"/>
-        <location line="+12"/>
+        <location filename="../guiutil.cpp" line="+485"/>
+        <location line="+13"/>
         <source>Beancash-qt</source>
         <translation>Beancash-qt</translation>
     </message>
     <message>
-        <location line="-12"/>
+        <location line="-13"/>
         <source>version</source>
         <translation>versiune</translation>
     </message>
@@ -1895,11 +2241,74 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <source>Show splash screen on startup (default: 1)</source>
         <translation>Afișează ecran splash la pornire (implicit: 1)</translation>
     </message>
+    <message>
+        <location line="+1"/>
+        <source>Choose data directory on startup (default: 0)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Intro</name>
+    <message>
+        <location filename="../forms/intro.ui" line="+348"/>
+        <source>Welcome</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>Welcome to Bean Digital Cash!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+48"/>
+        <source>As this is the first time the program is launched, you can choose where Bean Cash Core will store its data.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>Bean Cash Core will download and store a copy of the Bean Cash block chain. At least %5GB of data will be stored in this directory, and it will grow over time. The wallet (Your keypairs and associated data)  will also be stored in this directory.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>Use the default data directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>Use a custom data directory:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../intro.cpp" line="+80"/>
+        <source>Bitcoin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error: Specified data directory &quot;%1&quot; can not be created.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>Error</source>
+        <translation type="unfinished">Eroare</translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>GB of free space available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>(of %1GB needed)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>OptionsDialog</name>
     <message>
-        <location filename="../forms/optionsdialog.ui" line="+220"/>
+        <location filename="../forms/optionsdialog.ui" line="+274"/>
         <source>Options</source>
         <translation>Setări</translation>
     </message>
@@ -1940,17 +2349,15 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="obsolete">$Pornește Beancash la logarea în sistem</translation>
     </message>
     <message>
-        <location line="+41"/>
         <source>Detach block and address databases at shutdown. This means they can be moved to another data directory, but it slows down shutdown. The wallet is always detached.</source>
-        <translation>Detașați bloc și baze de date de adrese la închidere. Acest lucru înseamnă că pot fi mutate într-u  alt director de date, dar incetineste închiderea. Portofelul este întotdeauna detașat.</translation>
+        <translation type="obsolete">Detașați bloc și baze de date de adrese la închidere. Acest lucru înseamnă că pot fi mutate într-u  alt director de date, dar incetineste închiderea. Portofelul este întotdeauna detașat.</translation>
     </message>
     <message>
-        <location line="+3"/>
         <source>&amp;Detach databases at shutdown</source>
-        <translation>&amp;Detasaza baza de date la inchidere</translation>
+        <translation type="obsolete">&amp;Detasaza baza de date la inchidere</translation>
     </message>
     <message>
-        <location line="+21"/>
+        <location line="+55"/>
         <source>&amp;Network</source>
         <translation>&amp;Retea</translation>
     </message>
@@ -1967,8 +2374,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="obsolete">Conecteaza la reteaua Beancash prinr-un proxy SOCKS(ex. cand te conectezi prin Tor)</translation>
     </message>
     <message>
-        <location line="-126"/>
-        <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are less than 1 kB. A fee of 5 BEAN is recommended. Fees help support the Bean Cash network.</source>
+        <location line="-116"/>
+        <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are less than 1 kB. A fee of 1 BITB is recommended. Fees help support the Bean Cash network.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1982,7 +2389,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+37"/>
+        <location line="+27"/>
         <source>Connect to the Bean Cash network through a SOCKS proxy (e.g. when connecting through Tor).</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2072,23 +2479,48 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting Beancash.</source>
-        <translation type="obsolete">Limba interfeței utilizator poate fi setat aici. Această setare va avea efect după repornirea Beancash.</translation>
+        <location line="+3"/>
+        <source>&amp;Display Addresses With Transactions</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-22"/>
-        <source>&amp;Unit to show amounts in:</source>
-        <translation>&amp;Unitatea de măsură pentru afişarea sumelor:</translation>
-    </message>
-    <message>
-        <location line="+32"/>
-        <source>Whether to show bean control features or not.</source>
+        <location line="+7"/>
+        <source>Allow individual selection of bean inputs when sending.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Display bean &amp;control features (experts only!)</source>
+        <source>Enable Bean &amp;Control</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When spending Beans, the default is to pick random inputs. This option uses inputs with minimal Bean age when spending, to maximize Bean weight for Sprouting. Use this option to minimize Bean weight consumption.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Select Inputs With Minimal Bean Age for Spending Beans</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+102"/>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+39"/>
+        <source>E&amp;xit</source>
+        <translation type="unfinished">&amp;Ieșire</translation>
+    </message>
+    <message>
+        <source>The user interface language can be set here. This setting will take effect after restarting Beancash.</source>
+        <translation type="obsolete">Limba interfeței utilizator poate fi setat aici. Această setare va avea efect după repornirea Beancash.</translation>
+    </message>
+    <message>
+        <location line="-186"/>
+        <source>&amp;Unit to show amounts in:</source>
+        <translation>&amp;Unitatea de măsură pentru afişarea sumelor:</translation>
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
@@ -2099,9 +2531,8 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="obsolete">Dacă să arate adrese Beancash din lista de tranzacție sau nu.</translation>
     </message>
     <message>
-        <location line="-10"/>
         <source>&amp;Display addresses in transaction list</source>
-        <translation>&amp;Afişează adresele în lista de tranzacţii</translation>
+        <translation type="obsolete">&amp;Afişează adresele în lista de tranzacţii</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -2112,17 +2543,15 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="obsolete">Afiseaza &amp;caracteristiclei de control ale monedei(numai experti!)</translation>
     </message>
     <message>
-        <location line="+125"/>
         <source>&amp;OK</source>
-        <translation>&amp; OK</translation>
+        <translation type="obsolete">&amp; OK</translation>
     </message>
     <message>
-        <location line="+18"/>
         <source>&amp;Cancel</source>
-        <translation>&amp; Renunta</translation>
+        <translation type="obsolete">&amp; Renunta</translation>
     </message>
     <message>
-        <location line="+21"/>
+        <location line="+165"/>
         <source>&amp;Apply</source>
         <translation>&amp;Aplica</translation>
     </message>
@@ -2140,8 +2569,12 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     <message>
         <location line="-9"/>
         <location line="+9"/>
+        <source>This setting will take effect after restarting Bean Cash.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>This setting will take effect after restarting Beancash.</source>
-        <translation>Aceasta setare va avea efect dupa repornirea Beancash.</translation>
+        <translation type="obsolete">Aceasta setare va avea efect dupa repornirea Beancash.</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -2152,7 +2585,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
 <context>
     <name>OverviewPage</name>
     <message>
-        <location filename="../forms/overviewpage.ui" line="+246"/>
+        <location filename="../forms/overviewpage.ui" line="+273"/>
         <source>Form</source>
         <translation>Form</translation>
     </message>
@@ -2193,68 +2626,87 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+74"/>
-        <source>Immature:</source>
-        <translation>Nematurizat:</translation>
-    </message>
-    <message>
-        <location line="-93"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your current spendable balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-67"/>
-        <location line="+454"/>
-        <source>The displayed information may be out of date. Your node automatically synchronizes with the Bean Cash network after a connection is established, but this process has not completed yet.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-350"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Newly Sprouted Beans that are still maturing, not yet counted towards the current total balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <location line="+18"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;New Beans that are still maturing, not yet counted towards the total balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+37"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Beans that are still unconfirmed, which are not counted towards the total balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Beans that are not yet confirmed, are excluded from the total balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+78"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The current, total amount of Beans contained in your Bean Vault.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <location line="+19"/>
+        <source>Immature:</source>
+        <translation>Nematurizat:</translation>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;New SPROUTs (Beans) that havn&apos;t matured yet.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+44"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The total amount of Beans in all addresses in this Bean Vault.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+26"/>
-        <source>Bean Cash Network</source>
+        <source>   Network Overview</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+13"/>
-        <source>Bean Stalk Height:</source>
+        <source>Block Height</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+12"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Currently reported Block height of the Bean Cash Network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Currently synced block height of this node on the Bean Cash Network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+29"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Current difficulty level to find a new block and Sprout new Beans.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+17"/>
+        <source>BitB Network Weight:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+41"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Number of direct connections with other nodes on the Bean Cash network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Current BitB Supply:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Total supply of Beans that exist (monetary supply measured in BITB).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-319"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your current spendable balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-54"/>
+        <source>The displayed information may be out of date. Your node automatically synchronizes with the Bean Cash network after a connection is established, but this process has not completed yet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+274"/>
         <source>Sprouting Difficulty:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+12"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Current Difficulty level to find a new block and Sprout new Beans.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+17"/>
-        <source>Bean Weight:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+12"/>
+        <location line="+41"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Cumulative weight of all Beans actively competing to Sprout on the Network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2264,22 +2716,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+12"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Number of direct connections with Bean Core nodes on the Bean Cash network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+17"/>
-        <source>Total Beans:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+12"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Total supply of Beans that exist (monetary supply).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-113"/>
+        <location line="-72"/>
         <location line="+29"/>
         <location line="+29"/>
         <location line="+29"/>
@@ -2288,12 +2725,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished">0</translation>
     </message>
     <message>
-        <location line="-214"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Newly sprouted Beans that havn&apos;t matured yet.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+262"/>
+        <location line="+48"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;New Transactions&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2323,24 +2755,40 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="obsolete">Totalul de monede care au fost in stake si nu sunt numarate in balanta curenta</translation>
     </message>
     <message>
-        <location filename="../overviewpage.cpp" line="+136"/>
-        <location line="+1"/>
         <source>out of sync</source>
-        <translation>Nu este sincronizat</translation>
+        <translation type="obsolete">Nu este sincronizat</translation>
+    </message>
+    <message>
+        <location filename="../overviewpage.cpp" line="+136"/>
+        <source>Synchronizing with network...</source>
+        <translation type="unfinished">Se sincronizează cu rețeaua...</translation>
     </message>
 </context>
 <context>
     <name>PaymentServer</name>
     <message>
-        <location filename="../paymentserver.cpp" line="+107"/>
+        <location filename="../paymentserver.cpp" line="+110"/>
         <source>Cannot start beancash: click-to-pay handler</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <location filename="../beancash.cpp" line="+108"/>
+        <source>Bean Cash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QRCodeDialog</name>
     <message>
-        <location filename="../forms/qrcodedialog.ui" line="+192"/>
+        <location filename="../forms/qrcodedialog.ui" line="+219"/>
         <source>QR Code Dialog</source>
         <translation>Dialog cod QR</translation>
     </message>
@@ -2355,7 +2803,12 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Cantitate:</translation>
     </message>
     <message>
-        <location line="-44"/>
+        <location line="+61"/>
+        <source>E&amp;xit</source>
+        <translation type="unfinished">&amp;Ieșire</translation>
+    </message>
+    <message>
+        <location line="-105"/>
         <source>Label:</source>
         <translation>Etichetă</translation>
     </message>
@@ -2365,12 +2818,12 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Mesaj:</translation>
     </message>
     <message>
-        <location line="+82"/>
+        <location line="+69"/>
         <source>&amp;Save As...</source>
         <translation>&amp;Salvează ca...</translation>
     </message>
     <message>
-        <location filename="../qrcodedialog.cpp" line="+62"/>
+        <location filename="../qrcodedialog.cpp" line="+65"/>
         <source>Error encoding URI into QR Code.</source>
         <translation>Eroare la codarea URl-ului în cod QR.</translation>
     </message>
@@ -2398,7 +2851,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
 <context>
     <name>RPCConsole</name>
     <message>
-        <location filename="../forms/rpcconsole.ui" line="+252"/>
+        <location filename="../forms/rpcconsole.ui" line="+279"/>
         <source>Client name</source>
         <translation>Nume client</translation>
     </message>
@@ -2413,7 +2866,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <location line="+23"/>
         <location line="+23"/>
         <location line="+165"/>
-        <location filename="../rpcconsole.cpp" line="+352"/>
+        <location filename="../rpcconsole.cpp" line="+396"/>
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
@@ -2521,11 +2974,16 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location line="+410"/>
+        <source>E&amp;xit</source>
+        <translation type="unfinished">&amp;Ieșire</translation>
+    </message>
+    <message>
         <source>Show the Beancash-qt help message to get a list with possible Beancash command-line options.</source>
         <translation type="obsolete">Afișa mesajul de ajutor Beancash-qt pentru a obține o listă cu posibile opțiuni de linie de comandă Beancash.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="-407"/>
         <source>&amp;Show</source>
         <translation>&amp;Arată</translation>
     </message>
@@ -2540,17 +2998,38 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>&amp;Consolă</translation>
     </message>
     <message>
-        <location line="+99"/>
+        <location line="+76"/>
+        <source>&amp;Bean Network Traffic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+52"/>
+        <source>&amp;Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Totals</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+64"/>
+        <location filename="../rpcconsole.cpp" line="-11"/>
+        <source>In:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+80"/>
+        <source>Out:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+68"/>
         <source>Close window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+3"/>
-        <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-446"/>
+        <location line="-697"/>
         <source>Build date</source>
         <translation>Construit la data</translation>
     </message>
@@ -2572,14 +3051,18 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="obsolete">Deschideti fisierul de depanare Beancash din folderul curent. Acest lucru poate dura cateva secunde pentru fisiere de log mari.</translation>
     </message>
     <message>
-        <location line="+193"/>
+        <location line="+197"/>
         <source>Clear console</source>
         <translation>Curăță consola</translation>
     </message>
     <message>
-        <location filename="../rpcconsole.cpp" line="-33"/>
         <source>Welcome to the Beancash RPC console.</source>
-        <translation>Bine ati venit la consola Beancash RPC.</translation>
+        <translation type="obsolete">Bine ati venit la consola Beancash RPC.</translation>
+    </message>
+    <message>
+        <location filename="../rpcconsole.cpp" line="-26"/>
+        <source>Welcome to the Bean Cash RPC console.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2591,12 +3074,52 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
         <translation>Scrie &lt;b&gt;help&lt;/b&gt; pentru a vedea comenzile disponibile</translation>
     </message>
+    <message>
+        <location line="+26"/>
+        <source>Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+120"/>
+        <source>%1 B</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 KB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 MB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 GB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>%1 m</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>%1 h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 h %2 m</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SendBeansDialog</name>
     <message>
-        <location filename="../forms/sendbeansdialog.ui" line="+138"/>
-        <location filename="../sendbeansdialog.cpp" line="+182"/>
+        <location filename="../forms/sendbeansdialog.ui" line="+192"/>
+        <location filename="../sendbeansdialog.cpp" line="+187"/>
         <location line="+5"/>
         <location line="+5"/>
         <location line="+5"/>
@@ -2627,7 +3150,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished">Fonduri insuficiente!</translation>
     </message>
     <message>
-        <location line="+85"/>
+        <location line="+94"/>
         <source>Quantity:</source>
         <translation type="unfinished">Cantitate:</translation>
     </message>
@@ -2696,7 +3219,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished">personalizează schimbarea adresei</translation>
     </message>
     <message>
-        <location line="+149"/>
+        <location line="+224"/>
         <source>Send to multiple recipients at once</source>
         <translation type="unfinished">Trimite simultan către mai mulți destinatari</translation>
     </message>
@@ -2716,7 +3239,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+48"/>
         <source>Balance:</source>
         <translation type="unfinished">Balanță:</translation>
     </message>
@@ -2726,7 +3249,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished">123.456 BC</translation>
     </message>
     <message>
-        <location line="+74"/>
+        <location line="-199"/>
         <source>Confirm the send action</source>
         <translation type="unfinished">Confirmă operațiunea de trimitere</translation>
     </message>
@@ -2736,9 +3259,13 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished">&amp;S Trimite</translation>
     </message>
     <message>
-        <location filename="../sendbeansdialog.cpp" line="-173"/>
         <source>Enter a Beancash address (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
-        <translation type="unfinished">Introduceți o adresă Beancash(ex:2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
+        <translation type="obsolete">Introduceți o adresă Beancash(ex:2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
+    </message>
+    <message>
+        <location filename="../sendbeansdialog.cpp" line="-178"/>
+        <source>Enter a Bean Cash address (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+15"/>
@@ -2781,12 +3308,13 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished">Copiaţi schimb</translation>
     </message>
     <message>
-        <location line="+86"/>
+        <location line="+87"/>
+        <location line="+2"/>
         <source>&lt;b&gt;%1&lt;/b&gt; to %2 (%3)</source>
         <translation type="unfinished">&lt;b&gt;%1&lt;/b&gt; to %2 (%3)</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+6"/>
         <source>Confirm send beans</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2801,7 +3329,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished">și</translation>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="+30"/>
         <source>The recipient address is not valid, please recheck.</source>
         <translation type="unfinished">Adresa destinatarului nu este validă, vă rugăm să o verificaţi.</translation>
     </message>
@@ -2827,21 +3355,29 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+5"/>
-        <source>Error: Transaction creation failed.</source>
-        <translation type="unfinished">Eroare: crearea tranzacției a eșuat.</translation>
+        <source>Error: Transaction creation failed!</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+271"/>
+        <source>WARNING: Invalid Bean Cash address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error: Transaction creation failed.</source>
+        <translation type="obsolete">Eroare: crearea tranzacției a eșuat.</translation>
+    </message>
+    <message>
+        <location line="-266"/>
         <source>Error: The transaction was rejected. This might happen if some of the beans in your wallet were already spent, such as if you used a copy of wallet.dat and beans were spent in the copy but not marked as spent here.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+251"/>
         <source>WARNING: Invalid Beancash address</source>
-        <translation type="unfinished">Atenție: Adresă Beancash invalidă</translation>
+        <translation type="obsolete">Atenție: Adresă Beancash invalidă</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+279"/>
         <source>(no label)</source>
         <translation type="unfinished">(fără etichetă)</translation>
     </message>
@@ -2854,7 +3390,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
 <context>
     <name>SendBeansEntry</name>
     <message>
-        <location filename="../forms/sendbeansentry.ui" line="+327"/>
+        <location filename="../forms/sendbeansentry.ui" line="+354"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2881,8 +3417,12 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+24"/>
+        <source>The address to send the payment to (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>The address to send the payment to  (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
-        <translation type="unfinished">Adresa catre care trimiteti plata(ex. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
+        <translation type="obsolete">Adresa catre care trimiteti plata(ex. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -2910,9 +3450,13 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished">Scoateti acest destinatar</translation>
     </message>
     <message>
-        <location filename="../sendbeansentry.cpp" line="+1"/>
         <source>Enter a Beancash address (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
-        <translation type="unfinished">Introduceți o adresă Beancash(ex:2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
+        <translation type="obsolete">Introduceți o adresă Beancash(ex:2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
+    </message>
+    <message>
+        <location filename="../sendbeansentry.cpp" line="+1"/>
+        <source>Enter a Bean Cash address (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3168,20 +3712,23 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
-        <location filename="../forms/signverifymessagedialog.ui" line="+192"/>
+        <location filename="../forms/signverifymessagedialog.ui" line="+219"/>
         <source>Signatures - Sign / Verify a Message</source>
         <translation>Semnatura- Semneaza/verifica un mesaj</translation>
     </message>
     <message>
         <location line="+17"/>
-        <location line="+135"/>
         <source>&amp;Sign Message</source>
         <translation>Semneaza Mesajul</translation>
     </message>
     <message>
-        <location line="-124"/>
         <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Puteti semna mesaje cu adresa dumneavoastra pentru a demostra ca sunteti proprietarul lor. Aveti grija sa nu semnati nimic vag, deoarece atacurile de tip phishing va pot pacali sa le transferati identitatea. Semnati numai declaratiile detaliate cu care sunteti deacord.</translation>
+        <translation type="obsolete">Puteti semna mesaje cu adresa dumneavoastra pentru a demostra ca sunteti proprietarul lor. Aveti grija sa nu semnati nimic vag, deoarece atacurile de tip phishing va pot pacali sa le transferati identitatea. Semnati numai declaratiile detaliate cu care sunteti deacord.</translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>You can sign messages with your keys to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+18"/>
@@ -3221,13 +3768,29 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Copiaza semnatura curenta in clipboard-ul sistemului</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+40"/>
         <source>Sign the message to prove you own this Bean Cash address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location line="+3"/>
+        <source>Sign &amp;Message</source>
+        <translation type="unfinished">Semnează &amp;Mesajul</translation>
+    </message>
+    <message>
+        <location line="+46"/>
         <location line="+186"/>
+        <source>E&amp;xit</source>
+        <translation type="unfinished">&amp;Ieșire</translation>
+    </message>
+    <message>
+        <location line="-49"/>
         <source>Verify the message to ensure it was signed with the specified Bean Cash address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Verify &amp;Message</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3235,7 +3798,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="obsolete">Semnează un mesaj pentru a dovedi că dețineti o adresă Beancash</translation>
     </message>
     <message>
-        <location line="-163"/>
+        <location line="-166"/>
         <source>Reset all sign message fields</source>
         <translation>Reseteaza toate spatiile mesajelor semnate.</translation>
     </message>
@@ -3251,19 +3814,16 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+3"/>
-        <location line="+186"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp; Renunta</translation>
+        <translation type="obsolete">&amp; Renunta</translation>
     </message>
     <message>
-        <location line="-130"/>
-        <location line="+84"/>
+        <location line="+46"/>
         <source>&amp;Verify Message</source>
         <translation>Verifica mesajul</translation>
     </message>
     <message>
-        <location line="-70"/>
+        <location line="+14"/>
         <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
         <translation>Introduceti adresa de semnatura, mesajul (asigurati-va ca ati copiat spatiile, taburile etc. exact) si semnatura dedesubt pentru a verifica mesajul. Aveti grija sa nu cititi mai mult in semnatura decat mesajul in sine, pentru a evita sa fiti pacaliti de un atac de tip man-in-the-middle.</translation>
     </message>
@@ -3277,7 +3837,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="obsolete">Verifică un mesaj pentru a vă asigura că a fost semnat cu o anumită adresă Beancash</translation>
     </message>
     <message>
-        <location line="+69"/>
+        <location line="+82"/>
         <source>Reset all verify message fields</source>
         <translation>Reseteaza toate spatiile mesajelor semnate.</translation>
     </message>
@@ -3287,20 +3847,28 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../signverifymessagedialog.cpp" line="+27"/>
-        <location line="+3"/>
         <source>Enter a Beancash address (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
-        <translation>Introduceți o adresă Beancash(ex:2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
+        <translation type="obsolete">Introduceți o adresă Beancash(ex:2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
     </message>
     <message>
-        <location line="-2"/>
+        <location filename="../signverifymessagedialog.cpp" line="+28"/>
         <source>Click &quot;Sign Message&quot; to generate signature</source>
         <translation>Click &quot;Semneaza msajul&quot; pentru a genera semnatura</translation>
     </message>
     <message>
-        <location line="+3"/>
         <source>Enter Beancash signature</source>
-        <translation>Introduceti semnatura Beancash</translation>
+        <translation type="obsolete">Introduceti semnatura Beancash</translation>
+    </message>
+    <message>
+        <location line="-1"/>
+        <location line="+3"/>
+        <source>Enter a Bean Cash address (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Enter Bean Cash signature</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+92"/>
@@ -3370,9 +3938,17 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
 </context>
 <context>
+    <name>TrafficGraphWidget</name>
+    <message>
+        <location filename="../trafficgraphwidget.cpp" line="+80"/>
+        <source>KB/s</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>TransactionDesc</name>
     <message>
-        <location filename="../transactiondesc.cpp" line="+21"/>
+        <location filename="../transactiondesc.cpp" line="+24"/>
         <source>Open until %1</source>
         <translation>Deschis până la %1</translation>
     </message>
@@ -3436,19 +4012,19 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
     </message>
     <message>
         <location line="+5"/>
-        <location line="+17"/>
+        <location line="+13"/>
         <source>From</source>
         <translation>De la</translation>
     </message>
     <message>
         <location line="+1"/>
-        <location line="+22"/>
+        <location line="+19"/>
         <location line="+58"/>
         <source>To</source>
         <translation>Către</translation>
     </message>
     <message>
-        <location line="-77"/>
+        <location line="-74"/>
         <location line="+2"/>
         <source>own address</source>
         <translation>Adresa posedata</translation>
@@ -3459,16 +4035,16 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>etichetă</translation>
     </message>
     <message>
-        <location line="+37"/>
+        <location line="+34"/>
         <location line="+12"/>
         <location line="+45"/>
         <location line="+17"/>
-        <location line="+30"/>
+        <location line="+31"/>
         <source>Credit</source>
         <translation>Credit</translation>
     </message>
     <message numerus="yes">
-        <location line="-102"/>
+        <location line="-103"/>
         <source>matures in %n more block(s)</source>
         <translation>
             <numerusform>se maturizează în încă %n bloc</numerusform>
@@ -3485,12 +4061,12 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <location line="+44"/>
         <location line="+8"/>
         <location line="+15"/>
-        <location line="+30"/>
+        <location line="+31"/>
         <source>Debit</source>
         <translation>Debit</translation>
     </message>
     <message>
-        <location line="-39"/>
+        <location line="-40"/>
         <source>Transaction fee</source>
         <translation>Comisionul tranzacţiei</translation>
     </message>
@@ -3513,6 +4089,11 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <location line="+2"/>
         <source>Transaction ID</source>
         <translation>ID-ul tranzactiei</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Output index</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
@@ -3554,12 +4135,12 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Fals!</translation>
     </message>
     <message>
-        <location line="-211"/>
+        <location line="-205"/>
         <source>, has not been successfully broadcast yet</source>
         <translation>, nu s-a propagat încă</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+31"/>
         <source>unknown</source>
         <translation>necunoscut</translation>
     </message>
@@ -3567,14 +4148,14 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
 <context>
     <name>TransactionDescDialog</name>
     <message>
-        <location filename="../forms/transactiondescdialog.ui" line="+192"/>
+        <location filename="../forms/transactiondescdialog.ui" line="+219"/>
         <source>Transaction details</source>
         <translation>Detaliile tranzacției</translation>
     </message>
     <message>
         <location line="+32"/>
-        <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <source>E&amp;xit</source>
+        <translation type="unfinished">&amp;Ieșire</translation>
     </message>
     <message>
         <location line="+24"/>
@@ -3585,7 +4166,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
 <context>
     <name>TransactionTableModel</name>
     <message>
-        <location filename="../transactiontablemodel.cpp" line="+226"/>
+        <location filename="../transactiontablemodel.cpp" line="+227"/>
         <source>Date</source>
         <translation>Data</translation>
     </message>
@@ -3822,7 +4403,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation>Arată detaliile tranzacției</translation>
     </message>
     <message>
-        <location line="+144"/>
+        <location line="+151"/>
         <source>Export Transaction Data</source>
         <translation>Exporta datele trazactiei</translation>
     </message>
@@ -3890,7 +4471,7 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
 <context>
     <name>WalletModel</name>
     <message>
-        <location filename="../walletmodel.cpp" line="+208"/>
+        <location filename="../walletmodel.cpp" line="+211"/>
         <source>Sending...</source>
         <translation>Se trimite...</translation>
     </message>
@@ -3903,7 +4484,6 @@ Acest lucru înseamnă că o taxă de cel puțin %2 este necesară</translation>
         <translation type="unfinished">Pentru a folosi opțiunea %s</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>%s, you must set a rpcpassword in the configuration file:
  %s
 It is recommended you use the following random password:
@@ -3915,7 +4495,7 @@ If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
 for example: alertnotify=echo %%s | mail -s &quot;Beancash Alert&quot; admin@foo.com
 </source>
-        <translation type="unfinished">%s, trebuie să configurați o parolă rpc în fișierul de configurare: %s
+        <translation type="obsolete">%s, trebuie să configurați o parolă rpc în fișierul de configurare: %s
 Este recomandat să folosiți următoarea parolă generată aleator: rpcuser=Beancashrpc
 rpcpassword=%s
 (nu trebuie să țineți minte această parolă)
@@ -3926,7 +4506,7 @@ de exemplu: alertnotify=echo %%s | mail -s &quot;Beancash Alert&quot; admin@foo.
 </translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+14"/>
         <source>Error</source>
         <translation type="unfinished">Eroare</translation>
     </message>
@@ -3950,12 +4530,11 @@ If the file does not exist, create it with owner-readable-only file permissions.
 Dacă fișierul nu există, creează-l cu permisiuni de citire doar de către proprietar.</translation>
     </message>
     <message>
-        <location line="+5"/>
         <source>Beancash version</source>
-        <translation type="unfinished">Versiune Beancash</translation>
+        <translation type="obsolete">Versiune Beancash</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+6"/>
         <source>Usage:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3975,9 +4554,33 @@ Dacă fișierul nu există, creează-l cu permisiuni de citire doar de către pr
         <translation type="unfinished">Ajutor pentru o comandă</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Beancash</source>
-        <translation type="unfinished">Beancash</translation>
+        <translation type="obsolete">Beancash</translation>
+    </message>
+    <message>
+        <location line="-28"/>
+        <source>%s, you must set a rpcpassword in the configuration file:
+ %s
+It is recommended you use the following random password:
+rpcuser=Beancashrpc
+rpcpassword=%s
+(you do not need to remember this password)
+The username and password MUST NOT be the same.
+If the file does not exist, create it with owner-readable-only file permissions.
+It is also recommended to set alertnotify so you are notified of problems;
+for example: alertnotify=echo %%s | mail -s &quot;Bean Cash Alert&quot; admin@foo.com
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+24"/>
+        <source>Bean Cash version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Bean Cash</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -4140,6 +4743,31 @@ Dacă fișierul nu există, creează-l cu permisiuni de citire doar de către pr
         <translation type="unfinished">Tampon maxim pentru transmitere per conexiune, &lt;n&gt;*1000 baiți (implicit: 1000)</translation>
     </message>
     <message>
+        <location line="+58"/>
+        <source>Cannot obtain a lock on data directory %s.  Bean Cash is probably already running.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+28"/>
+        <source>Error loading wallet.dat: Wallet requires newer version of Bean Cash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Wallet needed to be rewritten: restart Bean Cash to complete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Unable to bind to %s on this computer. Bean Cash is probably already running.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Bean Cash will not work properly.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Use UPnP to map the listening port (default: 1 when listening)</source>
         <translation type="obsolete">Foloseste UPnP pentru a vedea porturile (initial: 1 cand listezi)</translation>
     </message>
@@ -4148,12 +4776,11 @@ Dacă fișierul nu există, creează-l cu permisiuni de citire doar de către pr
         <translation type="obsolete">Foloseste UPnP pentru a vedea porturile (initial: 0)</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Detach block and address databases. Increases shutdown time (default: 0)</source>
-        <translation type="unfinished">Detaseaza bloc si baza de date de adrese. Creste timpul de inchidere(implicit:0)</translation>
+        <translation type="obsolete">Detaseaza bloc si baza de date de adrese. Creste timpul de inchidere(implicit:0)</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="-113"/>
         <source>Fee per KB to add to transactions you send</source>
         <translation type="unfinished">Comision pe kB de adaugat la tranzactiile pe care le trimiti</translation>
     </message>
@@ -4362,12 +4989,11 @@ Dacă fișierul nu există, creează-l cu permisiuni de citire doar de către pr
         <translation type="unfinished">Portofelul %s este in afara directorului %s</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Cannot obtain a lock on data directory %s.  Beancash is probably already running.</source>
-        <translation type="unfinished">Nu se poate obtine un lock pe directorul de date &amp;s. Testoin probabil ruleaza deja.</translation>
+        <translation type="obsolete">Nu se poate obtine un lock pe directorul de date &amp;s. Testoin probabil ruleaza deja.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+4"/>
         <source>Verifying database integrity...</source>
         <translation type="unfinished">Se verifica integritatea bazei de date...</translation>
     </message>
@@ -4459,17 +5085,15 @@ Dacă fișierul nu există, creează-l cu permisiuni de citire doar de către pr
         <translation type="unfinished">Atentie: eroare la citirea fisierului wallet.dat! Toate cheile sunt citite corect, dar datele tranzactiei sau anumite intrari din agenda sunt incorecte sau lipsesc.</translation>
     </message>
     <message>
-        <location line="+3"/>
         <source>Error loading wallet.dat: Wallet requires newer version of Beancash</source>
-        <translation type="unfinished">Eroare la încărcarea wallet.dat: Portofelul necesita o versiune mai noua de Beancash</translation>
+        <translation type="obsolete">Eroare la încărcarea wallet.dat: Portofelul necesita o versiune mai noua de Beancash</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Wallet needed to be rewritten: restart Beancash to complete</source>
-        <translation type="unfinished">A fost nevoie de rescrierea portofelului: restartați Beancash pentru a finaliza</translation>
+        <translation type="obsolete">A fost nevoie de rescrierea portofelului: restartați Beancash pentru a finaliza</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+5"/>
         <source>Error loading wallet.dat</source>
         <translation type="unfinished">Eroare la încărcarea wallet.dat</translation>
     </message>
@@ -4519,12 +5143,11 @@ Dacă fișierul nu există, creează-l cu permisiuni de citire doar de către pr
         <translation type="unfinished">Încărcare terminată</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Unable to bind to %s on this computer. Beancash is probably already running.</source>
-        <translation type="unfinished">Imposibil de conectat %s pe acest computer. Cel mai probabil Beancash ruleaza</translation>
+        <translation type="obsolete">Imposibil de conectat %s pe acest computer. Cel mai probabil Beancash ruleaza</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+3"/>
         <source>Unable to bind to %s on this computer (bind returned error %d, %s)</source>
         <translation type="unfinished">Nu se poate folosi %s pe acest calculator (eroarea returnată este %d, %s)</translation>
     </message>
@@ -4573,12 +5196,11 @@ Dacă fișierul nu există, creează-l cu permisiuni de citire doar de către pr
         <translation type="unfinished">Fonduri insuficiente</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Beancash will not work properly.</source>
-        <translation type="unfinished">Atentie: Va rugam verificati ca timpul si data calculatorului sunt corete. Daca timpul este gresit Beancash nu va functiona corect.</translation>
+        <translation type="obsolete">Atentie: Va rugam verificati ca timpul si data calculatorului sunt corete. Daca timpul este gresit Beancash nu va functiona corect.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+4"/>
         <source>Warning: This version is obsolete, upgrade required!</source>
         <translation type="unfinished">Atenție: această versiune este depășită, este necesară actualizarea!</translation>
     </message>

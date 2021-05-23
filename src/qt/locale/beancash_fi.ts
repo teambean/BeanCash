@@ -18,28 +18,28 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+13"/>
+        <source>Copyright Auto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Bean Cash Core&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+93"/>
         <source>Close Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+6"/>
-        <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <source>E&amp;xit</source>
+        <translation type="unfinished">L&amp;opeta</translation>
     </message>
     <message>
-        <location line="+62"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;This is experimental software. Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://www.opensource.org/licenses/mit-license.php&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.opensource.org/licenses/mit-license.php&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;/span&gt;&lt;a href=&quot;https://www.openssl.org/&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.openssl.org/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;) and cryptographic software written by Eric Young (&lt;/span&gt;&lt;a href=&quot;mailto:eay@cryptsoft.com&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;eay@cryptsoft.com&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+29"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Bean Cash&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+45"/>
-        <source>Copyright 2019 Bean Core</source>
+        <location line="+36"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://www.beancash.org &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.beancash.org (Official Site) &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://www.beancash.org &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.beancash.is (future alternate)&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://www.beancash.org &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://live.beancash.org (Community Communication) &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://www.beancash.org &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;#beancash on Freenode IRC (alt backup communications in emergencies)&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://www.opensource.org/licenses/mit-license.php&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.opensource.org/licenses/mit-license.php&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;/span&gt;&lt;a href=&quot;https://www.openssl.org/&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.openssl.org/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;) and cryptographic software written by Eric Young (&lt;/span&gt;&lt;a href=&quot;mailto:eay@cryptsoft.com&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;eay@cryptsoft.com&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Developed by Shawn Kent, Lead Developer &amp;amp; Project Manager - Bean Core &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -64,34 +64,39 @@ Tämä tuote sisältää OpenSSL-projektin kehittämää ohjelmistoa OpenSSL-ty�
     </message>
     <message>
         <location line="+0"/>
-        <source>2015-%1 Bean Core www.beancash.org</source>
+        <source>2015-%1 www.beancash.org</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AddressBookPage</name>
     <message>
-        <location filename="../forms/addressbookpage.ui" line="+186"/>
+        <location filename="../forms/addressbookpage.ui" line="+213"/>
         <source>Address Book</source>
         <translation>Osoitekirja</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location filename="../addressbookpage.cpp" line="+61"/>
         <source>These are your Bean Cash addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location filename="../forms/addressbookpage.ui" line="+23"/>
         <source>Double-click to edit address or label</source>
         <translation>Kaksoisnapauta muokataksesi osoitetta tai nimikettä</translation>
     </message>
     <message>
-        <location line="+33"/>
+        <location line="+40"/>
         <source>Create a new address</source>
         <translation>Luo uusi osoite</translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+23"/>
+        <source>&amp;Delete Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
         <source>Copy the currently selected address to the system clipboard</source>
         <translation>Kopioi valittu osoite järjestelmän leikepöydälle</translation>
     </message>
@@ -101,7 +106,22 @@ Tämä tuote sisältää OpenSSL-projektin kehittämää ohjelmistoa OpenSSL-ty�
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-54"/>
+        <location line="+3"/>
+        <source>&amp;Sign Message</source>
+        <translation type="unfinished">&amp;Allekirjoita viesti</translation>
+    </message>
+    <message>
+        <location line="+33"/>
+        <source>Export the data in the current tab to a file</source>
+        <translation type="unfinished">Vie data tämänhetkisestä välilehdestä tiedostoon</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>&amp;Export</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-113"/>
         <source>&amp;New Address</source>
         <translation>&amp;Uusi osoite</translation>
     </message>
@@ -110,7 +130,7 @@ Tämä tuote sisältää OpenSSL-projektin kehittämää ohjelmistoa OpenSSL-ty�
         <translation type="obsolete">Nämä ovat Beancash-osoitteesi rahansiirtojen vastaanottoa varten. Jos haluat, voit antaa jokaiselle lähettäjälle oman osoitteen jotta voit pitää kirjaa sinulle rahaa siirtäneistä henkilöistä.</translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+40"/>
         <source>&amp;Copy Address</source>
         <translation>&amp;Kopioi osoite</translation>
     </message>
@@ -124,17 +144,16 @@ Tämä tuote sisältää OpenSSL-projektin kehittämää ohjelmistoa OpenSSL-ty�
         <translation type="obsolete">Allekirjoita viesti osoittaaksesi Beancash-osoitteesi omistajuus</translation>
     </message>
     <message>
-        <location line="+20"/>
         <source>Sign &amp;Message</source>
-        <translation>Allekirjoita &amp;Viesti</translation>
+        <translation type="obsolete">Allekirjoita &amp;Viesti</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+39"/>
         <source>Verify a message to ensure it was signed with a specified Bean Cash address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="-79"/>
         <source>Delete the currently selected address from the list</source>
         <translation>Poista valittu osoite listalta</translation>
     </message>
@@ -143,27 +162,40 @@ Tämä tuote sisältää OpenSSL-projektin kehittämää ohjelmistoa OpenSSL-ty�
         <translation type="obsolete">Vahvista viesti varmistaaksesi että kyseinen Beancash-osoitteesi on allekirjoittanut sen</translation>
     </message>
     <message>
-        <location line="-17"/>
+        <location line="+82"/>
         <source>&amp;Verify Message</source>
         <translation>&amp;Varmista viesti</translation>
     </message>
     <message>
-        <location line="+20"/>
         <source>&amp;Delete</source>
-        <translation>&amp;Poista</translation>
+        <translation type="obsolete">&amp;Poista</translation>
     </message>
     <message>
-        <location filename="../addressbookpage.cpp" line="+67"/>
+        <location filename="../addressbookpage.cpp" line="+8"/>
         <source>Copy &amp;Label</source>
         <translation>Kopioi &amp;nimi</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>&amp;Edit</source>
-        <translation>&amp;Muokkaa</translation>
+        <translation type="obsolete">&amp;Muokkaa</translation>
     </message>
     <message>
-        <location line="+248"/>
+        <location line="-13"/>
+        <source>These are your Bean Cash addresses for sending payments. Always check the amount and the receiving address before sending beans.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>&amp;Edit Label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Send &amp;Beans</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+267"/>
         <source>Export Address Book Data</source>
         <translation>Vie osoitekirjasta tietoja</translation>
     </message>
@@ -204,7 +236,7 @@ Tämä tuote sisältää OpenSSL-projektin kehittämää ohjelmistoa OpenSSL-ty�
 <context>
     <name>AskPassphraseDialog</name>
     <message>
-        <location filename="../forms/askpassphrasedialog.ui" line="+204"/>
+        <location filename="../forms/askpassphrasedialog.ui" line="+231"/>
         <source>Passphrase Dialog</source>
         <translation>Tunnuslauseen Dialogi</translation>
     </message>
@@ -291,11 +323,16 @@ Tämä tuote sisältää OpenSSL-projektin kehittämää ohjelmistoa OpenSSL-ty�
         <translation>Vahvista lompakon salaus</translation>
     </message>
     <message>
+        <location line="+12"/>
+        <source>Bean Cash will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your beans from being stolen by malware infecting your computer.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR COINS&lt;/b&gt;!</source>
         <translation type="obsolete">Varoitus: Jos salaat lompakkosi ja hukkaat salasanasi, &lt;b&gt;MENETÄT KAIKKI KOLIKKOSI&lt;/b&gt;!</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-11"/>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Haluatko varmasti salata lompakkosi?</translation>
     </message>
@@ -305,12 +342,7 @@ Tämä tuote sisältää OpenSSL-projektin kehittämää ohjelmistoa OpenSSL-ty�
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+11"/>
-        <source>Beancash will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your beans from being stolen by malware infecting your computer.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
+        <location line="+15"/>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
         <translation>TÄRKEÄÄ: Kaikki vanhat lompakon varmuuskopiot tulisi korvata uusilla suojatuilla varmuuskopioilla. Turvallisuussyistä edelliset varmuuskopiot muuttuvat käyttökelvottomiksi, kun aloitat uuden salatun lompakon käytön.</translation>
     </message>
@@ -375,7 +407,7 @@ Tämä tuote sisältää OpenSSL-projektin kehittämää ohjelmistoa OpenSSL-ty�
 <context>
     <name>BeanControlDialog</name>
     <message>
-        <location filename="../forms/beancontroldialog.ui" line="+159"/>
+        <location filename="../forms/beancontroldialog.ui" line="+186"/>
         <source>Bean Control</source>
         <translation type="unfinished"></translation>
     </message>
@@ -435,6 +467,11 @@ Tämä tuote sisältää OpenSSL-projektin kehittämää ohjelmistoa OpenSSL-ty�
         <translation type="unfinished">Listanäkymä</translation>
     </message>
     <message>
+        <location line="+7"/>
+        <source>(1 locked)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location line="+51"/>
         <source>Amount</source>
         <translation type="unfinished">Määrä</translation>
@@ -491,7 +528,17 @@ Tämä tuote sisältää OpenSSL-projektin kehittämää ohjelmistoa OpenSSL-ty�
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+1"/>
+        <source>Lock unspent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Unlock unspent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+22"/>
         <source>Copy quantity</source>
         <translation type="unfinished">Kopioi määrä</translation>
     </message>
@@ -561,7 +608,12 @@ Tämä tuote sisältää OpenSSL-projektin kehittämää ohjelmistoa OpenSSL-ty�
         <translation type="unfinished">matalin</translation>
     </message>
     <message>
-        <location line="+155"/>
+        <location line="+11"/>
+        <source>(%1 locked)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+144"/>
         <source>DUST</source>
         <translation type="unfinished">pölyä</translation>
     </message>
@@ -643,16 +695,15 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
 <context>
     <name>BitbeanGUI</name>
     <message>
-        <location filename="../beancash.cpp" line="+102"/>
         <source>A fatal error occurred. Beancash can no longer continue safely and will quit.</source>
-        <translation type="unfinished">Vakava virhe kohdattu. Beancash-ohjelma ei voi enää jatkaa turvallisesti ja sulkee itsensä.</translation>
+        <translation type="obsolete">Vakava virhe kohdattu. Beancash-ohjelma ei voi enää jatkaa turvallisesti ja sulkee itsensä.</translation>
     </message>
     <message>
         <source>Beancash</source>
         <translation type="obsolete">Beancash</translation>
     </message>
     <message>
-        <location filename="../bitbeangui.cpp" line="+221"/>
+        <location filename="../bitbeangui.cpp" line="+248"/>
         <source>&amp;Overview</source>
         <translation type="unfinished">&amp;Yleisnäkymä</translation>
     </message>
@@ -696,7 +747,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished">Muokkaa tallennettujen osoitteiden ja nimien listaa</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+31"/>
         <source>E&amp;xit</source>
         <translation type="unfinished">L&amp;opeta</translation>
     </message>
@@ -714,12 +765,13 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="obsolete">Näytä tietoja Beancashista</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+7"/>
+        <location line="+2"/>
         <source>About &amp;Qt</source>
         <translation type="unfinished">Tietoja &amp;Qt</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Show information about Qt</source>
         <translation type="unfinished">Näytä tietoja Qt:sta</translation>
     </message>
@@ -754,7 +806,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="obsolete">Varmuuskopioi lompakko toiseen sijaintiin</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+10"/>
         <source>&amp;Change Passphrase...</source>
         <translation type="unfinished">&amp;Vaihda tunnuslause...</translation>
     </message>
@@ -810,17 +862,17 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished">Avaa debuggaus- ja diagnostiikkakonsoli</translation>
     </message>
     <message>
-        <location line="+30"/>
+        <location line="+35"/>
         <source>&amp;File</source>
         <translation type="unfinished">&amp;Tiedosto</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+11"/>
         <source>&amp;Settings</source>
         <translation type="unfinished">&amp;Asetukset</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+12"/>
         <source>&amp;Help</source>
         <translation type="unfinished">&amp;Apua</translation>
     </message>
@@ -830,7 +882,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished">Välilehtipalkki</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+11"/>
         <source>Actions toolbar</source>
         <translation type="unfinished">Toimintopalkki</translation>
     </message>
@@ -841,10 +893,8 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished">[testnet]</translation>
     </message>
     <message>
-        <location line="+0"/>
-        <location line="+60"/>
         <source>Beancash client</source>
-        <translation type="unfinished">Beancash-asiakas</translation>
+        <translation type="obsolete">Beancash-asiakas</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to Beancash network</source>
@@ -854,17 +904,13 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         </translation>
     </message>
     <message>
-        <location line="-357"/>
+        <location line="-340"/>
+        <location line="+624"/>
         <source>Bean Cash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+0"/>
-        <source>Core v1.1.2.2RC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+140"/>
+        <location line="-478"/>
         <source>Overview of general information</source>
         <translation type="unfinished"></translation>
     </message>
@@ -874,7 +920,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+38"/>
+        <location line="+53"/>
         <source>&amp;About Bean Cash</source>
         <translation type="unfinished"></translation>
     </message>
@@ -884,7 +930,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+10"/>
         <source>Modify configuration options for Bean Cash</source>
         <translation type="unfinished"></translation>
     </message>
@@ -899,17 +945,12 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+2"/>
-        <source>&amp;Backup Keys...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="+3"/>
         <source>Backup keys to another location</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+6"/>
         <source>Change the passphrase used for encrypting keys</source>
         <translation type="unfinished"></translation>
     </message>
@@ -929,7 +970,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location line="+225"/>
+        <location line="+261"/>
         <source>%n active connection(s) to the Bean Cash network</source>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -937,12 +978,67 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         </translation>
     </message>
     <message>
-        <location line="+24"/>
         <source>Synchronizing with network...</source>
-        <translation type="unfinished">Synkronoidaan verkon kanssa...</translation>
+        <translation type="obsolete">Synkronoidaan verkon kanssa...</translation>
+    </message>
+    <message>
+        <location line="-500"/>
+        <source>Core v1.3.1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+193"/>
+        <location line="+49"/>
+        <source>&amp;Block Explorer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-48"/>
+        <source>Explore the Bean Cash Blockchain and Transactions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+28"/>
+        <source>&amp;Backup Keys ...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>&amp;Export Keys...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Export Key Pairs to a text file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>&amp;Import Keys...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Import a text file containing a Key Pair</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Explore the Bean Cash BlockChain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+97"/>
+        <source>Bean Cash client</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+62"/>
+        <source>Bean Cash Core</source>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location line="+2"/>
+        <location line="+135"/>
         <source>~%n block(s) remaining</source>
         <translation type="unfinished">
             <numerusform>~%n lohko jäljellä</numerusform>
@@ -950,7 +1046,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         </translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+5"/>
         <source>Downloaded %1 of %2 blocks of transaction history (%3% done).</source>
         <translation type="unfinished">Ladattu %1 lohkoa %2 lohkosta rahansiirtohistoriassa (%3% ladattu).</translation>
     </message>
@@ -1002,13 +1098,112 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished">Saavutetaan verkkoa...</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+14"/>
         <source>Last received block was generated %1.</source>
         <translation type="unfinished">Viimeinen vastaanotettu lohko generoitu %1.</translation>
     </message>
     <message>
-        <location line="+59"/>
-        <source>In order to process your transaction(s) on the Bean Cash Network, a fee of %1 is required. This fee is paid to the node that processes your transaction. Select &lt;OK&gt; to continue and send your transaction(s). </source>
+        <location line="+21"/>
+        <source>Error</source>
+        <translation type="unfinished">Virhe</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Warning</source>
+        <translation type="unfinished">Varoitus</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+71"/>
+        <source>In order to process your transaction(s) on the Bean Cash Network, a fee of %1 is required. This fee is paid to the node that processes your transaction. Select &lt;YES&gt; to continue and send your transaction(s).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+165"/>
+        <location line="+17"/>
+        <source>URI can not be parsed! This can be caused by an invalid Bean Cash address or malformed URI parameters.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+57"/>
+        <source>There was an error trying to save the keypair data to the new location.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Backup Successful</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Keypair data was successfully saved to the new location.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+22"/>
+        <source>Export Key Pair</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <location line="+33"/>
+        <source>KeyPair(*.txt)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-30"/>
+        <source>Export Key Pair Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>An error happened while trying to save the keys to your location.
+Keys were not saved</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Export of Key Pair was Successful</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Keys were saved to this file:
+%2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Import Key Pair</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Import of Key Pair Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>An error happened while trying to import the keys.
+Some or all keys from:
+ %1,
+ were not imported into your vault.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Import of Key Pair was Successful</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>All keys from:
+ %1,
+ were imported into your vault.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1016,17 +1211,17 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="obsolete">Tämä rahansiirto ylittää siirtorajan. Voit silti lähettää sen %1 rahansiirtopalkkiota vastaan, joka siirretään rahansiirtoasi käsitteleville solmuille jotta se auttaisi ja tukisi verkkoa. Haluatko maksaa rahansiirtopalkkion?</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="-305"/>
         <source>Confirm transaction fee</source>
         <translation type="unfinished">Hyväksy rahansiirtopalkkio</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+23"/>
         <source>Sent transaction</source>
         <translation type="unfinished">Lähetetyt rahansiirrot</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+0"/>
         <source>Incoming transaction</source>
         <translation type="unfinished">Saapuva rahansiirto</translation>
     </message>
@@ -1043,19 +1238,17 @@ Tyyppi: %3
 Osoite: %4</translation>
     </message>
     <message>
-        <location line="+121"/>
-        <location line="+15"/>
+        <location line="+137"/>
+        <location line="+17"/>
         <source>URI handling</source>
         <translation type="unfinished">URI-merkkijonojen käsittely</translation>
     </message>
     <message>
-        <location line="-15"/>
-        <location line="+15"/>
         <source>URI can not be parsed! This can be caused by an invalid Beancash address or malformed URI parameters.</source>
-        <translation type="unfinished">URI-merkkijonoa ei voida jäsentää! Tämä voi johtua väärästä Beancash-osoitteesta tai väärässä muodossa olevista URI-parametreistä.</translation>
+        <translation type="obsolete">URI-merkkijonoa ei voida jäsentää! Tämä voi johtua väärästä Beancash-osoitteesta tai väärässä muodossa olevista URI-parametreistä.</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+19"/>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
         <translation type="unfinished">Lompakko on &lt;b&gt;salattu&lt;/b&gt; ja tällä hetkellä &lt;b&gt;avoinna&lt;/b&gt;</translation>
     </message>
@@ -1080,12 +1273,11 @@ Osoite: %4</translation>
         <translation type="unfinished">Varmuuskopion luonti epäonnistui</translation>
     </message>
     <message>
-        <location line="+0"/>
         <source>There was an error trying to save the wallet data to the new location.</source>
-        <translation type="unfinished">Virhe tallentaessa lompakkotiedostoa uuteen sijaintiinsa.</translation>
+        <translation type="obsolete">Virhe tallentaessa lompakkotiedostoa uuteen sijaintiinsa.</translation>
     </message>
     <message numerus="yes">
-        <location line="+94"/>
+        <location line="+171"/>
         <source>%n second(s)</source>
         <translation type="unfinished">
             <numerusform>%n sekunti</numerusform>
@@ -1165,6 +1357,11 @@ Osoite: %4</translation>
     <message>
         <source>Not staking</source>
         <translation type="obsolete">Ei osakkaana</translation>
+    </message>
+    <message>
+        <location filename="../beancash.cpp" line="+110"/>
+        <source>A fatal error occurred. Bean Cash Core can no longer continue safely and will quit.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1528,9 +1725,126 @@ Osoite: %4</translation>
     </message>
 </context>
 <context>
+    <name>BlockBrowser</name>
+    <message>
+        <location filename="../forms/blockbrowser.ui" line="+99"/>
+        <source>Bean Cash Block Explorer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+44"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20px; font-weight:600; color:#121117;&quot;&gt;Bean Cash Block Explorer&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>Decode Transaction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Inputs:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>0000 KH/s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Value out:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Transaction ID:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>0.00</source>
+        <translation type="unfinished">0.00</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>000</source>
+        <translation type="unfinished">000</translation>
+    </message>
+    <message>
+        <location line="+27"/>
+        <source>Block Difficulty:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Block Height:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <location line="+51"/>
+        <location line="+27"/>
+        <location line="+53"/>
+        <source>0</source>
+        <translation type="unfinished">0</translation>
+    </message>
+    <message>
+        <location line="-124"/>
+        <source>Jump to Block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Block Merkle:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Block Hash:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Block Hashrate:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Fees:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Block nBits:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <location line="+72"/>
+        <source>0x0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-62"/>
+        <source>Outputs:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Block nNonce:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Block Timestamp:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ClientModel</name>
     <message>
-        <location filename="../clientmodel.cpp" line="+90"/>
+        <location filename="../clientmodel.cpp" line="+109"/>
         <source>Network Alert</source>
         <translation>Verkkohälytys</translation>
     </message>
@@ -1757,7 +2071,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
 <context>
     <name>EditAddressDialog</name>
     <message>
-        <location filename="../forms/editaddressdialog.ui" line="+192"/>
+        <location filename="../forms/editaddressdialog.ui" line="+219"/>
         <source>Edit Address</source>
         <translation>Muokkaa osoitetta</translation>
     </message>
@@ -1802,17 +2116,21 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation>Muokkaa lähtevää osoitetta</translation>
     </message>
     <message>
-        <location line="+76"/>
+        <location line="+71"/>
+        <source>The entered address &quot;%1&quot; is not a valid Bean Cash address.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
         <source>The entered address &quot;%1&quot; is already in the address book.</source>
         <translation>Osoite &quot;%1&quot; on jo osoitekirjassa.</translation>
     </message>
     <message>
-        <location line="-5"/>
         <source>The entered address &quot;%1&quot; is not a valid Beancash address.</source>
-        <translation>Syöttämäsi osoite &quot;%1&quot; ei ole hyväksytty Beancash-osoite.</translation>
+        <translation type="obsolete">Syöttämäsi osoite &quot;%1&quot; ei ole hyväksytty Beancash-osoite.</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+5"/>
         <source>Could not unlock wallet.</source>
         <translation>Lompakkoa ei voitu avata.</translation>
     </message>
@@ -1823,15 +2141,43 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
     </message>
 </context>
 <context>
+    <name>FreespaceChecker</name>
+    <message>
+        <location filename="../intro.cpp" line="+60"/>
+        <source>A new data directory will be created.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Directory already exists. Add %1 if you intend to create a new directory here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Path already exists, and is not a directory.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Cannot create data directory here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>GUIUtil::HelpMessageBox</name>
     <message>
-        <location filename="../guiutil.cpp" line="+433"/>
-        <location line="+12"/>
+        <location filename="../guiutil.cpp" line="+485"/>
+        <location line="+13"/>
         <source>Beancash-qt</source>
         <translation>Beancash-qt</translation>
     </message>
     <message>
-        <location line="-12"/>
+        <location line="-13"/>
         <source>version</source>
         <translation>versio</translation>
     </message>
@@ -1865,11 +2211,74 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <source>Show splash screen on startup (default: 1)</source>
         <translation>Näytä logo käynnistettäessä (oletus: 1)</translation>
     </message>
+    <message>
+        <location line="+1"/>
+        <source>Choose data directory on startup (default: 0)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Intro</name>
+    <message>
+        <location filename="../forms/intro.ui" line="+348"/>
+        <source>Welcome</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>Welcome to Bean Digital Cash!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+48"/>
+        <source>As this is the first time the program is launched, you can choose where Bean Cash Core will store its data.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>Bean Cash Core will download and store a copy of the Bean Cash block chain. At least %5GB of data will be stored in this directory, and it will grow over time. The wallet (Your keypairs and associated data)  will also be stored in this directory.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>Use the default data directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>Use a custom data directory:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../intro.cpp" line="+80"/>
+        <source>Bitcoin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error: Specified data directory &quot;%1&quot; can not be created.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>Error</source>
+        <translation type="unfinished">Virhe</translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>GB of free space available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>(of %1GB needed)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>OptionsDialog</name>
     <message>
-        <location filename="../forms/optionsdialog.ui" line="+220"/>
+        <location filename="../forms/optionsdialog.ui" line="+274"/>
         <source>Options</source>
         <translation>Asetukset</translation>
     </message>
@@ -1910,17 +2319,15 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="obsolete">%Käynnistä Beancash-asiakasohjelma kirjautuessasi</translation>
     </message>
     <message>
-        <location line="+41"/>
         <source>Detach block and address databases at shutdown. This means they can be moved to another data directory, but it slows down shutdown. The wallet is always detached.</source>
-        <translation>Irroita lohko- ja osoitetietokannat lopetettaessa. Tämä tarkoittaa, että tietokannat voidaan siirtää eri hakemistoon mutta se hidastaa ohjelman sammumista. Lompakko on aina irroitettuna.</translation>
+        <translation type="obsolete">Irroita lohko- ja osoitetietokannat lopetettaessa. Tämä tarkoittaa, että tietokannat voidaan siirtää eri hakemistoon mutta se hidastaa ohjelman sammumista. Lompakko on aina irroitettuna.</translation>
     </message>
     <message>
-        <location line="+3"/>
         <source>&amp;Detach databases at shutdown</source>
-        <translation>%Irroita tietokannat lopetettaessa</translation>
+        <translation type="obsolete">%Irroita tietokannat lopetettaessa</translation>
     </message>
     <message>
-        <location line="+21"/>
+        <location line="+55"/>
         <source>&amp;Network</source>
         <translation>&amp;Verkko</translation>
     </message>
@@ -1937,8 +2344,8 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="obsolete">Yhdistä Beancash-verkkoon SOCKS-välityspalvelimen lävitse. (esim. yhdistettäessä Tor:n läpi).</translation>
     </message>
     <message>
-        <location line="-126"/>
-        <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are less than 1 kB. A fee of 5 BEAN is recommended. Fees help support the Bean Cash network.</source>
+        <location line="-116"/>
+        <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are less than 1 kB. A fee of 1 BITB is recommended. Fees help support the Bean Cash network.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1952,7 +2359,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+37"/>
+        <location line="+27"/>
         <source>Connect to the Bean Cash network through a SOCKS proxy (e.g. when connecting through Tor).</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2042,23 +2449,48 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting Beancash.</source>
-        <translation type="obsolete">Käyttöliittymän kieli voidaan valita tästä. Tämä asetus tulee voimaan vasta Beancash-asiakasohjelman uudelleenkäynnistyksen jälkeen.</translation>
+        <location line="+3"/>
+        <source>&amp;Display Addresses With Transactions</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-22"/>
-        <source>&amp;Unit to show amounts in:</source>
-        <translation>Yksikkö jona bitcoin-määrät näytetään</translation>
-    </message>
-    <message>
-        <location line="+32"/>
-        <source>Whether to show bean control features or not.</source>
+        <location line="+7"/>
+        <source>Allow individual selection of bean inputs when sending.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Display bean &amp;control features (experts only!)</source>
+        <source>Enable Bean &amp;Control</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When spending Beans, the default is to pick random inputs. This option uses inputs with minimal Bean age when spending, to maximize Bean weight for Sprouting. Use this option to minimize Bean weight consumption.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Select Inputs With Minimal Bean Age for Spending Beans</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+102"/>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+39"/>
+        <source>E&amp;xit</source>
+        <translation type="unfinished">L&amp;opeta</translation>
+    </message>
+    <message>
+        <source>The user interface language can be set here. This setting will take effect after restarting Beancash.</source>
+        <translation type="obsolete">Käyttöliittymän kieli voidaan valita tästä. Tämä asetus tulee voimaan vasta Beancash-asiakasohjelman uudelleenkäynnistyksen jälkeen.</translation>
+    </message>
+    <message>
+        <location line="-186"/>
+        <source>&amp;Unit to show amounts in:</source>
+        <translation>Yksikkö jona bitcoin-määrät näytetään</translation>
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
@@ -2069,9 +2501,8 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="obsolete">Näytä tai piilota Beancash-osoitteet rahansiirtolistassa.</translation>
     </message>
     <message>
-        <location line="-10"/>
         <source>&amp;Display addresses in transaction list</source>
-        <translation>&amp;Näytä osoitteet rahansiirrot listassa</translation>
+        <translation type="obsolete">&amp;Näytä osoitteet rahansiirrot listassa</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -2082,17 +2513,15 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="obsolete">Näytä rahan&amp;hallinnan ominaisuudet (vain kokeneille käyttäjille!)</translation>
     </message>
     <message>
-        <location line="+125"/>
         <source>&amp;OK</source>
-        <translation>&amp;OK</translation>
+        <translation type="obsolete">&amp;OK</translation>
     </message>
     <message>
-        <location line="+18"/>
         <source>&amp;Cancel</source>
-        <translation>&amp;Peruuta</translation>
+        <translation type="obsolete">&amp;Peruuta</translation>
     </message>
     <message>
-        <location line="+21"/>
+        <location line="+165"/>
         <source>&amp;Apply</source>
         <translation>%Käytä</translation>
     </message>
@@ -2110,8 +2539,12 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
     <message>
         <location line="-9"/>
         <location line="+9"/>
+        <source>This setting will take effect after restarting Bean Cash.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>This setting will take effect after restarting Beancash.</source>
-        <translation>Tämä asetus tulee voimaan vasta Beancash-asiakasohjelman uudelleenkäynnistyksen jälkeen.</translation>
+        <translation type="obsolete">Tämä asetus tulee voimaan vasta Beancash-asiakasohjelman uudelleenkäynnistyksen jälkeen.</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -2122,7 +2555,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
 <context>
     <name>OverviewPage</name>
     <message>
-        <location filename="../forms/overviewpage.ui" line="+246"/>
+        <location filename="../forms/overviewpage.ui" line="+273"/>
         <source>Form</source>
         <translation>Lomake</translation>
     </message>
@@ -2163,68 +2596,87 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+74"/>
-        <source>Immature:</source>
-        <translation>Epäkypsää:</translation>
-    </message>
-    <message>
-        <location line="-93"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your current spendable balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-67"/>
-        <location line="+454"/>
-        <source>The displayed information may be out of date. Your node automatically synchronizes with the Bean Cash network after a connection is established, but this process has not completed yet.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-350"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Newly Sprouted Beans that are still maturing, not yet counted towards the current total balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <location line="+18"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;New Beans that are still maturing, not yet counted towards the total balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+37"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Beans that are still unconfirmed, which are not counted towards the total balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Beans that are not yet confirmed, are excluded from the total balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+78"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The current, total amount of Beans contained in your Bean Vault.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <location line="+19"/>
+        <source>Immature:</source>
+        <translation>Epäkypsää:</translation>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;New SPROUTs (Beans) that havn&apos;t matured yet.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+44"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The total amount of Beans in all addresses in this Bean Vault.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+26"/>
-        <source>Bean Cash Network</source>
+        <source>   Network Overview</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+13"/>
-        <source>Bean Stalk Height:</source>
+        <source>Block Height</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+12"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Currently reported Block height of the Bean Cash Network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Currently synced block height of this node on the Bean Cash Network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+29"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Current difficulty level to find a new block and Sprout new Beans.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+17"/>
+        <source>BitB Network Weight:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+41"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Number of direct connections with other nodes on the Bean Cash network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Current BitB Supply:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Total supply of Beans that exist (monetary supply measured in BITB).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-319"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your current spendable balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-54"/>
+        <source>The displayed information may be out of date. Your node automatically synchronizes with the Bean Cash network after a connection is established, but this process has not completed yet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+274"/>
         <source>Sprouting Difficulty:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+12"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Current Difficulty level to find a new block and Sprout new Beans.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+17"/>
-        <source>Bean Weight:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+12"/>
+        <location line="+41"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Cumulative weight of all Beans actively competing to Sprout on the Network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2234,22 +2686,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+12"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Number of direct connections with Bean Core nodes on the Bean Cash network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+17"/>
-        <source>Total Beans:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+12"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Total supply of Beans that exist (monetary supply).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-113"/>
+        <location line="-72"/>
         <location line="+29"/>
         <location line="+29"/>
         <location line="+29"/>
@@ -2258,12 +2695,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished">0</translation>
     </message>
     <message>
-        <location line="-214"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Newly sprouted Beans that havn&apos;t matured yet.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+262"/>
+        <location line="+48"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;New Transactions&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2293,24 +2725,40 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="obsolete">Kolikoiden kokoinaismäärä, jotka eivät vielä ole laskettu tämänhetkiseen saldoon.</translation>
     </message>
     <message>
-        <location filename="../overviewpage.cpp" line="+136"/>
-        <location line="+1"/>
         <source>out of sync</source>
-        <translation>Ei ajan tasalla</translation>
+        <translation type="obsolete">Ei ajan tasalla</translation>
+    </message>
+    <message>
+        <location filename="../overviewpage.cpp" line="+136"/>
+        <source>Synchronizing with network...</source>
+        <translation type="unfinished">Synkronoidaan verkon kanssa...</translation>
     </message>
 </context>
 <context>
     <name>PaymentServer</name>
     <message>
-        <location filename="../paymentserver.cpp" line="+107"/>
+        <location filename="../paymentserver.cpp" line="+110"/>
         <source>Cannot start beancash: click-to-pay handler</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <location filename="../beancash.cpp" line="+108"/>
+        <source>Bean Cash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QRCodeDialog</name>
     <message>
-        <location filename="../forms/qrcodedialog.ui" line="+192"/>
+        <location filename="../forms/qrcodedialog.ui" line="+219"/>
         <source>QR Code Dialog</source>
         <translation>QR-koodidialogi</translation>
     </message>
@@ -2325,7 +2773,12 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation>Määrä:</translation>
     </message>
     <message>
-        <location line="-44"/>
+        <location line="+61"/>
+        <source>E&amp;xit</source>
+        <translation type="unfinished">L&amp;opeta</translation>
+    </message>
+    <message>
+        <location line="-105"/>
         <source>Label:</source>
         <translation>Nimike:</translation>
     </message>
@@ -2335,12 +2788,12 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation>Viesti:</translation>
     </message>
     <message>
-        <location line="+82"/>
+        <location line="+69"/>
         <source>&amp;Save As...</source>
         <translation>%Tallenna nimellä...</translation>
     </message>
     <message>
-        <location filename="../qrcodedialog.cpp" line="+62"/>
+        <location filename="../qrcodedialog.cpp" line="+65"/>
         <source>Error encoding URI into QR Code.</source>
         <translation>Virhe koodatessa linkkiä QR-koodiin.</translation>
     </message>
@@ -2368,7 +2821,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
 <context>
     <name>RPCConsole</name>
     <message>
-        <location filename="../forms/rpcconsole.ui" line="+252"/>
+        <location filename="../forms/rpcconsole.ui" line="+279"/>
         <source>Client name</source>
         <translation>Pääteohjelman nimi</translation>
     </message>
@@ -2383,7 +2836,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <location line="+23"/>
         <location line="+23"/>
         <location line="+165"/>
-        <location filename="../rpcconsole.cpp" line="+352"/>
+        <location filename="../rpcconsole.cpp" line="+396"/>
         <source>N/A</source>
         <translation>Ei saatavilla</translation>
     </message>
@@ -2491,11 +2944,16 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location line="+410"/>
+        <source>E&amp;xit</source>
+        <translation type="unfinished">L&amp;opeta</translation>
+    </message>
+    <message>
         <source>Show the Beancash-qt help message to get a list with possible Beancash command-line options.</source>
         <translation type="obsolete">Näytä Beancash-qt:n avustusohje saadaksesi listan käytettävistä Beancashin komentokehotteen määritteistä.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="-407"/>
         <source>&amp;Show</source>
         <translation>%Näytä</translation>
     </message>
@@ -2510,17 +2968,38 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation>&amp;Konsoli</translation>
     </message>
     <message>
-        <location line="+99"/>
+        <location line="+76"/>
+        <source>&amp;Bean Network Traffic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+52"/>
+        <source>&amp;Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Totals</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+64"/>
+        <location filename="../rpcconsole.cpp" line="-11"/>
+        <source>In:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+80"/>
+        <source>Out:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+68"/>
         <source>Close window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+3"/>
-        <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-446"/>
+        <location line="-697"/>
         <source>Build date</source>
         <translation>Kääntöpäiväys</translation>
     </message>
@@ -2542,14 +3021,18 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="obsolete">Avaa Beancash-asiakasohjelman debug-lokitiedosto nykyisestä hakemistostaan. Tämä voi kestää muutaman sekunnin avattaessa suuria lokitiedostoja.</translation>
     </message>
     <message>
-        <location line="+193"/>
+        <location line="+197"/>
         <source>Clear console</source>
         <translation>Tyhjennä konsoli</translation>
     </message>
     <message>
-        <location filename="../rpcconsole.cpp" line="-33"/>
         <source>Welcome to the Beancash RPC console.</source>
-        <translation>Tervetuloa Beancashin RPC-konsoliin.</translation>
+        <translation type="obsolete">Tervetuloa Beancashin RPC-konsoliin.</translation>
+    </message>
+    <message>
+        <location filename="../rpcconsole.cpp" line="-26"/>
+        <source>Welcome to the Bean Cash RPC console.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2561,12 +3044,52 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
         <translation>Kirjoita &lt;b&gt;help&lt;/b&gt; nähdäksesi yleiskatsauksen käytettävissä olevista komennoista.</translation>
     </message>
+    <message>
+        <location line="+26"/>
+        <source>Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+120"/>
+        <source>%1 B</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 KB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 MB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 GB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>%1 m</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>%1 h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 h %2 m</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SendBeansDialog</name>
     <message>
-        <location filename="../forms/sendbeansdialog.ui" line="+138"/>
-        <location filename="../sendbeansdialog.cpp" line="+182"/>
+        <location filename="../forms/sendbeansdialog.ui" line="+192"/>
+        <location filename="../sendbeansdialog.cpp" line="+187"/>
         <location line="+5"/>
         <location line="+5"/>
         <location line="+5"/>
@@ -2597,7 +3120,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished">Ei tarpeeksi varoja!</translation>
     </message>
     <message>
-        <location line="+85"/>
+        <location line="+94"/>
         <source>Quantity:</source>
         <translation type="unfinished">Määrä:</translation>
     </message>
@@ -2666,7 +3189,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished">erikseen määritetty vaihtorahaosoite</translation>
     </message>
     <message>
-        <location line="+149"/>
+        <location line="+224"/>
         <source>Send to multiple recipients at once</source>
         <translation type="unfinished">Lähetä monelle vastaanottajalle</translation>
     </message>
@@ -2686,7 +3209,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+48"/>
         <source>Balance:</source>
         <translation type="unfinished">Saldo:</translation>
     </message>
@@ -2696,7 +3219,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished">123.456 BC</translation>
     </message>
     <message>
-        <location line="+74"/>
+        <location line="-199"/>
         <source>Confirm the send action</source>
         <translation type="unfinished">Vahvista lähetys</translation>
     </message>
@@ -2706,9 +3229,13 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished">&amp;Lähetä</translation>
     </message>
     <message>
-        <location filename="../sendbeansdialog.cpp" line="-173"/>
         <source>Enter a Beancash address (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
-        <translation type="unfinished">Syötä Beancash-osoite (esim. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
+        <translation type="obsolete">Syötä Beancash-osoite (esim. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
+    </message>
+    <message>
+        <location filename="../sendbeansdialog.cpp" line="-178"/>
+        <source>Enter a Bean Cash address (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+15"/>
@@ -2751,12 +3278,13 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+86"/>
+        <location line="+87"/>
+        <location line="+2"/>
         <source>&lt;b&gt;%1&lt;/b&gt; to %2 (%3)</source>
         <translation type="unfinished">&lt;b&gt;%1&lt;/b&gt;:sta %2 (%3)</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+6"/>
         <source>Confirm send beans</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2771,7 +3299,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished">ja</translation>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="+30"/>
         <source>The recipient address is not valid, please recheck.</source>
         <translation type="unfinished">Vastaanottajan osoite on virheellinen. Tarkista osoite.</translation>
     </message>
@@ -2797,21 +3325,29 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
     </message>
     <message>
         <location line="+5"/>
-        <source>Error: Transaction creation failed.</source>
-        <translation type="unfinished">Virhe: Rahansiirron luonti epäonnistui.</translation>
+        <source>Error: Transaction creation failed!</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+271"/>
+        <source>WARNING: Invalid Bean Cash address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error: Transaction creation failed.</source>
+        <translation type="obsolete">Virhe: Rahansiirron luonti epäonnistui.</translation>
+    </message>
+    <message>
+        <location line="-266"/>
         <source>Error: The transaction was rejected. This might happen if some of the beans in your wallet were already spent, such as if you used a copy of wallet.dat and beans were spent in the copy but not marked as spent here.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+251"/>
         <source>WARNING: Invalid Beancash address</source>
-        <translation type="unfinished">VAROITUS: Epäkelpo Beancash-osoite</translation>
+        <translation type="obsolete">VAROITUS: Epäkelpo Beancash-osoite</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+279"/>
         <source>(no label)</source>
         <translation type="unfinished">(ei nimeä)</translation>
     </message>
@@ -2824,7 +3360,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
 <context>
     <name>SendBeansEntry</name>
     <message>
-        <location filename="../forms/sendbeansentry.ui" line="+327"/>
+        <location filename="../forms/sendbeansentry.ui" line="+354"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2851,8 +3387,12 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
     </message>
     <message>
         <location line="+24"/>
+        <source>The address to send the payment to (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>The address to send the payment to  (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
-        <translation type="unfinished">Osoite, johon maksu lähetetään (esim. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
+        <translation type="obsolete">Osoite, johon maksu lähetetään (esim. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -2880,9 +3420,13 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished">Poista tämä vastaanottaja</translation>
     </message>
     <message>
-        <location filename="../sendbeansentry.cpp" line="+1"/>
         <source>Enter a Beancash address (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
-        <translation type="unfinished">Syötä Beancash-osoite (esim. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
+        <translation type="obsolete">Syötä Beancash-osoite (esim. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
+    </message>
+    <message>
+        <location filename="../sendbeansentry.cpp" line="+1"/>
+        <source>Enter a Bean Cash address (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3138,20 +3682,23 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
-        <location filename="../forms/signverifymessagedialog.ui" line="+192"/>
+        <location filename="../forms/signverifymessagedialog.ui" line="+219"/>
         <source>Signatures - Sign / Verify a Message</source>
         <translation>Allekirjoitukset - Allekirjoita / Varmista viesti</translation>
     </message>
     <message>
         <location line="+17"/>
-        <location line="+135"/>
         <source>&amp;Sign Message</source>
         <translation>&amp;Allekirjoita viesti</translation>
     </message>
     <message>
-        <location line="-124"/>
         <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Voit allekirjoittaa viestit omalla osoitteellasi todistaaksesi että omistat ne. Ole huolellinen, ettet allekirjoita mitään epämääräistä, sillä phishing-hyökkääjät voivat yrittää huijata sinua allekirjoittamaan henkilöllisyytesi heidän hyväksi. Allekirjoita vain se,  mihin olet sitoutunut.</translation>
+        <translation type="obsolete">Voit allekirjoittaa viestit omalla osoitteellasi todistaaksesi että omistat ne. Ole huolellinen, ettet allekirjoita mitään epämääräistä, sillä phishing-hyökkääjät voivat yrittää huijata sinua allekirjoittamaan henkilöllisyytesi heidän hyväksi. Allekirjoita vain se,  mihin olet sitoutunut.</translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>You can sign messages with your keys to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+18"/>
@@ -3191,13 +3738,29 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation>Kopioi tämänhetkinen allekirjoitus järjestelmän leikepöydälle</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+40"/>
         <source>Sign the message to prove you own this Bean Cash address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location line="+3"/>
+        <source>Sign &amp;Message</source>
+        <translation type="unfinished">Allekirjoita &amp;Viesti</translation>
+    </message>
+    <message>
+        <location line="+46"/>
         <location line="+186"/>
+        <source>E&amp;xit</source>
+        <translation type="unfinished">L&amp;opeta</translation>
+    </message>
+    <message>
+        <location line="-49"/>
         <source>Verify the message to ensure it was signed with the specified Bean Cash address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Verify &amp;Message</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3205,7 +3768,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="obsolete">Allekirjoita viesti vahvistaaksesi, että omistat tämän Beancash-osoitteen</translation>
     </message>
     <message>
-        <location line="-163"/>
+        <location line="-166"/>
         <source>Reset all sign message fields</source>
         <translation>Tyhjennä kaikki allekirjoita-viesti-kentät</translation>
     </message>
@@ -3221,19 +3784,16 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+3"/>
-        <location line="+186"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">&amp;Peruuta</translation>
+        <translation type="obsolete">&amp;Peruuta</translation>
     </message>
     <message>
-        <location line="-130"/>
-        <location line="+84"/>
+        <location line="+46"/>
         <source>&amp;Verify Message</source>
         <translation>&amp;Varmista viesti</translation>
     </message>
     <message>
-        <location line="-70"/>
+        <location line="+14"/>
         <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
         <translation>Syötä allekirjoittava osoite, viesti ja allekirjoitus alla oleviin kenttiin varmistaaksesi allekirjoituksen aitouden. Varmista että kopioit kaikki kentät täsmälleen oikein, myös rivinvaihdot, välilyönnit, tabulaattorit, jne.</translation>
     </message>
@@ -3247,7 +3807,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="obsolete">Vahvista viesti varmistaaksesi että se on allekirjoitettu kyseisellä Beancash-osoitteella</translation>
     </message>
     <message>
-        <location line="+69"/>
+        <location line="+82"/>
         <source>Reset all verify message fields</source>
         <translation>Tyhjennä kaikki varmista-viesti-kentät</translation>
     </message>
@@ -3257,20 +3817,28 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../signverifymessagedialog.cpp" line="+27"/>
-        <location line="+3"/>
         <source>Enter a Beancash address (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
-        <translation>Syötä Beancash-osoite (esim. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
+        <translation type="obsolete">Syötä Beancash-osoite (esim. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
     </message>
     <message>
-        <location line="-2"/>
+        <location filename="../signverifymessagedialog.cpp" line="+28"/>
         <source>Click &quot;Sign Message&quot; to generate signature</source>
         <translation>Klikkaa &quot;Allekirjoita Viesti luodaksesi allekirjoituksen </translation>
     </message>
     <message>
-        <location line="+3"/>
         <source>Enter Beancash signature</source>
-        <translation>Syötä Beancash-allekirjoitus</translation>
+        <translation type="obsolete">Syötä Beancash-allekirjoitus</translation>
+    </message>
+    <message>
+        <location line="-1"/>
+        <location line="+3"/>
+        <source>Enter a Bean Cash address (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Enter Bean Cash signature</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+92"/>
@@ -3340,9 +3908,17 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
     </message>
 </context>
 <context>
+    <name>TrafficGraphWidget</name>
+    <message>
+        <location filename="../trafficgraphwidget.cpp" line="+80"/>
+        <source>KB/s</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>TransactionDesc</name>
     <message>
-        <location filename="../transactiondesc.cpp" line="+21"/>
+        <location filename="../transactiondesc.cpp" line="+24"/>
         <source>Open until %1</source>
         <translation>Avoinna %1 asti</translation>
     </message>
@@ -3404,19 +3980,19 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
     </message>
     <message>
         <location line="+5"/>
-        <location line="+17"/>
+        <location line="+13"/>
         <source>From</source>
         <translation>Lähettäjä</translation>
     </message>
     <message>
         <location line="+1"/>
-        <location line="+22"/>
+        <location line="+19"/>
         <location line="+58"/>
         <source>To</source>
         <translation>Saaja</translation>
     </message>
     <message>
-        <location line="-77"/>
+        <location line="-74"/>
         <location line="+2"/>
         <source>own address</source>
         <translation>oma osoite</translation>
@@ -3427,16 +4003,16 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation>nimi</translation>
     </message>
     <message>
-        <location line="+37"/>
+        <location line="+34"/>
         <location line="+12"/>
         <location line="+45"/>
         <location line="+17"/>
-        <location line="+30"/>
+        <location line="+31"/>
         <source>Credit</source>
         <translation>Credit</translation>
     </message>
     <message numerus="yes">
-        <location line="-102"/>
+        <location line="-103"/>
         <source>matures in %n more block(s)</source>
         <translation>
             <numerusform>kypsyy %n lohkon kuluttua</numerusform>
@@ -3452,12 +4028,12 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <location line="+44"/>
         <location line="+8"/>
         <location line="+15"/>
-        <location line="+30"/>
+        <location line="+31"/>
         <source>Debit</source>
         <translation>Debit</translation>
     </message>
     <message>
-        <location line="-39"/>
+        <location line="-40"/>
         <source>Transaction fee</source>
         <translation>Maksukulu</translation>
     </message>
@@ -3480,6 +4056,11 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <location line="+2"/>
         <source>Transaction ID</source>
         <translation>Siirtotunnus</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Output index</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
@@ -3521,12 +4102,12 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation>epätosi</translation>
     </message>
     <message>
-        <location line="-211"/>
+        <location line="-205"/>
         <source>, has not been successfully broadcast yet</source>
         <translation>, ei ole vielä onnistuneesti lähetetty</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+31"/>
         <source>unknown</source>
         <translation>tuntematon</translation>
     </message>
@@ -3534,14 +4115,14 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
 <context>
     <name>TransactionDescDialog</name>
     <message>
-        <location filename="../forms/transactiondescdialog.ui" line="+192"/>
+        <location filename="../forms/transactiondescdialog.ui" line="+219"/>
         <source>Transaction details</source>
         <translation>Rahansiirron yksityiskohdat</translation>
     </message>
     <message>
         <location line="+32"/>
-        <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <source>E&amp;xit</source>
+        <translation type="unfinished">L&amp;opeta</translation>
     </message>
     <message>
         <location line="+24"/>
@@ -3552,7 +4133,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
 <context>
     <name>TransactionTableModel</name>
     <message>
-        <location filename="../transactiontablemodel.cpp" line="+226"/>
+        <location filename="../transactiontablemodel.cpp" line="+227"/>
         <source>Date</source>
         <translation>Päivämäärä</translation>
     </message>
@@ -3788,7 +4369,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation>Näytä rahansiirron yksityiskohdat</translation>
     </message>
     <message>
-        <location line="+144"/>
+        <location line="+151"/>
         <source>Export Transaction Data</source>
         <translation>Vie tiedot rahansiirrosta</translation>
     </message>
@@ -3856,7 +4437,7 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
 <context>
     <name>WalletModel</name>
     <message>
-        <location filename="../walletmodel.cpp" line="+208"/>
+        <location filename="../walletmodel.cpp" line="+211"/>
         <source>Sending...</source>
         <translation>Lähetetään...</translation>
     </message>
@@ -3869,7 +4450,6 @@ Tämä tarkoittaa, että ainakin %2 rahansiirtopalkkio tarvitaan.</translation>
         <translation type="unfinished">Käytä %s optiota</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>%s, you must set a rpcpassword in the configuration file:
  %s
 It is recommended you use the following random password:
@@ -3881,7 +4461,7 @@ If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
 for example: alertnotify=echo %%s | mail -s &quot;Beancash Alert&quot; admin@foo.com
 </source>
-        <translation type="unfinished">%s, sinun on asetettava rpcpassword asetustiedostoon:
+        <translation type="obsolete">%s, sinun on asetettava rpcpassword asetustiedostoon:
 %s
 On suositeltavaa, että käytät seuraavaa arvottua salasanaa:
 rpcuser=Beancashrpc
@@ -3893,7 +4473,7 @@ On myös suositeltavaa asettaa alertnotify jolloin olet tiedotettu ongelmista; e
 </translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+14"/>
         <source>Error</source>
         <translation type="unfinished">Virhe</translation>
     </message>
@@ -3917,12 +4497,11 @@ If the file does not exist, create it with owner-readable-only file permissions.
 Jos tiedostoa ei ole, niin luo se ainoastaan omistajan kirjoitusoikeuksin.</translation>
     </message>
     <message>
-        <location line="+5"/>
         <source>Beancash version</source>
-        <translation type="unfinished">Beancashin versio</translation>
+        <translation type="obsolete">Beancashin versio</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+6"/>
         <source>Usage:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3942,9 +4521,33 @@ Jos tiedostoa ei ole, niin luo se ainoastaan omistajan kirjoitusoikeuksin.</tran
         <translation type="unfinished">Hanki apua käskyyn</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Beancash</source>
-        <translation type="unfinished">Beancash</translation>
+        <translation type="obsolete">Beancash</translation>
+    </message>
+    <message>
+        <location line="-28"/>
+        <source>%s, you must set a rpcpassword in the configuration file:
+ %s
+It is recommended you use the following random password:
+rpcuser=Beancashrpc
+rpcpassword=%s
+(you do not need to remember this password)
+The username and password MUST NOT be the same.
+If the file does not exist, create it with owner-readable-only file permissions.
+It is also recommended to set alertnotify so you are notified of problems;
+for example: alertnotify=echo %%s | mail -s &quot;Bean Cash Alert&quot; admin@foo.com
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+24"/>
+        <source>Bean Cash version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Bean Cash</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -4107,6 +4710,31 @@ Jos tiedostoa ei ole, niin luo se ainoastaan omistajan kirjoitusoikeuksin.</tran
         <translation type="unfinished">Suurin lähetyspuskuri yksittäiselle yhteydelle, &lt;n&gt;*1000 tavua (vakioasetus: 1000)</translation>
     </message>
     <message>
+        <location line="+58"/>
+        <source>Cannot obtain a lock on data directory %s.  Bean Cash is probably already running.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+28"/>
+        <source>Error loading wallet.dat: Wallet requires newer version of Bean Cash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Wallet needed to be rewritten: restart Bean Cash to complete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Unable to bind to %s on this computer. Bean Cash is probably already running.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Bean Cash will not work properly.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Use UPnP to map the listening port (default: 1 when listening)</source>
         <translation type="obsolete">Käytä UPnP:tä kuunneltavan portin avaamiseen (vakioasetus: 1 kun kuuntelemassa)</translation>
     </message>
@@ -4115,12 +4743,11 @@ Jos tiedostoa ei ole, niin luo se ainoastaan omistajan kirjoitusoikeuksin.</tran
         <translation type="obsolete">Käytä UPnP:tä kuunneltavan portin avaamiseen (vakioasetus: 0)</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Detach block and address databases. Increases shutdown time (default: 0)</source>
-        <translation type="unfinished">Irroita lohko- ja osoitetietokannat lopetuksessa. Nostaa ohjelman lopetusaikaa (oletus: 0)</translation>
+        <translation type="obsolete">Irroita lohko- ja osoitetietokannat lopetuksessa. Nostaa ohjelman lopetusaikaa (oletus: 0)</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="-113"/>
         <source>Fee per KB to add to transactions you send</source>
         <translation type="unfinished">Rahansiirtopalkkio kilotavua kohden lähetettäviin rahansiirtoihisi</translation>
     </message>
@@ -4329,12 +4956,11 @@ Jos tiedostoa ei ole, niin luo se ainoastaan omistajan kirjoitusoikeuksin.</tran
         <translation type="unfinished">Lompakko %s on datahakemiston %s ulkopuolella.</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Cannot obtain a lock on data directory %s.  Beancash is probably already running.</source>
-        <translation type="unfinished">Ei voida saavuttaa lukkoa datatiedostossa %s. Beancash-asiakasohjelma on ehkä jo käynnissä.</translation>
+        <translation type="obsolete">Ei voida saavuttaa lukkoa datatiedostossa %s. Beancash-asiakasohjelma on ehkä jo käynnissä.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+4"/>
         <source>Verifying database integrity...</source>
         <translation type="unfinished">Tarkistetaan tietokannan eheyttä...</translation>
     </message>
@@ -4426,17 +5052,15 @@ Jos tiedostoa ei ole, niin luo se ainoastaan omistajan kirjoitusoikeuksin.</tran
         <translation type="unfinished">Varoitus: Virhe luettaessa wallet.dat-tiedostoa! Kaikki avaimet luettiin oikein, mutta rahansiirtodata tai osoitekirjan kentät voivat olla puuttuvat tai väärät.</translation>
     </message>
     <message>
-        <location line="+3"/>
         <source>Error loading wallet.dat: Wallet requires newer version of Beancash</source>
-        <translation type="unfinished">Virhe ladattaessa wallet.dat-tiedostoa: Lompakko tarvitsee uudemman version Beancash-asiakasohjelmasta</translation>
+        <translation type="obsolete">Virhe ladattaessa wallet.dat-tiedostoa: Lompakko tarvitsee uudemman version Beancash-asiakasohjelmasta</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Wallet needed to be rewritten: restart Beancash to complete</source>
-        <translation type="unfinished">Lompakko on kirjoitettava uudelleen: käynnistä Beancash-asiakasohjelma uudelleen päättääksesi toiminnon</translation>
+        <translation type="obsolete">Lompakko on kirjoitettava uudelleen: käynnistä Beancash-asiakasohjelma uudelleen päättääksesi toiminnon</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+5"/>
         <source>Error loading wallet.dat</source>
         <translation type="unfinished">Virhe ladattaessa wallet.dat-tiedostoa</translation>
     </message>
@@ -4486,12 +5110,11 @@ Jos tiedostoa ei ole, niin luo se ainoastaan omistajan kirjoitusoikeuksin.</tran
         <translation type="unfinished">Lataus on valmis</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Unable to bind to %s on this computer. Beancash is probably already running.</source>
-        <translation type="unfinished">Ei voitu liittää %s tällä tietokoneella. Beancash-asiakasohjelma on jo ehkä päällä.</translation>
+        <translation type="obsolete">Ei voitu liittää %s tällä tietokoneella. Beancash-asiakasohjelma on jo ehkä päällä.</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+3"/>
         <source>Unable to bind to %s on this computer (bind returned error %d, %s)</source>
         <translation type="unfinished">Kytkeytyminen %s tällä tietokonella ei onnistu (kytkeytyminen palautti virheen %d, %s)</translation>
     </message>
@@ -4540,12 +5163,11 @@ Jos tiedostoa ei ole, niin luo se ainoastaan omistajan kirjoitusoikeuksin.</tran
         <translation type="unfinished">Lompakon saldo ei riitä</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Beancash will not work properly.</source>
-        <translation type="unfinished">Varoitus: Tarkista, että tietokoneesi aika ja päivämäärä ovat oikeassa! Jos kellosi on väärässä, Beancash ei toimi oikein.</translation>
+        <translation type="obsolete">Varoitus: Tarkista, että tietokoneesi aika ja päivämäärä ovat oikeassa! Jos kellosi on väärässä, Beancash ei toimi oikein.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+4"/>
         <source>Warning: This version is obsolete, upgrade required!</source>
         <translation type="unfinished">Varoitus: Tämä versio on vanhentunut, päivitys tarpeen!</translation>
     </message>

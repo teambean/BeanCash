@@ -18,28 +18,28 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+13"/>
+        <source>Copyright Auto</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt; Bean Cash Core&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+93"/>
         <source>Close Window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+6"/>
-        <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <source>E&amp;xit</source>
+        <translation type="unfinished">Luk</translation>
     </message>
     <message>
-        <location line="+62"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;This is experimental software. Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://www.opensource.org/licenses/mit-license.php&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.opensource.org/licenses/mit-license.php&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;/span&gt;&lt;a href=&quot;https://www.openssl.org/&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.openssl.org/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;) and cryptographic software written by Eric Young (&lt;/span&gt;&lt;a href=&quot;mailto:eay@cryptsoft.com&quot;&gt;&lt;span style=&quot; font-size:11pt; text-decoration: underline; color:#0000ff;&quot;&gt;eay@cryptsoft.com&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:11pt;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+29"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Bean Cash&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+45"/>
-        <source>Copyright 2019 Bean Core</source>
+        <location line="+36"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://www.beancash.org &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.beancash.org (Official Site) &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://www.beancash.org &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.beancash.is (future alternate)&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://www.beancash.org &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://live.beancash.org (Community Communication) &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://www.beancash.org &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;#beancash on Freenode IRC (alt backup communications in emergencies)&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://www.opensource.org/licenses/mit-license.php&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.opensource.org/licenses/mit-license.php&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;/span&gt;&lt;a href=&quot;https://www.openssl.org/&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.openssl.org/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;) and cryptographic software written by Eric Young (&lt;/span&gt;&lt;a href=&quot;mailto:eay@cryptsoft.com&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;eay@cryptsoft.com&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Developed by Shawn Kent, Lead Developer &amp;amp; Project Manager - Bean Core &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -71,34 +71,39 @@ Produktet indeholder software, som er udviklet af OpenSSL Project til brug i Ope
     </message>
     <message>
         <location line="+0"/>
-        <source>2015-%1 Bean Core www.beancash.org</source>
+        <source>2015-%1 www.beancash.org</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AddressBookPage</name>
     <message>
-        <location filename="../forms/addressbookpage.ui" line="+186"/>
+        <location filename="../forms/addressbookpage.ui" line="+213"/>
         <source>Address Book</source>
         <translation>Adressebog</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location filename="../addressbookpage.cpp" line="+61"/>
         <source>These are your Bean Cash addresses for receiving payments. You may want to give a different one to each sender so you can keep track of who is paying you.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location filename="../forms/addressbookpage.ui" line="+23"/>
         <source>Double-click to edit address or label</source>
         <translation>Dobbeltklik for at redigere adresse eller mærkat</translation>
     </message>
     <message>
-        <location line="+33"/>
+        <location line="+40"/>
         <source>Create a new address</source>
         <translation>Opret en ny adresse</translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+23"/>
+        <source>&amp;Delete Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
         <source>Copy the currently selected address to the system clipboard</source>
         <translation>Kopier den valgte adresse til udklipsholder</translation>
     </message>
@@ -108,7 +113,22 @@ Produktet indeholder software, som er udviklet af OpenSSL Project til brug i Ope
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-54"/>
+        <location line="+3"/>
+        <source>&amp;Sign Message</source>
+        <translation type="unfinished">Underskriv besked</translation>
+    </message>
+    <message>
+        <location line="+33"/>
+        <source>Export the data in the current tab to a file</source>
+        <translation type="unfinished">Eksportere data i den aktuelle fane til en fil</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>&amp;Export</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-113"/>
         <source>&amp;New Address</source>
         <translation>&amp;Ny adresse</translation>
     </message>
@@ -117,7 +137,7 @@ Produktet indeholder software, som er udviklet af OpenSSL Project til brug i Ope
         <translation type="obsolete">Dette er dine Beancash adresser til at modtage betalinger. Du ønsker måske at give en anden en til af hver afsender, så du kan holde styr på hvem der betaler dig.</translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="+40"/>
         <source>&amp;Copy Address</source>
         <translation>&amp;Kopier adresse</translation>
     </message>
@@ -131,17 +151,16 @@ Produktet indeholder software, som er udviklet af OpenSSL Project til brug i Ope
         <translation type="obsolete">Signerer en meddelelse for at bevise du ejer en Beancash adresse</translation>
     </message>
     <message>
-        <location line="+20"/>
         <source>Sign &amp;Message</source>
-        <translation>Signere &amp; Besked</translation>
+        <translation type="obsolete">Signere &amp; Besked</translation>
     </message>
     <message>
-        <location line="+19"/>
+        <location line="+39"/>
         <source>Verify a message to ensure it was signed with a specified Bean Cash address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+20"/>
+        <location line="-79"/>
         <source>Delete the currently selected address from the list</source>
         <translation>Slet den markerede adresse fra listen</translation>
     </message>
@@ -150,27 +169,40 @@ Produktet indeholder software, som er udviklet af OpenSSL Project til brug i Ope
         <translation type="obsolete">Bekræft en meddelelse for at sikre, den blev underskrevet med en specificeret Beancash adresse</translation>
     </message>
     <message>
-        <location line="-17"/>
+        <location line="+82"/>
         <source>&amp;Verify Message</source>
         <translation>Bekræft Meddelse</translation>
     </message>
     <message>
-        <location line="+20"/>
         <source>&amp;Delete</source>
-        <translation>&amp;Slet</translation>
+        <translation type="obsolete">&amp;Slet</translation>
     </message>
     <message>
-        <location filename="../addressbookpage.cpp" line="+67"/>
+        <location filename="../addressbookpage.cpp" line="+8"/>
         <source>Copy &amp;Label</source>
         <translation>Kopier mærkat</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>&amp;Edit</source>
-        <translation>Rediger</translation>
+        <translation type="obsolete">Rediger</translation>
     </message>
     <message>
-        <location line="+248"/>
+        <location line="-13"/>
+        <source>These are your Bean Cash addresses for sending payments. Always check the amount and the receiving address before sending beans.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+14"/>
+        <source>&amp;Edit Label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Send &amp;Beans</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+267"/>
         <source>Export Address Book Data</source>
         <translation>Eksporter Adresse Bog</translation>
     </message>
@@ -211,7 +243,7 @@ Produktet indeholder software, som er udviklet af OpenSSL Project til brug i Ope
 <context>
     <name>AskPassphraseDialog</name>
     <message>
-        <location filename="../forms/askpassphrasedialog.ui" line="+204"/>
+        <location filename="../forms/askpassphrasedialog.ui" line="+231"/>
         <source>Passphrase Dialog</source>
         <translation>Adgangskodedialog</translation>
     </message>
@@ -298,11 +330,16 @@ Produktet indeholder software, som er udviklet af OpenSSL Project til brug i Ope
         <translation>Bekræft tegnebogskryptering</translation>
     </message>
     <message>
+        <location line="+12"/>
+        <source>Bean Cash will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your beans from being stolen by malware infecting your computer.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Warning: If you encrypt your wallet and lose your passphrase, you will &lt;b&gt;LOSE ALL OF YOUR COINS&lt;/b&gt;!</source>
         <translation type="obsolete">Advarsel: Hvis du krypterer din tegnebog og mister din adgangskode, vil du &lt;b&gt; miste alle dine mønter &lt;/ b&gt;!</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="-11"/>
         <source>Are you sure you wish to encrypt your wallet?</source>
         <translation>Er du sikker på, at du ønsker at kryptere din tegnebog?</translation>
     </message>
@@ -312,12 +349,7 @@ Produktet indeholder software, som er udviklet af OpenSSL Project til brug i Ope
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+11"/>
-        <source>Beancash will close now to finish the encryption process. Remember that encrypting your wallet cannot fully protect your beans from being stolen by malware infecting your computer.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+4"/>
+        <location line="+15"/>
         <source>IMPORTANT: Any previous backups you have made of your wallet file should be replaced with the newly generated, encrypted wallet file. For security reasons, previous backups of the unencrypted wallet file will become useless as soon as you start using the new, encrypted wallet.</source>
         <translation>VIGTIGT: Enhver tidligere sikkerhedskopi, som du har lavet af tegnebogsfilen, bør blive erstattet af den nyligt genererede, krypterede tegnebogsfil. Af sikkerhedsmæssige årsager vil tidligere sikkerhedskopier af den ikke-krypterede tegnebogsfil blive ubrugelig i det øjeblik, du starter med at anvende den nye, krypterede tegnebog.</translation>
     </message>
@@ -382,7 +414,7 @@ Produktet indeholder software, som er udviklet af OpenSSL Project til brug i Ope
 <context>
     <name>BeanControlDialog</name>
     <message>
-        <location filename="../forms/beancontroldialog.ui" line="+159"/>
+        <location filename="../forms/beancontroldialog.ui" line="+186"/>
         <source>Bean Control</source>
         <translation type="unfinished"></translation>
     </message>
@@ -442,6 +474,11 @@ Produktet indeholder software, som er udviklet af OpenSSL Project til brug i Ope
         <translation type="unfinished">Liste tilstand</translation>
     </message>
     <message>
+        <location line="+7"/>
+        <source>(1 locked)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location line="+51"/>
         <source>Amount</source>
         <translation type="unfinished">Beløb</translation>
@@ -498,7 +535,17 @@ Produktet indeholder software, som er udviklet af OpenSSL Project til brug i Ope
         <translation type="unfinished">Kopier transaktionens ID</translation>
     </message>
     <message>
-        <location line="+24"/>
+        <location line="+1"/>
+        <source>Lock unspent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Unlock unspent</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+22"/>
         <source>Copy quantity</source>
         <translation type="unfinished">Kopier antal</translation>
     </message>
@@ -568,7 +615,12 @@ Produktet indeholder software, som er udviklet af OpenSSL Project til brug i Ope
         <translation type="unfinished">lavest</translation>
     </message>
     <message>
-        <location line="+155"/>
+        <location line="+11"/>
+        <source>(%1 locked)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+144"/>
         <source>DUST</source>
         <translation type="unfinished">DUST</translation>
     </message>
@@ -650,16 +702,15 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
 <context>
     <name>BitbeanGUI</name>
     <message>
-        <location filename="../beancash.cpp" line="+102"/>
         <source>A fatal error occurred. Beancash can no longer continue safely and will quit.</source>
-        <translation type="unfinished">Der opstod en fejl under forsøg på at gemme dataene i tegnebogen til den nye placering.</translation>
+        <translation type="obsolete">Der opstod en fejl under forsøg på at gemme dataene i tegnebogen til den nye placering.</translation>
     </message>
     <message>
         <source>Beancash</source>
         <translation type="obsolete">Beancash</translation>
     </message>
     <message>
-        <location filename="../bitbeangui.cpp" line="+221"/>
+        <location filename="../bitbeangui.cpp" line="+248"/>
         <source>&amp;Overview</source>
         <translation type="unfinished">&amp;Oversigt</translation>
     </message>
@@ -703,7 +754,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished">Redigere listen over gemte adresser og etiketter</translation>
     </message>
     <message>
-        <location line="+16"/>
+        <location line="+31"/>
         <source>E&amp;xit</source>
         <translation type="unfinished">Luk</translation>
     </message>
@@ -721,12 +772,13 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="obsolete">Vis oplysninger om Beancash</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+7"/>
+        <location line="+2"/>
         <source>About &amp;Qt</source>
         <translation type="unfinished">Om Qt</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+2"/>
         <source>Show information about Qt</source>
         <translation type="unfinished">Vis informationer om Qt</translation>
     </message>
@@ -761,7 +813,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="obsolete">Lav sikkerhedskopi af tegnebogen til et andet sted</translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+10"/>
         <source>&amp;Change Passphrase...</source>
         <translation type="unfinished">Skift adgangskode...</translation>
     </message>
@@ -817,17 +869,17 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished">Åbn fejlsøgnings- og diagnosticeringskonsollen</translation>
     </message>
     <message>
-        <location line="+30"/>
+        <location line="+35"/>
         <source>&amp;File</source>
         <translation type="unfinished">Fil</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+11"/>
         <source>&amp;Settings</source>
         <translation type="unfinished">Indstillinger</translation>
     </message>
     <message>
-        <location line="+8"/>
+        <location line="+12"/>
         <source>&amp;Help</source>
         <translation type="unfinished">Hjælp</translation>
     </message>
@@ -837,7 +889,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished">Faneværktøjslinje</translation>
     </message>
     <message>
-        <location line="+9"/>
+        <location line="+11"/>
         <source>Actions toolbar</source>
         <translation type="unfinished">Fanværktøjslinje</translation>
     </message>
@@ -848,10 +900,8 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished">[testnetværk]</translation>
     </message>
     <message>
-        <location line="+0"/>
-        <location line="+60"/>
         <source>Beancash client</source>
-        <translation type="unfinished">Beancash klient</translation>
+        <translation type="obsolete">Beancash klient</translation>
     </message>
     <message numerus="yes">
         <source>%n active connection(s) to Beancash network</source>
@@ -861,17 +911,13 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         </translation>
     </message>
     <message>
-        <location line="-357"/>
+        <location line="-340"/>
+        <location line="+624"/>
         <source>Bean Cash</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+0"/>
-        <source>Core v1.1.2.2RC</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+140"/>
+        <location line="-478"/>
         <source>Overview of general information</source>
         <translation type="unfinished"></translation>
     </message>
@@ -881,7 +927,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+38"/>
+        <location line="+53"/>
         <source>&amp;About Bean Cash</source>
         <translation type="unfinished"></translation>
     </message>
@@ -891,7 +937,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+10"/>
         <source>Modify configuration options for Bean Cash</source>
         <translation type="unfinished"></translation>
     </message>
@@ -906,17 +952,12 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+2"/>
-        <source>&amp;Backup Keys...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+1"/>
+        <location line="+3"/>
         <source>Backup keys to another location</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+6"/>
         <source>Change the passphrase used for encrypting keys</source>
         <translation type="unfinished"></translation>
     </message>
@@ -936,7 +977,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location line="+225"/>
+        <location line="+261"/>
         <source>%n active connection(s) to the Bean Cash network</source>
         <translation type="unfinished">
             <numerusform></numerusform>
@@ -944,12 +985,67 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         </translation>
     </message>
     <message>
-        <location line="+24"/>
         <source>Synchronizing with network...</source>
-        <translation type="unfinished">Synkroniserer med netværk...</translation>
+        <translation type="obsolete">Synkroniserer med netværk...</translation>
+    </message>
+    <message>
+        <location line="-500"/>
+        <source>Core v1.3.1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+193"/>
+        <location line="+49"/>
+        <source>&amp;Block Explorer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-48"/>
+        <source>Explore the Bean Cash Blockchain and Transactions</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+28"/>
+        <source>&amp;Backup Keys ...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>&amp;Export Keys...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Export Key Pairs to a text file</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>&amp;Import Keys...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Import a text file containing a Key Pair</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Explore the Bean Cash BlockChain</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+97"/>
+        <source>Bean Cash client</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+62"/>
+        <source>Bean Cash Core</source>
+        <translation type="unfinished"></translation>
     </message>
     <message numerus="yes">
-        <location line="+2"/>
+        <location line="+135"/>
         <source>~%n block(s) remaining</source>
         <translation type="unfinished">
             <numerusform>~%n blok resterer</numerusform>
@@ -957,7 +1053,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         </translation>
     </message>
     <message>
-        <location line="+6"/>
+        <location line="+5"/>
         <source>Downloaded %1 of %2 blocks of transaction history (%3% done).</source>
         <translation type="unfinished">Overført %1 af %2 blokke af transaktions historie (%3% færdig).</translation>
     </message>
@@ -1009,13 +1105,112 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished">Indhenter...</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+14"/>
         <source>Last received block was generated %1.</source>
         <translation type="unfinished">Sidst modtagne blok blev genereret %1.</translation>
     </message>
     <message>
-        <location line="+59"/>
-        <source>In order to process your transaction(s) on the Bean Cash Network, a fee of %1 is required. This fee is paid to the node that processes your transaction. Select &lt;OK&gt; to continue and send your transaction(s). </source>
+        <location line="+21"/>
+        <source>Error</source>
+        <translation type="unfinished">Fejl</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Warning</source>
+        <translation type="unfinished">Advarsel</translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+71"/>
+        <source>In order to process your transaction(s) on the Bean Cash Network, a fee of %1 is required. This fee is paid to the node that processes your transaction. Select &lt;YES&gt; to continue and send your transaction(s).</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+165"/>
+        <location line="+17"/>
+        <source>URI can not be parsed! This can be caused by an invalid Bean Cash address or malformed URI parameters.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+57"/>
+        <source>There was an error trying to save the keypair data to the new location.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+4"/>
+        <source>Backup Successful</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <source>Keypair data was successfully saved to the new location.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+22"/>
+        <source>Export Key Pair</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+0"/>
+        <location line="+33"/>
+        <source>KeyPair(*.txt)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-30"/>
+        <source>Export Key Pair Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>An error happened while trying to save the keys to your location.
+Keys were not saved</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Export of Key Pair was Successful</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Keys were saved to this file:
+%2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Import Key Pair</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Import of Key Pair Failed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>An error happened while trying to import the keys.
+Some or all keys from:
+ %1,
+ were not imported into your vault.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+6"/>
+        <source>Import of Key Pair was Successful</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>All keys from:
+ %1,
+ were imported into your vault.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1023,17 +1218,17 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="obsolete">Denne transaktion er over grænsen størrelse. Du kan stadig sende det for et gebyr på %1, der går til de noder, der behandler din transaktion og hjælper med at støtte netværket. Ønsker du at betale gebyret?</translation>
     </message>
     <message>
-        <location line="+4"/>
+        <location line="-305"/>
         <source>Confirm transaction fee</source>
         <translation type="unfinished">Bekræft transaktionsgebyr</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+23"/>
         <source>Sent transaction</source>
         <translation type="unfinished">Afsendt transaktion</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+0"/>
         <source>Incoming transaction</source>
         <translation type="unfinished">Indgående transaktion</translation>
     </message>
@@ -1051,19 +1246,17 @@ Adresse: %4
 </translation>
     </message>
     <message>
-        <location line="+121"/>
-        <location line="+15"/>
+        <location line="+137"/>
+        <location line="+17"/>
         <source>URI handling</source>
         <translation type="unfinished">URI håndtering</translation>
     </message>
     <message>
-        <location line="-15"/>
-        <location line="+15"/>
         <source>URI can not be parsed! This can be caused by an invalid Beancash address or malformed URI parameters.</source>
-        <translation type="unfinished">URI kan ikke tolkes! Dette kan skyldes en ugyldig Beancash adresse eller misdannede URI parametre.</translation>
+        <translation type="obsolete">URI kan ikke tolkes! Dette kan skyldes en ugyldig Beancash adresse eller misdannede URI parametre.</translation>
     </message>
     <message>
-        <location line="+18"/>
+        <location line="+19"/>
         <source>Wallet is &lt;b&gt;encrypted&lt;/b&gt; and currently &lt;b&gt;unlocked&lt;/b&gt;</source>
         <translation type="unfinished">Tegnebog er &lt;b&gt;krypteret&lt;/b&gt; og i øjeblikket &lt;b&gt;ulåst&lt;/b&gt;</translation>
     </message>
@@ -1088,12 +1281,11 @@ Adresse: %4
         <translation type="unfinished">Sikkerhedskopiering Mislykkedes</translation>
     </message>
     <message>
-        <location line="+0"/>
         <source>There was an error trying to save the wallet data to the new location.</source>
-        <translation type="unfinished">Der opstod en fejl under forsøg på at gemme data i tegnebogen til den nye placering.</translation>
+        <translation type="obsolete">Der opstod en fejl under forsøg på at gemme data i tegnebogen til den nye placering.</translation>
     </message>
     <message numerus="yes">
-        <location line="+94"/>
+        <location line="+171"/>
         <source>%n second(s)</source>
         <translation type="unfinished">
             <numerusform>%n sekund</numerusform>
@@ -1173,6 +1365,11 @@ Adresse: %4
     <message>
         <source>Not staking</source>
         <translation type="obsolete">Ingen rente</translation>
+    </message>
+    <message>
+        <location filename="../beancash.cpp" line="+110"/>
+        <source>A fatal error occurred. Bean Cash Core can no longer continue safely and will quit.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1537,9 +1734,126 @@ Adresse: %4
     </message>
 </context>
 <context>
+    <name>BlockBrowser</name>
+    <message>
+        <location filename="../forms/blockbrowser.ui" line="+99"/>
+        <source>Bean Cash Block Explorer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+44"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:20px; font-weight:600; color:#121117;&quot;&gt;Bean Cash Block Explorer&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+38"/>
+        <source>Decode Transaction</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Inputs:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>0000 KH/s</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Value out:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Transaction ID:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>0.00</source>
+        <translation type="unfinished">0.00</translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>000</source>
+        <translation type="unfinished">000</translation>
+    </message>
+    <message>
+        <location line="+27"/>
+        <source>Block Difficulty:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Block Height:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <location line="+51"/>
+        <location line="+27"/>
+        <location line="+53"/>
+        <source>0</source>
+        <translation type="unfinished">0</translation>
+    </message>
+    <message>
+        <location line="-124"/>
+        <source>Jump to Block</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Block Merkle:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Block Hash:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Block Hashrate:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Fees:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+10"/>
+        <source>Block nBits:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+20"/>
+        <location line="+72"/>
+        <source>0x0</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-62"/>
+        <source>Outputs:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+23"/>
+        <source>Block nNonce:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Block Timestamp:</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ClientModel</name>
     <message>
-        <location filename="../clientmodel.cpp" line="+90"/>
+        <location filename="../clientmodel.cpp" line="+109"/>
         <source>Network Alert</source>
         <translation>Netværksadvarsel</translation>
     </message>
@@ -1766,7 +2080,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
 <context>
     <name>EditAddressDialog</name>
     <message>
-        <location filename="../forms/editaddressdialog.ui" line="+192"/>
+        <location filename="../forms/editaddressdialog.ui" line="+219"/>
         <source>Edit Address</source>
         <translation>Rediger adresse</translation>
     </message>
@@ -1811,17 +2125,21 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation>Rediger afsendelsesadresse</translation>
     </message>
     <message>
-        <location line="+76"/>
+        <location line="+71"/>
+        <source>The entered address &quot;%1&quot; is not a valid Bean Cash address.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
         <source>The entered address &quot;%1&quot; is already in the address book.</source>
         <translation>Den indtastede adresse &quot;%1&quot; er allerede i adressebogen.</translation>
     </message>
     <message>
-        <location line="-5"/>
         <source>The entered address &quot;%1&quot; is not a valid Beancash address.</source>
-        <translation>Den indtastede adresse &quot;%1&quot; er ikke en gyldig Beancash adresse.</translation>
+        <translation type="obsolete">Den indtastede adresse &quot;%1&quot; er ikke en gyldig Beancash adresse.</translation>
     </message>
     <message>
-        <location line="+10"/>
+        <location line="+5"/>
         <source>Could not unlock wallet.</source>
         <translation>Kunne ikke låse tegnebog op.</translation>
     </message>
@@ -1832,15 +2150,43 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
     </message>
 </context>
 <context>
+    <name>FreespaceChecker</name>
+    <message>
+        <location filename="../intro.cpp" line="+60"/>
+        <source>A new data directory will be created.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>Directory already exists. Add %1 if you intend to create a new directory here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Path already exists, and is not a directory.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>Cannot create data directory here.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>GUIUtil::HelpMessageBox</name>
     <message>
-        <location filename="../guiutil.cpp" line="+433"/>
-        <location line="+12"/>
+        <location filename="../guiutil.cpp" line="+485"/>
+        <location line="+13"/>
         <source>Beancash-qt</source>
         <translation>Beancash-qt</translation>
     </message>
     <message>
-        <location line="-12"/>
+        <location line="-13"/>
         <source>version</source>
         <translation>version</translation>
     </message>
@@ -1874,11 +2220,74 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <source>Show splash screen on startup (default: 1)</source>
         <translation>Vis splash skærm ved opstart (default: 1)</translation>
     </message>
+    <message>
+        <location line="+1"/>
+        <source>Choose data directory on startup (default: 0)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Intro</name>
+    <message>
+        <location filename="../forms/intro.ui" line="+348"/>
+        <source>Welcome</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>Welcome to Bean Digital Cash!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+48"/>
+        <source>As this is the first time the program is launched, you can choose where Bean Cash Core will store its data.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>Bean Cash Core will download and store a copy of the Bean Cash block chain. At least %5GB of data will be stored in this directory, and it will grow over time. The wallet (Your keypairs and associated data)  will also be stored in this directory.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+18"/>
+        <source>Use the default data directory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>Use a custom data directory:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../intro.cpp" line="+80"/>
+        <source>Bitcoin</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error: Specified data directory &quot;%1&quot; can not be created.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+19"/>
+        <source>Error</source>
+        <translation type="unfinished">Fejl</translation>
+    </message>
+    <message>
+        <location line="+9"/>
+        <source>GB of free space available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>(of %1GB needed)</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>OptionsDialog</name>
     <message>
-        <location filename="../forms/optionsdialog.ui" line="+220"/>
+        <location filename="../forms/optionsdialog.ui" line="+274"/>
         <source>Options</source>
         <translation>Indstillinger</translation>
     </message>
@@ -1919,17 +2328,15 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="obsolete">&amp;Start Beancash ved systems login</translation>
     </message>
     <message>
-        <location line="+41"/>
         <source>Detach block and address databases at shutdown. This means they can be moved to another data directory, but it slows down shutdown. The wallet is always detached.</source>
-        <translation>Frigør blok og adressedatabaser ved lukning. Det betyder, at de kan flyttes til et anden data-bibliotek, men det sinker lukning. Tegnebogen er altid frigjort.</translation>
+        <translation type="obsolete">Frigør blok og adressedatabaser ved lukning. Det betyder, at de kan flyttes til et anden data-bibliotek, men det sinker lukning. Tegnebogen er altid frigjort.</translation>
     </message>
     <message>
-        <location line="+3"/>
         <source>&amp;Detach databases at shutdown</source>
-        <translation>&amp;Frigør databaser ved lukning</translation>
+        <translation type="obsolete">&amp;Frigør databaser ved lukning</translation>
     </message>
     <message>
-        <location line="+21"/>
+        <location line="+55"/>
         <source>&amp;Network</source>
         <translation>Netværk</translation>
     </message>
@@ -1946,8 +2353,8 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="obsolete">Opret forbindelse til Beancash netværk via en SOCKS proxy (fx ved tilslutning gennem Tor).</translation>
     </message>
     <message>
-        <location line="-126"/>
-        <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are less than 1 kB. A fee of 5 BEAN is recommended. Fees help support the Bean Cash network.</source>
+        <location line="-116"/>
+        <source>Optional transaction fee per kB that helps make sure your transactions are processed quickly. Most transactions are less than 1 kB. A fee of 1 BITB is recommended. Fees help support the Bean Cash network.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1961,7 +2368,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+37"/>
+        <location line="+27"/>
         <source>Connect to the Bean Cash network through a SOCKS proxy (e.g. when connecting through Tor).</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2051,23 +2458,48 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The user interface language can be set here. This setting will take effect after restarting Beancash.</source>
-        <translation type="obsolete">Sproget i brugergrænsefladen kan indstilles her. Denne indstilling vil træde i kraft efter genstart af Beancash tegnebog.</translation>
+        <location line="+3"/>
+        <source>&amp;Display Addresses With Transactions</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-22"/>
-        <source>&amp;Unit to show amounts in:</source>
-        <translation>Enhed at vise beløb i:</translation>
-    </message>
-    <message>
-        <location line="+32"/>
-        <source>Whether to show bean control features or not.</source>
+        <location line="+7"/>
+        <source>Allow individual selection of bean inputs when sending.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
-        <source>Display bean &amp;control features (experts only!)</source>
+        <source>Enable Bean &amp;Control</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;When spending Beans, the default is to pick random inputs. This option uses inputs with minimal Bean age when spending, to maximize Bean weight for Sprouting. Use this option to minimize Bean weight consumption.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Select Inputs With Minimal Bean Age for Spending Beans</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+102"/>
+        <source>&amp;Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+39"/>
+        <source>E&amp;xit</source>
+        <translation type="unfinished">Luk</translation>
+    </message>
+    <message>
+        <source>The user interface language can be set here. This setting will take effect after restarting Beancash.</source>
+        <translation type="obsolete">Sproget i brugergrænsefladen kan indstilles her. Denne indstilling vil træde i kraft efter genstart af Beancash tegnebog.</translation>
+    </message>
+    <message>
+        <location line="-186"/>
+        <source>&amp;Unit to show amounts in:</source>
+        <translation>Enhed at vise beløb i:</translation>
     </message>
     <message>
         <source>Choose the default subdivision unit to show in the interface and when sending coins.</source>
@@ -2078,9 +2510,8 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="obsolete">Få vist Beancash adresser på listen over transaktioner eller ej.</translation>
     </message>
     <message>
-        <location line="-10"/>
         <source>&amp;Display addresses in transaction list</source>
-        <translation>Vis adresser i transaktionsliste</translation>
+        <translation type="obsolete">Vis adresser i transaktionsliste</translation>
     </message>
     <message>
         <source>Whether to show coin control features or not.</source>
@@ -2091,17 +2522,15 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="obsolete">Vis mønt &amp; kontrol funktioner (kun for eksperter!)</translation>
     </message>
     <message>
-        <location line="+125"/>
         <source>&amp;OK</source>
-        <translation>OK</translation>
+        <translation type="obsolete">OK</translation>
     </message>
     <message>
-        <location line="+18"/>
         <source>&amp;Cancel</source>
-        <translation>Annuller</translation>
+        <translation type="obsolete">Annuller</translation>
     </message>
     <message>
-        <location line="+21"/>
+        <location line="+165"/>
         <source>&amp;Apply</source>
         <translation>&amp;Anvend</translation>
     </message>
@@ -2119,8 +2548,12 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
     <message>
         <location line="-9"/>
         <location line="+9"/>
+        <source>This setting will take effect after restarting Bean Cash.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>This setting will take effect after restarting Beancash.</source>
-        <translation>Denne indstilling vil træde i kraft efter genstart af Beancash.</translation>
+        <translation type="obsolete">Denne indstilling vil træde i kraft efter genstart af Beancash.</translation>
     </message>
     <message>
         <location line="+29"/>
@@ -2131,7 +2564,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
 <context>
     <name>OverviewPage</name>
     <message>
-        <location filename="../forms/overviewpage.ui" line="+246"/>
+        <location filename="../forms/overviewpage.ui" line="+273"/>
         <source>Form</source>
         <translation>Formular</translation>
     </message>
@@ -2172,68 +2605,87 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+74"/>
-        <source>Immature:</source>
-        <translation>Umodne:</translation>
-    </message>
-    <message>
-        <location line="-93"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your current spendable balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-67"/>
-        <location line="+454"/>
-        <source>The displayed information may be out of date. Your node automatically synchronizes with the Bean Cash network after a connection is established, but this process has not completed yet.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-350"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Newly Sprouted Beans that are still maturing, not yet counted towards the current total balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <location line="+18"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;New Beans that are still maturing, not yet counted towards the total balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+37"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Beans that are still unconfirmed, which are not counted towards the total balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Beans that are not yet confirmed, are excluded from the total balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+78"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The current, total amount of Beans contained in your Bean Vault.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <location line="+19"/>
+        <source>Immature:</source>
+        <translation>Umodne:</translation>
+    </message>
+    <message>
+        <location line="+15"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;New SPROUTs (Beans) that havn&apos;t matured yet.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+44"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;The total amount of Beans in all addresses in this Bean Vault.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+26"/>
-        <source>Bean Cash Network</source>
+        <source>   Network Overview</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+13"/>
-        <source>Bean Stalk Height:</source>
+        <source>Block Height</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+12"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Currently reported Block height of the Bean Cash Network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Currently synced block height of this node on the Bean Cash Network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+29"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Current difficulty level to find a new block and Sprout new Beans.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+17"/>
+        <source>BitB Network Weight:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+41"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Number of direct connections with other nodes on the Bean Cash network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+17"/>
+        <source>Current BitB Supply:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+12"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Total supply of Beans that exist (monetary supply measured in BITB).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-319"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Your current spendable balance.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="-54"/>
+        <source>The displayed information may be out of date. Your node automatically synchronizes with the Bean Cash network after a connection is established, but this process has not completed yet.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+274"/>
         <source>Sprouting Difficulty:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+12"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Current Difficulty level to find a new block and Sprout new Beans.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+17"/>
-        <source>Bean Weight:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+12"/>
+        <location line="+41"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Cumulative weight of all Beans actively competing to Sprout on the Network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2243,22 +2695,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+12"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Number of direct connections with Bean Core nodes on the Bean Cash network.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+17"/>
-        <source>Total Beans:</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+12"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Total supply of Beans that exist (monetary supply).&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-113"/>
+        <location line="-72"/>
         <location line="+29"/>
         <location line="+29"/>
         <location line="+29"/>
@@ -2267,12 +2704,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished">0</translation>
     </message>
     <message>
-        <location line="-214"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Newly sprouted Beans that havn&apos;t matured yet.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+262"/>
+        <location line="+48"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;New Transactions&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2302,24 +2734,40 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="obsolete">I alt mønter, der bliver berentet, og endnu ikke tæller mod den nuværende balance</translation>
     </message>
     <message>
-        <location filename="../overviewpage.cpp" line="+136"/>
-        <location line="+1"/>
         <source>out of sync</source>
-        <translation>ikke synkroniseret</translation>
+        <translation type="obsolete">ikke synkroniseret</translation>
+    </message>
+    <message>
+        <location filename="../overviewpage.cpp" line="+136"/>
+        <source>Synchronizing with network...</source>
+        <translation type="unfinished">Synkroniserer med netværk...</translation>
     </message>
 </context>
 <context>
     <name>PaymentServer</name>
     <message>
-        <location filename="../paymentserver.cpp" line="+107"/>
+        <location filename="../paymentserver.cpp" line="+110"/>
         <source>Cannot start beancash: click-to-pay handler</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <location filename="../beancash.cpp" line="+108"/>
+        <source>Bean Cash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Error: Specified data directory &quot;%1&quot; does not exist.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>QRCodeDialog</name>
     <message>
-        <location filename="../forms/qrcodedialog.ui" line="+192"/>
+        <location filename="../forms/qrcodedialog.ui" line="+219"/>
         <source>QR Code Dialog</source>
         <translation>QR Kode Dialog</translation>
     </message>
@@ -2334,7 +2782,12 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation>Antal:</translation>
     </message>
     <message>
-        <location line="-44"/>
+        <location line="+61"/>
+        <source>E&amp;xit</source>
+        <translation type="unfinished">Luk</translation>
+    </message>
+    <message>
+        <location line="-105"/>
         <source>Label:</source>
         <translation>Label:</translation>
     </message>
@@ -2344,12 +2797,12 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation>Besked:</translation>
     </message>
     <message>
-        <location line="+82"/>
+        <location line="+69"/>
         <source>&amp;Save As...</source>
         <translation>&amp;Gem Som...</translation>
     </message>
     <message>
-        <location filename="../qrcodedialog.cpp" line="+62"/>
+        <location filename="../qrcodedialog.cpp" line="+65"/>
         <source>Error encoding URI into QR Code.</source>
         <translation>Fejl kode URI i QR kode.</translation>
     </message>
@@ -2377,7 +2830,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
 <context>
     <name>RPCConsole</name>
     <message>
-        <location filename="../forms/rpcconsole.ui" line="+252"/>
+        <location filename="../forms/rpcconsole.ui" line="+279"/>
         <source>Client name</source>
         <translation>Klientnavn</translation>
     </message>
@@ -2392,7 +2845,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <location line="+23"/>
         <location line="+23"/>
         <location line="+165"/>
-        <location filename="../rpcconsole.cpp" line="+352"/>
+        <location filename="../rpcconsole.cpp" line="+396"/>
         <source>N/A</source>
         <translation>N/A</translation>
     </message>
@@ -2500,11 +2953,16 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location line="+410"/>
+        <source>E&amp;xit</source>
+        <translation type="unfinished">Luk</translation>
+    </message>
+    <message>
         <source>Show the Beancash-qt help message to get a list with possible Beancash command-line options.</source>
         <translation type="obsolete">Vis Beancash-qt hjælpe besked for at få en liste med mulige Beancash kommandolinjeparametre.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="-407"/>
         <source>&amp;Show</source>
         <translation>&amp;Vis</translation>
     </message>
@@ -2519,17 +2977,38 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation>Konsol</translation>
     </message>
     <message>
-        <location line="+99"/>
+        <location line="+76"/>
+        <source>&amp;Bean Network Traffic</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+52"/>
+        <source>&amp;Clear</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+13"/>
+        <source>Totals</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+64"/>
+        <location filename="../rpcconsole.cpp" line="-11"/>
+        <source>In:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+80"/>
+        <source>Out:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+68"/>
         <source>Close window</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+3"/>
-        <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="-446"/>
+        <location line="-697"/>
         <source>Build date</source>
         <translation>Byggedato</translation>
     </message>
@@ -2551,14 +3030,18 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="obsolete">Åbn Beancash debug logfilen fra den nuværende data mappe. Dette kan tage et par sekunder for store logfiler.</translation>
     </message>
     <message>
-        <location line="+193"/>
+        <location line="+197"/>
         <source>Clear console</source>
         <translation>Ryd konsol</translation>
     </message>
     <message>
-        <location filename="../rpcconsole.cpp" line="-33"/>
         <source>Welcome to the Beancash RPC console.</source>
-        <translation>Velkommen til Beancash RPC-konsol.</translation>
+        <translation type="obsolete">Velkommen til Beancash RPC-konsol.</translation>
+    </message>
+    <message>
+        <location filename="../rpcconsole.cpp" line="-26"/>
+        <source>Welcome to the Bean Cash RPC console.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -2570,12 +3053,52 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <source>Type &lt;b&gt;help&lt;/b&gt; for an overview of available commands.</source>
         <translation>Tast &lt;b&gt;help&lt;/b&gt; for en oversigt over de tilgængelige kommandoer.</translation>
     </message>
+    <message>
+        <location line="+26"/>
+        <source>Out</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+120"/>
+        <source>%1 B</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 KB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 MB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 GB</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+7"/>
+        <source>%1 m</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>%1 h</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+2"/>
+        <source>%1 h %2 m</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SendBeansDialog</name>
     <message>
-        <location filename="../forms/sendbeansdialog.ui" line="+138"/>
-        <location filename="../sendbeansdialog.cpp" line="+182"/>
+        <location filename="../forms/sendbeansdialog.ui" line="+192"/>
+        <location filename="../sendbeansdialog.cpp" line="+187"/>
         <location line="+5"/>
         <location line="+5"/>
         <location line="+5"/>
@@ -2606,7 +3129,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished">Utilstrækkelig midler!</translation>
     </message>
     <message>
-        <location line="+85"/>
+        <location line="+94"/>
         <source>Quantity:</source>
         <translation type="unfinished">Antal:</translation>
     </message>
@@ -2675,7 +3198,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished">Ændre adresse</translation>
     </message>
     <message>
-        <location line="+149"/>
+        <location line="+224"/>
         <source>Send to multiple recipients at once</source>
         <translation type="unfinished">Send til flere modtagere på en gang</translation>
     </message>
@@ -2695,7 +3218,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished">Ryd alle</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+48"/>
         <source>Balance:</source>
         <translation type="unfinished">Saldo:</translation>
     </message>
@@ -2705,7 +3228,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished">123.456 BC</translation>
     </message>
     <message>
-        <location line="+74"/>
+        <location line="-199"/>
         <source>Confirm the send action</source>
         <translation type="unfinished">Bekræft afsendelsen</translation>
     </message>
@@ -2715,9 +3238,13 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished">Afsend</translation>
     </message>
     <message>
-        <location filename="../sendbeansdialog.cpp" line="-173"/>
         <source>Enter a Beancash address (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
-        <translation type="unfinished">Indtast en Beancash-adresse (f.eks 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
+        <translation type="obsolete">Indtast en Beancash-adresse (f.eks 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
+    </message>
+    <message>
+        <location filename="../sendbeansdialog.cpp" line="-178"/>
+        <source>Enter a Bean Cash address (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+15"/>
@@ -2760,12 +3287,13 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+86"/>
+        <location line="+87"/>
+        <location line="+2"/>
         <source>&lt;b&gt;%1&lt;/b&gt; to %2 (%3)</source>
         <translation type="unfinished">&lt;b&gt;%1&lt;/b&gt; til %2 (%3)</translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+6"/>
         <source>Confirm send beans</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2780,7 +3308,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished">og</translation>
     </message>
     <message>
-        <location line="+29"/>
+        <location line="+30"/>
         <source>The recipient address is not valid, please recheck.</source>
         <translation type="unfinished">Modtagerens adresse er ikke gyldig. Tjek venligst adressen igen.</translation>
     </message>
@@ -2806,21 +3334,29 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
     </message>
     <message>
         <location line="+5"/>
-        <source>Error: Transaction creation failed.</source>
-        <translation type="unfinished">Fejl: Transaktion oprettelse mislykkedes.</translation>
+        <source>Error: Transaction creation failed!</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+5"/>
+        <location line="+271"/>
+        <source>WARNING: Invalid Bean Cash address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Error: Transaction creation failed.</source>
+        <translation type="obsolete">Fejl: Transaktion oprettelse mislykkedes.</translation>
+    </message>
+    <message>
+        <location line="-266"/>
         <source>Error: The transaction was rejected. This might happen if some of the beans in your wallet were already spent, such as if you used a copy of wallet.dat and beans were spent in the copy but not marked as spent here.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+251"/>
         <source>WARNING: Invalid Beancash address</source>
-        <translation type="unfinished">ADVARSEL: Ugyldig Beancash adresse</translation>
+        <translation type="obsolete">ADVARSEL: Ugyldig Beancash adresse</translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+279"/>
         <source>(no label)</source>
         <translation type="unfinished">(ingen mærkat)</translation>
     </message>
@@ -2833,7 +3369,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
 <context>
     <name>SendBeansEntry</name>
     <message>
-        <location filename="../forms/sendbeansentry.ui" line="+327"/>
+        <location filename="../forms/sendbeansentry.ui" line="+354"/>
         <source>Form</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2860,8 +3396,12 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
     </message>
     <message>
         <location line="+24"/>
+        <source>The address to send the payment to (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>The address to send the payment to  (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
-        <translation type="unfinished">Adressen til at sende betalingen til (f.eks 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
+        <translation type="obsolete">Adressen til at sende betalingen til (f.eks 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
     </message>
     <message>
         <location line="+10"/>
@@ -2889,9 +3429,13 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished">Fjern denne modtager</translation>
     </message>
     <message>
-        <location filename="../sendbeansentry.cpp" line="+1"/>
         <source>Enter a Beancash address (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
-        <translation type="unfinished">Indtast en Beancash-adresse (f.eks 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
+        <translation type="obsolete">Indtast en Beancash-adresse (f.eks 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
+    </message>
+    <message>
+        <location filename="../sendbeansentry.cpp" line="+1"/>
+        <source>Enter a Bean Cash address (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3147,20 +3691,23 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
 <context>
     <name>SignVerifyMessageDialog</name>
     <message>
-        <location filename="../forms/signverifymessagedialog.ui" line="+192"/>
+        <location filename="../forms/signverifymessagedialog.ui" line="+219"/>
         <source>Signatures - Sign / Verify a Message</source>
         <translation>Signature - Underskriv/verificér en besked</translation>
     </message>
     <message>
         <location line="+17"/>
-        <location line="+135"/>
         <source>&amp;Sign Message</source>
         <translation>Underskriv besked</translation>
     </message>
     <message>
-        <location line="-124"/>
         <source>You can sign messages with your addresses to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
-        <translation>Du kan underskrive beskeder med dine Bitcoin-adresser for at bevise, at de tilhører dig. Pas på ikke at underskrive noget vagt, da phisingangreb kan narre dig til at overdrage din identitet. Underskriv kun fuldt detaljerede udsagn, du er enig i.</translation>
+        <translation type="obsolete">Du kan underskrive beskeder med dine Bitcoin-adresser for at bevise, at de tilhører dig. Pas på ikke at underskrive noget vagt, da phisingangreb kan narre dig til at overdrage din identitet. Underskriv kun fuldt detaljerede udsagn, du er enig i.</translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>You can sign messages with your keys to prove you own them. Be careful not to sign anything vague, as phishing attacks may try to trick you into signing your identity over to them. Only sign fully-detailed statements you agree to.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+18"/>
@@ -3200,13 +3747,29 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation>Kopier den nuværende underskrift til systemets udklipsholder</translation>
     </message>
     <message>
-        <location line="+27"/>
+        <location line="+40"/>
         <source>Sign the message to prove you own this Bean Cash address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location line="+3"/>
+        <source>Sign &amp;Message</source>
+        <translation type="unfinished">Signere &amp; Besked</translation>
+    </message>
+    <message>
+        <location line="+46"/>
         <location line="+186"/>
+        <source>E&amp;xit</source>
+        <translation type="unfinished">Luk</translation>
+    </message>
+    <message>
+        <location line="-49"/>
         <source>Verify the message to ensure it was signed with the specified Bean Cash address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+3"/>
+        <source>Verify &amp;Message</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3214,7 +3777,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="obsolete">Underskriv brevet for at bevise du ejer denne Beancash adresse</translation>
     </message>
     <message>
-        <location line="-163"/>
+        <location line="-166"/>
         <source>Reset all sign message fields</source>
         <translation>Nulstil alle &quot;underskriv besked&quot;-felter</translation>
     </message>
@@ -3230,19 +3793,16 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+3"/>
-        <location line="+186"/>
         <source>&amp;Cancel</source>
-        <translation type="unfinished">Annuller</translation>
+        <translation type="obsolete">Annuller</translation>
     </message>
     <message>
-        <location line="-130"/>
-        <location line="+84"/>
+        <location line="+46"/>
         <source>&amp;Verify Message</source>
         <translation>Verificér besked</translation>
     </message>
     <message>
-        <location line="-70"/>
+        <location line="+14"/>
         <source>Enter the signing address, message (ensure you copy line breaks, spaces, tabs, etc. exactly) and signature below to verify the message. Be careful not to read more into the signature than what is in the signed message itself, to avoid being tricked by a man-in-the-middle attack.</source>
         <translation>Indtast den underskrevne adresse, beskeden (inkluder linjeskift, mellemrum mv. nøjagtigt, som de fremgår) og underskriften for at verificére beskeden. Vær forsigtig med ikke at lægge mere i underskriften end besked selv, så du undgår at blive narret af et man-in-the-middle-angreb.</translation>
     </message>
@@ -3256,7 +3816,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="obsolete">Kontroller meddelelsen for at sikre, at den blev indgået med den angivne Beancash adresse</translation>
     </message>
     <message>
-        <location line="+69"/>
+        <location line="+82"/>
         <source>Reset all verify message fields</source>
         <translation>Nulstil alle &quot;verificér besked&quot;-felter</translation>
     </message>
@@ -3266,20 +3826,28 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../signverifymessagedialog.cpp" line="+27"/>
-        <location line="+3"/>
         <source>Enter a Beancash address (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
-        <translation>Indtast en Beancash-adresse (f.eks 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
+        <translation type="obsolete">Indtast en Beancash-adresse (f.eks 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</translation>
     </message>
     <message>
-        <location line="-2"/>
+        <location filename="../signverifymessagedialog.cpp" line="+28"/>
         <source>Click &quot;Sign Message&quot; to generate signature</source>
         <translation>Klik &quot;Underskriv besked&quot; for at generere underskriften</translation>
     </message>
     <message>
-        <location line="+3"/>
         <source>Enter Beancash signature</source>
-        <translation>Indtast Beancash underskrift</translation>
+        <translation type="obsolete">Indtast Beancash underskrift</translation>
+    </message>
+    <message>
+        <location line="-1"/>
+        <location line="+3"/>
+        <source>Enter a Bean Cash address (e.g. 2JhbfkAFvXqYkreSgJfrRLS9DepUcxbQci)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Enter Bean Cash signature</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+92"/>
@@ -3349,9 +3917,17 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
     </message>
 </context>
 <context>
+    <name>TrafficGraphWidget</name>
+    <message>
+        <location filename="../trafficgraphwidget.cpp" line="+80"/>
+        <source>KB/s</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>TransactionDesc</name>
     <message>
-        <location filename="../transactiondesc.cpp" line="+21"/>
+        <location filename="../transactiondesc.cpp" line="+24"/>
         <source>Open until %1</source>
         <translation>Åben indtil %1</translation>
     </message>
@@ -3413,19 +3989,19 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
     </message>
     <message>
         <location line="+5"/>
-        <location line="+17"/>
+        <location line="+13"/>
         <source>From</source>
         <translation>Fra</translation>
     </message>
     <message>
         <location line="+1"/>
-        <location line="+22"/>
+        <location line="+19"/>
         <location line="+58"/>
         <source>To</source>
         <translation>Til</translation>
     </message>
     <message>
-        <location line="-77"/>
+        <location line="-74"/>
         <location line="+2"/>
         <source>own address</source>
         <translation>egen adresse</translation>
@@ -3436,16 +4012,16 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation>mærkat</translation>
     </message>
     <message>
-        <location line="+37"/>
+        <location line="+34"/>
         <location line="+12"/>
         <location line="+45"/>
         <location line="+17"/>
-        <location line="+30"/>
+        <location line="+31"/>
         <source>Credit</source>
         <translation>Kredit</translation>
     </message>
     <message numerus="yes">
-        <location line="-102"/>
+        <location line="-103"/>
         <source>matures in %n more block(s)</source>
         <translation>
             <numerusform>modner efter yderligere %n blok(ke)</numerusform>
@@ -3461,12 +4037,12 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <location line="+44"/>
         <location line="+8"/>
         <location line="+15"/>
-        <location line="+30"/>
+        <location line="+31"/>
         <source>Debit</source>
         <translation>Debet</translation>
     </message>
     <message>
-        <location line="-39"/>
+        <location line="-40"/>
         <source>Transaction fee</source>
         <translation>Transaktionsgebyr</translation>
     </message>
@@ -3489,6 +4065,11 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <location line="+2"/>
         <source>Transaction ID</source>
         <translation>Transaktionens ID</translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Output index</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+3"/>
@@ -3530,12 +4111,12 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation>falsk</translation>
     </message>
     <message>
-        <location line="-211"/>
+        <location line="-205"/>
         <source>, has not been successfully broadcast yet</source>
         <translation>, er ikke blevet transmitteret endnu</translation>
     </message>
     <message>
-        <location line="+35"/>
+        <location line="+31"/>
         <source>unknown</source>
         <translation>ukendt</translation>
     </message>
@@ -3543,14 +4124,14 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
 <context>
     <name>TransactionDescDialog</name>
     <message>
-        <location filename="../forms/transactiondescdialog.ui" line="+192"/>
+        <location filename="../forms/transactiondescdialog.ui" line="+219"/>
         <source>Transaction details</source>
         <translation>Transaktionsdetaljer</translation>
     </message>
     <message>
         <location line="+32"/>
-        <source>&amp;Close</source>
-        <translation type="unfinished"></translation>
+        <source>E&amp;xit</source>
+        <translation type="unfinished">Luk</translation>
     </message>
     <message>
         <location line="+24"/>
@@ -3561,7 +4142,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
 <context>
     <name>TransactionTableModel</name>
     <message>
-        <location filename="../transactiontablemodel.cpp" line="+226"/>
+        <location filename="../transactiontablemodel.cpp" line="+227"/>
         <source>Date</source>
         <translation>Dato</translation>
     </message>
@@ -3797,7 +4378,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation>Vis transaktionsdetaljer</translation>
     </message>
     <message>
-        <location line="+144"/>
+        <location line="+151"/>
         <source>Export Transaction Data</source>
         <translation>Exportere transaktionsdata</translation>
     </message>
@@ -3865,7 +4446,7 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
 <context>
     <name>WalletModel</name>
     <message>
-        <location filename="../walletmodel.cpp" line="+208"/>
+        <location filename="../walletmodel.cpp" line="+211"/>
         <source>Sending...</source>
         <translation>Sender...</translation>
     </message>
@@ -3878,7 +4459,6 @@ Det betyder, at et gebyr på mindst %2 er påkrævet.</translation>
         <translation type="unfinished">For at bruge %s mulighed</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>%s, you must set a rpcpassword in the configuration file:
  %s
 It is recommended you use the following random password:
@@ -3890,7 +4470,7 @@ If the file does not exist, create it with owner-readable-only file permissions.
 It is also recommended to set alertnotify so you are notified of problems;
 for example: alertnotify=echo %%s | mail -s &quot;Beancash Alert&quot; admin@foo.com
 </source>
-        <translation type="unfinished">% s, skal du indstille et rpcpassword i konfigurationsfilen: 
+        <translation type="obsolete">% s, skal du indstille et rpcpassword i konfigurationsfilen: 
 % s 
 Det anbefales at bruge følgende tilfældig adgangskode: 
 rpcuser = Beancashrpc  
@@ -3903,7 +4483,7 @@ for eksempel: alertnotify = echo%% s | mail-s &quot;Beancash Alert&quot; admin@f
 </translation>
     </message>
     <message>
-        <location line="+13"/>
+        <location line="+14"/>
         <source>Error</source>
         <translation type="unfinished">Fejl</translation>
     </message>
@@ -3927,12 +4507,11 @@ If the file does not exist, create it with owner-readable-only file permissions.
 Hvis filen ikke eksisterer, opret den og giv ingen andre end ejeren læserettighed.</translation>
     </message>
     <message>
-        <location line="+5"/>
         <source>Beancash version</source>
-        <translation type="unfinished">Beancash version</translation>
+        <translation type="obsolete">Beancash version</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+6"/>
         <source>Usage:</source>
         <translation type="unfinished">Anvendelse:</translation>
     </message>
@@ -3952,9 +4531,33 @@ Hvis filen ikke eksisterer, opret den og giv ingen andre end ejeren læserettigh
         <translation type="unfinished">Få hjælp til en kommando</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Beancash</source>
-        <translation type="unfinished">Beancash</translation>
+        <translation type="obsolete">Beancash</translation>
+    </message>
+    <message>
+        <location line="-28"/>
+        <source>%s, you must set a rpcpassword in the configuration file:
+ %s
+It is recommended you use the following random password:
+rpcuser=Beancashrpc
+rpcpassword=%s
+(you do not need to remember this password)
+The username and password MUST NOT be the same.
+If the file does not exist, create it with owner-readable-only file permissions.
+It is also recommended to set alertnotify so you are notified of problems;
+for example: alertnotify=echo %%s | mail -s &quot;Bean Cash Alert&quot; admin@foo.com
+</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+24"/>
+        <source>Bean Cash version</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
+        <source>Bean Cash</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <location line="+1"/>
@@ -4117,6 +4720,31 @@ Hvis filen ikke eksisterer, opret den og giv ingen andre end ejeren læserettigh
         <translation type="unfinished">Maksimum for afsendelsesbuffer pr. forbindelse, &lt;n&gt;*1000 bytes (standard: 1000)</translation>
     </message>
     <message>
+        <location line="+58"/>
+        <source>Cannot obtain a lock on data directory %s.  Bean Cash is probably already running.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+28"/>
+        <source>Error loading wallet.dat: Wallet requires newer version of Bean Cash</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+1"/>
+        <source>Wallet needed to be rewritten: restart Bean Cash to complete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+11"/>
+        <source>Unable to bind to %s on this computer. Bean Cash is probably already running.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+16"/>
+        <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Bean Cash will not work properly.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Use UPnP to map the listening port (default: 1 when listening)</source>
         <translation type="obsolete">Forsøg at bruge UPnP til at konfigurere den lyttende port (standard: 1 når lytter)</translation>
     </message>
@@ -4125,12 +4753,11 @@ Hvis filen ikke eksisterer, opret den og giv ingen andre end ejeren læserettigh
         <translation type="obsolete">Forsøg at bruge UPnP til at konfigurere den lyttende port (standard: 0)</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Detach block and address databases. Increases shutdown time (default: 0)</source>
-        <translation type="unfinished">Frigør blok og adresse databaser. Øg shutdown tid (default: 0)</translation>
+        <translation type="obsolete">Frigør blok og adresse databaser. Øg shutdown tid (default: 0)</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="-113"/>
         <source>Fee per KB to add to transactions you send</source>
         <translation type="unfinished">Gebyr pr KB som tilføjes til transaktioner, du sender</translation>
     </message>
@@ -4339,12 +4966,11 @@ Hvis filen ikke eksisterer, opret den og giv ingen andre end ejeren læserettigh
         <translation type="unfinished">Wallet% s placeret udenfor data mappe% s.</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Cannot obtain a lock on data directory %s.  Beancash is probably already running.</source>
-        <translation type="unfinished">Kan ikke få en lås på data mappe% s. Beancash kører sikkert allerede.</translation>
+        <translation type="obsolete">Kan ikke få en lås på data mappe% s. Beancash kører sikkert allerede.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+4"/>
         <source>Verifying database integrity...</source>
         <translation type="unfinished">Bekræfter database integritet ...</translation>
     </message>
@@ -4436,17 +5062,15 @@ Hvis filen ikke eksisterer, opret den og giv ingen andre end ejeren læserettigh
         <translation type="unfinished">Advarsel: fejl under læsning af wallet.dat! Alle nøgler blev læst korrekt, men transaktionsdata eller adressebogsposter kan mangle eller være forkerte.</translation>
     </message>
     <message>
-        <location line="+3"/>
         <source>Error loading wallet.dat: Wallet requires newer version of Beancash</source>
-        <translation type="unfinished">Fejl ved indlæsning af wallet.dat: Wallet kræver en nyere version af Beancash</translation>
+        <translation type="obsolete">Fejl ved indlæsning af wallet.dat: Wallet kræver en nyere version af Beancash</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Wallet needed to be rewritten: restart Beancash to complete</source>
-        <translation type="unfinished">Det er nødvendig for wallet at blive omskrevet: Genstart Beancash for fuldføre</translation>
+        <translation type="obsolete">Det er nødvendig for wallet at blive omskrevet: Genstart Beancash for fuldføre</translation>
     </message>
     <message>
-        <location line="+1"/>
+        <location line="+5"/>
         <source>Error loading wallet.dat</source>
         <translation type="unfinished">Fejl ved indlæsning af wallet.dat</translation>
     </message>
@@ -4496,12 +5120,11 @@ Hvis filen ikke eksisterer, opret den og giv ingen andre end ejeren læserettigh
         <translation type="unfinished">Indlæsning gennemført</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Unable to bind to %s on this computer. Beancash is probably already running.</source>
-        <translation type="unfinished">Kunne ikke binde sig til% s på denne computer. Beancash kører sikkert allerede.</translation>
+        <translation type="obsolete">Kunne ikke binde sig til% s på denne computer. Beancash kører sikkert allerede.</translation>
     </message>
     <message>
-        <location line="+2"/>
+        <location line="+3"/>
         <source>Unable to bind to %s on this computer (bind returned error %d, %s)</source>
         <translation type="unfinished">Kunne ikke tildele %s på denne computer (bind returnerede fejl %d, %s)</translation>
     </message>
@@ -4550,12 +5173,11 @@ Hvis filen ikke eksisterer, opret den og giv ingen andre end ejeren læserettigh
         <translation type="unfinished">Manglende dækning</translation>
     </message>
     <message>
-        <location line="+1"/>
         <source>Warning: Please check that your computer&apos;s date and time are correct! If your clock is wrong Beancash will not work properly.</source>
-        <translation type="unfinished">Advarsel: Kontroller venligst, at computerens dato og klokkeslæt er korrekt! Hvis dit ur er forkert vil Beancash ikke fungere korrekt.</translation>
+        <translation type="obsolete">Advarsel: Kontroller venligst, at computerens dato og klokkeslæt er korrekt! Hvis dit ur er forkert vil Beancash ikke fungere korrekt.</translation>
     </message>
     <message>
-        <location line="+3"/>
+        <location line="+4"/>
         <source>Warning: This version is obsolete, upgrade required!</source>
         <translation type="unfinished">Advarsel: Denne version er forældet, opgradering påkrævet!</translation>
     </message>
