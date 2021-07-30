@@ -57,9 +57,9 @@ Bean Cash Specifications
 
 **Maximum Supply for BEAN**: 21 Million BEAN
 
-In 2023 Sprouting for BITB will be merged into BEAN, with a new Consensus Algorithm (Announced via Project Aurora Whitepaper).
+In 2023 Sprouting for BITB will be merged into BEAN, with a new Consensus Algorithm (To be announced with Project Aurora Whitepaper).
 
-**On July 13th., 2021 Bean Cash will have its first planned hardfork. Nodes will need to upgrade to v1.3.1 before this date!**
+**On September 13th., 2021 Bean Cash will start enforcing new concensus rules. This is a hardfork and Nodes will need to upgrade to v1.3.2 before this date! Those who are running v1.3.1 need to update to v1.3.2 immediately!**
 
 
 Bean Cash Monetary Units

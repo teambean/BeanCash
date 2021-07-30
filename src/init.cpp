@@ -305,8 +305,8 @@ strUsage += "  -synctime              " + _("Sync time with other nodes. Disable
 strUsage += "  -cppolicy              " + _("Sync checkpoints policy (default: strict)") + "\n";
 strUsage += "  -banscore=<n>          " + _("Threshold for disconnecting misbehaving peers (default: 100)") + "\n";
 strUsage += "  -bantime=<n>           " + _("Number of seconds to keep misbehaving peers from reconnecting (default: 86400)") + "\n";
-strUsage += "  -maxreceivebuffer=<n>  " + _("Maximum per-connection receive buffer, <n>*1000 bytes (default: 20000)") + "\n";
-strUsage += "  -maxsendbuffer=<n>     " + _("Maximum per-connection send buffer, <n>*1000 bytes (default: 5000)") + "\n";
+strUsage += "  -maxreceivebuffer=<n>  " + _("Maximum per-connection receive buffer, <n>*1000 bytes (default: 5000)") + "\n";
+strUsage += "  -maxsendbuffer=<n>     " + _("Maximum per-connection send buffer, <n>*1000 bytes (default: 1000)") + "\n";
 strUsage += "  -paytxfee=<amt>        " + _("Fee per KB to add to transactions you send") + "\n";
 strUsage += "  -mininput=<amt>        " + _("When creating transactions, ignore inputs with value less than this (default: 0.01)") + "\n";
 #ifdef QT_GUI

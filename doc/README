@@ -25,9 +25,9 @@ What Is Bean Cash?
 -----------------------------------------------------------------------------------------------------
 
 Bean Cash (Ticker: BITB) is a re-brand of BitBean (Ticker: BITB). Bean Cash brings forward BitBean's 
-legacy, of a lightening-fast, rock-solid network, with a mature blockchain--that is nearly 3 years old!
-3 years is a long time in the "crypto-currency" space! In this time, Beancash has not had a hardfork or 
-transaction roll-back. Bean Core will continue to move development forward with Bean Cash, while working 
+legacy, of a lightening-fast, rock-solid network, with a mature blockchain--that is over 6 years old!
+
+Bean Core will continue to move development forward with Bean Cash, while working
 to maintain the integrity of the blockchain. As core developers of Bean Cash, Bean Core sees its role as 
 a steward. Integrity of a currency is of foremost importance. The very first purchaser of Beancash (that 
 may have transfered their Beancash to a Digital Cash "paper wallet"), should be able to redeem those same 
@@ -68,7 +68,7 @@ To learn more about Bean Cash, visit our website:  http://www.beancash.org or ch
 our community at:  https://live.beancash.org
 
 Alternatively, if you are a merchant with questions or interested in adopting Bean Cash in your
-business, you may contact Bean Core via telephone:  1 (406) 213-4656
+business, you may contact Bean Core at: support@beancash.org
 
 
 
@@ -101,12 +101,11 @@ Bean Cash Specifications
 Bean Cash Monetary Units
 ------------------------------------------------------------------------------------------
 
-Sprout = ß1,000 (BITB)
-BITB = ß1
-mBITB = ß.001 (BITB)
-uBITB = ß.000001 (BITB)
-Adzuki = ß.00000001 (BITB)
-BEAN (Reserved for new class of Bean, Project Aurora)
+BEAN = ß1 (Whole Bean)
+BITB = ß.001 (Bit of a Bean)
+mBITB = .001 (BITB)
+uBITB = .000001 (BITB)
+Adzuki = .00000001 (BITB)
 
 Support
 ------------------------------------------------------------------------------------------
