@@ -59,7 +59,7 @@ Bean Cash Specifications
 
 In 2023 Sprouting for BITB will be merged into BEAN, with a new Consensus Algorithm (To be announced with Project Aurora Whitepaper).
 
-**On September 13th., 2021 Bean Cash will start enforcing new concensus rules. This is a hardfork and Nodes will need to upgrade to v1.3.2 before this date! Those who are running v1.3.1 need to update to v1.3.2 immediately!**
+**On August 2, 2021 @ 9:27:42PM GMT Bean Cash will start enforcing stricter Time Drift rules. Nodes will need to upgrade to v1.3.2 before this date! Those who are running v1.3.1 need to update to v1.3.2 immediately!**
 
 
 Bean Cash Monetary Units
