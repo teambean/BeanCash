@@ -50,13 +50,28 @@ void StartNode(boost::thread_group& threadGroup);
 bool StopNode();
 int SocketSendData(CNode *pnode);
 
+struct CombinerAll
+{
+    typedef bool result_type;
+
+    template<typename I>
+    bool operator()(I first, I last) const
+    {
+        while (first != last) {
+            if (!(*first)) return false;
+            ++first;
+        }
+        return true;
+    }
+};
+
 //
 // Signals for message handling
 //
 struct CNodeSignals
 {
-    boost::signals2::signal<bool (CNode*)> ProcessMessages;
-    boost::signals2::signal<bool (CNode*, bool)> SendMessages;
+    boost::signals2::signal<bool (CNode*), CombinerAll> ProcessMessages;
+    boost::signals2::signal<bool (CNode*, bool), CombinerAll> SendMessages;
 };
 
 CNodeSignals& GetNodeSignals();
