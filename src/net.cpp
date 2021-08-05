@@ -612,8 +612,12 @@ int CNetMessage::readData(const char* pch, unsigned int nBytes)
 int SocketSendData(CNode* pnode)
 {
     int progress = 0;
-    std::deque<CSerializeData>::iterator it = pnode->vSendMsg.begin();
 
+    // Make sure we haven't already been asked to disconnect
+    if (pnode->fDisconnect)
+        return progress;
+
+    std::deque<CSerializeData>::iterator it = pnode->vSendMsg.begin();
     while (it != pnode->vSendMsg.end())
     {
         const CSerializeData& data = *it;
@@ -903,6 +907,7 @@ void ThreadSocketHandler()
                         {
                             LogPrint("net", "socket closed\n");
                             pnode->CloseSocketDisconnect();
+                            continue;
                         }
                     }
                     else if (nBytes < 0)
@@ -915,6 +920,7 @@ void ThreadSocketHandler()
                             {
                                 LogPrintf("socket recv error %d\n", nErr);
                                 pnode->CloseSocketDisconnect();
+                                continue;
                             }
                         }
                     }
@@ -931,8 +937,7 @@ void ThreadSocketHandler()
                 TRY_LOCK(pnode->cs_vSend, lockSend);
                 if (lockSend)
                 {
-                    progress ++;
-                    SocketSendData(pnode);
+                    progress += SocketSendData(pnode);
                 }
             }
 
