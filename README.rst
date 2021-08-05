@@ -70,11 +70,27 @@ Alternatively, if you are a merchant with questions or interested in
 adopting Bean Cash in your business, you may contact Bean Core via
 email.
 
+Later in 2021, we will be supporting a failover domain for our main
+website (https://www.beancash.org). The additional official domain will
+be: www.beancash.is Both beancash.org and beancash.is will be mirrored,
+offering redundancy for critical Bean Cash resources.
+
+Bean Cash will be launching it's own DEX (Decentralized Exchange) in the
+near future. To foster access for the decentralized exchange, a portal
+will be established at: https://www.beantrex.is Other Official portals
+will be established on the Maidsafe Network. The DEX will launch after
+v2 of the Bean Cash Network is operational. v2 Bean Cash will be
+backwards compatible with nodes running v1.3.2 software and on the
+Official network/chain. Another hardfork is planned in 2021 with v1.5,
+after which only maintenance releases will be made available for v1.X
+branch. v2 Bean Cash is scheduled to go live in 2022.
+
 Bean Cash Specifications
 ------------------------
 
 **Consensus**: Proof of Bean (PoB) & Proof of Work (PoW distribution
-ended at block 10,000)
+ended at block 10,000) v2 of Bean Cash will introduce a Proof of
+Resources (PORes) model that will interoperate with PoB.
 
 **Proof of Work Algorithm**: SHA-256
 
@@ -99,10 +115,19 @@ ended at block 10,000)
 **Maximum Supply for BEAN**: 21 Million BEAN
 
 In 2023 Sprouting for BITB will be merged into BEAN, with a new
-Consensus Algorithm (Announced via Project Aurora Whitepaper).
+Consensus Algorithm, Proof of Resource (PORes) that will combine with
+PoB (Proof of Bean).
 
-**On July 13th., 2021 Bean Cash will have its first planned hardfork.
-Nodes will need to upgrade to v1.3.1 before this date!**
+**On August 2, 2021 @ 9:27:42PM GMT Bean Cash will start enforcing
+stricter Time Drift rules. Nodes not running v1.3.1 or later will be
+forked off the network and chain. These changes are necessary to move
+Bean Cash forward. Node operators must do more than just Sprout Beans,
+they must stay involved with the Community and keep their software
+updated on a timely basis! These changes are necessary to move Bean Cash
+forward. More significant updates will be coming and network node
+operators need to be agile and keep up! Bean Cash will once again become
+competitive in the Blockchain/Crypto Space, with our goal to get back
+into the top 100 of Crypto Currencies!**
 
 Bean Cash Monetary Units
 ------------------------
@@ -159,4 +184,5 @@ Twitter: @BeanCash\_BEAN
 email
 
 Copyright (c) 2015-2017 Bean Core, Team Bean, bitbean.org Copyright (c)
-2017-2021 Bean Core, Team Bean, beancash.org
+2017-2021 Bean Core, Team Bean, beancash.org Copyright (c) 2021
+BeanTrex, beancash.is, beantrex.is
