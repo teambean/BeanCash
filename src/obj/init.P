@@ -1,0 +1,28 @@
+obj/init.o: init.cpp init.h wallet.h main.h core.h uint256.h serialize.h \
+ allocators.h version.h clientversion.h util.h compat.h tinyformat.h \
+ netbase.h bignum.h sync.h net.h mruset.h limitedmap.h protocol.h \
+ addrman.h script.h keystore.h crypter.h key.h ui_interface.h walletdb.h \
+ db.h base58.h txdb.h txdb-leveldb.h \
+ /home/shawn/projects/BeanCash/src/leveldb/include/leveldb/db.h \
+ /home/shawn/projects/BeanCash/src/leveldb/include/leveldb/iterator.h \
+ /home/shawn/projects/BeanCash/src/leveldb/include/leveldb/slice.h \
+ /home/shawn/projects/BeanCash/src/leveldb/include/leveldb/status.h \
+ /home/shawn/projects/BeanCash/src/leveldb/include/leveldb/options.h \
+ /home/shawn/projects/BeanCash/src/leveldb/include/leveldb/write_batch.h \
+ bitbeanrpc.h json/json_spirit_reader_template.h json/json_spirit_value.h \
+ json/json_spirit_error_position.h json/json_spirit_utils.h \
+ json/json_spirit_writer_template.h checkpoints.h
+init.cpp init.h wallet.h main.h core.h uint256.h serialize.h :
+ allocators.h version.h clientversion.h util.h compat.h tinyformat.h :
+ netbase.h bignum.h sync.h net.h mruset.h limitedmap.h protocol.h :
+ addrman.h script.h keystore.h crypter.h key.h ui_interface.h walletdb.h :
+ db.h base58.h txdb.h txdb-leveldb.h :
+ /home/shawn/projects/BeanCash/src/leveldb/include/leveldb/db.h :
+ /home/shawn/projects/BeanCash/src/leveldb/include/leveldb/iterator.h :
+ /home/shawn/projects/BeanCash/src/leveldb/include/leveldb/slice.h :
+ /home/shawn/projects/BeanCash/src/leveldb/include/leveldb/status.h :
+ /home/shawn/projects/BeanCash/src/leveldb/include/leveldb/options.h :
+ /home/shawn/projects/BeanCash/src/leveldb/include/leveldb/write_batch.h :
+ bitbeanrpc.h json/json_spirit_reader_template.h json/json_spirit_value.h :
+ json/json_spirit_error_position.h json/json_spirit_utils.h :
+ json/json_spirit_writer_template.h checkpoints.h :

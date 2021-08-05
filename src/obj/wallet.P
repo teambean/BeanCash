@@ -1,0 +1,22 @@
+obj/wallet.o: wallet.cpp txdb.h txdb-leveldb.h main.h core.h uint256.h \
+ serialize.h allocators.h version.h clientversion.h util.h compat.h \
+ tinyformat.h netbase.h bignum.h sync.h net.h mruset.h limitedmap.h \
+ protocol.h addrman.h script.h keystore.h crypter.h key.h \
+ /home/shawn/projects/BeanCash/src/leveldb/include/leveldb/db.h \
+ /home/shawn/projects/BeanCash/src/leveldb/include/leveldb/iterator.h \
+ /home/shawn/projects/BeanCash/src/leveldb/include/leveldb/slice.h \
+ /home/shawn/projects/BeanCash/src/leveldb/include/leveldb/status.h \
+ /home/shawn/projects/BeanCash/src/leveldb/include/leveldb/options.h \
+ /home/shawn/projects/BeanCash/src/leveldb/include/leveldb/write_batch.h \
+ wallet.h ui_interface.h walletdb.h db.h base58.h kernel.h beancontrol.h
+wallet.cpp txdb.h txdb-leveldb.h main.h core.h uint256.h :
+ serialize.h allocators.h version.h clientversion.h util.h compat.h :
+ tinyformat.h netbase.h bignum.h sync.h net.h mruset.h limitedmap.h :
+ protocol.h addrman.h script.h keystore.h crypter.h key.h :
+ /home/shawn/projects/BeanCash/src/leveldb/include/leveldb/db.h :
+ /home/shawn/projects/BeanCash/src/leveldb/include/leveldb/iterator.h :
+ /home/shawn/projects/BeanCash/src/leveldb/include/leveldb/slice.h :
+ /home/shawn/projects/BeanCash/src/leveldb/include/leveldb/status.h :
+ /home/shawn/projects/BeanCash/src/leveldb/include/leveldb/options.h :
+ /home/shawn/projects/BeanCash/src/leveldb/include/leveldb/write_batch.h :
+ wallet.h ui_interface.h walletdb.h db.h base58.h kernel.h beancontrol.h :
