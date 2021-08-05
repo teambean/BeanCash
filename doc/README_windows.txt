@@ -1,9 +1,9 @@
-Bean Cash v1.3
-==============
+Bean Cash v1.3.2
+================
 
 Copyright (c) 2013 Novacoin Developers
 Copyright (c) 2011-2013 PeerCoin Developers
-Copyright (c) 2015-2019 Bean Core www.beancash.org
+Copyright (c) 2015-2021 Bean Core www.beancash.org & www.beancash.is
 Distributed under the MIT/X11 software license, see the accompanying
 file license.txt or http://www.opensource.org/licenses/mit-license.php.
 This product includes software developed by the OpenSSL Project for use in
