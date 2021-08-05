@@ -1,3 +1,8 @@
+// Copyright (c) 2011-2014 The Bitcoin Core developers
+// Copyright (c) 2021 Bean Core www.beancash.org
+// Distributed under the MIT software license, see the accompanying
+// file COPYING or http://www.opensource.org/licenses/mit-license.php.
+
 #include "optionsmodel.h"
 #include "bitbeanunits.h"
 
@@ -7,8 +12,7 @@
 
 #include <QSettings>
 
-OptionsModel::OptionsModel(QObject *parent) :
-    QAbstractListModel(parent)
+OptionsModel::OptionsModel(QObject* parent) : QAbstractListModel(parent)
 {
     Init();
 }
@@ -62,12 +66,12 @@ void OptionsModel::Init()
         SoftSetArg("-lang", language.toStdString());
 }
 
-int OptionsModel::rowCount(const QModelIndex & parent) const
+int OptionsModel::rowCount(const QModelIndex& parent) const
 {
     return OptionIDRowCount;
 }
 
-QVariant OptionsModel::data(const QModelIndex & index, int role) const
+QVariant OptionsModel::data(const QModelIndex& index, int role) const
 {
     if(role == Qt::EditRole)
     {
@@ -127,7 +131,7 @@ QVariant OptionsModel::data(const QModelIndex & index, int role) const
     return QVariant();
 }
 
-bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, int role)
+bool OptionsModel::setData(const QModelIndex& index, const QVariant& value, int role)
 {
     bool successful = true; /* set to false on parse error */
     if(role == Qt::EditRole)
@@ -212,6 +216,7 @@ bool OptionsModel::setData(const QModelIndex & index, const QVariant & value, in
         case MinimizeBeanAge:
             fMinimizeBeanAge = value.toBool();
             settings.setValue("fMinimizeBeanAge", fMinimizeBeanAge);
+            break;
             break;
         default:
             break;

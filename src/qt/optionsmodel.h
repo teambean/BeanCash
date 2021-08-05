@@ -17,20 +17,20 @@ public:
     explicit OptionsModel(QObject *parent = 0);
 
     enum OptionID {
-        StartAtStartup,    // bool
-        MinimizeToTray,    // bool
-        MinimizeOnClose,   // bool
-        ProxyUse,          // bool
-        ProxyIP,           // QString
-        ProxyPort,         // int
-        ProxySocksVersion, // int
-        Fee,               // qint64
-        ReserveBalance,    // qint64
-        DisplayUnit,       // BitbeanUnits::Unit
-        DisplayAddresses,  // bool
-        Language,          // QString
-        BeanControlFeatures, // bool
-        MinimizeBeanAge,     // bool
+        StartAtStartup,         // bool
+        MinimizeToTray,         // bool
+        MinimizeOnClose,        // bool
+        ProxyUse,               // bool
+        ProxyIP,                // QString
+        ProxyPort,              // int
+        ProxySocksVersion,      // int
+        Fee,                    // qint64
+        ReserveBalance,         // qint64
+        DisplayUnit,            // BitbeanUnits::Unit
+        DisplayAddresses,       // bool
+        Language,               // QString
+        BeanControlFeatures,    // bool
+        MinimizeBeanAge,        // bool
         OptionIDRowCount,
     };
 

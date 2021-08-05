@@ -2535,12 +2535,12 @@ Cela implique que des frais à hauteur d&apos;au moins %2 seront nécessaires.</
         <translation>&amp;Appliquer</translation>
     </message>
     <message>
-        <location filename="../optionsdialog.cpp" line="+52"/>
+        <location filename="../optionsdialog.cpp" line="+61"/>
         <source>default</source>
         <translation>par défaut</translation>
     </message>
     <message>
-        <location line="+147"/>
+        <location line="+145"/>
         <location line="+9"/>
         <source>Warning</source>
         <translation>Avertissement</translation>

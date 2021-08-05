@@ -2535,12 +2535,12 @@ Les montants inférieurs à  0.546 fois les frais minimum de relais apparaissent
         <translation>&amp;Exécuter</translation>
     </message>
     <message>
-        <location filename="../optionsdialog.cpp" line="+52"/>
+        <location filename="../optionsdialog.cpp" line="+61"/>
         <source>default</source>
         <translation>par défaut</translation>
     </message>
     <message>
-        <location line="+147"/>
+        <location line="+145"/>
         <location line="+9"/>
         <source>Warning</source>
         <translation>Avertissement</translation>

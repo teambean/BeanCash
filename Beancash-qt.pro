@@ -309,7 +309,8 @@ HEADERS += src/qt/bitbeangui.h \
     src/limitedmap.h \
     src/tinyformat.h \
     src/qt/blockbrowser.h \
-    src/core.h
+    src/core.h \
+
 
 SOURCES += src/qt/beancash.cpp \
     src/qt/bitbeangui.cpp \

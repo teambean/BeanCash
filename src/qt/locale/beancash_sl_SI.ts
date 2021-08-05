@@ -2569,12 +2569,12 @@ Ta oznaka se obarva rdeče, če je prioriteta manjša kot &quot;srednja&quot;.
         <translation>&amp;Uporabi</translation>
     </message>
     <message>
-        <location filename="../optionsdialog.cpp" line="+52"/>
+        <location filename="../optionsdialog.cpp" line="+61"/>
         <source>default</source>
         <translation>privzeto</translation>
     </message>
     <message>
-        <location line="+147"/>
+        <location line="+145"/>
         <location line="+9"/>
         <source>Warning</source>
         <translation>Opozorilo</translation>

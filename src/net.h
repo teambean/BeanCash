@@ -42,23 +42,24 @@ void AddressCurrentlyConnected(const CService& addr);
 CNode* FindNode(const CNetAddr& ip);
 CNode* FindNode(const std::string& addrName);
 CNode* FindNode(const CService& ip);
-CNode* ConnectNode(CAddress addrConnect, const char *strDest = NULL);
+CNode* ConnectNode(CAddress addrConnect, const char* strDest = NULL);
 void MapPort();
 unsigned short GetListenPort();
-bool BindListenPort(const CService &bindAddr, std::string& strError=REF(std::string()));
+bool BindListenPort(const CService& bindAddr, std::string& strError=REF(std::string()));
 void StartNode(boost::thread_group& threadGroup);
 bool StopNode();
-int SocketSendData(CNode *pnode);
+int SocketSendData(CNode* pnode);
 
 struct CombinerAll
 {
     typedef bool result_type;
 
-    template<typename I>
+    template <typename I>
     bool operator()(I first, I last) const
     {
         while (first != last) {
-            if (!(*first)) return false;
+            if (!(*first))
+                return false;
             ++first;
         }
         return true;
@@ -88,8 +89,8 @@ enum
     LOCAL_MAX
 };
 
-bool IsPeerAddrLocalGood(CNode *pnode);
-void AdvertiseLocal(CNode *pnode);
+bool IsPeerAddrLocalGood(CNode* pnode);
+void AdvertiseLocal(CNode* pnode);
 void SetLimited(enum Network net, bool fLimited = true);
 bool IsLimited(enum Network net);
 bool IsLimited(const CNetAddr& addr);
@@ -97,10 +98,10 @@ bool AddLocal(const CService& addr, int nScore = LOCAL_NONE);
 bool AddLocal(const CNetAddr& addr, int nScore = LOCAL_NONE);
 bool SeenLocal(const CService& addr);
 bool IsLocal(const CService& addr);
-bool GetLocal(CService &addr, const CNetAddr *paddrPeer = NULL);
-bool IsReachable(const CNetAddr &addr);
+bool GetLocal(CService& addr, const CNetAddr* paddrPeer = NULL);
+bool IsReachable(const CNetAddr& addr);
 void SetReachable(enum Network net, bool fFlag = true);
-CAddress GetLocalAddress(const CNetAddr *paddrPeer = NULL);
+CAddress GetLocalAddress(const CNetAddr* paddrPeer = NULL);
 
 enum
 {
@@ -166,20 +167,18 @@ public:
 };
 
 
-
-
 class CNetMessage {
 public:
-    bool in_data;                   // parsing header (false) or data (true)
+    bool in_data; // parsing header (false) or data (true)
 
-    CDataStream hdrbuf;             // partially received header
-    CMessageHeader hdr;             // complete header
+    CDataStream hdrbuf; // partially received header
+    CMessageHeader hdr; // complete header
     unsigned int nHdrPos;
 
-    CDataStream vRecv;              // received message data
+    CDataStream vRecv; // received message data
     unsigned int nDataPos;
 
-    int64_t nTime;                  // time (in microseconds) of message receipt
+    int64_t nTime; // time (in microseconds) of message receipt
 
     CNetMessage(int nTypeIn, int nVersionIn) : hdrbuf(nTypeIn, nVersionIn), vRecv(nTypeIn, nVersionIn) {
         hdrbuf.resize(24);
@@ -205,9 +204,6 @@ public:
     int readHeader(const char *pch, unsigned int nBytes);
     int readData(const char *pch, unsigned int nBytes);
 };
-
-
-
 
 
 /** Information about a peer */
@@ -246,8 +242,8 @@ public:
     bool fDisconnect;
     CSemaphoreGrant grantOutbound;
     int nRefCount;
-protected:
 
+protected:
     // Denial-of-service detection/prevention
     // Key is IP address, value is banned-until-time
     static std::map<CNetAddr, int64_t> setBanned;
@@ -255,7 +251,7 @@ protected:
     int nMisbehavior;
 
 public:
-	 // Required for Satoshi's "checkorder" P2P command - Peer-to-Peer Electronic Cash!
+    // Required for Satoshi's "checkorder" P2P command - Peer-to-Peer Electronic Cash!
     std::map<uint256, CRequestTracker> mapRequests;
     CCriticalSection cs_mapRequests;
     
@@ -340,8 +336,7 @@ public:
     }
 
 private:
-
-    // Network usage totals
+        // Network usage totals
         static CCriticalSection cs_totalBytesRecv;
         static CCriticalSection cs_totalBytesSent;
         static uint64_t nTotalBytesRecv;
@@ -351,7 +346,6 @@ private:
     void operator=(const CNode&);
 
 public:
-
 
     int GetRefCount()
     {
@@ -390,8 +384,6 @@ public:
         nRefCount--;
     }
 
-
-
     void AddAddressKnown(const CAddress& addr)
     {
         setAddrKnown.insert(addr);
@@ -405,7 +397,6 @@ public:
         if (addr.IsValid() && !setAddrKnown.count(addr))
             vAddrToSend.push_back(addr);
     }
-
 
     void AddInventoryKnown(const CInv& inv)
     {
@@ -524,7 +515,7 @@ public:
         }
     }
 
-    template<typename T1>
+    template <typename T1>
     void PushMessage(const char* pszCommand, const T1& a1)
     {
         try
@@ -540,7 +531,7 @@ public:
         }
     }
 
-    template<typename T1, typename T2>
+    template <typename T1, typename T2>
     void PushMessage(const char* pszCommand, const T1& a1, const T2& a2)
     {
         try
@@ -556,7 +547,7 @@ public:
         }
     }
 
-    template<typename T1, typename T2, typename T3>
+    template <typename T1, typename T2, typename T3>
     void PushMessage(const char* pszCommand, const T1& a1, const T2& a2, const T3& a3)
     {
         try
@@ -572,7 +563,7 @@ public:
         }
     }
 
-    template<typename T1, typename T2, typename T3, typename T4>
+    template <typename T1, typename T2, typename T3, typename T4>
     void PushMessage(const char* pszCommand, const T1& a1, const T2& a2, const T3& a3, const T4& a4)
     {
         try
@@ -588,7 +579,7 @@ public:
         }
     }
 
-    template<typename T1, typename T2, typename T3, typename T4, typename T5>
+    template <typename T1, typename T2, typename T3, typename T4, typename T5>
     void PushMessage(const char* pszCommand, const T1& a1, const T2& a2, const T3& a3, const T4& a4, const T5& a5)
     {
         try
@@ -604,7 +595,7 @@ public:
         }
     }
 
-    template<typename T1, typename T2, typename T3, typename T4, typename T5, typename T6>
+    template <typename T1, typename T2, typename T3, typename T4, typename T5, typename T6>
     void PushMessage(const char* pszCommand, const T1& a1, const T2& a2, const T3& a3, const T4& a4, const T5& a5, const T6& a6)
     {
         try
@@ -620,7 +611,7 @@ public:
         }
     }
 
-    template<typename T1, typename T2, typename T3, typename T4, typename T5, typename T6, typename T7>
+    template <typename T1, typename T2, typename T3, typename T4, typename T5, typename T6, typename T7>
     void PushMessage(const char* pszCommand, const T1& a1, const T2& a2, const T3& a3, const T4& a4, const T5& a5, const T6& a6, const T7& a7)
     {
         try
@@ -636,7 +627,7 @@ public:
         }
     }
 
-    template<typename T1, typename T2, typename T3, typename T4, typename T5, typename T6, typename T7, typename T8>
+    template <typename T1, typename T2, typename T3, typename T4, typename T5, typename T6, typename T7, typename T8>
     void PushMessage(const char* pszCommand, const T1& a1, const T2& a2, const T3& a3, const T4& a4, const T5& a5, const T6& a6, const T7& a7, const T8& a8)
     {
         try
@@ -652,7 +643,7 @@ public:
         }
     }
 
-    template<typename T1, typename T2, typename T3, typename T4, typename T5, typename T6, typename T7, typename T8, typename T9>
+    template <typename T1, typename T2, typename T3, typename T4, typename T5, typename T6, typename T7, typename T8, typename T9>
     void PushMessage(const char* pszCommand, const T1& a1, const T2& a2, const T3& a3, const T4& a4, const T5& a5, const T6& a6, const T7& a7, const T8& a8, const T9& a9)
     {
         try
@@ -668,7 +659,7 @@ public:
         }
     }
 
-	 // Required for Satoshi's "checkorder" P2P command - Peer-to-Peer Electronic Cash
+    // Required for Satoshi's "checkorder" P2P command - Peer-to-Peer Electronic Cash
     void PushRequest(const char* pszCommand,
                      void (*fn)(void*, CDataStream&), void* param1)
     {
@@ -683,7 +674,7 @@ public:
         PushMessage(pszCommand, hashReply);
     }
 
-    template<typename T1>
+    template <typename T1>
     void PushRequest(const char* pszCommand, const T1& a1,
                      void (*fn)(void*, CDataStream&), void* param1)
     {
@@ -698,7 +689,7 @@ public:
         PushMessage(pszCommand, hashReply, a1);
     }
 
-    template<typename T1, typename T2>
+    template <typename T1, typename T2>
     void PushRequest(const char* pszCommand, const T1& a1, const T2& a2,
                      void (*fn)(void*, CDataStream&), void* param1)
     {
@@ -713,6 +704,7 @@ public:
         PushMessage(pszCommand, hashReply, a1, a2);
     }
     // End Satoshi's "checkorder" P2P command
+
 
     bool IsSubscribed(unsigned int nChannel);
     void Subscribe(unsigned int nChannel, unsigned int nHops=0);
@@ -740,12 +732,12 @@ public:
     bool Misbehaving(int howmuch); // 1 == a little, 100 == a lot
     void copyStats(CNodeStats &stats);
 
-     // Network stats
-     static void RecordBytesRecv(uint64_t bytes);
-     static void RecordBytesSent(uint64_t bytes);
+    // Network stats
+    static void RecordBytesRecv(uint64_t bytes);
+    static void RecordBytesSent(uint64_t bytes);
 
-     static uint64_t GetTotalBytesRecv();
-     static uint64_t GetTotalBytesSent();
+    static uint64_t GetTotalBytesRecv();
+    static uint64_t GetTotalBytesSent();
 };
 
 inline void RelayInventory(const CInv& inv)

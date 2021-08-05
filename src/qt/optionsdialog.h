@@ -3,12 +3,14 @@
 
 #include <QDialog>
 
-namespace Ui {
-class OptionsDialog;
-}
 class OptionsModel;
 class MonitoredDataMapper;
 class QValidatedLineEdit;
+
+namespace Ui
+{
+class OptionsDialog;
+}
 
 /** Preferences dialog. */
 class OptionsDialog : public QDialog
@@ -16,14 +18,14 @@ class OptionsDialog : public QDialog
     Q_OBJECT
 
 public:
-    explicit OptionsDialog(QWidget *parent = 0);
+    explicit OptionsDialog(QWidget* parent = 0);
     ~OptionsDialog();
 
     void setModel(OptionsModel *model);
     void setMapper();
 
 protected:
-    bool eventFilter(QObject *object, QEvent *event);
+    bool eventFilter(QObject* object, QEvent* event);
 
 private slots:
     /* enable only apply button */

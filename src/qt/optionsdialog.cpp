@@ -1,17 +1,27 @@
+// Copyright (c) 2011-2013 The Bitcoin Core developers
+// Copyright (c) 2011-2015 The Bitcoin Core and Bitcoin XT developers
+// Copyright (c) 2021 Bean Core www.beancash.org
+// Distributed under the MIT software license, see the accompanying
+// file COPYING or https://www.opensource.org/licenses/mit-license.php.
+
 #include "optionsdialog.h"
 #include "ui_optionsdialog.h"
 
 #include "bitbeanunits.h"
 #include "monitoreddatamapper.h"
 #include "netbase.h"
+
 #include "optionsmodel.h"
 
 #include <QDir>
 #include <QIntValidator>
 #include <QLocale>
 #include <QMessageBox>
+
+
 // #include <QRegExp>
 // #include <QRegExpValidator>
+
 
 OptionsDialog::OptionsDialog(QWidget *parent) :
     QDialog(parent),
@@ -23,7 +33,6 @@ OptionsDialog::OptionsDialog(QWidget *parent) :
     fProxyIpValid(true)
 {
     ui->setupUi(this);
-
     /* Network elements init */
 
     ui->proxyIp->setEnabled(false);
@@ -64,9 +73,7 @@ OptionsDialog::OptionsDialog(QWidget *parent) :
             /** display language strings as "language - country (locale name)", e.g. "German - Germany (de)" */
             ui->lang->addItem(QLocale::languageToString(locale.language()) + QString(" - ") + QLocale::countryToString(locale.country()) + QString(" (") + langStr + QString(")"), QVariant(langStr));
 #endif
-        }
-        else
-        {
+        } else {
 #if QT_VERSION >= 0x040800
             /** display language strings as "native language (locale name)", e.g. "Deutsch (de)" */
             ui->lang->addItem(locale.nativeLanguageName() + QString(" (") + langStr + QString(")"), QVariant(langStr));
@@ -97,7 +104,7 @@ OptionsDialog::~OptionsDialog()
     delete ui;
 }
 
-void OptionsDialog::setModel(OptionsModel *model)
+void OptionsDialog::setModel(OptionsModel* model)
 {
     this->model = model;
 

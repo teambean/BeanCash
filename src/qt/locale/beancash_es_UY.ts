@@ -1806,12 +1806,12 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../optionsdialog.cpp" line="+52"/>
+        <location filename="../optionsdialog.cpp" line="+61"/>
         <source>default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+147"/>
+        <location line="+145"/>
         <location line="+9"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>

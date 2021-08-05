@@ -1,5 +1,5 @@
 // Copyright (c) 2009-2012 Bitcoin Developers
-// Copyright (c) 2015-2018 Bean Core www.beancash.org
+// Copyright (c) 2015-2021 Bean Core www.beancash.org
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -9,6 +9,7 @@
 #include "wallet.h"
 #include "db.h"
 #include "walletdb.h"
+#include "json/json_spirit_value.h"
 
 using namespace json_spirit;
 using namespace std;

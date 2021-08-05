@@ -2311,12 +2311,12 @@ Dette betyr at det trengs en avgift på minimum %2.</translation>
         <translation>&amp;Bruk</translation>
     </message>
     <message>
-        <location filename="../optionsdialog.cpp" line="+52"/>
+        <location filename="../optionsdialog.cpp" line="+61"/>
         <source>default</source>
         <translation>standardverdi</translation>
     </message>
     <message>
-        <location line="+147"/>
+        <location line="+145"/>
         <location line="+9"/>
         <source>Warning</source>
         <translation>Advarsel</translation>
