@@ -160,7 +160,7 @@ CBlockIndex* FindBlockByHeight(int nHeight);
 bool ProcessMessages(CNode* pfrom);
 
 /** Send queued protocol messages to be sent to a given node */
-bool SendMessages(CNode* pto);
+bool SendMessages(CNode* pto, bool fSendTrickle);
 
 /** Check whether a block hash satisfies the proof-of-work requirement specified by nBits */
 bool CheckProofOfWork(uint256 hash, unsigned int nBits);

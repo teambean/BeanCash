@@ -1357,7 +1357,11 @@ void ThreadMessageHandler()
         if (!fHaveSyncNode)
             StartSync(vNodesCopy);
 
-        // Poll the connected nodes for messages            
+        // Poll the connected nodes for messages
+        CNode* pnodeTrickle = NULL;
+        if (!vNodesCopy.empty())
+            pnodeTrickle = vNodesCopy[GetRand(vNodesCopy.size())];
+            
 		  bool fSleep = true;            
             
         for (CNode* pnode : vNodesCopy)
@@ -1388,7 +1392,7 @@ void ThreadMessageHandler()
             {
                 TRY_LOCK(pnode->cs_vSend, lockSend);
                 if (lockSend)
-                    g_signals.SendMessages(pnode);
+                    g_signals.SendMessages(pnode, pnode == pnodeTrickle);
             }
             boost::this_thread::interruption_point();
         }
