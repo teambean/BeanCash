@@ -37,11 +37,7 @@
 
 #include "netbase.h" // for AddTimeData
 
-// to obtain PRId64 on some old systems
-#define __STDC_FORMAT_MACROS 1
-
 #include <stdint.h>
-#include <inttypes.h>
 
 static const int64_t bean = 100000000;
 static const int64_t CENT = 1000000;
@@ -51,16 +47,6 @@ static const int64_t CENT = 1000000;
 #define UBEGIN(a)           ((unsigned char*)&(a))
 #define UEND(a)             ((unsigned char*)&((&(a))[1]))
 #define ARRAYLEN(array)     (sizeof(array)/sizeof((array)[0]))
-
-/* Silence compiler warnings on Windows related to MinGWs inttypes.h */
-#if defined(_MSC_VER) || defined(__MSVCRT__)
-#undef PRId64
-#define PRId64 "I64d"
-#undef PRIu64
-#define PRIu64 "I64u"
-#undef PRIx64
-#define PRIx64 "I64x"
-#endif
 
 #define UVOIDBEGIN(a)        ((void*)&(a))
 #define CVOIDBEGIN(a)        ((const void*)&(a))
@@ -228,7 +214,7 @@ void runCommand(std::string strCommand);
 
 inline std::string i64tostr(int64_t n)
 {
-    return strprintf("%" PRId64, n);
+    return strprintf("%d", n);
 }
 
 inline std::string itostr(int n)

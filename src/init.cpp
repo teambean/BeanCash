@@ -417,7 +417,7 @@ bool LoadExternalBlockFile(FILE* fileIn)
                                __PRETTY_FUNCTION__);
                     }
     }
-                LogPrintf("Loaded %i blocks from external file in %" PRId64 "ms\n", nLoaded, GetTimeMillis() - nStart);
+                LogPrintf("Loaded %i blocks from external file in %dms\n", nLoaded, GetTimeMillis() - nStart);
                 return nLoaded > 0;
 }
 
@@ -858,7 +858,7 @@ bool AppInit2(boost::thread_group& threadGroup)
         LogPrintf("Shutdown requested. Exiting.\n");
         return false;
     }
-    LogPrintf(" block index %15" PRId64 "ms\n", GetTimeMillis() - nStart);
+    LogPrintf(" block index %15dms\n", GetTimeMillis() - nStart);
 
     if (GetBoolArg("-printblockindex") || GetBoolArg("-printblocktree"))
     {
@@ -981,7 +981,7 @@ bool AppInit2(boost::thread_group& threadGroup)
     }
 
     LogPrintf("%s", strErrors.str());
-    LogPrintf(" wallet      %15" PRId64 "ms\n", GetTimeMillis() - nStart);
+    LogPrintf(" wallet      %15dms\n", GetTimeMillis() - nStart);
 
     RegisterWallet(pwalletMain);
 
@@ -1001,7 +1001,7 @@ bool AppInit2(boost::thread_group& threadGroup)
         LogPrintf("Rescanning last %i blocks (from block %i)...\n", pindexBest->nHeight - pindexRescan->nHeight, pindexRescan->nHeight);
         nStart = GetTimeMillis();
         pwalletMain->ScanForWalletTransactions(pindexRescan, true);
-        LogPrintf(" rescan      %15" PRId64 "ms\n", GetTimeMillis() - nStart);
+        LogPrintf(" rescan      %15dms\n", GetTimeMillis() - nStart);
     
 	 	// Restore wallet transaction metadata after -zapwallet=1
 	 	if (GetBoolArg("-zapwallet", false) && GetArg("-zapwallet", "1") != "2")
@@ -1051,7 +1051,7 @@ bool AppInit2(boost::thread_group& threadGroup)
             LogPrintf("Invalid or missing peers.dat; recreating\n");
     }
 
-    LogPrintf("Loaded %i addresses from peers.dat  %" PRId64 "ms\n",
+    LogPrintf("Loaded %i addresses from peers.dat  %dms\n",
            addrman.size(), GetTimeMillis() - nStart);
 
     // ********************************************************* Step 11: start node

@@ -644,7 +644,7 @@ bool AcceptToMemoryPool(CTxMemPool& pool, CTransaction &tx, bool fCheckInputs, b
         // Don't accept it if it can't get into a block
         int64_t txMinFee = tx.GetMinFee(1000, GMF_RELAY, nSize);
         if (nFees < txMinFee)
-            return error("AcceptToMemoryPool : not enough fees %s, %" PRId64 " < %" PRId64,
+            return error("AcceptToMemoryPool : not enough fees %s, %d < %d",
                          hash.ToString(), nFees, txMinFee);
 
 
@@ -967,7 +967,7 @@ int64_t GetProofOfWorkReward(int64_t nFees)
     int64_t nSubsidy = 100000 * bean;
 
     if (fDebug && GetBoolArg("-printcreation"))
-        LogPrint("creation", "GetProofOfWorkReward() : create=%s nSubsidy=%" PRId64 "\n", FormatMoney(nSubsidy), nSubsidy);
+        LogPrint("creation", "GetProofOfWorkReward() : create=%s nSubsidy=%d\n", FormatMoney(nSubsidy), nSubsidy);
 
     return nSubsidy + nFees;
 }
@@ -979,7 +979,7 @@ int64_t GetProofOfStakeReward(int64_t nBeanAge, int64_t nFees)
     int64_t nSubsidy = 1000 * bean;
 
     if (fDebug && GetBoolArg("-printcreation"))
-        LogPrint("creation", "GetProofOfStakeReward(): create=%s nBeanAge=%" PRId64 "\n", FormatMoney(nSubsidy), nBeanAge);
+        LogPrint("creation", "GetProofOfStakeReward(): create=%s nBeanAge=%d\n", FormatMoney(nSubsidy), nBeanAge);
 
     return nSubsidy + nFees;
 }
@@ -1115,11 +1115,11 @@ void static InvalidChainFound(CBlockIndex* pindexNew)
     uint256 nBestInvalidBlockTrust = pindexNew->nChainTrust - pindexNew->pprev->nChainTrust;
     uint256 nBestBlockTrust = pindexBest->nHeight != 0 ? (pindexBest->nChainTrust - pindexBest->pprev->nChainTrust) : pindexBest->nChainTrust;
 
-    LogPrintf("InvalidChainFound: invalid block=%s  height=%d  trust=%s  blocktrust=%" PRId64 "  date=%s\n",
+    LogPrintf("InvalidChainFound: invalid block=%s  height=%d  trust=%s  blocktrust=%d date=%s\n",
       pindexNew->GetBlockHash().ToString(), pindexNew->nHeight,
       CBigNum(pindexNew->nChainTrust).ToString(), nBestInvalidBlockTrust.GetLow64(),
       DateTimeStrFormat("%x %H:%M:%S", pindexNew->GetBlockTime()));
-    LogPrintf("InvalidChainFound:  current best=%s  height=%d  trust=%s  blocktrust=%" PRId64 "  date=%s\n",
+    LogPrintf("InvalidChainFound:  current best=%s  height=%d  trust=%s  blocktrust=%d date=%s\n",
       hashBestChain.ToString(), nBestHeight,
       CBigNum(pindexBest->nChainTrust).ToString(),
       nBestBlockTrust.GetLow64(),
@@ -1539,7 +1539,7 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
         int64_t nReward = GetProofOfWorkReward(nFees);
         // Check beanbase reward
         if (vtx[0].GetValueOut() > nReward)
-            return DoS(50, error("ConnectBlock() : beanbase reward exceeded (actual=%" PRId64 " vs calculated=%" PRId64 ")",
+            return DoS(50, error("ConnectBlock() : beanbase reward exceeded (actual=%d vs calculated=%d)",
                    vtx[0].GetValueOut(),
                    nReward));
     }
@@ -1553,7 +1553,7 @@ bool CBlock::ConnectBlock(CTxDB& txdb, CBlockIndex* pindex, bool fJustCheck)
         int64_t nCalculatedStakeReward = GetProofOfStakeReward(nBeanAge, nFees);
 
         if (nStakeReward > nCalculatedStakeReward)
-            return DoS(100, error("ConnectBlock() : beansprout pays too much(actual=%" PRId64 " vs calculated=%" PRId64 ")", nStakeReward, nCalculatedStakeReward));
+            return DoS(100, error("ConnectBlock() : beansprout pays too much(actual=%d vs calculated=%d)", nStakeReward, nCalculatedStakeReward));
     }
 
     // ppbean: track money supply and mint amount info
@@ -1798,7 +1798,7 @@ bool CBlock::SetBestChain(CTxDB& txdb, CBlockIndex* pindexNew)
 
     uint256 nBestBlockTrust = pindexBest->nHeight != 0 ? (pindexBest->nChainTrust - pindexBest->pprev->nChainTrust) : pindexBest->nChainTrust;
 
-    LogPrintf("SetBestChain: new best=%s  height=%d  trust=%s  blocktrust=%" PRId64 "  date=%s\n",
+    LogPrintf("SetBestChain: new best=%s  height=%d  trust=%s  blocktrust=%d date=%s\n",
       hashBestChain.ToString(), nBestHeight,
       CBigNum(nBestChainTrust).ToString(),
       nBestBlockTrust.GetLow64(),
@@ -1870,7 +1870,7 @@ bool CTransaction::GetBeanAge(CTxDB& txdb, uint64_t& nBeanAge) const
         bnCentSecond += CBigNum(nValueIn) * (nTime-txPrev.nTime) / CENT;
 
         if (fDebug && GetBoolArg("-printbeanage"))
-            LogPrintf("bean age nValueIn=%" PRId64 " nTimeDiff=%d bnCentSecond=%s\n", nValueIn, nTime - txPrev.nTime, bnCentSecond.ToString());
+            LogPrintf("bean age nValueIn=%d nTimeDiff=%d bnCentSecond=%s\n", nValueIn, nTime - txPrev.nTime, bnCentSecond.ToString());
     }
 
     CBigNum bnBeanDay = bnCentSecond * CENT / bean / (24 * 60 * 60);
@@ -1903,7 +1903,7 @@ bool CBlock::GetBeanAge(uint64_t& nBeanAge) const
         nBeanAge = 1;
     if (fDebug && GetBoolArg("-printbeanage"))
     {
-        LogPrint("beanage", "block bean age total nBeanDays=%" PRId64 "\n", nBeanAge);
+        LogPrint("beanage", "block bean age total nBeanDays=%d\n", nBeanAge);
     }
     return true;
 }
@@ -1944,8 +1944,8 @@ bool CBlock::AddToBlockIndex(unsigned int nFile, unsigned int nBlockPos, const u
         return error("AddToBlockIndex() : ComputeNextStakeModifier() failed");
     pindexNew->SetStakeModifier(nStakeModifier, fGeneratedStakeModifier);
     pindexNew->nStakeModifierChecksum = GetStakeModifierChecksum(pindexNew);
-    //if (!CheckStakeModifierCheckpoints(pindexNew->nHeight, pindexNew->nStakeModifierChecksum))
-        //return error("AddToBlockIndex() : Rejected by stake modifier checkpoint height=%d, modifier=0x%016" PRIx64, pindexNew->nHeight, nStakeModifier);
+    if (!CheckStakeModifierCheckpoints(pindexNew->nHeight, pindexNew->nStakeModifierChecksum))
+        return error("AddToBlockIndex() : Rejected by stake modifier checkpoint height=%d, modifier=0x%016x", pindexNew->nHeight, nStakeModifier);
 
     // Add to mapBlockIndex
     map<uint256, CBlockIndex*>::iterator mi = mapBlockIndex.insert(make_pair(hash, pindexNew)).first;
@@ -2021,7 +2021,7 @@ bool CBlock::CheckBlock(bool fCheckPOW, bool fCheckMerkleRoot, bool fCheckSig) c
 
         // Check beansprout timestamp
         if (!CheckBeanStakeTimestamp(GetBlockTime(), (int64_t)vtx[1].nTime))
-            return DoS(50, error("CheckBlock() : beansprout timestamp violation nTimeBlock=%" PRId64 " nTimeTx=%u", GetBlockTime(), vtx[1].nTime));
+            return DoS(50, error("CheckBlock() : beansprout timestamp violation nTimeBlock=%d nTimeTx=%u", GetBlockTime(), vtx[1].nTime));
 
         // Bitbean: check proof-of-bean block signature
         if (fCheckSig && !CheckBlockSignature())
@@ -3436,7 +3436,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
            }
 
            if (!(sProblem.empty())) {
-               LogPrint("net", "pong %s %s: %s, %" PRIx64 " expected, %" PRIx64 " received, %zu bytes\n"
+               LogPrint("net", "pong %s %s: %s, %x expected, %x received, %zu bytes\n"
                    , pfrom->addr.ToString()
                    , pfrom->strSubVer
                    , sProblem
