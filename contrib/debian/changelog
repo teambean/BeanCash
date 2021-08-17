@@ -27,3 +27,14 @@ Bean Cash (1.3.0.0RC) stable; urgency=high
 
 -- Bean Core <support@beancash.org>  Thursday, 18 March 2021 00:00:00 +0000
 
+Bean Cash (1.3.2.1RC2) stable; urgency=high
+
+    [Bean Core]
+    *Hard Fork (Tighter rules for Time Drift, 20min. window reduced to 10min.)
+    *Network Performance improvements
+    *Various Fixes
+
+-- Bean Core <support@beancash.org> Tuesday, 17 August 2021 00:00:00 +0000
+
+
+

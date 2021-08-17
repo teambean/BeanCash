@@ -1,5 +1,5 @@
-Bean Cash v1.3.2
-================
+Bean Cash v1.3.2.1
+==================
 
 Copyright (c) 2013 Novacoin Developers
 Copyright (c) 2011-2013 PeerCoin Developers
