@@ -2546,6 +2546,16 @@ void CWallet::FixSpentBeans(int& nMismatchFound, int64_t& nBalanceInQuestion, bo
                     pbean->WriteToDisk();
                 }
             }
+
+        }
+
+        if(IsMine((CTransaction)*pbean) && (pbean->IsBeanBase() || pbean->IsBeanStake()) && pbean->GetDepthInMainChain() == 0)
+        {
+            LogPrintf("FixSpentBeans %s tx %s\n", fCheckOnly ? "found" : "removed", pbean->GetHash().ToString().c_str());
+            if (!fCheckOnly)
+            {
+                EraseFromWallet(pbean->GetHash());
+            }
         }
     }
 }
