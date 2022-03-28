@@ -1761,6 +1761,21 @@ bool CWallet::CreateTransaction(CScript scriptPubKey, int64_t nValue, CWalletTx&
     return CreateTransaction(vecSend, wtxNew, reservekey, nFeeRet, beanControl);
 }
 
+void CWallet::GetStakeWeightFromValue(const int64_t& nTime, const int64_t& nValue, uint64_t& nWeight)
+{
+    int64_t nTimeWeight = GetWeight(nTime, (int64_t)GetTime());
+
+    // If time weight is lower or equal to zero then weight is zero.
+    if (nTimeWeight <= 0)
+    {
+        nWeight = 0;
+        return;
+    }
+
+    CBigNum bnBeanDayWeight = CBigNum(nValue) * nTimeWeight / bean / (24 * 60 * 60);
+    nWeight = bnBeanDayWeight.getuint64();
+}
+
 // Bitbean: get current stake weight
 bool CWallet::GetStakeWeight(const CKeyStore& keystore, uint64_t& nMinWeight, uint64_t& nMaxWeight, uint64_t& nWeight)
 {

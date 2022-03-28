@@ -96,6 +96,9 @@ public:
     // Wallet backup
     bool backupWallet(const QString &filename);
 
+    void getStakeWeight(uint64_t& nMinWeight, uint64_t& nMaxWeight, uint64_t& nWeight);
+    void getStakeWeightFromValue(const int64_t& nTime, const int64_t& nValue, uint64_t& nWeight);
+
     bool dumpWallet(const QString &filename);
     bool importWallet(const QString &filename);
 
