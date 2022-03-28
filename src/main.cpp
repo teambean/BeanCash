@@ -2029,6 +2029,7 @@ bool CBlock::CheckBlock(bool fCheckPOW, bool fCheckMerkleRoot, bool fCheckSig) c
     }
 
     // Check transactions
+    // Bean Cash does not have the Bitcoin CVE-2018-17144 vulnerability, as its existing logic for checking transactions is already correct
     for (const CTransaction& tx : vtx)
     {
         if (!tx.CheckTransaction())
