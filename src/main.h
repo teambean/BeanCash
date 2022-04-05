@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2015-2021 Bean Core www.beancash.org
+// Copyright (c) 2015-2022 Bean Core www.beancash.org
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef BITBEAN_MAIN_H
@@ -45,7 +45,7 @@ static const int64_t MAX_MONEY = 5000000000 * bean;
 static const int64_t bean_YEAR_REWARD = 5 * CENT; // 5% per year
 
 /** Hard Fork Times */
-static const unsigned int VERSION_1320_FORKTIME = 1627939662; // Time Drift Rule Enforced on August 2, 2021 @ 9:27:42PM GMT
+static const unsigned int VERSION_1320_FORKTIME = 1627939662; // Time Drift Rule Enforced on August 2, 2022 @ 9:27:42PM GMT
 
 inline bool MoneyRange(int64_t nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 // Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp.

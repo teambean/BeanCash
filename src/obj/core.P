@@ -1,4 +1,0 @@
-obj/core.o: core.cpp core.h uint256.h serialize.h allocators.h version.h \
- clientversion.h util.h compat.h tinyformat.h netbase.h
-core.cpp core.h uint256.h serialize.h allocators.h version.h :
- clientversion.h util.h compat.h tinyformat.h netbase.h :

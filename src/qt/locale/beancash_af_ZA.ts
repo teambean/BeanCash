@@ -31,7 +31,7 @@
     </message>
     <message>
         <location line="+36"/>
-        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://www.beancash.org &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.beancash.org (Official Site) &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://www.beancash.org &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.beancash.is (future alternate)&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://www.beancash.org &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://live.beancash.org (Community Communication) &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://www.beancash.org &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;#beancash on Freenode IRC (alt backup communications in emergencies)&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://www.opensource.org/licenses/mit-license.php&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.opensource.org/licenses/mit-license.php&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit (&lt;/span&gt;&lt;a href=&quot;https://www.openssl.org/&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.openssl.org/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;) and cryptographic software written by Eric Young (&lt;/span&gt;&lt;a href=&quot;mailto:eay@cryptsoft.com&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;eay@cryptsoft.com&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Developed by Shawn Kent, Lead Developer &amp;amp; Project Manager - Bean Core &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;a href=&quot;https://www.beancash.org &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.beancash.org (Official Site) &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://www.beancash.org &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.beancash.is (future alternate)&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://www.beancash.org &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;https://live.beancash.org (Community Communication) &lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;https://www.beancash.org &quot;&gt;&lt;span style=&quot; text-decoration: underline; color:#0000ff;&quot;&gt;#beancash on Freenode IRC (alt backup communications in emergencies)&lt;/span&gt;&lt;/a&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Distributed under the MIT/X11 software license, see the accompanying file COPYING or &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;a href=&quot;http://www.opensource.org/licenses/mit-license.php&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;http://www.opensource.org/licenses/mit-license.php&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;. &lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;This product includes software developed by the OpenSSL Project for use in the OpenSSL Toolkit&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt; (&lt;/span&gt;&lt;a href=&quot;https://www.openssl.org/&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;https://www.openssl.org/&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;) and cryptographic software written by Eric Young (&lt;/span&gt;&lt;a href=&quot;mailto:eay@cryptsoft.com&quot;&gt;&lt;span style=&quot; font-size:8pt; text-decoration: underline; color:#0000ff;&quot;&gt;eay@cryptsoft.com&lt;/span&gt;&lt;/a&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:8pt;&quot;&gt;Developed by Shawn Kent, Lead Developer &amp;amp; Project Manager - Bean Core &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -50,7 +50,7 @@
     <message>
         <location filename="../forms/addressbookpage.ui" line="+213"/>
         <source>Address Book</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Adres</translation>
     </message>
     <message>
         <location filename="../addressbookpage.cpp" line="+61"/>
@@ -448,6 +448,11 @@
     </message>
     <message>
         <location line="+5"/>
+        <source>Weight</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+5"/>
         <source>Priority</source>
         <translation type="unfinished"></translation>
     </message>
@@ -518,7 +523,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+317"/>
+        <location line="+318"/>
         <source>highest</source>
         <translation type="unfinished"></translation>
     </message>
@@ -608,7 +613,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
     </message>
     <message>
         <location line="+37"/>
-        <location line="+66"/>
+        <location line="+69"/>
         <source>(no label)</source>
         <translation type="unfinished">(geen etiket)</translation>
     </message>
@@ -635,12 +640,7 @@ This label turns red, if the priority is smaller than &quot;medium&quot;.
         <translation type="obsolete">Wys algemene oorsig van die beursie</translation>
     </message>
     <message>
-        <location line="-145"/>
-        <source>Core v1.3.1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location line="+151"/>
+        <location line="+6"/>
         <source>&amp;Send Beans</source>
         <translation type="unfinished"></translation>
     </message>
@@ -908,7 +908,12 @@ Some or all keys from:
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="-478"/>
+        <location line="-624"/>
+        <source>Core v1.4.0.1RC1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location line="+146"/>
         <source>Overview of general information</source>
         <translation type="unfinished"></translation>
     </message>
@@ -982,7 +987,6 @@ Some or all keys from:
         <source>%n active connection(s) to the Bean Cash network</source>
         <translation type="unfinished">
             <numerusform></numerusform>
-            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -993,7 +997,6 @@ Some or all keys from:
         <location line="+37"/>
         <source>~%n block(s) remaining</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
     </message>
@@ -1012,14 +1015,12 @@ Some or all keys from:
         <source>%n second(s) ago</source>
         <translation type="unfinished">
             <numerusform></numerusform>
-            <numerusform></numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n minute(s) ago</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
     </message>
@@ -1028,14 +1029,12 @@ Some or all keys from:
         <source>%n hour(s) ago</source>
         <translation type="unfinished">
             <numerusform></numerusform>
-            <numerusform></numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n day(s) ago</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
     </message>
@@ -1134,14 +1133,12 @@ Address: %4
         <source>%n second(s)</source>
         <translation type="unfinished">
             <numerusform></numerusform>
-            <numerusform></numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n minute(s)</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
     </message>
@@ -1150,14 +1147,12 @@ Address: %4
         <source>%n hour(s)</source>
         <translation type="unfinished">
             <numerusform></numerusform>
-            <numerusform></numerusform>
         </translation>
     </message>
     <message numerus="yes">
         <location line="+4"/>
         <source>%n day(s)</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
     </message>
@@ -1798,12 +1793,12 @@ Address: %4
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../optionsdialog.cpp" line="+52"/>
+        <location filename="../optionsdialog.cpp" line="+61"/>
         <source>default</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location line="+147"/>
+        <location line="+145"/>
         <location line="+9"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
@@ -2872,7 +2867,6 @@ Address: %4
         <source>Open for %n block(s)</source>
         <translation type="unfinished">
             <numerusform></numerusform>
-            <numerusform></numerusform>
         </translation>
     </message>
     <message>
@@ -2904,7 +2898,6 @@ Address: %4
         <location line="+7"/>
         <source>, broadcast through %n node(s)</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
     </message>
@@ -2960,7 +2953,6 @@ Address: %4
         <location line="-103"/>
         <source>matures in %n more block(s)</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
     </message>
@@ -3107,7 +3099,6 @@ Address: %4
         <location line="-15"/>
         <source>Open for %n more block(s)</source>
         <translation type="unfinished">
-            <numerusform></numerusform>
             <numerusform></numerusform>
         </translation>
     </message>

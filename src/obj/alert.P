@@ -1,8 +1,0 @@
-obj/alert.o: alert.cpp alert.h serialize.h allocators.h version.h \
- clientversion.h sync.h key.h uint256.h util.h compat.h tinyformat.h \
- netbase.h net.h mruset.h limitedmap.h protocol.h addrman.h \
- ui_interface.h
-alert.cpp alert.h serialize.h allocators.h version.h :
- clientversion.h sync.h key.h uint256.h util.h compat.h tinyformat.h :
- netbase.h net.h mruset.h limitedmap.h protocol.h addrman.h :
- ui_interface.h :

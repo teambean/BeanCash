@@ -1,5 +1,5 @@
 // Copyright (c) 2012 The Bitcoin developers
-// Copyright (c) 2015-2021 Bean Core www.beancash.org
+// Copyright (c) 2015-2022 Bean Core www.beancash.org
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 #ifndef BITBEAN_MRUSET_H

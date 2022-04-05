@@ -4,7 +4,7 @@
 
 // Copyright year (2015-this)
 // Todo: update this to change copyright comments in the source
-const int ABOUTDIALOG_COPYRIGHT_YEAR = 2021;
+const int ABOUTDIALOG_COPYRIGHT_YEAR = 2022;
 
 AboutDialog::AboutDialog(QWidget *parent) :
     QDialog(parent),

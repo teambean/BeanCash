@@ -1,4 +1,0 @@
-obj/key.o: key.cpp key.h allocators.h serialize.h version.h \
- clientversion.h uint256.h util.h compat.h tinyformat.h netbase.h
-key.cpp key.h allocators.h serialize.h version.h :
- clientversion.h uint256.h util.h compat.h tinyformat.h netbase.h :
