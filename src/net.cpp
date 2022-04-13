@@ -963,8 +963,10 @@ void ThreadSocketHandler()
                     pnode->fDisconnect = true;
                 }
                 else if (!pnode->fSuccessfullyConnected)
+                // Disconnect nodes that don't send VERACK
                 {
-                    LogPrintf("version handshake timeout from %d\n", pnode->id);
+                    // Generalize Log Output, no id in CNode class yet TODO:
+                    LogPrintf("version handshake timeout from node"); // %d\n", pnode->id);
                     pnode->fDisconnect = true;
                 }
             }
