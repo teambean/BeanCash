@@ -84,6 +84,7 @@ void Shutdown()
         bitdb.Flush(false);
     }
     StopNode();
+
     if (pwalletMain)
     {
         bitdb.Flush(true);
