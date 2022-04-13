@@ -986,10 +986,7 @@ static const char *strDNSSeed[][2] = {
     {"bitbean.org", "stalk3.bitbean.org"},
     {"beancash.org", "stalk1.beancash.org"},
     {"beancash.org", "stalk2.beancash.org"},
-    {"beancash.org", "stalk3.beancash.org"},
-    {"beancash.is", "stalk1.beancash.is"},
-    {"beancash.is", "stalk2.beancash.is"},
-    {"beancash.is", "stalk3.beancash.is"}
+    {"beancash.org", "stalk3.beancash.org"}
 };
 
 
@@ -1144,10 +1141,10 @@ void ThreadOpenConnections()
         {
             LOCK(cs_vNodes);
             for (CNode* pnode : vNodes) {
-                if (!pnode->fInbound) {
-                    setConnected.insert(pnode->addr.GetGroup());
-                    nOutbound++;
-                }
+                // if (!pnode->fInbound) {
+                setConnected.insert(pnode->addr.GetGroup());
+                nOutbound++;
+                // }
             }
         }
 
