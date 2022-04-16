@@ -1,4 +1,4 @@
-// Copyright (c) 2009-2010 Satoshi Nakamoto
+﻿// Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
 // Copyright (c) 2015-2019 Bean Core www.beancash.org
 // Distributed under the MIT/X11 software license, see the accompanying
@@ -288,7 +288,7 @@ strUsage += "  -timeout=<n>           " + _("Specify connection timeout in milli
 strUsage += "  -proxy=<ip:port>       " + _("Connect through socks proxy") + "\n";
 strUsage += "  -socks=<n>             " + _("Select the version of socks proxy to use (4-5, default: 5)") + "\n";
 strUsage += "  -tor=<ip:port>         " + _("Use proxy to reach tor hidden services (default: same as -proxy)") + "\n";
-strUsage += "  -dns                   " + _("Allow DNS lookups for -addnode, -seednode and -connect") + "\n";
+strUsage += "  -dns                   " + _("Allow DNS look-ups for -addnode, -seednode and -connect") + "\n";
 strUsage += "  -port=<port>           " + _("Listen for connections on <port> (default: 22460 or testnet: 22462)") + "\n";
 strUsage += "  -maxconnections=<n>    " + _("Maintain at most <n> connections to peers (default: 125)") + "\n";
 strUsage += "  -addnode=<ip>          " + _("Add a node to connect to and attempt to keep the connection open") + "\n";
@@ -311,7 +311,7 @@ strUsage += "  -maxsendbuffer=<n>     " + _("Maximum per-connection send buffer,
 strUsage += "  -paytxfee=<amt>        " + _("Fee per KB to add to transactions you send") + "\n";
 strUsage += "  -mininput=<amt>        " + _("When creating transactions, ignore inputs with value less than this (default: 0.01)") + "\n";
 #ifdef QT_GUI
-    strUsage += "  -server                " + _("Accept command line and JSON-RPC commands") + "\n";
+    strUsage += "  -server            " + _("Accept command line and JSON-RPC commands") + "\n";
 #endif
 #if !defined(WIN32) && !defined(QT_GUI)
     strUsage += "  -daemon                " + _("Run in the background as a daemon and accept commands") + "\n";
@@ -334,7 +334,7 @@ strUsage += "  -rpcport=<port>        " + _("Listen for JSON-RPC connections on 
 strUsage += "  -rpcallowip=<ip>       " + _("Allow JSON-RPC connections from specified IP address") + "\n";
 strUsage += "  -rpcconnect=<ip>       " + _("Send commands to node running on <ip> (default: 127.0.0.1)") + "\n";
 strUsage += "  -rpcwait               " + _("Wait for RPC server to start") + "\n";
-strUsage += "  -rpcthreads=<n>        " + _("Use this to set the number of threads to service RPC calls (defult: 4)") + "\n";
+strUsage += "  -rpcthreads=<n>        " + _("Use this to set the number of threads to service RPC calls (default: 4)") + "\n";
 strUsage += "  -blocknotify=<cmd>     " + _("Execute command when the best block changes (%s in cmd is replaced by block hash)") + "\n";
 strUsage += "  -walletnotify=<cmd>    " + _("Execute command when a wallet transaction changes (%s in cmd is replaced by TxID)") + "\n";
 strUsage += "  -zapwallet=<mode>      " + _("Delete all wallet transactions and rebuild transactions from blockchain data") + "\n";
@@ -350,9 +350,9 @@ strUsage += "  -salvagewallet         " + _("Attempt to recover private keys fro
 strUsage += "  -checkblocks=<n>       " + _("How many blocks to check at startup (default: 600, 0 = all)") + "\n";
 strUsage += "  -checklevel=<n>        " + _("How thorough the block verification is (0-6, default: 1)") + "\n";
 strUsage += "  -loadblock=<file>      " + _("Imports blocks from external blk000?.dat file") + "\n";
-strUsage += "  -blockminsize=<n>      "   + _("Set minimum block size in bytes (default: 0)") + "\n";
-strUsage += "  -blockmaxsize=<n>      "   + _("Set maximum block size in bytes (default: 20000000)") + "\n";
-strUsage += "  -blockprioritysize=<n> "   + _("Set maximum size of high-priority/low-fee transactions in bytes (default: 27000)") + "\n";
+strUsage += "  -blockminsize=<n>      " + _("Set minimum block size in bytes (default: 0)") + "\n";
+strUsage += "  -blockmaxsize=<n>      " + _("Set maximum block size in bytes (default: 20000000)") + "\n";
+strUsage += "  -blockprioritysize=<n> " + _("Set maximum size of high-priority/low-fee transactions in bytes (default: 27000)") + "\n";
 strUsage += "  -rpcssl                                  " + _("Use OpenSSL (https) for JSON-RPC connections") + "\n";
 strUsage += "  -rpcsslcertificatechainfile=<file.cert>  " + _("Server certificate file (default: server.cert)") + "\n";
 strUsage += "  -rpcsslprivatekeyfile=<file.pem>         " + _("Server private key (default: server.pem)") + "\n";
