@@ -350,7 +350,7 @@
        <item>
         <widget class="QLabel" name="reserveBalanceInfoLabel">
          <property name="text">
-          <string>Reserved amount does not participate in sprouting and is therefore spendable at any time.</string>
+          <string>Reserved amount does not participate in Sprouting and is therefore spendable at any time.</string>
          </property>
          <property name="textFormat">
           <enum>Qt::PlainText</enum>

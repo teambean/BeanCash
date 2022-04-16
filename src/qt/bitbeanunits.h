@@ -22,7 +22,7 @@ public:
         BitB,
         mBitB,
         uBitB,
-        adzuki,
+        adzuki
     };
 
     //! @name Static API

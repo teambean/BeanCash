@@ -238,7 +238,7 @@ Value stop(const Array& params, bool fHelp)
 
 
 static const CRPCCommand vRPCCommands[] =
-{ //  name                      function                 safemd  unlocked   reqWallet
+{ //  name                      function               okSafeMode ThreadSafe reqWallet
   //  ------------------------  -----------------------  ------  --------   ---------
     { "help",                   &help,                   true,   true,      false },
     { "stop",                   &stop,                   true,   true,      false },
@@ -311,7 +311,7 @@ static const CRPCCommand vRPCCommands[] =
     { "lockunspent",            &lockunspent,            false,  false,     true  },
     { "listlockunspent",        &listlockunspent,        false,  false,     true  },
     { "getcheckpoint",          &getcheckpoint,          true,   false,     false },
-    { "reservebalance",         &reservebalance,         false,  true,      true  },
+    { "reservebalance",         &reservebalance,         false,  false,     true  },
     { "checkwallet",            &checkwallet,            false,  true,      true  },
     { "repairwallet",           &repairwallet,           false,  true,      true  },
     { "resendtx",               &resendtx,               false,  true,      false },
@@ -1212,7 +1212,7 @@ Array RPCConvertValues(const std::string &strMethod, const std::vector<std::stri
     if (strMethod == "sendmany"               && n > 1) ConvertTo<Object>(params[1]);
     if (strMethod == "sendmany"               && n > 2) ConvertTo<int64_t>(params[2]);
     if (strMethod == "reservebalance"         && n > 0) ConvertTo<bool>(params[0]);
-    if (strMethod == "reservebalance"         && n > 1) ConvertTo<double>(params[1]);
+    if (strMethod == "reservebalance"         && n > 1) ConvertTo<int64_t>(params[1]);
     if (strMethod == "addmultisigaddress"     && n > 0) ConvertTo<int64_t>(params[0]);
     if (strMethod == "addmultisigaddress"     && n > 1) ConvertTo<Array>(params[1]);
     if (strMethod == "createmultisig"         && n > 0) ConvertTo<int64_t>(params[0]);

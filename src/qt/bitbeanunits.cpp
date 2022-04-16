@@ -16,7 +16,6 @@ QList<BitbeanUnits::Unit> BitbeanUnits::availableUnits()
     unitlist.append(mBitB);
     unitlist.append(uBitB);
     unitlist.append(adzuki);
-
     return unitlist;
 }
 

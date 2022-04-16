@@ -180,7 +180,7 @@ BitbeanGUI::BitbeanGUI(QWidget *parent):
     frameBlocksLayout->addWidget(labelBlocksIcon);
     frameBlocksLayout->addStretch();
 
-    if (GetBoolArg("-sprout", true))
+    if (GetBoolArg("-sprouting", true))
     {
         QTimer *timerStakingIcon = new QTimer(labelStakingIcon);
         connect(timerStakingIcon, SIGNAL(timeout()), this, SLOT(updateStakingIcon()));

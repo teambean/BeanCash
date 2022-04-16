@@ -2001,7 +2001,7 @@ bool CWallet::CreateBeanStake(const CKeyStore& keystore, unsigned int nBits, int
         uint64_t nBeanAge;
         CTxDB txdb("r");
         if (!txNew.GetBeanAge(txdb, nBeanAge))
-            return error("CreateBeanStake : failed to calculate bean age");
+            return error("CreateBeanBlock : failed to calculate bean age");
 
         int64_t nReward = GetProofOfStakeReward(nBeanAge, nFees);
         if (nReward <= 0)
@@ -2024,15 +2024,15 @@ bool CWallet::CreateBeanStake(const CKeyStore& keystore, unsigned int nBits, int
     for (const CWalletTx* pbean : vwtxPrev)
     {
         if (!SignSignature(*this, *pbean, txNew, nIn++))
-            return error("CreateBeanStake : failed to sign beansprout");
+            return error("CreateBeanBlock : failed to sign transaction");
     }
 
     // Limit size
     unsigned int nBytes = ::GetSerializeSize(txNew, SER_NETWORK, PROTOCOL_VERSION);
     if (nBytes >= MAX_BLOCK_SIZE_GEN/5)
-        return error("CreateBeanStake : exceeded beansprout size limit");
+        return error("CreateBeanBlock : exceeded size limit for block size segment allocation (currently 4MB)");
 
-    // Successfully generated beansprout
+    // Successfully generated bean block
     return true;
 }
 

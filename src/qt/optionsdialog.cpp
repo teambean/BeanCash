@@ -223,6 +223,7 @@ void OptionsDialog::updateDisplayUnit()
     {
         /* Update transactionFee with the current unit */
         ui->transactionFee->setDisplayUnit(model->getDisplayUnit());
+        ui->reserveBalance->setDisplayUnit(model->getDisplayUnit());
     }
 }
 

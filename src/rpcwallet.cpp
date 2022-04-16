@@ -30,8 +30,8 @@ static void accountingDeprecationCheck()
             "It can easily result in negative or odd balances if misused or misunderstood, which has happened in the field.\n"
             "If you still want to enable it, add to your config file enableaccounts=1\n");
 
-    if (GetBoolArg("-sprout", true))
-        throw runtime_error("If you want to use accounting API, Sprouting must be disabled, add to your Beancash.conf file sprout=0\n");
+    if (GetBoolArg("-sprouting", true))
+        throw runtime_error("If you want to use accounting API, Sprouting must be disabled, add to your Beancash.conf file sprouting=0\n");
 }
 
 std::string HelpRequiringPassphrase()
@@ -1468,9 +1468,9 @@ Value walletpassphrase(const Array& params, bool fHelp)
 {
     if (pwalletMain->IsCrypted() && (fHelp || params.size() < 2 || params.size() > 3))
         throw runtime_error(
-            "walletpassphrase <passphrase> <timeout> [sproutingonly]\n"
+            "walletpassphrase <passphrase> <timeout> [sproutingonly(true or false)]\n"
             "Stores the wallet decryption key in memory for <timeout> seconds.\n"
-            "if [sproutingonly] is true sending functions are disabled.");
+            "if [sproutingonly] is true, sending functions are disabled.");
     if (fHelp)
         return true;
     if (!pwalletMain->IsCrypted())
@@ -1793,17 +1793,19 @@ Value reservebalance(const Array& params, bool fHelp)
             nAmount = (nAmount / CENT) * CENT;  // round to cent
             if (nAmount < 0)
                 throw runtime_error("amount cannot be negative.\n");
-            nReserveBalance = nAmount;
+            mapArgs["-reservebalance"] = FormatMoney(nAmount);
         }
         else
         {
             if (params.size() > 1)
                 throw runtime_error("cannot specify amount to turn off reserve.\n");
-            nReserveBalance = 0;
+            mapArgs["-reservebalance"] = "0";
         }
     }
 
     Object result;
+    if (mapArgs.count("-reservebalance") && !ParseMoney(mapArgs["-reservebalance"], nReserveBalance))
+        throw runtime_error("Invalid reserve balance amount\n");
     result.push_back(Pair("reserve", (nReserveBalance > 0)));
     result.push_back(Pair("amount", ValueFromAmount(nReserveBalance)));
     return result;
