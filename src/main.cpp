@@ -878,21 +878,24 @@ bool GetTransaction(const uint256 &hash, CTransaction &tx, uint256 &hashBlock)
                 hashBlock = block.GetHash();
             return true;
         }
-// Look for transactions in disconnected blocks to find orphaned CoinBase or Sprouted transactions
-        for (std::pair<const uint256, CBlockIndex*>& item : mapBlockIndex)
+// If IBD is complete, then look for transactions in disconnected blocks to find orphaned CoinBase or Sprouted transactions
+        if (!IsInitialBlockDownload())
         {
-            CBlockIndex* pindex = item.second;
-            if (pindex == pindexBest || pindex->pnext != 0)
-                continue;
-            CBlock block;
-            if (!block.ReadFromDisk(pindex))
-                continue;
-            for (const CTransaction& txOrphan : block.vtx)
+            for (std::pair<const uint256, CBlockIndex*>& item : mapBlockIndex)
             {
-                if (txOrphan.GetHash() == hash)
+                CBlockIndex* pindex = item.second;
+                if (pindex == pindexBest || pindex->pnext != 0)
+                    continue;
+                CBlock block;
+                if (!block.ReadFromDisk(pindex))
+                    continue;
+                for (const CTransaction& txOrphan : block.vtx)
                 {
-                    tx = txOrphan;
-                    return true;
+                    if (txOrphan.GetHash() == hash)
+                    {
+                        tx = txOrphan;
+                        return true;
+                    }
                 }
             }
         }
