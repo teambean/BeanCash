@@ -1248,13 +1248,18 @@ void ThreadOpenAddedConnections()
             LOCK(cs_vNodes);
             for (CNode* pnode : vNodes)
                 for (list<vector<CService> >::iterator it = lservAddressesToAdd.begin(); it != lservAddressesToAdd.end(); it++)
+                {
                     for (CService& addrNode : *(it))
                         if (pnode->addr == addrNode)
                         {
                             it = lservAddressesToAdd.erase(it);
-                            it--;
+                            if(it != lservAddressesToAdd.begin())
+                                it--;
                             break;
                         }
+                    if (it == lservAddressesToAdd.end())
+                        break;
+                }
         }
         for (vector<CService>& vserv : lservAddressesToAdd)
         {
