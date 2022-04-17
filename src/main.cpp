@@ -3565,7 +3565,7 @@ bool ProcessMessages(CNode* pfrom)
         if (!hdr.IsValid())
         {
             LogPrintf("\n\nPROCESSMESSAGE: ERRORS IN HEADER %s\n\n\n", hdr.GetCommand());
-            continue;
+            return false;
         }
         string strCommand = hdr.GetCommand();
 
@@ -3581,7 +3581,7 @@ bool ProcessMessages(CNode* pfrom)
         {
             LogPrintf("ProcessMessages(%s, %u bytes) : CHECKSUM ERROR nChecksum=%08x hdr.nChecksum=%08x\n",
                strCommand, nMessageSize, nChecksum, hdr.nChecksum);
-            continue;
+            return false;
         }
 
         // Process message
@@ -3620,8 +3620,10 @@ bool ProcessMessages(CNode* pfrom)
             PrintExceptionContinue(NULL, "ProcessMessages()");
         }
 
-        if (!fRet)
+        if (!fRet) {
             LogPrintf("ProcessMessage(%s, %u bytes) FAILED\n", strCommand, nMessageSize);
+            return false;
+        }
 
         break;
     }
