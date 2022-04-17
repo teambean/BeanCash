@@ -404,8 +404,7 @@ void CNode::CloseSocketDisconnect()
     if (hSocket != INVALID_SOCKET)
     {
         LogPrint("net", "disconnecting node %s\n", addrName);
-        closesocket(hSocket);
-        hSocket = INVALID_SOCKET;
+        CloseSocket(hSocket);
 
         // in case this fails, we'll empty the recv buffer when the CNode is deleted
         TRY_LOCK(cs_vRecvMsg, lockRecv);
@@ -837,12 +836,12 @@ void ThreadSocketHandler()
             }
             else if (nInbound >= nMaxConnections - MAX_OUTBOUND_CONNECTIONS)
             {
-                closesocket(hSocket);
+                CloseSocket(hSocket);
             }
             else if (CNode::IsBanned(addr))
             {
                 LogPrintf("connection from %s dropped (banned)\n", addr.ToString());
-                closesocket(hSocket);
+                CloseSocket(hSocket);
             }
             else
             {
@@ -1572,11 +1571,11 @@ public:
         // Close sockets
         for (CNode* pnode : vNodes)
             if (pnode->hSocket != INVALID_SOCKET)
-                closesocket(pnode->hSocket);
+                CloseSocket(pnode->hSocket);
         for (SOCKET hListenSocket : vhListenSocket)
             if (hListenSocket != INVALID_SOCKET)
-                if (closesocket(hListenSocket) == SOCKET_ERROR)
-                    LogPrintf("closesocket(hListenSocket) failed with error %d\n", WSAGetLastError());
+                if (!CloseSocket(hListenSocket))
+                    LogPrintf("CloseSocket(hListenSocket) failed with error %d\n", WSAGetLastError());
 
 #ifdef WIN32
         // Shutdown Windows Sockets
