@@ -205,11 +205,9 @@ bool static Socks5(string strDest, int port, SOCKET& hSocket)
         CloseSocket(hSocket);
         return error("Hostname too long");
     }
-    char pszSocks5Init[] = "\5\1\0";
-    ssize_t nSize = sizeof(pszSocks5Init) - 1;
-
-    ssize_t ret = send(hSocket, pszSocks5Init, nSize, MSG_NOSIGNAL);
-    if (ret != nSize)
+    const char pszSocks5Init[] = "\5\1\0";
+        ssize_t ret = send(hSocket, pszSocks5Init, 3, MSG_NOSIGNAL);
+    if (ret != 3)
     {
         CloseSocket(hSocket);
         return error("Error sending to proxy");
