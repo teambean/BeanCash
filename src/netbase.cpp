@@ -457,19 +457,23 @@ bool IsProxy(const CNetAddr &addr) {
     return false;
 }
 
-bool ConnectSocket(const CService &addrDest, SOCKET& hSocketRet, int nTimeout)
+bool ConnectSocket(const CService &addrDest, SOCKET& hSocketRet, int nTimeout, bool *outProxyConnectionFailed)
 {
     proxyType proxy;
-
-    // no proxy needed
+    if (outProxyConnectionFailed)
+        *outProxyConnectionFailed = false;
+    // no proxy needed (none set for target network)
     if (!GetProxy(addrDest.GetNetwork(), proxy))
         return ConnectSocketDirectly(addrDest, hSocketRet, nTimeout);
 
     SOCKET hSocket = INVALID_SOCKET;
 
     // first connect to proxy server
-    if (!ConnectSocketDirectly(proxy.first, hSocket, nTimeout))
+    if (!ConnectSocketDirectly(proxy.first, hSocket, nTimeout)) {
+        if (outProxyConnectionFailed)
+            *outProxyConnectionFailed = true;
         return false;
+    }
 
     // do socks negotiation
     switch (proxy.second) {
@@ -490,10 +494,14 @@ bool ConnectSocket(const CService &addrDest, SOCKET& hSocketRet, int nTimeout)
     return true;
 }
 
-bool ConnectSocketByName(CService &addr, SOCKET& hSocketRet, const char *pszDest, int portDefault, int nTimeout)
+bool ConnectSocketByName(CService &addr, SOCKET& hSocketRet, const char *pszDest, int portDefault, int nTimeout, bool *outProxyConnectionsFailed)
 {
     string strDest;
     int port = portDefault;
+
+    if (outProxyConnectionsFailed)
+        *outProxyConnectionsFailed = false;
+
     SplitHostPort(string(pszDest), port, strDest);
 
     SOCKET hSocket = INVALID_SOCKET;
@@ -509,9 +517,13 @@ bool ConnectSocketByName(CService &addr, SOCKET& hSocketRet, const char *pszDest
     addr = CService("0.0.0.0:0");
     if (!nameproxy.second)
         return false;
-    if (!ConnectSocketDirectly(nameproxy.first, hSocket, nTimeout))
+    // first connect to name server proxy
+    if (!ConnectSocketDirectly(nameproxy.first, hSocket, nTimeout)) {
+        if (outProxyConnectionsFailed)
+            *outProxyConnectionsFailed = true;
         return false;
-
+    }
+    // do socks negotiation
     switch(nameproxy.second) {
         default:
         case 4:
