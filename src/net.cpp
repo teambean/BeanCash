@@ -901,7 +901,6 @@ void ThreadSocketHandler()
                         {
                             LogPrint("net", "socket closed\n");
                             pnode->CloseSocketDisconnect();
-                            continue;
                         }
                     }
                     else if (nBytes < 0)
@@ -1097,10 +1096,10 @@ void ThreadOpenConnections()
                 OpenNetworkConnection(addr, NULL, strAddr.c_str());
                 for (int i = 0; i < 10 && i < nLoop; i++)
                 {
-                    MilliSleep(100);
+                    MilliSleep(500);
                 }
             }
-            MilliSleep(100);
+            MilliSleep(500);
         }
     }
 
@@ -1110,7 +1109,7 @@ void ThreadOpenConnections()
     {
         ProcessOneShot();
 
-        MilliSleep(100);
+        MilliSleep(500);
 
         CSemaphoreGrant grant(*semOutbound);
         boost::this_thread::interruption_point();
@@ -1147,10 +1146,10 @@ void ThreadOpenConnections()
         {
             LOCK(cs_vNodes);
             for (CNode* pnode : vNodes) {
-                // if (!pnode->fInbound) {
+                if (!pnode->fInbound) {
                 setConnected.insert(pnode->addr.GetGroup());
                 nOutbound++;
-                // }
+                }
             }
         }
 
@@ -1212,9 +1211,9 @@ void ThreadOpenAddedConnections()
                 CAddress addr;
                 CSemaphoreGrant grant(*semOutbound);
                 OpenNetworkConnection(addr, &grant, strAddNode.c_str());
-                MilliSleep(100);
+                MilliSleep(500);
             }
-            MilliSleep(60000); // Retry every minute
+            MilliSleep(120000); // Retry every two minutes
         }
     }
 
@@ -1265,9 +1264,9 @@ void ThreadOpenAddedConnections()
         {
             CSemaphoreGrant grant(*semOutbound);
             OpenNetworkConnection(CAddress(vserv[i % vserv.size()]), &grant);
-            MilliSleep(100);
+            MilliSleep(500);
         }
-        MilliSleep(60000); // Retry every minute
+        MilliSleep(120000); // Retry every 2 minutes
     }
 }
 
