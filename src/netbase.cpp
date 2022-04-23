@@ -404,13 +404,13 @@ bool static ConnectSocketDirectly(const CService &addrConnect, SOCKET& hSocketRe
             int nRet = select(hSocket + 1, NULL, &fdset, NULL, &timeout);
             if (nRet == 0)
             {
-                LogPrint("net", "connection timeout\n");
+                LogPrint("net", "connection to %s timeout\n", addrConnect.ToString().c_str());
                 CloseSocket(hSocket);
                 return false;
             }
             if (nRet == SOCKET_ERROR)
             {
-                LogPrintf("select() for connection failed: %i\n",WSAGetLastError());
+                LogPrintf("select() for %s failed: %i\n", addrConnect.ToString().c_str(), WSAGetLastError());
                 CloseSocket(hSocket);
                 return false;
             }
@@ -421,13 +421,13 @@ bool static ConnectSocketDirectly(const CService &addrConnect, SOCKET& hSocketRe
             if (getsockopt(hSocket, SOL_SOCKET, SO_ERROR, &nRet, &nRetSize) == SOCKET_ERROR)
 #endif
             {
-                LogPrintf("getsockopt() for connection failed: %i\n",WSAGetLastError());
+                LogPrintf("getsockopt() for %s failed: %i\n", addrConnect.ToString().c_str(), WSAGetLastError());
                 CloseSocket(hSocket);
                 return false;
             }
             if (nRet != 0)
             {
-                LogPrintf("connect() failed after select(): %s\n",strerror(nRet));
+                LogPrintf("connect() to %s failed after select(): %s\n", addrConnect.ToString().c_str(), strerror(nRet));
                 CloseSocket(hSocket);
                 return false;
             }
@@ -438,7 +438,7 @@ bool static ConnectSocketDirectly(const CService &addrConnect, SOCKET& hSocketRe
         else
 #endif
         {
-            LogPrintf("connect() failed: %i\n",WSAGetLastError());
+            LogPrintf("connect() to % failed: %i\n", addrConnect.ToString().c_str(), WSAGetLastError());
             CloseSocket(hSocket);
             return false;
         }
