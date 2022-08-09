@@ -1189,19 +1189,6 @@ int64_t CWallet::GetStake() const
     return nTotal;
 }
 
-int64_t CWallet::GetNewMint() const
-{
-    int64_t nTotal = 0;
-    LOCK(cs_wallet);
-    for (map<uint256, CWalletTx>::const_iterator it = mapWallet.begin(); it != mapWallet.end(); ++it)
-    {
-        const CWalletTx* pbean = &(*it).second;
-        if (pbean->IsBeanBase() && pbean->GetBlocksToMaturity() > 0 && pbean->GetDepthInMainChain() > 0)
-            nTotal += CWallet::GetCredit(*pbean);
-    }
-    return nTotal;
-}
-
 struct LargerOrEqualThanThreshold
 {
     int64_t threshold;
