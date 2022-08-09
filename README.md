@@ -14,9 +14,9 @@ What Is Bean Cash?
 
 Bean Cash (Ticker: BITB) is a re-brand of BitBean. Bean Cash brings forward BitBean's legacy of lightening-fast transactions and a rock-solid network, with a mature blockchain--that is over 6 years old! 6 years is a long time in the "crypto-currency" space! In this time, Beancash has not hardforked or had a transaction roll-back. Bean Cash is developed by Bean Core, a virtual company comprised of individuals and entities around the world, with the purpose of moving development forward and helping to bring about consensus among the community. Bean Cash's mission: "To be an enduring digital currency, with high integrity, a store of value and a means of exchange of value in every day transactions -- that stands the test of time!"
 
-Bean Cash is a digital currency and network based of of the original Bitcoin reference, with improvements that are ecological friendly (Proof of Bean Consensus), larger block sizes -- improving scalability, faster block targets --increasing speed, with overall lightening fast transactions! It features an innovative Proof of Bean (PoB) algorithm that more closely resembles traditional Proof of Work (PoW) crypto currencies, but without all the electricity demands and custom hardware as required to mine in traditional POW. Bean Cash is the first digital currency to implement a maximum of 20MB blocks, based off Gavin Andersen's proposals to fix Bitcoin's scalability limitations. Bean Cash is designed from the ground-up to be a transaction-centric and superior form of currency, for exchange of value in on-line purchases (idealy suited for micro-transactions) and purchases with traditional brick-and-mortar merchants. 
+Bean Cash is a digital currency and network based on the original Bitcoin reference, with improvements that are ecological friendly. BitBean pioneered static block rewards in a "Proof of Stake" consensus system (Proof of Bean) and was the first to have a maximum of 10MB block sizes. These changes improved scalability, and along with faster block targets, increased speed and number of transactions per second! The Proof of Bean (PoB) algorithm closely resembles traditional Proof of Work (PoW) crypto currencies, but without all the electricity demands and custom hardware required to mine a traditional POW crypto. Bean Cash is the first digital currency to implement a maximum of 10MB blocks, based off Gavin Andersen's proposals to fix Bitcoin's scalability limitations. Bean Cash is designed from the ground-up to be transaction-centric and a superior form of currency, on-line purchases and in-person.
 
-In it's mission to be a transaction-centric digital currency with real world use, one of the goals for Bean Cash, is solving the "last mile issue" in the digital currency space. Specifically, the "last mile issue" deals with implimentation of infrastructure at the point of use. Instramental in this objective will be working with companies that are willing to implement Bean Cash at the Point of Sale/Service. Bean Cash is designed to support a network with over 1,300 TPS (Transactions Per Second), effecively being able to compete with companies such as PayPal. 
+In it's mission to be a transaction-centric digital currency with real world use, one of the goals for Bean Cash, is solving the "last mile issue" in the digital currency space. Specifically, the "last mile issue" deals with implimentation of infrastructure at the point of use.
 
 As developers of Bean Cash, we are not looking to re-impliment a transaction system, based on the "Check/Cheque" model (et al. Bitcoin), where a merchant approves a transaction based on simple verification, and settlement happens much latter. That kind of model does not provide any more value than existing, charge back prone, credit cards. 
 
@@ -28,18 +28,16 @@ our community members at:  <a href="https://live.beancash.org">https://live.bean
 Alternatively, if you are a merchant with questions or interested in adopting Bean Cash in your
 business, you may contact Bean Core <a href="mailto:support@beancash.org">via email</a>.
 
-Later in 2021, we will be supporting a failover domain for our main website (https://www.beancash.org). The additional official domain will be: www.beancash.is Both beancash.org and beancash.is will be mirrored, offering redundancy for critical Bean Cash resources.
-
-Bean Cash will be launching it's own DEX (Decentralized Exchange) in the near future. To foster access for the decentralized exchange, a portal will be established at:  https://www.beantrex.is Other Official portals will be established on the Maidsafe Network.
-The DEX will launch after v2 of the Bean Cash Network is operational. v2 Bean Cash will be backwards compatible with nodes running v1.3.2 software and on the Official network/chain. Another hardfork is planned in 2021 with v1.5, after which only maintenance releases will be made available for v1.X branch. v2 Bean Cash is scheduled to go live in 2022.
+Bean Cash will be launching it's own DDEX (Distributed Decentralized Exchange) in the near future.
+The DEX will launch after v2 of the Bean Cash Network is operational. A hardfork is planned in late 2022 with v1.5, after which only maintenance releases will be made available for v1.X branch. v2 Bean Cash is scheduled to go live in 2023.
 
 Bean Cash Specifications
 ------------------------
 
 **Consensus**: Proof of Bean (PoB) & Proof of Work (PoW distribution ended at block 10,000)
-v2 of Bean Cash will introduce a Proof of Resources (PORes) model that will interoperate with PoB.
+v2 of Bean Cash will introduce a Proof of Resources Existing (PORes) model that in addition to PoB (Proof of Bean), will provide an additional economic system for Beans.
 
-**Proof of Work Algorithm**: SHA-256
+**Proof of Work Algorithm**: Double SHA-256
 
 **PoW Block Reward**: 100,000 BITB
 
@@ -57,13 +55,16 @@ v2 of Bean Cash will introduce a Proof of Resources (PORes) model that will inte
 
 **Minimum Time for Beans To Be Elgible to Sprout**: 6 hours
 
-**Maximum Supply for BITB (reached in or around 2023)**: 5 Billion BITB
+**Maximum Supply for BITB**: 6 Billion BITB
 
 **Maximum Supply for BEAN**: 21 Million BEAN
 
-In 2023 Sprouting for BITB will be merged into BEAN, with a new Consensus Algorithm, Proof of Resource (PORes) that will combine with PoB (Proof of Bean).
+A maximum of 3 Billion BITB will be convertable to BEAN in v2 at a conversion of 1000:1
 
-**On August 2, 2021 @ 9:27:42PM GMT Bean Cash will start enforcing stricter Time Drift rules. Nodes not running v1.3.1 or later will be forked off the network and chain. These changes are necessary to move Bean Cash forward. Node operators must do more than just Sprout Beans, they must stay involved with the Community and keep their software updated on a timely basis! These changes are necessary to move Bean Cash forward. More significant updates will be coming and network node operators need to be agile and keep up! Bean Cash will once again become competitive in the Blockchain/Crypto Space, with our goal to get back into the top 100 of Crypto Currencies!**
+In v2 of Bean Cash, Sprouting rewards will be paid in BEAN and transaction fees paid in BITB.
+v2 of Bean Cash will launch in 2023.
+
+**On August 2, 2021 @ 9:27:42PM GMT Bean Cash will start enforcing stricter time drift rules. Nodes not running v1.3.1 or later will be forked off the network and chain. These changes are necessary to move Bean Cash forward. Node operators must do more than just Sprout Beans, they must stay involved with the Community and keep their software updated on a timely basis! These changes are necessary to move Bean Cash forward. More significant updates will be coming and network node operators need to be agile and keep up! Bean Cash will once again become competitive in the Blockchain/Crypto Space, with our goal to get back into the top 100 of Crypto Currencies in 2023!**
 
 
 Bean Cash Monetary Units
@@ -92,6 +93,5 @@ Support
 
 
 Copyright (c) 2015-2017 Bean Core, Team Bean, bitbean.org<br>
-Copyright (c) 2017-2021 Bean Core, Team Bean, beancash.org<br>
-Copyright (c) 2021 BeanTrex, beancash.is, beantrex.is<br>
+Copyright (c) 2017-2022 Bean Core, Team Bean, beancash.org<br>
 
