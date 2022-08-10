@@ -46,7 +46,7 @@ Value getmininginfo(const Array& params, bool fHelp)
 
     obj.push_back(Pair("Block Value",    (uint64_t)GetProofOfWorkReward(0)));
     obj.push_back(Pair("Net MH/s",     GetPoWMHashPS()));
-    obj.push_back(Pair("Net Stake Weight", GetPoSKernelPS()));
+    obj.push_back(Pair("Net Bean Weight", GetPoSKernelPS()));
     obj.push_back(Pair("Errors",        GetWarnings("statusbar")));
     obj.push_back(Pair("Pooled Tx",      (uint64_t)mempool.size()));
 
@@ -88,7 +88,7 @@ Value getsproutinginfo(const Array& params, bool fHelp)
     obj.push_back(Pair("Search Interval", (int)nLastBeanStakeSearchInterval));
 
     obj.push_back(Pair("Weight", (uint64_t)nWeight));
-    obj.push_back(Pair("Net Stake Weight", (uint64_t)nNetworkWeight));
+    obj.push_back(Pair("Net Bean Weight", (uint64_t)nNetworkWeight));
 
     obj.push_back(Pair("Expected Time", nExpectedTime));
 

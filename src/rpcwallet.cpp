@@ -94,7 +94,7 @@ Value getinfo(const Array& params, bool fHelp)
     	obj.push_back(Pair("walletversion", pwalletMain->GetVersion()));
     	obj.push_back(Pair("balance",       ValueFromAmount(pwalletMain->GetBalance())));
      }
-    obj.push_back(Pair("stake",         ValueFromAmount(pwalletMain->GetStake())));
+    obj.push_back(Pair("maturing-sprouts",     ValueFromAmount(pwalletMain->GetStake())));
     obj.push_back(Pair("blocks",        (int)nBestHeight));
     obj.push_back(Pair("timeoffset",    (int64_t)GetTimeOffset()));
     obj.push_back(Pair("moneysupply",   ValueFromAmount(pindexBest->nMoneySupply)));
@@ -103,7 +103,7 @@ Value getinfo(const Array& params, bool fHelp)
     obj.push_back(Pair("ip",            GetLocalAddress(NULL).ToStringIP()));
 
     diff.push_back(Pair("proof-of-work",  GetDifficulty()));
-    diff.push_back(Pair("proof-of-stake", GetDifficulty(GetLastBlockIndex(pindexBest, true))));
+    diff.push_back(Pair("proof-of-bean", GetDifficulty(GetLastBlockIndex(pindexBest, true))));
     obj.push_back(Pair("difficulty",    diff));
 
     obj.push_back(Pair("testnet",       fTestNet));
