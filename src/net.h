@@ -28,6 +28,8 @@ class CNode;
 class CBlockIndex;
 extern int nBestHeight;
 
+const uint16_t nPortZero = 0;
+
 /** Time between pings automatically sent out for latency probing and keepalive (in seconds). */
 static const int PING_INTERVAL = 2 * 60;
 /** Time after which to disconnect, after waiting for a ping response (or inactivity). */
@@ -132,6 +134,7 @@ extern bool fClient;
 extern bool fDiscover;
 extern uint64_t nLocalServices;
 extern uint64_t nLocalHostNonce;
+extern CAddress addrSeenByPeer;
 extern CAddrMan addrman;
 extern int nMaxConnections;
 
