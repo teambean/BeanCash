@@ -929,7 +929,7 @@ Value sendmany(const Array& params, bool fHelp)
              "\nSend two amounts to two different addresses:\n"
              "  \nBeancashd sendmany teambean {\\\"2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4\\\":0.01,\\\"2ZkipiuqPaKwgMVxth5skFep6pRdeTf3BK\\\":0.02}\n"
              "\nSend two amounts to two different addresses setting the confirmation and comment:\n"
-             "  \nBeancashd sendmany teambean {\\\"2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4\\\":0.01,\\\"2ZkipiuqPaKwgMVxth5skFep6pRdeTf3BK\\\":0.02}\" 6 \"testing\"\m"
+             "  \nBeancashd sendmany teambean {\\\"2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4\\\":0.01,\\\"2ZkipiuqPaKwgMVxth5skFep6pRdeTf3BK\\\":0.02}\" 6 \"testing\"\n"
          );
 
     string strAccount = AccountFromValue(params[0]);

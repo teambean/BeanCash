@@ -2207,18 +2207,18 @@ bool ProcessBlock(CNode* pfrom, CBlock* pblock)
         if (pfrom) {
             pfrom->nDupBlocks++;
             if (pfrom->nDupBlocks > 3) pfrom->fDisconnect = true;
-            printf("ProcessBlock() : already(%d) have block %d %s", pfrom->nDupBlocks, mapBlockIndex[hash]->nHeight, hash.ToString().substr(0,20).c_str());
+            printf("ProcessBlock() : already(%d) have block %d %s\n", pfrom->nDupBlocks, mapBlockIndex[hash]->nHeight, hash.ToString().substr(0,20).c_str());
         } else
-            printf("ProcessBlock() : already have block %d %s", mapBlockIndex[hash]->nHeight, hash.ToString().substr(0,20).c_str());
+            printf("ProcessBlock() : already have block %d %s\n", mapBlockIndex[hash]->nHeight, hash.ToString().substr(0,20).c_str());
         return false;
     }
     if (mapOrphanBlocks.count(hash)) {
         if (pfrom) {
             pfrom->nDupBlocks++;
             if (pfrom->nDupBlocks > 3) pfrom->fDisconnect = true;
-            printf("ProcessBlock() : already(%d) have block (orphan) %s", pfrom->nDupBlocks, hash.ToString().substr(0,20).c_str());
+            printf("ProcessBlock() : already(%d) have block (orphan) %s\n", pfrom->nDupBlocks, hash.ToString().substr(0,20).c_str());
         } else
-            printf("ProcessBlock() : already have block (orphan) %s", hash.ToString().substr(0,20).c_str());
+            printf("ProcessBlock() : already have block (orphan) %s\n", hash.ToString().substr(0,20).c_str());
         return false;
     }
     if (pfrom) pfrom->nDupBlocks = 0; // reset the counter
@@ -2227,11 +2227,11 @@ bool ProcessBlock(CNode* pfrom, CBlock* pblock)
     // Limited duplicity: prevents block flood attack
     // Duplicate Sprouts allowed only when there is orphan child block
     if (pblock->IsProofOfStake() && setStakeSeen.count(pblock->GetProofOfStake()) && !mapOrphanBlocksByPrev.count(hash) && !Checkpoints::WantedByPendingSyncCheckpoint(hash))
-        return error("ProcessBlock() : duplicate proof-of-bean (%s, %d) for block %s", pblock->GetProofOfStake().first.ToString(), pblock->GetProofOfStake().second, hash.ToString());
+        return error("ProcessBlock() : duplicate proof-of-bean (%s, %d) for block %s\n", pblock->GetProofOfStake().first.ToString(), pblock->GetProofOfStake().second, hash.ToString());
 
     // Preliminary checks
     if (!pblock->CheckBlock())
-        return error("ProcessBlock() : CheckBlock FAILED");
+        return error("ProcessBlock() : CheckBlock FAILED\n");
 
     CBlockIndex* pcheckpoint = Checkpoints::GetLastSyncCheckpoint();
     if (pcheckpoint && pblock->hashPrevBlock != hashBestChain && !Checkpoints::WantedByPendingSyncCheckpoint(hash))
@@ -2251,15 +2251,15 @@ bool ProcessBlock(CNode* pfrom, CBlock* pblock)
         {
             if (pfrom)
                 pfrom->Misbehaving(100);
-            return error("ProcessBlock() : block with too little %s", pblock->IsProofOfStake()? "proof-of-bean" : "proof-of-work");
+            return error("ProcessBlock() : block with too little %s\n", pblock->IsProofOfStake()? "proof-of-bean" : "proof-of-work");
         }
     }
 
-    // ppbean: ask for pending sync-checkpoint if any
+    // Ask for pending sync-checkpoint if any
     if (!IsInitialBlockDownload())
         Checkpoints::AskForPendingSyncCheckpoint(pfrom);
 
-    // If don't already have its previous block, shunt it off to holding area until we get it
+    // If we don't already have its previous block, shunt it off to holding area until we get it
     if (!mapBlockIndex.count(pblock->hashPrevBlock))
     {
         LogPrintf("ProcessBlock: ORPHAN BLOCK, prev=%s\n", pblock->hashPrevBlock.ToString());
@@ -2269,17 +2269,19 @@ bool ProcessBlock(CNode* pfrom, CBlock* pblock)
             // Limited duplicity on Sprout: prevents block flood attack
             // Duplicate Sprout allowed only when there is orphan child block
             if (setStakeSeenOrphan.count(pblock->GetProofOfStake()) && !mapOrphanBlocksByPrev.count(hash) && !Checkpoints::WantedByPendingSyncCheckpoint(hash))
-                return error("ProcessBlock() : duplicate Proof-of-Bean (%s, %d) for orphan block %s", pblock->GetProofOfStake().first.ToString(), pblock->GetProofOfStake().second, hash.ToString());
+                return error("ProcessBlock() : duplicate Proof-of-Bean (%s, %d) for orphan block %s\n", pblock->GetProofOfStake().first.ToString(), pblock->GetProofOfStake().second, hash.ToString());
             else
                 setStakeSeenOrphan.insert(pblock->GetProofOfStake());
         }
-        CBlock* pblock2 = new CBlock(*pblock);
-        mapOrphanBlocks.insert(make_pair(hash, pblock2));
-        mapOrphanBlocksByPrev.insert(make_pair(pblock2->hashPrevBlock, pblock2));
 
-        // Ask this guy to fill in what we're missing
+        // Accept orphans as long as there is a node to request its parents from
         if (pfrom)
         {
+            CBlock* pblock2 = new CBlock(*pblock);
+            mapOrphanBlocks.insert(make_pair(hash, pblock2));
+            mapOrphanBlocksByPrev.insert(make_pair(pblock2->hashPrevBlock, pblock2));
+
+            // Ask this guy to fill in what we're missing
             PushGetBlocks(pfrom, pindexBest, GetOrphanRoot(pblock2));
             // getblocks may not obtain the ancestor block rejected
             // earlier by duplicate-Sprout check so we ask for it again directly
