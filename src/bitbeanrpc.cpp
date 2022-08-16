@@ -206,7 +206,12 @@ Value help(const Array& params, bool fHelp)
     if (fHelp || params.size() > 1)
         throw runtime_error(
             "help [command]\n"
-            "List commands, or get help for a command.");
+            "\nList all commands, or get help for a specified command.\n"
+            "\nArguments:\n"
+            "1. \"command\"     (string, optional) The command to get help on\n"
+            "\nResult:\n"
+            "\"text\"   (string) The help text\n"
+         );
 
     string strCommand;
     if (params.size() > 0)
@@ -223,7 +228,7 @@ Value stop(const Array& params, bool fHelp)
         throw runtime_error(
             "stop <detach>\n"
             "<detach> is true or false to detach the database or not for this stop only\n"
-            "Stop Bean Cash server (and possibly override the detachdb config value).");
+            "\nStop Bean Cash server (and possibly override the detachdb config value).");
 
     // Shutdown will take long enough that the response should get back
     StartShutdown();

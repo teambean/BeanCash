@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2018 Bean Core www.beancash.org
+// Copyright (c) 2018-2022 Bean Core www.beancash.org
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -121,7 +121,7 @@ Object blockToJSON(const CBlock& block, const CBlockIndex* blockindex, bool fPri
     if (blockindex->pnext)
         result.push_back(Pair("nextblockhash", blockindex->pnext->GetBlockHash().GetHex()));
 
-    result.push_back(Pair("flags", strprintf("%s%s", blockindex->IsProofOfStake()? "proof-of-stake" : "proof-of-work", blockindex->GeneratedStakeModifier()? " stake-modifier": "")));
+    result.push_back(Pair("flags", strprintf("%s%s", blockindex->IsProofOfStake()? "proof-of-bean" : "proof-of-work", blockindex->GeneratedStakeModifier()? " stake-modifier": "")));
     result.push_back(Pair("proofhash", blockindex->hashProof.GetHex()));
     result.push_back(Pair("entropybit", (int)blockindex->GetStakeEntropyBit()));
     result.push_back(Pair("modifier", strprintf("%016x", blockindex->nStakeModifier)));
@@ -150,48 +150,72 @@ Object blockToJSON(const CBlock& block, const CBlockIndex* blockindex, bool fPri
     return result;
 }
 
+// Get the block hash of the current block height
 Value getbestblockhash(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
         throw runtime_error(
             "getbestblockhash\n"
-            "Returns the hash of the best block in the longest block chain.");
+            "\nReturns the hash of the best block in the longest block chain.\n"
+            "\nResult\n"
+            "\"hex\"    (string) the block hash hex encoded\n"
+            "\nExamples:\n"
+            "  \nBeancashd getbestblockhash\n"
+        );
 
     return hashBestChain.GetHex();
 }
 
+// Get current block height
 Value getblockcount(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
         throw runtime_error(
             "getblockcount\n"
-            "Returns the number of blocks in the longest block chain.");
+            "\nReturns the number of blocks in the longest block chain.\n"
+            "\nResult:\n"
+            "n  (numeric) The current block count\n"
+            "\nExamples:\n"
+            "  \nBeancashd getblockcount\n"
+        );
 
     return nBestHeight;
 }
 
-
+// Get difficulty
 Value getdifficulty(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
         throw runtime_error(
             "getdifficulty\n"
-            "Returns the difficulty as a multiple of the minimum difficulty.");
+            "\nReturns the difficulty as a multiple of the minimum difficulty.\n"
+            "\nResult:\n"
+            "n.nnn      (numeric) the difficulty as a multiple of the minimum difficulty.\n"
+            "\nExamples:\n"
+            "  \nBeancashd getdifficulty\n"
+        );
 
     Object obj;
     obj.push_back(Pair("proof-of-work",        GetDifficulty()));
-    obj.push_back(Pair("proof-of-stake",       GetDifficulty(GetLastBlockIndex(pindexBest, true))));
+    obj.push_back(Pair("proof-of-bean",       GetDifficulty(GetLastBlockIndex(pindexBest, true))));
     obj.push_back(Pair("search-interval",      (int)nLastBeanStakeSearchInterval));
     return obj;
 }
 
-
+// Set the transaction fee
 Value settxfee(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 1 || AmountFromValue(params[0]) < MIN_TX_FEE)
         throw runtime_error(
-            "settxfee <amount>\n"
-            "<amount> is a real and is rounded to the nearest 0.01");
+            "settxfee amount\n"
+            "\nSet the transaction fee. 'amount' is a real and is rounded to the nearest 0.00000001\n"
+            "\nArguments:\n"
+            "1. amount      (numeric, required) The transaction fee in bitb rounded to the nearest 0.00000001\n"
+            "\nResult\n"
+            "true|false     (boolean) Returns true if sucessful\n"
+            "\nExamples:\n"
+            "  \nBeancashd settxfee 0.1\n"
+        );
 
     nTransactionFee = AmountFromValue(params[0]);
     nTransactionFee = (nTransactionFee / CENT) * CENT;  // round to cent
@@ -199,12 +223,21 @@ Value settxfee(const Array& params, bool fHelp)
     return true;
 }
 
+// Get transaction info from the current memory pool
 Value getrawmempool(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
         throw runtime_error(
             "getrawmempool\n"
-            "Returns all transaction ids in memory pool.");
+            "\nReturns all transaction ids in memory pool as a json array of string transaction ids.\n"
+            "\nResult:\n"
+            "[                  (json array of string)\n"
+            " \"transactionid\" (string) The transaction id\n"
+            " , ...\n"
+            "]\n"
+            "\nExamples:\n"
+            "  \nBeancashd getrawmempool\n"
+        );
 
     vector<uint256> vtxid;
     mempool.queryHashes(vtxid);
@@ -216,12 +249,21 @@ Value getrawmempool(const Array& params, bool fHelp)
     return a;
 }
 
+// Get block hash at a given block height
 Value getblockhash(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "getblockhash <index>\n"
-            "Returns hash of block in best-block-chain at <index>.");
+            "getblockhash index\n"
+            "\nReturns hash of block in best-block-chain at index provided.\n"
+            "\nArguments:\n"
+            "1. index       (numeric, required) The block index\n"
+            "\nResult:\n"
+            "\"hash\"       (string) The block hash\n"
+            "\nExamples:\n"
+            "\nBeancashd getblockhash 10000\n"
+        );
+
 
     int nHeight = params[0].get_int();
     if (nHeight < 0 || nHeight > nBestHeight)
@@ -231,13 +273,53 @@ Value getblockhash(const Array& params, bool fHelp)
     return pblockindex->phashBlock->GetHex();
 }
 
+// Get block info for a given block hash
 Value getblock(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "getblock <hash> [txinfo]\n"
-            "txinfo optional to print more detailed tx info\n"
-            "Returns details of a block with given block-hash.");
+            "getblock \"hash\" ( verbose )\n"
+            "\nIf verbose is false, returns a string that is serialized, hex-encoded data for block 'hash'.\n"
+            "If verbose is true, returns an Object with information about block <hash>.\n"
+            "\nArguments:\n"
+            "1. \"hash\"            (string, required) The block hash\n"
+            "2. verbose             (boolean, optional, default=true) true for a json object, false for the hex encoded data\n"
+            "\nResult (for verbose = true):\n"
+            "{\n"
+            " \"hash\" : \"hash\",  (string) the block hash (same as provided)\n"
+            " \"confirmations\" : n,(numeric) The number of confirmations\n"
+            " \"size\" : n,         (numeric) The block size\n"
+            " \"height\" : n,       (numeric) The block height or index\n"
+            " \"version\" : n,      (numeric) The block version of consensus rules followed\n"
+            " \"merkleroot\" : \"xxxx\", (string) The merkle root, derived hashes of all transactions in this block.\n"
+            " \"mint\" : n,         (numeric) The amount of BITB minted in this block.\n"
+            " \time\" : ttt,        (numeric) The block time measured in seconds(epoch), when this block header was hashed.\n"
+            " \"nonce\" : n,        (numeric) The nonce (salt) that was used to produce this block in order to meet the target hash value set by the network.\n"
+            " \"bits\" : \"1d00ffff\", (string) An encoded version of the target threshold when this block was created.\n"
+            " \"difficulty\" : x.xxx,  (numeric) The difficulty is a measure of how many hashes (statistically) that were generated to solve this block.\n"
+            " \"blocktrust\" : \"17aec692f3ff2ad\",     (string) Blocktrust\n"
+            " \"chaintrust\" : \"5759ef9997ab61f26\",   (string) Chaintrust\n"
+            " \"previousblockhash\" : \"hash\",  (string) The hash of the previous block\n"
+            " \"nextblockhash\" : \"hash\"       (string) The hash of the next block\n"
+            " \"flags\" : \"proof-of-bean\",     (string) The consensus method used to create the block\n"
+            " \"proofhash\" : \"proofhash\",     (string) The block hash as recorded in the Block Index\n"
+            " \"entropybit\" : n,   (numeric) The entropy bit\n"
+            " \"modifier\" : \"d95e040a9fa5a08e\",      (string) Hash of prevout transaction (PoB Block) and previous block's modifier\n"
+            " \"modifierchecksum\" : \"b971944e\",      (string) Checksum of current block modifier\n"
+            " \"tx\" : [            (array of string) The transaction ids\n"
+            "   \"txid\"            (string) The transaction id\n"
+            "   \"version\" : n,    (numeric) The version of consensus rules followed for processing the transaction.\n"
+            "   \"time\" : ttt,     (numeric) The transaction time measured in seconds(epoch).\n"
+            "   \"locktime\" : \"0x00000000\",    (string) If value is 0x00000000 transaction is not locked. Otherwise earliest time transaction can be mined.\n"
+            "        < 500000000 Unlocked at block height, >= 500000000 Unlocked at specific time (Unix time).\n"
+            "     ,...\n"
+            "   ],\n"
+            "}\n"
+            " \nResult (for verbose=false):\n"
+            " \"data\"             (string) A string that is serialized, hex-encoded data for block 'hash'.\n"
+            " \nExamples:\n"
+            "  \nBeancashd getblock 0000000000000042c0c267858f0064f213c2e447fbce1675baad75d0ade1da13 true\n"
+        );
 
     std::string strHash = params[0].get_str();
     uint256 hash(strHash);
@@ -252,13 +334,54 @@ Value getblock(const Array& params, bool fHelp)
     return blockToJSON(block, pblockindex, params.size() > 1 ? params[1].get_bool() : false);
 }
 
+// Get block info for a given block number
 Value getblockbynumber(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "getblockbynumber <number> [txinfo]\n"
-            "txinfo optional to print more detailed tx info\n"
-            "Returns details of a block with given block-number.");
+            "Returns details of a block with given block-number."
+            "getblockbynumber \"number\" ( verbose )\n"
+            "\nIf verbose is false, returns a string that is serialized, hex-encoded data for block 'number'.\n"
+            "If verbose is true, returns an Object with information about block number.\n"
+            "\nArguments:\n"
+            "1. \"number\"            (string, required) The block number\n"
+            "2. verbose             (boolean, optional, default=true) true for a json object, false for the hex encoded data\n"
+            "\nResult (for verbose = true):\n"
+            "{\n"
+            " \"hash\" : \"hash\",  (string) the block hash (same as provided)\n"
+            " \"confirmations\" : n,(numeric) The number of confirmations\n"
+            " \"size\" : n,         (numeric) The block size\n"
+            " \"height\" : n,       (numeric) The block height or index\n"
+            " \"version\" : n,      (numeric) The block version of consensus rules followed\n"
+            " \"merkleroot\" : \"xxxx\", (string) The merkle root, derived hashes of all transactions in this block.\n"
+            " \"mint\" : n,         (numeric) The amount of BITB minted in this block.\n"
+            " \time\" : ttt,        (numeric) The block time measured in seconds(epoch), when this block header was hashed.\n"
+            " \"nonce\" : n,        (numeric) The nonce (salt) that was used to produce this block in order to meet the target hash value set by the network.\n"
+            " \"bits\" : \"1d00ffff\", (string) An encoded version of the target threshold when this block was created.\n"
+            " \"difficulty\" : x.xxx,  (numeric) The difficulty is a measure of how many hashes (statistically) that were generated to solve this block.\n"
+            " \"blocktrust\" : \"17aec692f3ff2ad\",     (string) Blocktrust\n"
+            " \"chaintrust\" : \"5759ef9997ab61f26\",   (string) Chaintrust\n"
+            " \"previousblockhash\" : \"hash\",  (string) The hash of the previous block\n"
+            " \"nextblockhash\" : \"hash\"       (string) The hash of the next block\n"
+            " \"flags\" : \"proof-of-bean\",     (string) The consensus method used to create the block\n"
+            " \"proofhash\" : \"proofhash\",     (string) The block hash as recorded in the Block Index\n"
+            " \"entropybit\" : n,   (numeric) The entropy bit\n"
+            " \"modifier\" : \"d95e040a9fa5a08e\",      (string) Hash of prevout transaction (PoB Block) and previous block's modifier\n"
+            " \"modifierchecksum\" : \"b971944e\",      (string) Checksum of current block modifier\n"
+            " \"tx\" : [            (array of string) The transaction ids\n"
+            "   \"txid\"            (string) The transaction id\n"
+            "   \"version\" : n,    (numeric) The version of consensus rules followed for processing the transaction.\n"
+            "   \"time\" : ttt,     (numeric) The transaction time measured in seconds(epoch).\n"
+            "   \"locktime\" : \"0x00000000\",    (string) If value is 0x00000000 transaction is not locked. Otherwise earliest time transaction can be mined.\n"
+            "                                              < 500000000 Unlocked at block height, >= 500000000 Unlocked at specific time (Unix time).\n"
+            "     ,...\n"
+            "   ],\n"
+            "}\n"
+            " \nResult (for verbose=false):\n"
+            " \"data\"             (string) A string that is serialized, hex-encoded data for block 'hash'.\n"
+            " \nExamples:\n"
+            "  \nBeancashd getblockbynumber 10000\n"
+        );
 
     int nHeight = params[0].get_int();
     if (nHeight < 0 || nHeight > nBestHeight)
@@ -277,13 +400,21 @@ Value getblockbynumber(const Array& params, bool fHelp)
     return blockToJSON(block, pblockindex, params.size() > 1 ? params[1].get_bool() : false);
 }
 
-// ppbean: get information of sync-checkpoint
+// Get information of sync-checkpoint
 Value getcheckpoint(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
         throw runtime_error(
             "getcheckpoint\n"
-            "Show info of synchronized checkpoint.\n");
+            "\nShows info of synchronized checkpoints.\n"
+            "\nResult:\n"
+            " \"synccheckpoint\": \"hex\",  (string) Hash of the block checkpoint\n"
+            " \"height\": n,        (numeric) Block height of the checkpoint\n"
+            " \"timestamp\": \"YYYY-MM-DD 24:MM:SS TMZ\",   (string) Time stamp of the checkpoint\n"
+            " \"policy\": \"strict\",   (string) How the checkpoint is enforced either strict advisory or permissive.\n"
+            " \nExamples:\n"
+            "  \nBeancashd getcheckpoint\n"
+        );
 
     Object result;
     CBlockIndex* pindexCheckpoint;

@@ -37,7 +37,7 @@ static void accountingDeprecationCheck()
 std::string HelpRequiringPassphrase()
 {
     return pwalletMain && pwalletMain->IsCrypted()
-        ? "\nrequires wallet passphrase to be set with walletpassphrase first"
+        ? "\nRequires wallet passphrase to be set with walletpassphrase call first"
         : "";
 }
 
@@ -76,12 +76,33 @@ string AccountFromValue(const Value& value)
     return strAccount;
 }
 
+// Getinfo
 Value getinfo(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
         throw runtime_error(
-            "getinfo\n"
-            "Returns an object containing various state info.");
+             "Returns an object containing various state info.\n"
+             "\nResult:\n"
+             "{\n"
+             "  \"version\": xxxxx,           (numeric) the server version\n"
+             "  \"protocolversion\": xxxxx,   (numeric) the protocol version\n"
+             "  \"walletversion\": xxxxx,     (numeric) the wallet version\n"
+             "  \"balance\": xxxxxxx,         (numeric) the total BITB balance of the wallet\n"
+             "  \"blocks\": xxxxxx,           (numeric) the current number of blocks processed in the server\n"
+             "  \"timeoffset\": xxxxx,        (numeric) the time offset\n"
+             "  \"connections\": xxxxx,       (numeric) the number of connections\n"
+             "  \"proxy\": \"host:port\",     (string, optional) the proxy used by the server\n"
+             "  \"difficulty\": xxxxxx,       (numeric) the current difficulty\n"
+             "  \"testnet\": true|false,      (boolean) if the server is using testnet or not\n"
+             "  \"keypoololdest\": xxxxxx,    (numeric) the timestamp (seconds since GMT epoch) of the oldest pre-generated key in the key pool\n"
+             "  \"keypoolsize\": xxxx,        (numeric) how many new keys are pre-generated\n"
+             "  \"paytxfee\": x.xxxx,         (numeric) the transaction fee set in bitb\n"
+             "  \"unlocked_until\": ttt,      (numeric) the timestamp in seconds since epoch (midnight Feb 13 2015 GMT) that the wallet is unlocked for transfers, or 0 if the wallet is locked\n"
+             "  \"errors\": \"...\"           (string) any error messages\n"
+             "}\n"
+             "\nExamples:\n"
+             "  \nBeancashd getinfo\n"
+        );
 
     proxyType proxy;
     GetProxy(NET_IPV4, proxy);
@@ -121,7 +142,7 @@ Value getinfo(const Array& params, bool fHelp)
     return obj;
 }
 
-
+// Get new pubkey
 Value getnewpubkey(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)
@@ -148,15 +169,23 @@ Value getnewpubkey(const Array& params, bool fHelp)
     return HexStr(newKey.begin(), newKey.end());
 }
 
-
+// Get new address
 Value getnewaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)
         throw runtime_error(
-            "getnewaddress [account]\n"
-            "Returns a new Bean Cash address for receiving payments.  "
-            "If [account] is specified, it is added to the address book "
-            "so payments received with the address will be credited to [account].");
+             "getnewaddress ( \"account\" )\n"
+             "\nReturns a new Bean Cash address for receiving payments.\n"
+             "If 'account' is specified (recommended), it is added to the address book \n"
+             "so payments received with the address will be credited to 'account'.\n"
+             "\nArguments:\n"
+             "1. \"account\"        (string, optional) The account name for the address to be linked to. if not provided, the default account \"\" is used. It can also be set to the empty string \"\" to represent the default account. The account does not need to exist, it will be created if there is no account by the given name.\n"
+             "\nResult:\n"
+             "\"beancashaddress\"    (string) The new Bean Cash address\n"
+             "\nExamples:\n"
+             "  \nBeancashd getnewaddress <myaccountname>\n"
+             "  \nBeancashd getnewaddress\n"
+        );
 
     // Parse the account first so we don't generate a key if there's an error
     string strAccount;
@@ -216,12 +245,21 @@ CBitbeanAddress GetAccountAddress(string strAccount, bool bForceNew=false)
     return CBitbeanAddress(account.vchPubKey.GetID());
 }
 
+// Get account address
 Value getaccountaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "getaccountaddress <account>\n"
-            "Returns the current Bean Cash address for receiving payments to this account.");
+             "getaccountaddress \"account\"\n"
+             "\nReturns the current Bean Cash address for receiving payments to this account.\n"
+             "\nArguments:\n"
+             "1. \"account\"       (string, required) The account name for the address. It can also be set to the empty string \"\" to represent the default account. The account does not need to exist, it will be created and a new address created  if there is no account by the given name.\n"
+             "\nResult:\n"
+             "\"beancashaddress\"   (string) The account Bean Cash address\n"
+             "\nExamples:\n"
+             "  \nBeancashd getaccountaddress\n"
+             "  \nBeancashd getaccountaddress <myaccountname>\n"
+        );
 
     // Parse the account first so we don't generate a key if there's an error
     string strAccount = AccountFromValue(params[0]);
@@ -234,13 +272,21 @@ Value getaccountaddress(const Array& params, bool fHelp)
 }
 
 
-
+// Set Account with a given address
 Value setaccount(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "setaccount <Bean Cash address> <account>\n"
-            "Sets the account associated with the given address.");
+             "setaccount \"beancashaddress\" \"account\"\n"
+             "\nSets the account associated with the given address.\n"
+             "\nArguments:\n"
+             "1. \"beancashaddress\"  (string, required) The Bean Cash address to be associated with an account.\n"
+             "2. \"account\"         (string, required) The account to assign the address to.\n"
+             "\nExamples:\n"
+             "  \nBeancashd setaccount 2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4 teambean\n"
+        );
+
+
 
     CBitbeanAddress address(params[0].get_str());
     if (!address.IsValid())
@@ -264,13 +310,20 @@ Value setaccount(const Array& params, bool fHelp)
     return Value::null;
 }
 
-
+// Get account associated with a given address
 Value getaccount(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "getaccount <Bean Cash address>\n"
-            "Returns the account associated with the given address.");
+             "getaccount \"beancashaddress\"\n"
+             "\nReturns the account associated with the given address.\n"
+             "\nArguments:\n"
+             "1. \"beancashaddress\"  (string, required) The Bean Cash address for account lookup.\n"
+             "\nResult:\n"
+             "\"accountname\"        (string) the account address\n"
+             "\nExamples:\n"
+             "  \nBeancashd getaccount 2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4\n"
+        );
 
     CBitbeanAddress address(params[0].get_str());
     if (!address.IsValid())
@@ -283,13 +336,23 @@ Value getaccount(const Array& params, bool fHelp)
     return strAccount;
 }
 
-
+// Get addresses for a given account
 Value getaddressesbyaccount(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "getaddressesbyaccount <account>\n"
-            "Returns the list of addresses for the given account.");
+             "getaddressesbyaccount \"account\"\n"
+             "\nReturns the list of addresses for the given account.\n"
+             "\nArguments:\n"
+             "1. \"account\"  (string, required) The account name.\n"
+             "\nResult:\n"
+             "[                     (json array of string)\n"
+             "  \"beancashaddress\"  (string) a Bean Cash address associated with the given account\n"
+             "  ,...\n"
+             "]\n"
+             "\nExamples:\n"
+             "  \nBeancashd getaddressesbyaccount teambean\n"
+        );
 
     string strAccount = AccountFromValue(params[0]);
 
@@ -305,13 +368,27 @@ Value getaddressesbyaccount(const Array& params, bool fHelp)
     return ret;
 }
 
+// Send to address an amount of bitb
 Value sendtoaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 2 || params.size() > 4)
         throw runtime_error(
-            "sendtoaddress <Bean Cash address> <amount> [comment] [comment-to]\n"
-            "<amount> is a real and is rounded to the nearest 0.000001"
-            + HelpRequiringPassphrase());
+             "sendtoaddress \"beancashaddress\" amount ( \"comment\" \"comment-to\" )\n"
+             "\nSent an amount to a given address. The amount is a real and is rounded to the nearest 0.00000001\n"
+             + HelpRequiringPassphrase() +
+             "\nArguments:\n"
+             "1. \"beancashaddress\"  (string, required) The Bean Cash address to send to.\n"
+             "2. \"amount\"      (numeric, required) The amount in bitb to send. eg 0.1\n"
+             "3. \"comment\"     (string, optional) A comment used to store what the transaction is for. \n"
+             "                             This is not part of the transaction, just kept in your wallet.\n"
+             "4. \"comment-to\"  (string, optional) A comment to store the name of the person or organization \n"
+             "                             to which you're sending the transaction. This is not part of the \n"
+             "                             transaction, just kept in your wallet.\n"
+             "\nResult:\n"
+             "\"transactionid\"  (string) The transaction id. (view at https://chainz.cryptoid.info/bean/api.dws?t=[transactionID])\n"
+             "\nExamples:\n"
+             "  \nBeancashd sendtoaddress 2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4 1000000 \"donation\" \"Bean Core\"\n"
+            );
 
     CBitbeanAddress address(params[0].get_str());
     if (!address.IsValid())
@@ -337,14 +414,30 @@ Value sendtoaddress(const Array& params, bool fHelp)
     return wtx.GetHash().GetHex();
 }
 
+// List address groupings with common ownership
 Value listaddressgroupings(const Array& params, bool fHelp)
 {
     if (fHelp)
         throw runtime_error(
             "listaddressgroupings\n"
-            "Lists groups of addresses which have had their common ownership\n"
+            "\nLists groups of addresses which have had their common ownership\n"
             "made public by common use as inputs or as the resulting change\n"
-            "in past transactions");
+            "in past transactions\n"
+            "\nResult:\n"
+            "[\n"
+            "  [\n"
+            "    [\n"
+            "      \"beancashaddress\",    (string) The Bean Cash address\n"
+            "      amount,                 (numeric) The amount in bitb\n"
+            "      \"account\"             (string, optional) The account\n"
+            "    ]\n"
+            "    ,...\n"
+            "  ]\n"
+            "  ,...\n"
+            "]\n"
+            "\nExamples:\n"
+            "  \nBeancashd listaddressgroupings\n"
+        );
 
     Array jsonGroupings;
     map<CTxDestination, int64_t> balances = pwalletMain->GetAddressBalances();
@@ -368,12 +461,27 @@ Value listaddressgroupings(const Array& params, bool fHelp)
     return jsonGroupings;
 }
 
+// Sign a message with a Bean Cash key
 Value signmessage(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
         throw runtime_error(
-            "signmessage <Bean Cash address> <message>\n"
-            "Sign a message with the private key of an address");
+             "signmessage \"beancashaddress\" \"message\"\n"
+             "\nSign a message with the private key of an address"
+             + HelpRequiringPassphrase() + "\n"
+             "\nArguments:\n"
+             "1. \"beancashaddress\"  (string, required) The Bean Cash address to use for the private key.\n"
+             "2. \"message\"         (string, required) The message to create a signature of.\n"
+             "\nResult:\n"
+             "\"signature\"          (string) The signature of the message encoded in base 64\n"
+             "\nExamples:\n"
+             "\nUnlock the wallet for 30 seconds\n"
+             "  \nBeancashd walletpassphrase <yourpassphrase> 30\n"
+             "\nCreate the signature\n"
+             "  \nBeancashd signmessage 2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4 \"your message\"\n"
+             "\nVerify the signature\n"
+             "   \nBeancashd verifymessage 2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4 \"signature\" \"your message\"\n"
+         );
 
     EnsureWalletIsUnlocked();
 
@@ -403,12 +511,27 @@ Value signmessage(const Array& params, bool fHelp)
     return EncodeBase64(&vchSig[0], vchSig.size());
 }
 
+// Verify a message with a Bean Cash key
 Value verifymessage(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 3)
         throw runtime_error(
-            "verifymessage <Bean Cash address> <signature> <message>\n"
-            "Verify a signed message");
+             "verifymessage \"beancashaddress\" \"signature\" \"message\"\n"
+             "\nVerify a signed message\n"
+             "\nArguments:\n"
+             "1. \"beancashaddress\" (string, required) The Bean Cash address to use for the signature.\n"
+             "2. \"signature\"       (string, required) The signature provided by the signer in base 64 encoding (see signmessage).\n"
+             "3. \"message\"         (string, required) The message that was signed.\n"
+             "\nResult:\n"
+             "true|false   (boolean) If the signature is verified or not.\n"
+             "\nExamples:\n"
+             "\nUnlock the wallet for 30 seconds\n"
+             "  \nBeancashd walletpassphrase <your passphrase> 30\n"
+             "\nCreate the signature\n"
+             "  \nBeancashd signmessage 2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4 \"your message\"\n"
+             "\nVerify the signature\n"
+             "  \nBeancashd verifymessage 2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4 \"signature\" \"your message\"\n"
+        );
 
     string strAddress  = params[0].get_str();
     string strSign     = params[1].get_str();
@@ -439,13 +562,26 @@ Value verifymessage(const Array& params, bool fHelp)
     return (pubkey.GetID() == keyID);
 }
 
-
+// Get amount received by an address with a given number of confirmations
 Value getreceivedbyaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "getreceivedbyaddress <Bean Cash address> [minconf=1]\n"
-            "Returns the total amount received by <Bean Cash address> in transactions with at least [minconf] confirmations.");
+             "getreceivedbyaddress \"beancashaddress\" ( minconf )\n"
+             "\nReturns the total amount received by the given beancashaddress in transactions with at least minconf confirmations.\n"
+             "\nArguments:\n"
+             "1. \"beancashaddress\"  (string, required) The Bean Cash address for transactions.\n"
+             "2. minconf             (numeric, optional, default=1) Only include transactions confirmed at least this many times.\n"
+             "\nResult:\n"
+             "amount   (numeric) The total amount in bitb received at this address.\n"
+             "\nExamples:\n"
+             "\nThe amount from transactions with at least 1 confirmation\n"
+             "  \nBeancashd getreceivedbyaddress 2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4\n"
+             "\nThe amount including unconfirmed transactions, zero confirmations\n"
+             "  \nBeancashd getreceivedbyaddress 2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4 0\n"
+             "\nThe amount with at least 6 confirmation, very safe\n"
+             "  \nBeancashd getreceivedbyaddress 2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4 6\n"
+        );
 
     // Bitbean address
     CBitbeanAddress address = CBitbeanAddress(params[0].get_str());
@@ -478,7 +614,7 @@ Value getreceivedbyaddress(const Array& params, bool fHelp)
     return  ValueFromAmount(nAmount);
 }
 
-
+// Get account address
 void GetAccountAddresses(string strAccount, set<CTxDestination>& setAddress)
 {
     for (const std::pair<CTxDestination, CAddressBookData>& item : pwalletMain->mapAddressBook)
@@ -490,12 +626,26 @@ void GetAccountAddresses(string strAccount, set<CTxDestination>& setAddress)
     }
 }
 
+// Get total amount received by addresses with a given account, with a given amount of transactions
 Value getreceivedbyaccount(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "getreceivedbyaccount <account> [minconf=1]\n"
-            "Returns the total amount received by addresses with <account> in transactions with at least [minconf] confirmations.");
+             "getreceivedbyaccount \"account\" ( minconf )\n"
+             "\nReturns the total amount received by addresses with <account> in transactions with at least [minconf] confirmations.\n"
+             "\nArguments:\n"
+             "1. \"account\"      (string, required) The selected account, may be the default account using \"\".\n"
+             "2. minconf          (numeric, optional, default=1) Only include transactions confirmed at least this many times.\n"
+             "\nResult:\n"
+             "amount              (numeric) The total amount in bitb received for this account.\n"
+             "\nExamples:\n"
+             "\nAmount received by the default account with at least 1 confirmation\n"
+             "  \nBeancashd getreceivedbyaccount \"\".\n"
+             "\nAmount received at the teambean account including unconfirmed amounts with zero confirmations\n"
+             "  \nBeancashd getreceivedbyaccount teambean 0\n"
+             "\nThe amount with at least 6 confirmation, very safe\n"
+             "  \nBeancashd getreceivedbyaccount teambean 6\n"
+        );
 
     accountingDeprecationCheck();
 
@@ -561,14 +711,29 @@ int64_t GetAccountBalance(const string& strAccount, int nMinDepth)
     return GetAccountBalance(walletdb, strAccount, nMinDepth);
 }
 
-
+// Get BITB balance
 Value getbalance(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 2)
         throw runtime_error(
-            "getbalance [account] [minconf=1]\n"
-            "If [account] is not specified, returns the server's total available balance.\n"
-            "If [account] is specified, returns the balance in the account.");
+             "getbalance ( \"account\" minconf )\n"
+             "\nIf account is not specified, returns the server's total available balance.\n"
+             "If account is specified, returns the balance in the account.\n"
+             "Note that the account \"\" is not the same as leaving the parameter out.\n"
+             "The server total may be different to the balance in the default \"\" account.\n"
+             "\nArguments:\n"
+             "1. \"account\"      (string, optional) The selected account. It may be the default account using \"\".\n"
+             "2. minconf          (numeric, optional, default=1) Only include transactions confirmed at least this many times.\n"
+             "\nResult:\n"
+             "amount              (numeric) The total amount in bitb received for this account.\n"
+             "\nExamples:\n"
+             "\nThe total amount in the server across all accounts\n"
+             "  \nBeancashd getbalance \n"
+             "\nThe total amount in the default account with at least 1 confirmation\n"
+             "  \nBeancashd getbalance \"\".\n"
+             "\nThe total amount in the account named teambean with at least 6 confirmations\n"
+             "  \nBeancashd getbalance teambean 6\n"
+        );
 
     if (params.size() == 0)
         return  ValueFromAmount(pwalletMain->GetBalance());
@@ -614,13 +779,26 @@ Value getbalance(const Array& params, bool fHelp)
     return ValueFromAmount(nBalance);
 }
 
-
+// Move funds from one account to another
 Value movecmd(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 3 || params.size() > 5)
         throw runtime_error(
-            "move <fromaccount> <toaccount> <amount> [minconf=1] [comment]\n"
-            "Move from one account in your wallet to another.");
+             "move \"fromaccount\" \"toaccount\" amount ( minconf \"comment\" )\n"
+             "\nMove a specified amount from one account in your wallet to another.\n"
+             "\nArguments:\n"
+             "1. \"fromaccount\"   (string, required) The name of the account to move funds from. May be the default account using \"\".\n"
+             "2. \"toaccount\"     (string, required) The name of the account to move funds to. May be the default account using \"\".\n"
+             "3. minconf           (numeric, optional, default=1) Only use funds with at least this many confirmations.\n"
+             "4. \"comment\"       (string, optional) An optional comment, stored in the wallet only.\n"
+             "\nResult:\n"
+             "true|false           (boolean) true if successfull.\n"
+             "\nExamples:\n"
+             "\nMove 1000000 bitb from the default account to the account named teambean\n"
+             "  \nBeancashd move  \"\" teambean 1000000\n"
+             "\nMove 0.01 bitb from nokat to adzuki with a comment and funds have 6 confirmations\n"
+             "  \nBeancashd move nokat adzuki 0.01 6 \"Bean Cash to the Moon then Mars!\"\n"
+         );
 
     accountingDeprecationCheck();
 
@@ -667,14 +845,33 @@ Value movecmd(const Array& params, bool fHelp)
     return true;
 }
 
-
+// Send BITB from an account to a Bean Cash address
 Value sendfrom(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 3 || params.size() > 6)
         throw runtime_error(
-            "sendfrom <fromaccount> <to Bean Cash address> <amount> [minconf=1] [comment] [comment-to]\n"
-            "<amount> is a real and is rounded to the nearest 0.000001"
-            + HelpRequiringPassphrase());
+             "sendfrom \"fromaccount\" \"tobeancashaddress\" amount ( minconf \"comment\" \"comment-to\" )\n"
+             "\nSend an amount from an account to a Bean Cash address.\n"
+             "The amount is a real and is rounded to the nearest 0.00000001."
+             + HelpRequiringPassphrase() + "\n"
+             "\nArguments:\n"
+             "1. \"fromaccount\"       (string, required) The name of the account to send funds from. May be the default account using \"\".\n"
+             "2. \"tobeancashaddress\" (string, required) The Bean Cash address to send funds to.\n"
+             "3. amount                (numeric, required) The amount in bitb (transaction fee is added on top).\n"
+             "4. minconf               (numeric, optional, default=1) Only use funds with at least this many confirmations.\n"
+             "5. \"comment\"           (string, optional) A comment used to store what the transaction is for. \n"
+             "                                     This is not part of the transaction, just kept in your wallet.\n"
+             "6. \"comment-to\"        (string, optional) An optional comment to store the name of the person or organization \n"
+             "                                     to which you're sending the transaction. This is not part of the transaction, \n"
+             "                                     it is just kept in your wallet.\n"
+             "\nResult:\n"
+             "\"transactionid\"        (string) The transaction id. (view at https://chainz.cryptoid.info/bean/api.dws?t=[transactionID])\n"
+             "\nExamples:\n"
+             "\nSend 1000000 bitb from the default account to the address, must have at least 1 confirmation\n"
+             "  \nBeancashd sendfrom \"\" 2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4 1000000\n"
+             "\nSend 0.01 from the teambean account to the given address, funds must have at least 6 confirmations\n"
+             "  \nBeancashd sendfrom teambean 2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4 0.01 6 \"donation\" \"Bean Core team development address\"\n"
+         );
 
     string strAccount = AccountFromValue(params[0]);
     CBitbeanAddress address(params[1].get_str());
@@ -708,14 +905,32 @@ Value sendfrom(const Array& params, bool fHelp)
     return wtx.GetHash().GetHex();
 }
 
-
+// Send BITB from account to many addresses
 Value sendmany(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 2 || params.size() > 4)
         throw runtime_error(
-            "sendmany <fromaccount> {address:amount,...} [minconf=1] [comment]\n"
-            "amounts are double-precision floating point numbers"
-            + HelpRequiringPassphrase());
+             "sendmany \"fromaccount\" {\"address\":amount,...} ( minconf \"comment\" )\n"
+             "\nSend multiple times. Amounts are double-precision floating point numbers."
+             + HelpRequiringPassphrase() + "\n"
+             "\nArguments:\n"
+             "1. \"fromaccount\"         (string, required) The account to send the funds from, can be \"\" for the default account\n"
+             "2. \"amounts\"             (string, required) A json object with addresses and amounts\n"
+             "    {\n"
+             "      \"address\":amount   (numeric) The Bean Cash address is the key, the numeric amount in bitb is the value\n"
+             "      ,...\n"
+             "    }\n"
+             "3. minconf                 (numeric, optional, default=1) Only use the balance confirmed at least this many times.\n"
+             "4. \"comment\"             (string, optional) A comment\n"
+             "\nResult:\n"
+             "\"transactionid\"          (string) The transaction id for the send. Only 1 transaction is created regardless of \n"
+             "                                    the number of addresses. See https://chainz.cryptoid.info/bean/api.dws?t=[transactionID]\n"
+             "\nExamples:\n"
+             "\nSend two amounts to two different addresses:\n"
+             "  \nBeancashd sendmany teambean {\\\"2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4\\\":0.01,\\\"2ZkipiuqPaKwgMVxth5skFep6pRdeTf3BK\\\":0.02}\n"
+             "\nSend two amounts to two different addresses setting the confirmation and comment:\n"
+             "  \nBeancashd sendmany teambean {\\\"2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4\\\":0.01,\\\"2ZkipiuqPaKwgMVxth5skFep6pRdeTf3BK\\\":0.02}\" 6 \"testing\"\m"
+         );
 
     string strAccount = AccountFromValue(params[0]);
     Object sendTo = params[1].get_obj();
@@ -828,14 +1043,32 @@ static CScript _createmultisig(const Array& params)
     return result;
 }
 
+// Add a multi-signature address
 Value addmultisigaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 2 || params.size() > 3)
     {
-        string msg = "addmultisigaddress <nrequired> <'[\"key\",\"key\"]'> [account]\n"
-            "Add a nrequired-to-sign multisignature address to the wallet\"\n"
-            "each key is a Bean Cash address or hex-encoded public key\n"
-            "If [account] is specified, assign address to [account].";
+        string msg = "addmultisigaddress nrequired [\"key\",...] ( \"account\" )\n"
+            "\nAdd a nrequired-to-sign multisignature address to the wallet.\n"
+            "Each key is a Bean Cash address or hex-encoded public key.\n"
+            "If 'account' is specified, assign address to that account.\n"
+
+            "\nArguments:\n"
+            "1. nrequired        (numeric, required) The number of required signatures out of the n keys or addresses.\n"
+            "2. \"keysobject\"   (string, required) A json array of Bean Cash addresses or hex-encoded public keys\n"
+            "     [\n"
+            "       \"address\"  (string) Bean Cash address or hex-encoded public key\n"
+            "       ...,\n"
+            "     ]\n"
+            "3. \"account\"      (string, optional) An account to assign the addresses to.\n"
+
+            "\nResult:\n"
+            "\"nbeancashaddress\"  (string) A Bean Cash address associated with the keys.\n"
+
+            "\nExamples:\n"
+            "\nAdd a multisig address from 2 addresses\n"
+            "  \nBeancashd addmultisigaddress 2 [\\\"2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4\\\",\\\"2ZkipiuqPaKwgMVxth5skFep6pRdeTf3BK\\\"]\n"
+        ;
         throw runtime_error(msg);
     }
 
@@ -853,15 +1086,33 @@ Value addmultisigaddress(const Array& params, bool fHelp)
     return CBitbeanAddress(innerID).ToString();
 }
 
+// Create a multi-signature address with a given number of keys required
 Value createmultisig(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 2 || params.size() > 2)
     {
-        string msg = "createmultisig <nrequired> <'[\"key\",\"key\"]'>\n"
-            "Creates a multi-signature address and returns a json object\n"
-            "with keys:\n"
-            "address : Bean Cash address\n"
-            "redeemScript : hex-encoded redemption script";
+        string msg = "createmultisig nrequired [\"key\",...]\n"
+            "\nCreates a multi-signature address with n signature of m keys required.\n"
+            "It returns a json object with the address and redeemScript.\n"
+
+            "\nArguments:\n"
+            "1. nrequired      (numeric, required) The number of required signatures out of the n keys or addresses.\n"
+            "2. \"keys\"       (string, required) A json array of keys which are Bean Cash addresses or hex-encoded public keys\n"
+            "     [\n"
+            "       \"key\"    (string) Bean Cash address or hex-encoded public key\n"
+            "       ,...\n"
+            "     ]\n"
+
+            "\nResult:\n"
+            "{\n"
+            "  \"address\":\"multisigaddress\",  (string) The value of the new multisig address.\n"
+            "  \"redeemScript\":\"script\"       (string) The string value of the hex-encoded redemption script.\n"
+            "}\n"
+
+            "\nExamples:\n"
+            "\nCreate a multisig address from 2 addresses\n"
+            "  \nBeancashd createmultisig 2 [\\\"2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4\\\",\\\"2ZkipiuqPaKwgMVxth5skFep6pRdeTf3BK\\\"]\n"
+        ;
         throw runtime_error(msg);
     }
 
@@ -1002,33 +1253,59 @@ Value ListReceived(const Array& params, bool fByAccounts)
     return ret;
 }
 
+// List balances by receiving address
 Value listreceivedbyaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 2)
         throw runtime_error(
-            "listreceivedbyaddress [minconf=1] [includeempty=false]\n"
-            "[minconf] is the minimum number of confirmations before payments are included.\n"
-            "[includeempty] whether to include addresses that haven't received any payments.\n"
-            "Returns an array of objects containing:\n"
-            "  \"address\" : receiving address\n"
-            "  \"account\" : the account of the receiving address\n"
-            "  \"amount\" : total amount received by the address\n"
-            "  \"confirmations\" : number of confirmations of the most recent transaction included");
+             "listreceivedbyaddress ( minconf include empty )\n"
+             "\nList balances by receiving address.\n"
+             "\nArguments:\n"
+             "1. minconf       (numeric, optional, default=1) The minimum number of confirmations before payments are included.\n"
+             "2. includeempty  (numeric, optional, dafault=false) Whether to include addresses that haven't received any payments.\n"
+
+             "\nResult:\n"
+             "[\n"
+             "  {\n"
+             "    \"address\" : \"receivingaddress\",  (string) The receiving address\n"
+             "    \"account\" : \"accountname\",       (string) The account of the receiving address. The default account is \"\".\n"
+             "    \"amount\" : x.xxx,                  (numeric) The total amount in bitb received by the address\n"
+             "    \"confirmations\" : n                (numeric) The number of confirmations of the most recent transaction included\n"
+             "  }\n"
+             "  ,...\n"
+             "]\n"
+
+             "\nExamples:\n"
+             "  \nBeancashd listreceivedbyaddress 6 true\n"
+         );
 
     return ListReceived(params, false);
 }
 
+// List balances by account
 Value listreceivedbyaccount(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 2)
         throw runtime_error(
-            "listreceivedbyaccount [minconf=1] [includeempty=false]\n"
-            "[minconf] is the minimum number of confirmations before payments are included.\n"
-            "[includeempty] whether to include accounts that haven't received any payments.\n"
-            "Returns an array of objects containing:\n"
-            "  \"account\" : the account of the receiving addresses\n"
-            "  \"amount\" : total amount received by addresses with this account\n"
-            "  \"confirmations\" : number of confirmations of the most recent transaction included");
+             "listreceivedbyaccount ( minconf include empty )\n"
+             "\nList balances by account.\n"
+             "\nArguments:\n"
+             "1. minconf      (numeric, optional, default=1) The minimum number of confirmations before payments are included.\n"
+             "2. includeempty (boolean, optional, default=false) Whether to include accounts that haven't received any payments.\n"
+
+             "\nResult:\n"
+             "[\n"
+             "  {\n"
+             "    \"account\" : \"accountname\",  (string) The account name of the receiving account\n"
+             "    \"amount\" : x.xxx,             (numeric) The total amount received by addresses with this account\n"
+             "    \"confirmations\" : n           (numeric) The number of confirmations of the most recent transaction included\n"
+             "  }\n"
+             "  ,...\n"
+             "]\n"
+
+             "\nExamples:\n"
+             "  \nBeancashd listreceivedbyaccount 6 true\n"
+        );
 
     accountingDeprecationCheck();
 
@@ -1131,12 +1408,61 @@ void AcentryToJSON(const CAccountingEntry& acentry, const string& strAccount, Ar
     }
 }
 
+// List transactions
 Value listtransactions(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 3)
         throw runtime_error(
-            "listtransactions [account] [count=10] [from=0]\n"
-            "Returns up to [count] most recent transactions skipping the first [from] transactions for account [account].");
+             "listtransactions ( \"account\" count from )\n"
+             "\nReturns up to 'count' most recent transactions skipping the first 'from' transactions for account 'account'.\n"
+             "\nArguments:\n"
+             "1. \"account\"    (string, optional) The account name. If not included, it will list all transactions for all accounts.\n"
+             "                                     If \"\" is set, it will list transactions for the default account.\n"
+             "2. count          (numeric, optional, default=10) The number of transactions to return\n"
+             "3. from           (numeric, optional, default=0) The number of transactions to skip\n"
+
+             "\nResult:\n"
+             "[\n"
+             "  {\n"
+             "    \"account\":\"accountname\",       (string) The account name associated with the transaction. \n"
+             "                                                It will be \"\" for the default account.\n"
+             "    \"address\":\"beancashaddress\",    (string) The beancash address of the transaction. Not present for \n"
+             "                                                move transactions (category = move).\n"
+             "    \"category\":\"send|receive|move\", (string) The transaction category. 'move' is a local (off blockchain)\n"
+             "                                                transaction between accounts, and not associated with an address,\n"
+             "                                                transaction id or block. 'send' and 'receive' transactions are \n"
+             "                                                associated with an address, transaction id and block details\n"
+             "    \"amount\": x.xxx,          (numeric) The amount in btc. This is negative for the 'send' category, and for the\n"
+             "                                         'move' category for moves outbound. It is positive for the 'receive' category,\n"
+             "                                         and for the 'move' category for inbound funds.\n"
+             "    \"fee\": x.xxx,             (numeric) The amount of the fee in bitb. This is negative and only available for the \n"
+             "                                         'send' category of transactions.\n"
+             "    \"confirmations\": n,       (numeric) The number of confirmations for the transaction. Available for 'send' and \n"
+             "                                         'receive' category of transactions.\n"
+             "    \"blockhash\": \"hashvalue\", (string) The block hash containing the transaction. Available for 'send' and 'receive'\n"
+             "                                          category of transactions.\n"
+             "    \"blockindex\": n,          (numeric) The block index containing the transaction. Available for 'send' and 'receive'\n"
+             "                                          category of transactions.\n"
+             "    \"txid\": \"transactionid\", (string) The transaction id (see https://chainz.cryptoid.info/bean/api.dws?t=[transactionID]. Available \n"
+             "                                          for 'send' and 'receive' category of transactions.\n"
+             "    \"time\": xxx,              (numeric) The transaction time in seconds since epoch (midnight Feb 13 2015 GMT).\n"
+             "    \"timereceived\": xxx,      (numeric) The time received in seconds since epoch (midnight Feb 13 2015 GMT). Available \n"
+             "                                          for 'send' and 'receive' category of transactions.\n"
+             "    \"comment\": \"...\",       (string) If a comment is associated with the transaction.\n"
+             "    \"otheraccount\": \"accountname\",  (string) For the 'move' category of transactions, the account the funds came \n"
+             "                                          from (for receiving funds, positive amounts), or went to (for sending funds,\n"
+             "                                          negative amounts).\n"
+             "  }\n"
+             "]\n"
+
+             "\nExamples:\n"
+             "\nList the most recent 10 transactions in the systems\n"
+             "  \nBeancashd listtransactions\n"
+             "\nList the most recent 10 transactions for the teambean account\n"
+             "  \nBeancashd listtransactions teambean\n"
+             "\nList transactions 100 to 120 from the teambean account\n"
+             "  /nBeancashd listtransactions teambean 20 100\n"
+        );
 
     string strAccount = "*";
     if (params.size() > 0)
@@ -1189,12 +1515,28 @@ Value listtransactions(const Array& params, bool fHelp)
     return ret;
 }
 
+// List accounts
 Value listaccounts(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)
         throw runtime_error(
-            "listaccounts [minconf=1]\n"
-            "Returns Object that has account names as keys, account balances as values.");
+             "listaccounts ( minconf )\n"
+             "\nReturns Object that has account names as keys, account balances as values.\n"
+             "\nArguments:\n"
+             "1. minconf     (numeric, optional, default=1) Only onclude transactions with at least this many confirmations\n"
+             "\nResult:\n"
+             "{                      (json object where keys are account names, and values are numeric balances\n"
+             "  \"account\": x.xxx,  (numeric) The property name is the account name, and the value is the total balance for the account.\n"
+             "  ...\n"
+             "}\n"
+             "\nExamples:\n"
+             "\nList account balances where there at least 1 confirmation\n"
+             "  \nBeancashd listaccounts\n"
+             "\nList account balances including zero confirmation transactions\n"
+             "  \nBeancashd listaccounts 0\n"
+             "\nList account balances for 6 or more confirmations\n"
+             "  \nBeancashd listaccounts 6\n"
+         );
 
     accountingDeprecationCheck();
 
@@ -1244,12 +1586,41 @@ Value listaccounts(const Array& params, bool fHelp)
     return ret;
 }
 
+// List of all transactions since a given block
 Value listsinceblock(const Array& params, bool fHelp)
 {
     if (fHelp)
         throw runtime_error(
-            "listsinceblock [blockhash] [target-confirmations]\n"
-            "Get all transactions in blocks since block [blockhash], or all transactions if omitted");
+             "listsinceblock ( \"blockhash\" target-confirmations )\n"
+             "\nGet all transactions in blocks since block [blockhash], or all transactions if omitted\n"
+             "\nArguments:\n"
+             "1. \"blockhash\"   (string, optional) The block hash to list transactions since\n"
+             "2. target-confirmations:    (numeric, optional) The confirmations required, must be 1 or more\n"
+             "\nResult:\n"
+             "{\n"
+             "  \"transactions\": [\n"
+             "    \"account\":\"accountname\",       (string) The account name associated with the transaction. Will be \"\" for the default account.\n"
+             "    \"address\":\"beancashaddress\",    (string) The Bean Cash address of the transaction. Not present for move transactions (category = move).\n"
+             "    \"category\":\"send|receive\",     (string) The transaction category. 'send' has negative amounts, 'receive' has positive amounts.\n"
+             "    \"amount\": x.xxx,          (numeric) The amount in bitb. This is negative for the 'send' category, and for the 'move' category for moves \n"
+             "                                          outbound. It is positive for the 'receive' category, and for the 'move' category for inbound funds.\n"
+             "    \"fee\": x.xxx,             (numeric) The amount of the fee in bitb. This is negative and only available for the 'send' category of transactions.\n"
+             "    \"confirmations\": n,       (numeric) The number of confirmations for the transaction. Available for 'send' and 'receive' category of transactions.\n"
+             "    \"blockhash\": \"hashvalue\",     (string) The block hash containing the transaction. Available for 'send' and 'receive' category of transactions.\n"
+             "    \"blockindex\": n,          (numeric) The block index containing the transaction. Available for 'send' and 'receive' category of transactions.\n"
+             "    \"blocktime\": xxx,         (numeric) The block time in seconds since epoch (Feb 13 2015 GMT).\n"
+             "    \"txid\": \"transactionid\",  (string) The transaction id (see https://chainz.cryptoid.info/bean/api.dws?t=[transactionID]. Available for 'send' and 'receive' category of transactions.\n"
+             "    \"time\": xxx,              (numeric) The transaction time in seconds since epoch (Feb 13 2015 GMT).\n"
+             "    \"timereceived\": xxx,      (numeric) The time received in seconds since epoch (Feb 13 2015 GMT). Available for 'send' and 'receive' category of transactions.\n"
+             "    \"comment\": \"...\",       (string) If a comment is associated with the transaction.\n"
+             "    \"to\": \"...\",            (string) If a comment to is associated with the transaction.\n"
+             "  ],\n"
+             "  \"lastblock\": \"lastblockhash\"     (string) The hash of the last block\n"
+             "}\n"
+             "\nExamples:\n"
+             "  \nBeancashd listsinceblock\n"
+             "  \nBeancashd listsinceblock 0000000000000042c0c267858f0064f213c2e447fbce1675baad75d0ade1da13 6\n"
+         );
 
     CBlockIndex *pindex = NULL;
     int target_confirms = 1;
@@ -1307,12 +1678,39 @@ Value listsinceblock(const Array& params, bool fHelp)
     return ret;
 }
 
+// Get detailed information about an in-wallet transaction
 Value gettransaction(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "gettransaction <txid>\n"
-            "Get detailed information about <txid>");
+             "gettransaction \"txid\"\n"
+             "\nGet detailed information about in-wallet transaction <txid>\n"
+             "\nArguments:\n"
+             "1. \"txid\"    (string, required) The transaction id\n"
+             "\nResult:\n"
+             "{\n"
+             "  \"amount\" : x.xxx,        (numeric) The transaction amount in bitb\n"
+             "  \"confirmations\" : n,     (numeric) The number of confirmations\n"
+             "  \"blockhash\" : \"hash\",  (string) The block hash\n"
+             "  \"blockindex\" : xx,       (numeric) The block index\n"
+             "  \"blocktime\" : ttt,       (numeric) The time in seconds since epoch (1 Jan 1970 GMT)\n"
+             "  \"txid\" : \"transactionid\",   (string) The transaction id, see also https://chainz.cryptoid.info/bean/api.dws?t=[transactionID]\n"
+             "  \"time\" : ttt,            (numeric) The transaction time in seconds since epoch (1 Jan 1970 GMT)\n"
+             "  \"timereceived\" : ttt,    (numeric) The time received in seconds since epoch (1 Jan 1970 GMT)\n"
+             "  \"details\" : [\n"
+             "    {\n"
+             "      \"account\" : \"accountname\",  (string) The account name involved in the transaction, can be \"\" for the default account.\n"
+             "      \"address\" : \"beancashaddress\",   (string) The Bean Cash address involved in the transaction\n"
+             "      \"category\" : \"send|receive\",    (string) The category, either 'send' or 'receive'\n"
+             "      \"amount\" : x.xxx                  (numeric) The amount in bitb\n"
+             "    }\n"
+             "    ,...\n"
+             "  ]\n"
+             "}\n"
+
+             "\nExamples\n"
+             "  \nBeancashd gettransaction 5b13c95aff35384afe26691e31701b77df8c650b6d794e3885adb71afc43b787\n"
+         );
 
     uint256 hash;
     hash.SetHex(params[0].get_str());
@@ -1370,13 +1768,18 @@ Value gettransaction(const Array& params, bool fHelp)
     return entry;
 }
 
-
+// Backup wallet
 Value backupwallet(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "backupwallet <destination>\n"
-            "Safely copies wallet.dat to destination, which can be a directory or a path with filename.");
+             "backupwallet \"destination\"\n"
+             "\nSafely copies wallet.dat to destination, which can be a directory or a path with filename.\n"
+             "\nArguments:\n"
+             "1. \"destination\"   (string) The destination directory or file\n"
+             "\nExamples:\n"
+             "  \nBeancashd backupwallet ~/.BitBean/backup.dat\n"
+        );
 
     string strDest = params[0].get_str();
     if (!BackupWallet(*pwalletMain, strDest))
@@ -1385,14 +1788,19 @@ Value backupwallet(const Array& params, bool fHelp)
     return Value::null;
 }
 
-
+// Refil the keypool
 Value keypoolrefill(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)
         throw runtime_error(
-            "keypoolrefill [new-size]\n"
-            "Fills the keypool."
-            + HelpRequiringPassphrase());
+             "keypoolrefill ( newsize )\n"
+             "\nFills the keypool."
+             + HelpRequiringPassphrase() + "\n"
+             "\nArguments\n"
+             "1. newsize     (numeric, optional, default=100) The new keypool size\n"
+             "\nExamples:\n"
+             "  \nBeancashd keypoolrefill\n"
+        );
 
     unsigned int nSize = max(GetArg("-keypool", 100), (int64_t)0);
     if (params.size() > 0) {
@@ -1464,13 +1872,25 @@ void ThreadCleanWalletPassphrase(void* parg)
     delete (int64_t*)parg;
 }
 
+// Unlock wallet for sprouting or sending Bean Cash
 Value walletpassphrase(const Array& params, bool fHelp)
 {
     if (pwalletMain->IsCrypted() && (fHelp || params.size() < 2 || params.size() > 3))
         throw runtime_error(
-            "walletpassphrase <passphrase> <timeout> [sproutingonly(true or false)]\n"
-            "Stores the wallet decryption key in memory for <timeout> seconds.\n"
-            "if [sproutingonly] is true, sending functions are disabled.");
+                "walletpassphrase \"passphrase\" timeout\n"
+                "\nStores the wallet decryption key in memory for 'timeout' seconds.\n"
+                "This is needed prior to performing transactions related to private keys such as sending Bean Cash\n"
+                "\nArguments:\n"
+                "1. \"passphrase\"     (string, required) The wallet passphrase\n"
+                "2. \"timeout\"        (numeric, required) The time to keep the decryption key in seconds.\n"
+                "3. \"sproutingonly\"  (boolean) If true enable sprouting and disable sending functions (default false).\n"
+                "\nExamples:\n"
+                "\nunlock the wallet for 60 seconds\n"
+                "  \nBeancashd walletpassphrase <your passphrase> 60\n"
+                "\nLock the wallet again (before 60 seconds)\n"
+                "  \nBeancashd walletlock\n"
+         );
+
     if (fHelp)
         return true;
     if (!pwalletMain->IsCrypted())
@@ -1508,13 +1928,20 @@ Value walletpassphrase(const Array& params, bool fHelp)
     return Value::null;
 }
 
-
+// Change wallet passphrase
 Value walletpassphrasechange(const Array& params, bool fHelp)
 {
     if (pwalletMain->IsCrypted() && (fHelp || params.size() != 2))
         throw runtime_error(
-            "walletpassphrasechange <oldpassphrase> <newpassphrase>\n"
-            "Changes the wallet passphrase from <oldpassphrase> to <newpassphrase>.");
+             "walletpassphrasechange \"oldpassphrase\" \"newpassphrase\"\n"
+             "\nChanges the wallet passphrase from 'oldpassphrase' to 'newpassphrase'.\n"
+             "\nArguments:\n"
+             "1. \"oldpassphrase\"      (string) The current passphrase\n"
+             "2. \"newpassphrase\"      (string) The new passphrase\n"
+             "\nExamples:\n"
+             "  \nBeancashd walletpassphrasechange <your old passphrase> <your new passphrase>\n"
+         );
+
     if (fHelp)
         return true;
     if (!pwalletMain->IsCrypted())
@@ -1541,15 +1968,24 @@ Value walletpassphrasechange(const Array& params, bool fHelp)
     return Value::null;
 }
 
-
+// Lock Wallet
 Value walletlock(const Array& params, bool fHelp)
 {
     if (pwalletMain->IsCrypted() && (fHelp || params.size() != 0))
         throw runtime_error(
             "walletlock\n"
-            "Removes the wallet encryption key from memory, locking the wallet.\n"
+            "\nRemoves the wallet encryption key from memory, locking the wallet.\n"
             "After calling this method, you will need to call walletpassphrase again\n"
-            "before being able to call any methods which require the wallet to be unlocked.");
+            "before being able to call any methods which require the wallet to be unlocked.\n"
+            "\nExamples:\n"
+            "\nSet the passphrase for 2 minutes to perform a transaction\n"
+            "  \nBeancashd walletpassphrase <your passphrase> 120\n"
+            "\nPerform a send (requires passphrase set)\n"
+            "  \nBeancashd sendtoaddress 2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4 1000000\n"
+            "\nClear the passphrase since we are done before 2 minutes is up\n"
+            "  \nBeancashd walletlock\n"
+        );
+
     if (fHelp)
         return true;
     if (!pwalletMain->IsCrypted())
@@ -1564,13 +2000,31 @@ Value walletlock(const Array& params, bool fHelp)
     return Value::null;
 }
 
-
+// Encrypt wallet
 Value encryptwallet(const Array& params, bool fHelp)
 {
     if (!pwalletMain->IsCrypted() && (fHelp || params.size() != 1))
         throw runtime_error(
-            "encryptwallet <passphrase>\n"
-            "Encrypts the wallet with <passphrase>.");
+             "encryptwallet \"passphrase\"\n"
+             "\nEncrypts the wallet with 'passphrase'. This is for first time encryption.\n"
+             "After this, any calls that interact with private keys such as sending or signing \n"
+             "will require the passphrase to be set prior the making these calls.\n"
+             "Use the walletpassphrase call for this, and then walletlock call.\n"
+             "If the wallet is already encrypted, use the walletpassphrasechange call.\n"
+             "Note that this will shutdown the server.\n"
+             "\nArguments:\n"
+             "1. \"passphrase\"    (string) The pass phrase to encrypt the wallet with. It must be at least 1 character, but should be long.\n"
+             "\nExamples:\n"
+             "\nEncrypt you wallet\n"
+             "  \nBeancashd encryptwallet <your passphrase>\n"
+             "\nNow set the passphrase to use the wallet, such as for signing or sending bitcoin\n"
+             "  \nBeancashd walletpassphrase <your passphrase>\n"
+             "\nNow we can so something like sign\n"
+             "  \nBeancashd signmessage 2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4 \"Bean Cash to the Moon then Mars!\"\n"
+             "\nNow lock the wallet again by removing the passphrase\n"
+             "  \nBeancashd walletlock\n"
+        );
+
     if (fHelp)
         return true;
     if (pwalletMain->IsCrypted())
@@ -1633,12 +2087,28 @@ public:
     }
 };
 
+// Get information about a Bean Cash address
 Value validateaddress(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "validateaddress <Bean Cash address>\n"
-            "Return information about <Bean Cash address>.");
+             "validateaddress \"beancashaddress\"\n"
+             "\nReturn information about the given Bean Cash address.\n"
+             "\nArguments:\n"
+             "1. \"beancashaddress\"     (string, required) The Bean Cash address to validate\n"
+             "\nResult:\n"
+             "{\n"
+             "  \"isvalid\" : true|false,         (boolean) If the address is valid or not. If not, this is the only property returned.\n"
+             "  \"address\" : \"beancashaddress\", (string) The Bean Cash address validated\n"
+             "  \"ismine\" : true|false,          (boolean) If the address is yours or not\n"
+             "  \"isscript\" : true|false,        (boolean) If the key is a script\n"
+             "  \"pubkey\" : \"publickeyhex\",    (string) The hex value of the raw public key\n"
+             "  \"iscompressed\" : true|false,    (boolean) If the address is compressed\n"
+             "  \"account\" : \"account\"         (string) The account associated with the address, \"\" is the default account\n"
+             "}\n"
+             "\nExamples:\n"
+             "  \nBeancashd validateaddress 2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4\n"
+        );
 
     CBitbeanAddress address(params[0].get_str());
     bool isValid = address.IsValid();
@@ -1662,12 +2132,41 @@ Value validateaddress(const Array& params, bool fHelp)
     return ret;
 }
 
+// Lock unspent outputs
 Value lockunspent(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-                "lockunspent unlock? [array-of-Objects]\n"
-                "Updates list of temporarily unspendable outputs.");
+             "lockunspent unlock [{\"txid\":\"txid\",\"vout\":n},...]\n"
+             "\nUpdates list of temporarily unspendable outputs.\n"
+             "Temporarily lock (lock=true) or unlock (lock=false) specified transaction outputs.\n"
+             "A locked transaction output will not be chosen by automatic bean selection, when spending Bean Cash.\n"
+             "Locks are stored in memory only. Nodes start with zero locked outputs, and the locked output list\n"
+             "is always cleared (by virtue of process exit) when a node stops or fails.\n"
+             "Also see the listunspent call\n"
+             "\nArguments:\n"
+             "1. unlock            (boolean, required) Whether to unlock (true) or lock (false) the specified transactions\n"
+             "2. \"transactions\"  (string, required) A json array of objects. Each object the txid (string) vout (numeric)\n"
+             "     [           (json array of json objects)\n"
+             "       {\n"
+             "         \"txid\":\"id\",    (string) The transaction id\n"
+             "         \"vout\": n         (numeric) The output number\n"
+             "       }\n"
+             "       ,...\n"
+             "     ]\n"
+             "\nResult:\n"
+             "true|false    (boolean) Whether the command was successful or not\n"
+
+             "\nExamples:\n"
+             "\nList the unspent transactions\n"
+             "  \nBeancashd listunspent\n"
+             "\nLock an unspent transaction\n"
+             "  \nBeancashd lockunspent false [{\\\"txid\\\":\\\"c48a0f58437c6e5ab5ca9443a2c0dec1dc2285e9d0e7739f18c02f937fcd9bf5\\\",\\\"vout\\\":1}]\n"
+             "\nList the locked transactions\n"
+             "  \nBeancashd listlockunspent\n"
+             "\nUnlock the transaction again\n"
+             "  \nBeancashd lockunspent true [{\\\"txid\\\":\\\"c48a0f58437c6e5ab5ca9443a2c0dec1dc2285e9d0e7739f18c02f937fcd9bf5\\\",\\\"vout\\\":1}]\n"
+        );
     
     if (params.size() == 1)
         RPCTypeCheck(params, list_of(bool_type));
@@ -1711,12 +2210,32 @@ Value lockunspent(const Array& params, bool fHelp)
     return true;
 }
 
+// List temporarily unspendable outputs
 Value listlockunspent(const Array& params, bool fHelp)
 {
 	if (fHelp || params.size() > 0)
 		throw runtime_error(
 			"listlockunspent\n"
-			"Returns list of temporarily unspendable outputs.");
+            "\nReturns list of temporarily unspendable outputs.\n"
+            "See the lockunspent call to lock and unlock transactions for spending.\n"
+            "\nResult:\n"
+            "[\n"
+            "  {\n"
+            "    \"txid\" : \"transactionid\",     (string) The transaction id locked\n"
+            "    \"vout\" : n                      (numeric) The vout value\n"
+            "  }\n"
+            "  ,...\n"
+            "]\n"
+            "\nExamples:\n"
+            "\nList the unspent transactions\n"
+            "  \nBeancashd listunspent\n"
+            "\nLock an unspent transaction\n"
+            "  \nBeancashd lockunspent false [{\\\"txid\\\":\\\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\\\",\\\"vout\\\":1}]\n"
+            "\nList the locked transactions\n"
+            "  \nBeancashd listlockunspent\n"
+            "\nUnlock the transaction again\n"
+            "  \nBeancashd lockunspent true [{\\\"txid\\\":\\\"a08e6907dbbd3d809776dbfc5d82e371b764ed838b5655e72f463568df1aadf0\\\",\\\"vout\\\":1}]\n"
+        );
 			
 	vector<COutPoint> vOutpts;
 	pwalletMain->ListLockedBeans(vOutpts);
@@ -1734,6 +2253,7 @@ Value listlockunspent(const Array& params, bool fHelp)
 	return ret;			
 }
 
+// Validate a pubkey
 Value validatepubkey(const Array& params, bool fHelp)
 {
     if (fHelp || !params.size() || params.size() > 2)
@@ -1771,7 +2291,7 @@ Value validatepubkey(const Array& params, bool fHelp)
     return ret;
 }
 
-// ppbean: reserve balance from being staked for network protection
+// Reserve balance from being sprouted for network protection
 Value reservebalance(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 2)
@@ -1812,7 +2332,7 @@ Value reservebalance(const Array& params, bool fHelp)
 }
 
 
-// ppbean: check wallet integrity
+// Check wallet integrity
 Value checkwallet(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 0)
@@ -1835,7 +2355,7 @@ Value checkwallet(const Array& params, bool fHelp)
 }
 
 
-// ppbean: repair wallet
+// Repair wallet
 Value repairwallet(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 0)
@@ -1871,7 +2391,7 @@ Value resendtx(const Array& params, bool fHelp)
     return Value::null;
 }
 
-// ppbean: make a public-private key pair
+// Make a public-private key pair
 Value makekeypair(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)

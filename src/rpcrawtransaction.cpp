@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2015-2018 Bean Core www.beancash.org
+// Copyright (c) 2015-2022 Bean Core www.beancash.org
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -103,15 +103,67 @@ void TxToJSON(const CTransaction& tx, const uint256 hashBlock, Object& entry)
     }
 }
 
+// Get raw transaction data
 Value getrawtransaction(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "getrawtransaction <txid> [verbose=0]\n"
-            "If verbose=0, returns a string that is\n"
-            "serialized, hex-encoded data for <txid>.\n"
-            "If verbose is non-zero, returns an Object\n"
-            "with information about <txid>.");
+             "getrawtransaction \"txid\" ( verbose )\n"
+             "\nReturn the raw transaction data.\n"
+             "\nIf verbose=0, returns a string that is serialized, hex-encoded data for 'txid'.\n"
+             "If verbose is non-zero, returns an Object with information about 'txid'.\n"
+
+             "\nArguments:\n"
+             "1. \"txid\"      (string, required) The transaction id\n"
+             "2. verbose       (numeric, optional, default=0) If 0, return a string, other return a json object\n"
+
+             "\nResult (if verbose is not set or set to 0):\n"
+             "\"data\"      (string) The serialized, hex-encoded data for 'txid'\n"
+
+             "\nResult (if verbose > 0):\n"
+             "{\n"
+             "  \"hex\" : \"data\",       (string) The serialized, hex-encoded data for 'txid'\n"
+             "  \"txid\" : \"id\",        (string) The transaction id (same as provided)\n"
+             "  \"version\" : n,          (numeric) The version\n"
+             "  \"locktime\" : ttt,       (numeric) The lock time\n"
+             "  \"vin\" : [               (array of json objects)\n"
+             "     {\n"
+             "       \"txid\": \"id\",    (string) The transaction id\n"
+             "       \"vout\": n,         (numeric) \n"
+             "       \"scriptSig\": {     (json object) The script\n"
+             "         \"asm\": \"asm\",  (string) asm\n"
+             "         \"hex\": \"hex\"   (string) hex\n"
+             "       },\n"
+             "       \"sequence\": n      (numeric) The script sequence number\n"
+             "     }\n"
+             "     ,...\n"
+             "  ],\n"
+             "  \"vout\" : [              (array of json objects)\n"
+             "     {\n"
+             "       \"value\" : x.xxx,            (numeric) The value in bitb\n"
+             "       \"n\" : n,                    (numeric) index\n"
+             "       \"scriptPubKey\" : {          (json object)\n"
+             "         \"asm\" : \"asm\",          (string) the asm\n"
+             "         \"hex\" : \"hex\",          (string) the hex\n"
+             "         \"reqSigs\" : n,            (numeric) The required sigs\n"
+             "         \"type\" : \"pubkeyhash\",  (string) The type, eg 'pubkeyhash'\n"
+             "         \"addresses\" : [           (json array of string)\n"
+             "           \"beancashaddress\"       (string) Bean Cash address\n"
+             "           ,...\n"
+             "         ]\n"
+             "       }\n"
+             "     }\n"
+             "     ,...\n"
+             "  ],\n"
+             "  \"blockhash\" : \"hash\",   (string) the block hash\n"
+             "  \"confirmations\" : n,      (numeric) The confirmations\n"
+             "  \"time\" : ttt,             (numeric) The transaction time in seconds since epoch (Feb 13 2015 GMT)\n"
+             "  \"blocktime\" : ttt         (numeric) The block time in seconds since epoch (Feb 13 2015 GMT)\n"
+             "}\n"
+
+             "\nExamples:\n"
+             "  \nBeancashd getrawtransaction 70aca63b2253a88c9e38d9e0cc11433cbfc8e05560af209b0d372aad55f89091 1\n"
+        );
 
     uint256 hash;
     hash.SetHex(params[0].get_str());
@@ -138,16 +190,42 @@ Value getrawtransaction(const Array& params, bool fHelp)
     return result;
 }
 
+// List unspent transaction outputs
 Value listunspent(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 3)
         throw runtime_error(
-            "listunspent [minconf=1] [maxconf=9999999]  [\"address\",...]\n"
-            "Returns array of unspent transaction outputs\n"
+            "listunspent ( minconf maxconf  [\"address\",...] )\n"
+            "\nReturns array of unspent transaction outputs\n"
             "with between minconf and maxconf (inclusive) confirmations.\n"
-            "Optionally filtered to only include txouts paid to specified addresses.\n"
+            "Optionally filter to only include txouts paid to specified addresses.\n"
             "Results are an array of Objects, each of which has:\n"
-            "{txid, vout, scriptPubKey, amount, confirmations}");
+            "{txid, vout, scriptPubKey, amount, confirmations}\n"
+            "\nArguments:\n"
+            "1. minconf          (numeric, optional, default=1) The minimum confirmationsi to filter\n"
+            "2. maxconf          (numeric, optional, default=9999999) The maximum confirmations to filter\n"
+            "3. \"addresses\"    (string) A json array of Bean Cash addresses to filter\n"
+            "    [\n"
+            "      \"address\"   (string) Bean Cash address\n"
+            "      ,...\n"
+            "    ]\n"
+            "\nResult\n"
+            "[                   (array of json object)\n"
+            "  {\n"
+            "    \"txid\" : \"txid\",        (string) the transaction id \n"
+            "    \"vout\" : n,               (numeric) the vout value\n"
+            "    \"address\" : \"address\",  (string) the Bean Cash address\n"
+            "    \"account\" : \"account\",  (string) The associated account, or \"\" for the default account\n"
+            "    \"scriptPubKey\" : \"key\", (string) the script key\n"
+            "    \"amount\" : x.xxx,         (numeric) the transaction amount in bitb\n"
+            "    \"confirmations\" : n       (numeric) The number of confirmations\n"
+            "  }\n"
+            "  ,...\n"
+            "]\n"
+
+            "\nExamples:\n"
+            "  \nBeancashd listunspent 6 300000 [\\\"2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4\\\",\\\"2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4\\\"]\n"
+       );
 
     RPCTypeCheck(params, list_of(int_type)(int_type)(array_type));
 
@@ -225,17 +303,38 @@ Value listunspent(const Array& params, bool fHelp)
     return results;
 }
 
+// Create a raw transaction
 Value createrawtransaction(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 2)
         throw runtime_error(
-            "createrawtransaction [{\"txid\":txid,\"vout\":n},...] {address:amount,...}\n"
-            "Create a transaction spending given inputs\n"
-            "(array of objects containing transaction id and output number),\n"
-            "sending to given address(es).\n"
+            "createrawtransaction [{\"txid\":\"id\",\"vout\":n},...] {\"address\":amount,...}\n"
+            "\nCreate a transaction spending the given inputs and sending to the given addresses.\n"
             "Returns hex-encoded raw transaction.\n"
             "Note that the transaction's inputs are not signed, and\n"
-            "it is not stored in the wallet or transmitted to the network.");
+            "it is not stored in the wallet or transmitted to the network.\n"
+
+            "\nArguments:\n"
+            "1. \"transactions\"        (string, required) A json array of json objects\n"
+            "     [\n"
+            "       {\n"
+            "         \"txid\":\"id\",  (string, required) The transaction id\n"
+            "         \"vout\":n        (numeric, required) The output number\n"
+            "       }\n"
+            "       ,...\n"
+            "     ]\n"
+            "2. \"addresses\"           (string, required) a json object with addresses as keys and amounts as values\n"
+            "    {\n"
+            "      \"address\": x.xxx   (numeric, required) The key is the Bean Cash address, the value is the bitb amount\n"
+            "      ,...\n"
+            "    }\n"
+
+            "\nResult:\n"
+            "\"transaction\"            (string) hex string of the transaction\n"
+
+            "\nExamples:\n"
+            "  \nBeancashd createrawtransaction [{\\\"txid\\\":\\\"myid\\\",\\\"vout\\\":0}]\" \"{\\\"address\\\":0.01}]\n"
+        );
 
     RPCTypeCheck(params, list_of(array_type)(obj_type));
 
@@ -290,12 +389,61 @@ Value createrawtransaction(const Array& params, bool fHelp)
     return HexStr(ss.begin(), ss.end());
 }
 
+// Decode a raw transaction
 Value decoderawtransaction(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "decoderawtransaction <hex string>\n"
-            "Return a JSON object representing the serialized, hex-encoded transaction.");
+             "decoderawtransaction \"hexstring\"\n"
+             "\nReturn a JSON object representing the serialized, hex-encoded transaction.\n"
+
+             "\nArguments:\n"
+             "1. \"txid\"      (string, required) The transaction hex string\n"
+
+             "\nResult:\n"
+             "{\n"
+             "  \"hex\" : \"data\",       (string) The serialized, hex-encoded data for 'txid'\n"
+             "  \"txid\" : \"id\",        (string) The transaction id (same as provided)\n"
+             "  \"version\" : n,          (numeric) The version\n"
+             "  \"locktime\" : ttt,       (numeric) The lock time\n"
+             "  \"vin\" : [               (array of json objects)\n"
+             "     {\n"
+             "       \"txid\": \"id\",    (string) The transaction id\n"
+             "       \"vout\": n,         (numeric) The output number\n"
+             "       \"scriptSig\": {     (json object) The script\n"
+             "         \"asm\": \"asm\",  (string) asm\n"
+             "         \"hex\": \"hex\"   (string) hex\n"
+             "       },\n"
+             "       \"sequence\": n     (numeric) The script sequence number\n"
+             "     }\n"
+             "     ,...\n"
+             "  ],\n"
+             "  \"vout\" : [             (array of json objects)\n"
+             "     {\n"
+             "       \"value\" : x.xxx,            (numeric) The value in bitb\n"
+             "       \"n\" : n,                    (numeric) index\n"
+             "       \"scriptPubKey\" : {          (json object)\n"
+             "         \"asm\" : \"asm\",          (string) the asm\n"
+             "         \"hex\" : \"hex\",          (string) the hex\n"
+             "         \"reqSigs\" : n,            (numeric) The required sigs\n"
+             "         \"type\" : \"pubkeyhash\",  (string) The type, eg 'pubkeyhash'\n"
+             "         \"addresses\" : [           (json array of string)\n"
+             "           \"2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4\"   (string) Bean Cash address\n"
+             "           ,...\n"
+             "         ]\n"
+             "       }\n"
+             "     }\n"
+             "     ,...\n"
+             "  ],\n"
+             "  \"blockhash\" : \"hash\",   (string) the block hash\n"
+             "  \"confirmations\" : n,      (numeric) The confirmations\n"
+             "  \"time\" : ttt,             (numeric) The transaction time in seconds since epoch (Feb 13 2015 GMT)\n"
+             "  \"blocktime\" : ttt         (numeric) The block time in seconds since epoch (Feb 13 2015 GMT)\n"
+             "}\n"
+
+             "\nExamples:\n"
+             "   \nBeancashd decoderawtransaction 70aca63b2253a88c9e38d9e0cc11433cbfc8e05560af209b0d372aad55f89091\n"
+        );
 
     RPCTypeCheck(params, list_of(str_type));
 
@@ -315,12 +463,30 @@ Value decoderawtransaction(const Array& params, bool fHelp)
     return result;
 }
 
+// Decode script
 Value decodescript(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "decodescript <hex string>\n"
-            "Decode a hex-encoded script.");
+             "decodescript \"hex\"\n"
+             "\nDecode a hex-encoded script.\n"
+             "\nArguments:\n"
+             "1. \"hex\"     (string) the hex encoded script\n"
+             "\nResult:\n"
+             "{\n"
+             "  \"asm\":\"asm\",   (string) Script public key\n"
+             "  \"hex\":\"hex\",   (string) hex encoded public key\n"
+             "  \"type\":\"type\", (string) The output type\n"
+             "  \"reqSigs\": n,    (numeric) The required signatures\n"
+             "  \"addresses\": [   (json array of string)\n"
+             "     \"address\"     (string) Bean Cash address\n"
+             "     ,...\n"
+             "  ],\n"
+             "  \"p2sh\",\"address\" (string) script address\n"
+             "}\n"
+             "\nExamples:\n"
+             "  \nBeancashd decodescript <hex_script_string>\n"
+        );
 
     RPCTypeCheck(params, list_of(str_type));
 
@@ -338,22 +504,54 @@ Value decodescript(const Array& params, bool fHelp)
     return r;
 }
 
+// Sign a raw transaction
 Value signrawtransaction(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 4)
         throw runtime_error(
-            "signrawtransaction <hex string> [{\"txid\":txid,\"vout\":n,\"scriptPubKey\":hex,\"redeemScript\":hex},...] [<privatekey1>,...] [sighashtype=\"ALL\"]\n"
-            "Sign inputs for raw transaction (serialized, hex-encoded).\n"
-            "Second optional argument (may be null) is an array of previous transaction outputs that\n"
+            "signrawtransaction \"hexstring\" ( [{\"txid\":\"id\",\"vout\":n,\"scriptPubKey\":\"hex\",\"redeemScript\":\"hex\"},...] [\"privatekey1\",...] sighashtype )\n"
+            "\nSign inputs for raw transaction (serialized, hex-encoded).\n"
+            "The second optional argument (may be null) is an array of previous transaction outputs that\n"
             "this transaction depends on but may not yet be in the blockchain.\n"
-            "Third optional argument (may be null) is an array of base58-encoded private\n"
+            "The third optional argument (may be null) is an array of base58-encoded private\n"
             "keys that, if given, will be the only keys used to sign the transaction.\n"
-            "Fourth optional argument is a string that is one of six values; ALL, NONE, SINGLE or\n"
-            "ALL|ANYONECANPAY, NONE|ANYONECANPAY, SINGLE|ANYONECANPAY.\n"
-            "Returns json object with keys:\n"
-            "  hex : raw transaction with signature(s) (hex-encoded string)\n"
-            "  complete : 1 if transaction has a complete set of signature (0 if not)"
-            + HelpRequiringPassphrase());
+            + HelpRequiringPassphrase() + "\n"
+
+            "\nArguments:\n"
+            "1. \"hexstring\"     (string, required) The transaction hex string\n"
+            "2. \"prevtxs\"       (string, optional) An json array of previous dependent transaction outputs\n"
+            "     [               (json array of json objects)\n"
+            "       {\n"
+            "         \"txid\":\"id\",             (string, required) The transaction id\n"
+            "         \"vout\":n,                  (numeric, required) The output number\n"
+            "         \"scriptPubKey\": \"hex\",   (string, required) script key\n"
+            "         \"redeemScript\": \"hex\"    (string, required) redeem script\n"
+            "       }\n"
+            "       ,...\n"
+            "    ]\n"
+            "3. \"privatekeys\"     (string, optional) A json array of base58-encoded private keys for signing\n"
+            "    [                  (json array of strings)\n"
+            "      \"privatekey\"   (string) private key in base58-encoding\n"
+            "      ,...\n"
+            "    ]\n"
+            "4. \"sighashtype\"     (string, optional, default=ALL) The signature has type. Must be one of\n"
+            "       \"ALL\"\n"
+            "       \"NONE\"\n"
+            "       \"SINGLE\"\n"
+            "       \"ALL|ANYONECANPAY\"\n"
+            "       \"NONE|ANYONECANPAY\"\n"
+            "       \"SINGLE|ANYONECANPAY\"\n"
+
+            "\nResult:\n"
+            "{\n"
+            "  \"hex\": \"value\",   (string) The raw transaction with signature(s) (hex-encoded string)\n"
+            "  \"complete\": n       (numeric) if transaction has a complete set of signature (0 if not)\n"
+            "}\n"
+
+            "\nExamples:\n"
+            "  \nBeancashd signrawtransaction <hex string> [{\\\"txid\\\":txid,\\\"vout\\\":n,\\\"scriptPubKey\\\":hex},...] [<privatekey1>,...] [sighash=\\\"ALL\\\"]\n"
+       );
+
 
     RPCTypeCheck(params, list_of(str_type)(array_type)(array_type)(str_type), true);
 
@@ -539,12 +737,27 @@ Value signrawtransaction(const Array& params, bool fHelp)
     return result;
 }
 
+// Send raw transaction
 Value sendrawtransaction(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 1)
         throw runtime_error(
-            "sendrawtransaction <hex string>\n"
-            "Submits raw transaction (serialized, hex-encoded) to local node and network.");
+             "sendrawtransaction \"hexstring\" ( allowhighfees )\n"
+             "\nSubmits raw transaction (serialized, hex-encoded) to local node and network.\n"
+             "\nAlso see createrawtransaction and signrawtransaction calls.\n"
+             "\nArguments:\n"
+             "1. \"hexstring\"    (string, required) The hex string of the raw transaction)\n"
+             "2. allowhighfees    (boolean, optional, default=false) Allow high fees\n"
+             "\nResult:\n"
+             "\"hex\"             (string) The transaction hash in hex\n"
+             "\nExamples:\n"
+             "\nCreate a transaction\n"
+             "  \nBeancashd createrawtransaction [{\\\"txid\\\":\\\"myid\\\",\\\"vout\\\":0}]\" \"{\\\"address\\\":0.01}]\n"
+             "Sign the transaction, and get back the hex\n"
+             "  \nBeancashd signrawtransaction <hex string> [{\\\"txid\\\":txid,\\\"vout\\\":n,\\\"scriptPubKey\\\":hex},...] [<privatekey1>,...] [sighash=\\\"ALL\\\"]\n"
+             "\nSend the transaction (signed hex)\n"
+             "  \nBeancashd sendrawtransaction <hex string> true\n"
+        );
 
     RPCTypeCheck(params, list_of(str_type));
 

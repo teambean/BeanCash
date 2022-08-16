@@ -1,6 +1,6 @@
 // Copyright (c) 2010 Satoshi Nakamoto
 // Copyright (c) 2009-2012 The Bitcoin developers
-// Copyright (c) 2015-2018 Bean Core www.beancash.org
+// Copyright (c) 2015-2022 Bean Core www.beancash.org
 // Distributed under the MIT/X11 software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -28,8 +28,33 @@ Value getmininginfo(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
         throw runtime_error(
-            "getmininginfo\n"
-            "Returns an object containing mining-related information.");
+             "\nReturns a json object containing (PoW) mining-related information."
+             "\nProof-of-Work (PoW) ended at block 10,000"
+             "\nResult:\n"
+             "{\n"
+             "  \"blocks\": nnn,             (numeric) The current block\n"
+             "  \"currentblocksize\": nnn,   (numeric) The last block size\n"
+             "  \"currentblocktx\": nnn,     (numeric) The last block transaction\n"
+             "  \"Proof of Work\": xxx.xxxxx (numeric) The current difficulty for Proof of Work\n"
+             "  \"Proof of Bean\": xxx.xxxxx (numeric) The current difficulty for Proof of Bean\n"
+             "  \"Search Interval\": nnn,    (numeric) The last current search time period for kernel hash\n"
+             "  \"difficulty\": xxx.xxxxx    (numeric) The current difficulty\n"
+             "  \"Block Value\": n,          (numeric) Proof of Work Reward\n"
+             "  \"Net MH/s\": : n,           (numeric) Network Proof of Work Mega Hashes per second\n"
+             "  \"Net Bean Weight\": n,      (numeric) Current Network Bean Weight\n"
+             "  \"errors\": \"...\"          (string) Current errors\n"
+             "  \"Memory Pool Tx Size\": n,  (numeric) Current Memory Pool Size\n"
+             "  \"Bean Weight\": {\n"
+             "    \" Minimum\": n,           (numeric) Minimum Bean Weight\n"
+             "    \" Maximum\": n,           (numeric) Maximum Bean Weight\n"
+             "    \" Combined\": n,          (numeric) Combined Bean Weight\n"
+             "  \" }\n"
+             "  \"Bean Year Reward\": n,     (numeric) Estimate of Bean rewards earned in a year\n"
+             "  \"testnet\": true|false      (boolean) If using testnet or not\n"
+             "}\n"
+             "\nExamples:\n"
+             "  \nBeancashd getmininginfo\n"
+         );
 
     uint64_t nMinWeight = 0, nMaxWeight = 0, nWeight = 0;
     pwalletMain->GetStakeWeight(*pwalletMain, nMinWeight, nMaxWeight, nWeight);
@@ -40,7 +65,7 @@ Value getmininginfo(const Array& params, bool fHelp)
     obj.push_back(Pair("Current Block Tx",(uint64_t)nLastBlockTx));
 
     diff.push_back(Pair("Proof of Work",        GetDifficulty()));
-    diff.push_back(Pair("Proof of Stake",       GetDifficulty(GetLastBlockIndex(pindexBest, true))));
+    diff.push_back(Pair("Proof of Bean",       GetDifficulty(GetLastBlockIndex(pindexBest, true))));
     diff.push_back(Pair("Search Interval",      (int)nLastBeanStakeSearchInterval));
     obj.push_back(Pair("Difficulty",    diff));
 
@@ -53,9 +78,9 @@ Value getmininginfo(const Array& params, bool fHelp)
     weight.push_back(Pair("Minimum",    (uint64_t)nMinWeight));
     weight.push_back(Pair("Maximum",    (uint64_t)nMaxWeight));
     weight.push_back(Pair("Combined",  (uint64_t)nWeight));
-    obj.push_back(Pair("Stake Weight", weight));
+    obj.push_back(Pair("Bean Weight", weight));
 
-    obj.push_back(Pair("Stake Interest",    (uint64_t)bean_YEAR_REWARD));
+    obj.push_back(Pair("Bean Year Reward",    (uint64_t)bean_YEAR_REWARD));
     obj.push_back(Pair("Testnet",       fTestNet));
     return obj;
 }
@@ -64,8 +89,23 @@ Value getsproutinginfo(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
         throw runtime_error(
-            "getsproutinginfo\n"
-            "Returns an object containing Sprouting related information.");
+                "\nReturns a json object containing Sprouting related information."
+                "\nResult:\n"
+                "{\n"
+                "  \"Enabled\":                 (boolean) The current configuration of Sprouting\n"
+                "  \"Sprouting\":               (boolean) The current status of Sprouting\n"
+                "  \"errors\": \"...\"          (string) Current errors\n"
+                "  \"currentblocksize\": nnn,   (numeric) The last block size\n"
+                "  \"currentblocktx\": nnn,     (numeric) The last block transaction\n"               
+                "  \"Memory Pool Tx Size\": n,  (numeric) Current Memory Pool Size\n"
+                "  \"difficulty\": xxx.xxxxx    (numeric) The current difficulty\n"
+                "  \"Search Interval\": nnn,    (numeric) The last current search time period for kernel hash\n"
+                "  \"BeanWeight\": xxx.xxxxx    (numeric) Bean Weight of the node\n"
+                "  \"Net Bean Weight\": xxx.xxx (numeric) Network Bean Weight\n"
+                "  \"Expected Time\": ttt       (numeric) Estimated Time in seconds to find a Sprout\n"
+                "\nExamples:\n"
+                "  \nBeancashd getsproutininfo\n"
+         );
 
     uint64_t nMinWeight = 0, nMaxWeight = 0, nWeight = 0;
     pwalletMain->GetStakeWeight(*pwalletMain, nMinWeight, nMaxWeight, nWeight);
@@ -87,7 +127,7 @@ Value getsproutinginfo(const Array& params, bool fHelp)
     obj.push_back(Pair("Difficulty", GetDifficulty(GetLastBlockIndex(pindexBest, true))));
     obj.push_back(Pair("Search Interval", (int)nLastBeanStakeSearchInterval));
 
-    obj.push_back(Pair("Weight", (uint64_t)nWeight));
+    obj.push_back(Pair("BeanWeight", (uint64_t)nWeight));
     obj.push_back(Pair("Net Bean Weight", (uint64_t)nNetworkWeight));
 
     obj.push_back(Pair("Expected Time", nExpectedTime));
@@ -100,8 +140,24 @@ Value getworkex(const Array& params, bool fHelp)
     if (fHelp || params.size() > 2)
         throw runtime_error(
             "getworkex [data, beanbase]\n"
-            "If [data, beanbase] is not specified, returns extended work data.\n"
-        );
+            "\nIf [data, beanbase] is not specified, returns extended work data (useful for mining with external apps or merge mining).\n"
+            "If 'data' or 'beanbase' is specified, tries to solve the block and returns true if it was successful.\n"
+            "\nArguments:\n"
+            "1. \"data\"       (string, optional) The hex encoded data to solve\n"
+            "2. \"beanbase\"   (string, optional) A beanbase with its own nonce inserted\n"
+            "\nResult (when 'data' is not specified):\n"
+            "{\n"
+            "  \"data\" : \"xxxxx\",      (string) The block data\n"
+            "  \"target\" : \"xxxx\"      (string) The little endian hash target\n"
+            "  \"beanbase\":              (string) beanbase\n"
+            "  \"merkle\":                (string) merkle branch\n"
+            "}\n"
+            "\ngetworkex can be used to add or modify the beanbase transaction and give you the merkle branch needed to submit work to another blockchain that is merged mined./n"
+            "\nResult (when 'data' is specified):\n"
+            "true|false       (boolean) If solving the block specified in the 'data' was successfull\n"
+            "\nExamples:\n"
+            "  \nBeancashd getworkex\n"
+       );
 
     if (vNodes.empty())
         throw JSONRPCError(-9, "Bean Core is not connected to the Bean Cash network!");
@@ -110,7 +166,7 @@ Value getworkex(const Array& params, bool fHelp)
         throw JSONRPCError(-10, "Bean Core is downloading blocks from the Bean Cash network...");
 
     if (pindexBest->nHeight >= LAST_POW_BLOCK)
-        throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
+        throw JSONRPCError(RPC_MISC_ERROR, "No more Proof of Work blocks, PoW ended at block 10,000. Bean Cash is now 100% Proof of Bean!");
 
     typedef map<uint256, pair<CBlock*, CScript> > mapNewBlock_t;
     static mapNewBlock_t mapNewBlock;
@@ -229,13 +285,23 @@ Value getwork(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)
         throw runtime_error(
-            "getwork [data]\n"
-            "If [data] is not specified, returns formatted hash data to work on:\n"
-            "  \"midstate\" : precomputed hash state after hashing the first half of the data (DEPRECATED)\n" // deprecated
-            "  \"data\" : block data\n"
-            "  \"hash1\" : formatted hash buffer for second hash (DEPRECATED)\n" // deprecated
-            "  \"target\" : little endian hash target\n"
-            "If [data] is specified, tries to solve the block and returns true if it was successful.");
+             "getwork ( \"data\" )\n"
+             "\nIf 'data' is not specified, it returns the formatted hash data to work on.\n"
+             "If 'data' is specified, tries to solve the block and returns true if it was successful.\n"
+             "\nArguments:\n"
+             "1. \"data\"       (string, optional) The hex encoded data to solve\n"
+             "\nResult (when 'data' is not specified):\n"
+             "{\n"
+             "  \"midstate\" : \"xxxx\",   (string) The precomputed hash state after hashing the first half of the data (DEPRECATED)\n" // deprecated
+             "  \"data\" : \"xxxxx\",      (string) The block data\n"
+             "  \"hash1\" : \"xxxxx\",     (string) The formatted hash buffer for second hash (DEPRECATED)\n" // deprecated
+             "  \"target\" : \"xxxx\"      (string) The little endian hash target\n"
+             "}\n"
+             "\nResult (when 'data' is specified):\n"
+             "true|false       (boolean) If solving the block specified in the 'data' was successfull\n"
+             "\nExamples:\n"
+             "  \nBeancashd getwork\n"
+        );
 
     if (vNodes.empty())
         throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "Bean Cash is not connected!");
@@ -244,7 +310,7 @@ Value getwork(const Array& params, bool fHelp)
         throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Bean Cash is downloading blocks...");
 
     if (pindexBest->nHeight >= LAST_POW_BLOCK)
-        throw JSONRPCError(RPC_MISC_ERROR, "No more PoW blocks");
+        throw JSONRPCError(RPC_MISC_ERROR, "No more Proof of Work blocks, PoW ended at block 10,000. Bean Cash is now 100% Proof of Bean!");
 
     typedef map<uint256, pair<CBlock*, CScript> > mapNewBlock_t;
     static mapNewBlock_t mapNewBlock;    // FIXME: thread safety
@@ -346,23 +412,64 @@ Value getblocktemplate(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 1)
         throw runtime_error(
-            "getblocktemplate [params]\n"
-            "Returns data needed to construct a block to work on:\n"
-            "  \"version\" : block version\n"
-            "  \"previousblockhash\" : hash of current highest block\n"
-            "  \"transactions\" : contents of non-beanbase transactions that should be included in the next block\n"
-            "  \"beanbaseaux\" : data that should be included in beanbase\n"
-            "  \"beanbasevalue\" : maximum allowable input to beanbase transaction, including the generation award and transaction fees\n"
-            "  \"target\" : hash target\n"
-            "  \"mintime\" : minimum timestamp appropriate for next block\n"
-            "  \"curtime\" : current timestamp\n"
-            "  \"mutable\" : list of ways the block template may be changed\n"
-            "  \"noncerange\" : range of valid nonces\n"
-            "  \"sigoplimit\" : limit of sigops in blocks\n"
-            "  \"sizelimit\" : limit of block size\n"
-            "  \"bits\" : compressed target of next block\n"
-            "  \"height\" : height of the next block\n"
-            "See https://en.bitbean.it/wiki/BIP_0022 for full specification.");
+             "getblocktemplate ( \"jsonrequestobject\" )\n"
+             "\nIf the request parameters include a 'mode' key, that is used to explicitly select between the default 'template' request or a 'proposal'.\n"
+             "It returns data needed to construct a block to work on.\n"
+             "See https://en.bitcoin.it/wiki/BIP_0022 for full specification.\n"
+
+             "\nArguments:\n"
+             "1. \"jsonrequestobject\"       (string, optional) A json object in the following spec\n"
+             "     {\n"
+             "       \"mode\":\"template\"   (string, optional) This must be set to \"template\" or omitted\n"
+             "       \"capabilities\":[      (array, optional) A list of strings\n"
+             "           \"support\"         (string) client side supported feature, 'longpoll', 'beanbasetxn', 'beanbasevalue', 'proposal', 'serverlist', 'workid'\n"
+             "           ,...\n"
+             "         ]\n"
+             "     }\n"
+             "\n"
+
+             "\nResult:\n"
+             "{\n"
+             "  \"version\" : n,                    (numeric) The block version\n"
+             "  \"previousblockhash\" : \"xxxx\",   (string) The hash of current highest block\n"
+             "  \"transactions\" : [                (array) contents of non-coinbase transactions that should be included in the next block\n"
+             "      {\n"
+             "         \"data\" : \"xxxx\",         (string) transaction data encoded in hexadecimal (byte-for-byte)\n"
+             "         \"hash\" : \"xxxx\",         (string) hash/id encoded in little-endian hexadecimal\n"
+             "         \"depends\" : [              (array) array of numbers \n"
+             "             n                        (numeric) transactions before this one (by 1-based index in 'transactions' list) that must be present in the final block if this one is\n"
+             "             ,...\n"
+             "         ],\n"
+             "         \"fee\": n,                   (numeric) difference in value between transaction inputs and outputs (in Adzukis); for beanbase transactions, this is a negative Number of the total collected block fees (ie, not including the block subsidy); if key is not present, fee is unknown and clients MUST NOT assume there isn't one\n"
+             "         \"sigops\" : n,               (numeric) total number of SigOps, as counted for purposes of block limits; if key is not present, sigop count is unknown and clients MUST NOT assume there aren't any\n"
+             "         \"required\" : true|false     (boolean) if provided and true, this transaction must be in the final block\n"
+             "      }\n"
+             "      ,...\n"
+             "  ],\n"
+             "  \"beannbaseaux\" : {                 (json object) data that should be included in the beanbase's scriptSig content\n"
+             "      \"flags\" : \"flags\"            (string) \n"
+             "  },\n"
+             "  \"beanbasevalue\" : n,               (numeric) maximum allowable input to beanbase transaction, including the generation award and transaction fees (in Satoshis)\n"
+             "  \"beanbasetxn\" : { ... },           (json object) information for beanbase transaction\n"
+             "  \"target\" : \"xxxx\",               (string) The hash target\n"
+             "  \"mintime\" : xxx,                   (numeric) The minimum timestamp appropriate for next block time in seconds since epoch (Jan 1 1970 GMT)\n"
+             "  \"mutable\" : [                      (array of string) list of ways the block template may be changed \n"
+             "     \"value\"                         (string) A way the block template may be changed, e.g. 'time', 'transactions', 'prevblock'\n"
+             "     ,...\n"
+             "  ],\n"
+             "  \"noncerange\" : \"00000000ffffffff\",   (string) A range of valid nonces\n"
+             "  \"sigoplimit\" : n,                 (numeric) limit of sigops in blocks\n"
+             "  \"sizelimit\" : n,                  (numeric) limit of block size\n"
+             "  \"curtime\" : ttt,                  (numeric) current timestamp in seconds since epoch (Feb 13 2015 GMT)\n"
+             "  \"bits\" : \"xxx\",                 (string) compressed target of next block\n"
+             "  \"height\" : n                      (numeric) The height of the next block\n"
+             "}\n"
+
+             "\nExamples:\n"
+             "  \nBeancashd getblocktemplate\n"
+        );
+
+
 
     std::string strMode = "template";
     if (params.size() > 0)
@@ -506,10 +613,21 @@ Value submitblock(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "submitblock <hex data> [optional-params-obj]\n"
-            "[optional-params-obj] parameter is currently ignored.\n"
-            "Attempts to submit new block to network.\n"
-            "See https://wiki.beancash.org/wiki/BIP_0022 for full specification.");
+             "submitblock \"hexdata\" ( \"jsonparametersobject\" )\n"
+             "\nAttempts to submit new block to network.\n"
+             "The 'jsonparametersobject' parameter is currently ignored.\n"
+             "See https://en.bitcoin.it/wiki/BIP_0022 for full specification.\n"
+
+             "\nArguments\n"
+             "1. \"hexdata\"    (string, required) the hex-encoded block data to submit\n"
+             "2. \"jsonparametersobject\"     (string, optional) object of optional parameters\n"
+             "    {\n"
+             "      \"workid\" : \"id\"    (string, optional) if the server provided a workid, it MUST be included with submissions\n"
+             "    }\n"
+             "\nResult:\n"
+             "\nExamples:\n"
+             "  \nBeancashd submitblock <hexdata> <json_object>\n"
+        );
 
     vector<unsigned char> blockData(ParseHex(params[0].get_str()));
     CDataStream ssBlock(blockData, SER_NETWORK, PROTOCOL_VERSION);

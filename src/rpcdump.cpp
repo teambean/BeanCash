@@ -31,12 +31,26 @@ public:
     }
 };
 
+// Import a private key
 Value importprivkey(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "importprivkey <Beancashprivkey> [label]\n"
-            "Adds a private key (as returned by dumpprivkey) to your wallet.");
+            "importprivkey \"beancashprivkey\" ( \"label\" rescan )\n"
+            "\nAdds a private key (as returned by dumpprivkey) to your wallet.\n"
+            "\nArguments:\n"
+            "1. \"beancashprivkey\"  (string, required) The private key (see dumpprivkey)\n"
+            "2. \"label\"            (string, optional) an optional label\n"
+            "3. rescan               (boolean, optional, default=true) Rescan the wallet for transactions\n"
+            "\nExamples:\n"
+            "\nDump a private key\n"
+            "  \nBitbeand dumpprivkey 2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4\n"
+            "\nImport the private key\n"
+            "  \nBeancashd importprivkey <replacewithyourkey>"
+            "\nImport using a label\n"
+            "  \nBeancashd importprivkey <replacewithyourkey> testing false\n"
+         );
+
 
     string strSecret = params[0].get_str();
     string strLabel = "";
@@ -77,12 +91,20 @@ Value importprivkey(const Array& params, bool fHelp)
     return Value::null;
 }
 
+// Import wallet from a file
 Value importwallet(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "importwallet <filename>\n"
-            "Imports keys from a wallet dump file (see dumpwallet)."
+             "importwallet \"filename\"\n"
+             "\nImports keys from a wallet dump file (see dumpwallet).\n"
+             "\nArguments:\n"
+             "1. \"filename\"    (string, required) The wallet file\n"
+             "\nExamples:\n"
+             "\nDump the wallet\n"
+             "  \nBeancashd dumpwallet ~/.BitBean/wallet_backup_08152022\n"
+             "\nImport the wallet\n"
+             "  \nBeancashd importwallet ~/.BitBean/wallet_backup_08152022\n"
              + HelpRequiringPassphrase());
 
     EnsureWalletIsUnlocked();
@@ -96,8 +118,17 @@ Value dumpprivkey(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "dumpprivkey <Beancashaddress>\n"
-            "Reveals the private key corresponding to <Beancashaddress>.");
+             "dumpprivkey \"beancashaddress\"\n"
+             "\nReveals the private key corresponding to 'beancashaddress'.\n"
+             "Then the importprivkey can be used with this output\n"
+             "\nArguments:\n"
+             "1. \"beancashaddress\"   (string, required) The beancash address for the private key\n"
+             "\nResult:\n"
+             "\"key\"                (string) The private key\n"
+             "\nExamples:\n"
+             "  \nBeancashd dumpprivkey 2VmJUEhuYQZA491FGdN1q6nJLTzahDG3o4\n"
+             "  \nBeancashd importprivkey <yourprivatekey>\n"
+        );
 
     EnsureWalletIsUnlocked();
 
@@ -120,8 +151,12 @@ Value dumpwallet(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 1)
         throw runtime_error(
-            "dumpwallet <filename>\n"
-            "Dumps all wallet keys in a human-readable format."
+             "dumpwallet \"filename\"\n"
+             "\nDumps all wallet keys in a human-readable format.\n"
+             "\nArguments:\n"
+             "1. \"filename\"    (string, required) The filename\n"
+             "\nExamples:\n"
+             "  \nBeancashd dumpwallet ~/.BitBean/InsecurefileWithMyPrivatekeys.txt (DONT DO THIS ON M$ WINDOZ!)\n"
             + HelpRequiringPassphrase());
 
     EnsureWalletIsUnlocked();

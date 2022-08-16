@@ -14,25 +14,37 @@
 using namespace json_spirit;
 using namespace std;
 
+// Get number of connections to other nodes
 Value getconnectioncount(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
         throw runtime_error(
             "getconnectioncount\n"
-            "Returns the number of connections to other nodes.");
+            "\nReturns the number of connections to other nodes.\n"
+            "\nbResult:\n"
+            "n          (numeric) The connection count\n"
+            "\nExamples:\n"
+            "  \nBeancashd getconnectioncount\n"
+        );
+
+
 
     LOCK(cs_vNodes);
     return (int)vNodes.size();
 }
 
+// Ping all connected nodes
 Value ping(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
         throw runtime_error(
             "ping\n"
-            "Requests that a ping be sent to all other nodes, to measure ping time.\n"
+            "\nRequests that a ping be sent to all other nodes, to measure ping time.\n"
             "Results provided in getpeerinfo, pingtime and pingwait fields are decimal seconds.\n"
-            "Ping command is handled in queue with all other commands, so it measures processing backlog, not just network ping.");
+            "Ping command is handled in queue with all other commands, so it measures processing backlog, not just network ping."
+            "\nExamples:\n"
+            "  \nBeancashd ping\n"
+        );
 
     // Request that each node send a ping during next message processing pass
     LOCK(cs_vNodes);
@@ -44,15 +56,38 @@ Value ping(const Array& params, bool fHelp)
     return Value::null;
 }
 
+// Get info about added nodes
 Value getaddednodeinfo(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() < 1 || params.size() > 2)
         throw runtime_error(
-            "getaddednodeinfo <dns> [node]\n"
-            "Returns information about the given added node, or all added nodes\n"
+            "getaddednodeinfo dns ( \"node\" )\n"
+            "\nReturns information about the given added node, or all added nodes\n"
             "(note that onetry addnodes are not listed here)\n"
             "If dns is false, only a list of added nodes will be provided,\n"
-            "otherwise connected information will also be available.");
+            "otherwise connected information will also be available.\n"
+            "\nArguments:\n"
+            "1. dns        (boolean, required) If false, only a list of added nodes will be provided, otherwise connected information will also be available.\n"
+            "2. \"node\"   (string, optional) If provided, return information about this specific node, otherwise all nodes are returned.\n"
+            "\nResult:\n"
+            "[\n"
+            "  {\n"
+            "    \"addednode\" : \"192.168.0.201\",   (string) The node ip address\n"
+            "    \"connected\" : true|false,          (boolean) If connected\n"
+            "    \"addresses\" : [\n"
+            "       {\n"
+            "         \"address\" : \"192.168.0.201:8333\",  (string) The Bean Cash server host and port\n"
+            "         \"connected\" : \"outbound\"           (string) connection, inbound or outbound\n"
+            "       }\n"
+            "       ,...\n"
+            "     ]\n"
+            "  }\n"
+            "  ,...\n"
+            "]\n"
+            "\nExamples:\n"
+            "  \nBeancashd getaddednodeinfo false\n"
+            "  \nBeancashd getaddednodeinfo true 192.168.0.201\n"
+        );
 
     bool fDns = params[0].get_bool();
 
@@ -149,12 +184,41 @@ static void CopyNodeStats(std::vector<CNodeStats>& vstats)
     }
 }
 
+// Get info about connected peers
 Value getpeerinfo(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() != 0)
         throw runtime_error(
             "getpeerinfo\n"
-            "Returns data about each connected network node.");
+            "\nReturns data about each connected network node as a json array of objects.\n"
+            "\nbResult:\n"
+            "[\n"
+            "  {\n"
+            "    \"addr\":\"host:port\",      (string) The ip address and port of the peer\n"
+            "    \"addrlocal\":\"ip:port\",   (string) local address\n"
+            "    \"services\":\"00000001\",   (string) The services\n"
+            "    \"lastsend\": ttt,           (numeric) The time in seconds since epoch (Feb 13 2015 GMT) of the last send\n"
+            "    \"lastrecv\": ttt,           (numeric) The time in seconds since epoch (Feb 13 2015 GMT) of the last receive\n"
+            "    \"bytessent\": n,            (numeric) The total bytes sent\n"
+            "    \"bytesrecv\": n,            (numeric) The total bytes received\n"
+            "    \"conntime\": ttt,           (numeric) The connection time in seconds since epoch (Feb 13 2015 2015 GMT)\n"
+            "    \"pingtime\": n,             (numeric) ping time\n"
+            "    \"pingwait\": n,             (numeric) ping wait\n"
+            "    \"version\": v,              (numeric) The peer version, such as 7001\n"
+            "    \"subver\": \"/BeanCore:1.1.0/\",  (string) The string version\n"
+            "    \"inbound\": true|false,     (boolean) Inbound (true) or Outbound (false)\n"
+            "    \"startingheight\": n,       (numeric) The starting height (block) of the peer\n"
+            "    \"banscore\": n,              (numeric) The ban score (stats.nMisbehavior)\n"
+            "    \"syncnode\" : true|false     (booleamn) if sync node\n"
+            "  }\n"
+            "  ,...\n"
+            "}\n"
+
+            "\nExamples:\n"
+            "   \nBeancashd getpeerinfo\n"
+        );
+
+
 
     vector<CNodeStats> vstats;
     CopyNodeStats(vstats);
@@ -187,6 +251,7 @@ Value getpeerinfo(const Array& params, bool fHelp)
     return ret;
 }
 
+// Manually add a node
 Value addnode(const Array& params, bool fHelp)
 {
     string strCommand;
@@ -195,8 +260,15 @@ Value addnode(const Array& params, bool fHelp)
     if (fHelp || params.size() != 2 ||
         (strCommand != "onetry" && strCommand != "add" && strCommand != "remove"))
         throw runtime_error(
-            "addnode <node> <add|remove|onetry>\n"
-            "Attempts to add or remove <node> from the addnode list or try a connection to <node> once.");
+             "addnode \"node\" \"add|remove|onetry\"\n"
+             "\nAttempts add or remove a node from the addnode list.\n"
+             "Or try a connection to a node once.\n"
+             "\nArguments:\n"
+             "1. \"node\"     (string, required) The node (see getpeerinfo for nodes)\n"
+             "2. \"command\"  (string, required) 'add' to add a node to the list, 'remove' to remove a node from the list, 'onetry' to try a connection to the node once\n"
+             "\nExamples:\n"
+             "  \nBeancashd addnode 192.168.0.6:22460 add\n"
+        );
 
     string strNode = params[0].get_str();
 
@@ -230,7 +302,7 @@ Value addnode(const Array& params, bool fHelp)
 }
 
 
-// ppbean: send alert.  
+// Send alert.
 // There is a known deadlock situation with ThreadMessageHandler
 // ThreadMessageHandler: holds cs_vSend and acquiring cs_main in SendMessages()
 // ThreadRPCServer: holds cs_main and acquiring cs_vSend in alert.RelayTo()/PushMessage()/BeginMessage()
@@ -293,13 +365,25 @@ Value sendalert(const Array& params, bool fHelp)
     return result;
 }
 
+// Returns information about network traffic
 Value getnettotals(const Array& params, bool fHelp)
 {
     if (fHelp || params.size() > 0)
         throw runtime_error(
             "getnettotals\n"
-            "Returns information about network traffic, including bytes in, bytes out,\n"
-            "and current time.");
+            "\nReturns information about network traffic, including bytes in, bytes out,\n"
+            "and current time.\n"
+            "\nResult:\n"
+            "{\n"
+            "  \"totalbytesrecv\": n,   (numeric) Total bytes received\n"
+            "  \"totalbytessent\": n,   (numeric) Total Bytes sent\n"
+            "  \"timemillis\": t        (numeric) Total cpu time\n"
+            "}\n"
+            "\nExamples:\n"
+            "  \nBeancashd getnettotals\n"
+        );
+
+
 
     Object obj;
     obj.push_back(Pair("totalbytesrecv", CNode::GetTotalBytesRecv()));
