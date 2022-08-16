@@ -2201,11 +2201,27 @@ void PushGetBlocks(CNode* pnode, CBlockIndex* pindexBegin, uint256 hashEnd)
 bool ProcessBlock(CNode* pfrom, CBlock* pblock)
 {
     // Check for duplicate
-    uint256 hash = pblock->GetHash();
-    if (mapBlockIndex.count(hash))
-        return error("ProcessBlock() : already have block %d %s", mapBlockIndex[hash]->nHeight, hash.ToString());
-    if (mapOrphanBlocks.count(hash))
-        return error("ProcessBlock() : already have block (orphan) %s", hash.ToString());
+    // If peer sends more than 3 duplicates, disconnect peer
+    uint256 hash = pblock->GetHash();    
+    if (mapBlockIndex.count(hash)) {
+        if (pfrom) {
+            pfrom->nDupBlocks++;
+            if (pfrom->nDupBlocks > 3) pfrom->fDisconnect = true;
+            printf("ProcessBlock() : already(%d) have block %d %s", pfrom->nDupBlocks, mapBlockIndex[hash]->nHeight, hash.ToString().substr(0,20).c_str());
+        } else
+            printf("ProcessBlock() : already have block %d %s", mapBlockIndex[hash]->nHeight, hash.ToString().substr(0,20).c_str());
+        return false;
+    }
+    if (mapOrphanBlocks.count(hash)) {
+        if (pfrom) {
+            pfrom->nDupBlocks++;
+            if (pfrom->nDupBlocks > 3) pfrom->fDisconnect = true;
+            printf("ProcessBlock() : already(%d) have block (orphan) %s", pfrom->nDupBlocks, hash.ToString().substr(0,20).c_str());
+        } else
+            printf("ProcessBlock() : already have block (orphan) %s", hash.ToString().substr(0,20).c_str());
+        return false;
+    }
+    if (pfrom) pfrom->nDupBlocks = 0; // reset the counter
 
     // Check proof-of-bean
     // Limited duplicity: prevents block flood attack
