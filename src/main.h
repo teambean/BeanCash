@@ -24,10 +24,12 @@ class CBlockIndex;
 class CKeyItem;
 class CReserveKey;
 class COutPoint;
+
 class CAddress;
 class CInv;
 class CRequestTracker; // Retain, Required for Satoshi's "checkorder" P2P command - Peer-to-Peer Electronic Cash!
 class CNode;
+
 class CTxMemPool;
 
 static const int LAST_POW_BLOCK = 10000;
@@ -44,9 +46,6 @@ static const int64_t bean_YEAR_REWARD = 5 * CENT; // 5% per year
 
 /** Hard Fork Times */
 static const unsigned int VERSION_1320_FORKTIME = 1627939662; // Time Drift Rule Enforced on August 2, 2022 @ 9:27:42PM GMT
-
-/** Default for -maxorphanblocks, maximum number of orphan blocks kept in memory */
-static const unsigned int DEFAULT_MAX_ORPHAN_BLOCKS = 750;
 
 inline bool MoneyRange(int64_t nValue) { return (nValue >= 0 && nValue <= MAX_MONEY); }
 // Threshold for nLockTime: below this value it is interpreted as block number, otherwise as UNIX timestamp.
