@@ -12,9 +12,9 @@
 What Is Bean Cash?
 ------------------
 
-Bean Cash (Ticker: BITB and BEAN)
+Bean Cash (Tickers: BITB and BEAN)
 
-Bean Cash is a digital currency and network based on the original Bitcoin reference, with improvements that are ecologicaly friendly. BitBean pioneered static block rewards in the very first v3 "Proof of Stake" consensus system, which we now call "Proof of Bean". It was also the first to have a maximum of 20MB block sizes, based off Gavin Andersen's proposals to fix Bitcoin's scalability limitations. These changes improved scalability, and along with faster block targets, increased the speed and the number of transactions up to 1,300 per second (Bitcoin maxes out at only 7 TPS!) The Proof of Bean (PoB) algorithm closely resembles traditional Proof of Work (PoW) crypto currencies, but without all the electricity demands and custom hardware required to mine a traditional POW crypto. Bean Cash is designed from the ground-up to be transaction-centric and to compete with payment systems such as Paypal, VISA, Mastercard and others.
+Bean Cash is a digital currency, network, and computing platform based on the original Bitcoin reference, with improvements that are ecologically friendly. BitBean pioneered static block rewards in the very first v3 "Proof of Stake" consensus system, which we now call "Proof of Bean". It was also the first to have a maximum of 20MB block sizes, based off Gavin Andersen's proposals to fix Bitcoin's scalability limitations. These changes improved scalability, and along with faster block targets, increased the speed and the number of transactions up to 1,300 per second (Bitcoin maxes out at only 7 TPS!) The Proof of Bean (PoB) algorithm closely resembles traditional Proof of Work (PoW) crypto-currencies, but without all the electricity demands and custom hardware required to mine a traditional PoW crypto. Bean Cash is designed from the ground-up to be transaction-centric and to compete with payment systems such as Paypal, VISA, Mastercard and others.
 
 
 About
@@ -25,36 +25,36 @@ Bean Cash is developed by Bean Core, a virtual ad hoc company comprised of indiv
 
 History
 -------
-Bean Cash is a re-brand of BitBean. Bean Cash brings forward BitBean's legacy of lightening-fast transactions and a rock-solid network, with a mature blockchain--that is over 7 years old! 
+Bean Cash is a re-brand of BitBean. Bean Cash brings forward BitBean's legacy of lightning-fast transactions, a rock-solid network, and a mature block-chain that is over 7 years old! 
 
-Beancash had no IPO (Initial Public Offering), SWAP or transaction roll-backs like many of the other so-called "crypto currencies". Bean Cash's initial distribution was delivered by Proof of Work mining (double sha256, same as Bitcoin's). During this time, BitBean reached a hash rate of over 2.4 Peta Hashes per second (at the time 1% of sha256 hash power world-wide!) 
+Bean Cash had no IPO (Initial Public Offering), Swap or transaction roll-backs like many of the other so-called "crypto-currency" (Scams). Bean Cash's initial distribution was delivered by Proof of Work mining (double sha256, same as Bitcoin's). During this time, BitBean reached a hash rate of over 2.4 Peta Hashes per second (1% of total world-wide sha256 hash power at the time..which took away hash power from Bitcoin!) 
 
 
 
 The Future
 ----------
-In it's mission to be a transaction-centric digital currency with real world use, one of the goals for Bean Cash, is solving the "last mile issue" in the digital currency space. Specifically, the "last mile issue" deals with implimentation of infrastructure at the point of use.
+One of Bean Cash's goals, is to be a transaction-centric digital currency with real world use. Bean Cash aims to solve the "last mile issue" in the digital currency space. Specifically, the "last mile issue" deals with implementation of infrastructure at the point of use.
 
-Rather than use archaic models of the past, Bean Cash will allow merchants to verify, validate and settle transactions in near real time (a minute or less on average for a single confirmation transaction.) This is magnitudes faster than Bitcoin (10-30 times, or substantually more if transactions are back-logged), while providing no risk, with transactions being posted in near real time to the Bean Cash blockchain. This provides real value by allowing merchants to reduce risk, fraud, and costs as their percentage of Bean Cash transactions increases in their business. Fundamently, a zero confirmation transaction does not help to solve a real-world problem, as merchants still bear risk as with existing traditional payment methods (checks/cheques/Credit-Debit cards). 
+Rather than use archaic models of the past, Bean Cash will allow merchants to verify, validate and settle transactions in near real time (a minute or less on average for a single confirmation transaction). This is magnitudes faster than Bitcoin (10-30 times, or substantially more if transactions are back-logged), while providing no risk, and transactions posted in near real time to the Bean Cash block-chain. This provides real value and allows merchants to reduce risk, fraud, and costs as their percentage of Bean Cash transactions increases in their business. Fundamentally, a zero confirmation transaction does not help to solve a real-world problem, as merchants still bear risks, as with existing traditional payment methods (checks/cheques/Credit-Debit cards). 
 
-A hardfork is planned in late 2022 with v1.5, after which only maintenance releases will be made available for v1.X branch.
+A hard-fork is planned in late 2022 with v1.5, after which only maintenance releases will be made available for v1.X branch.
 
 A new version (v2.x) of Bean Cash is planned for launch in 2023. Bean Cash will be reborn and offer it's own DDEX (Distributed Decentralized Exchange). More details on v2 will be released in 2023.
 
-Bean Cash will once again become competitive in the Blockchain/Crypto Space, with our goal to get back into the top 100 of Crypto Currencies in 2023! (BitBean was a top 10 Crypto Currency back in 2015!)
+Bean Cash will once again become competitive in the Block-chain/Crypto Space, with our goal to get back into the top 100 of Crypto-Currencies in 2023! (BitBean was a top 10 crypto-currency back in 2015!)
 
 
 Bean Cash's Mission
 -------------------
-"To be an enduring digital currency, with high integrity, a store of value and a means of exchange of value in every day transactions -- that stands the test of time!"
+"To be an enduring digital currency, with high integrity, a unit of account, a store of value, and a means of exchange in every day transactions -- that stands the test of time!"
 
 
 
 Bean Cash Specifications
 ------------------------
 
-**Consensus**: Proof of Bean (PoB) & Proof of Work (PoW distribution ended at block 10,000)
-v2 of Bean Cash will introduce a Proof of Resources Existing (PORes) model that in addition to PoB (Proof of Bean), will provide an additional economic system.
+**Consensus**: Proof of Bean (PoB) & Proof of Work (PoW distribution ended at block 10,000.)
+V2 of Bean Cash will introduce a Proof of Resources Existing (POREs) model that in addition to PoB (Proof of Bean), will provide an additional economic system.
 
 **Proof of Work Algorithm**: Double SHA-256
 
@@ -72,7 +72,7 @@ v2 of Bean Cash will introduce a Proof of Resources Existing (PORes) model that 
 
 **Time to Maturity**: 110 Confirmations
 
-**Minimum Time for Beans To Be Elgible to Sprout**: 6 hours
+**Minimum Time for Beans To Be Eligible to Sprout**: 6 hours
 
 **Maximum Supply for BITB(v1.x)**: 6 Billion BITB
 
