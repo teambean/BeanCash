@@ -182,8 +182,8 @@ int main(int argc, char *argv[])
     QApplication app(argc, argv);
     // Doesn't need to be defined
     //    Q_INIT_RESOURCE(beancash);
-    app.setWindowIcon(QIcon("./icons/icon.png"));
-    QPixmap pixmap(":/icons/icon.png");
+    // app.setWindowIcon(QIcon(":icons/beancashicon"));
+    // QPixmap pixmap(":/icons/beancashicon");
 
     /// 3. Application identification (must be set before OptionsModel is initialized,
     // as it is used to locate QSettings)

@@ -108,8 +108,8 @@ BitbeanGUI::BitbeanGUI(QWidget *parent):
     QApplication::setFont(font);
 
 #ifndef Q_OS_MAC
-    qApp->setWindowIcon(QIcon(":icons/beancash"));
-    setWindowIcon(QIcon(":icons/beancash"));
+    qApp->setWindowIcon(QIcon(":icons/beancashicon"));
+    setWindowIcon(QIcon(":icons/beancashicon"));
 #else
     setUnifiedTitleAndToolBarOnMac(true);
     QApplication::setAttribute(Qt::AA_DontShowIconsInMenus);
